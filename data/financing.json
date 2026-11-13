@@ -1,0 +1,40 @@
+{
+  "updated_at": "2026-11-13T20:58:00+01:00",
+  "based_on_report": "2026-09-30",
+  "automated_checked": false,
+  "coverage_status": "initial_bedömning",
+  "days_since_report": 44,
+  "months_to_company_runway_proxy": 10.6,
+  "methodology_version": "1.0.0",
+  "risk": {
+    "months_3": {
+      "percent": 11,
+      "low": 7,
+      "high": 17
+    },
+    "months_6": {
+      "percent": 26,
+      "low": 17,
+      "high": 37
+    },
+    "months_12": {
+      "percent": 57,
+      "low": 40,
+      "high": 73
+    }
+  },
+  "latest_information": [
+    "Q3-rapport 3 november 2026: 42,4 miljoner kr kassa, operativt kassaflöde −18,7 miljoner kr under Q3 och bolagets finansieringsprognos in i Q4 2027.",
+    "Fenja-facilitet 20 juli 2026: upp till 100 miljoner kr, initialt 50 miljoner kr utnyttjade. Nästa uttag villkorat och tillgängligt endast under Q4 2026.",
+    "Hipolabor 27 oktober 2026: regionalt 50/50-avtal utan offentlig garanterad upfront-likvid. Inte inräknat som likvida medel.",
+    "Referensfall uppdaterade till 12 november 2026: BioInvent, Cereno, Alligator, Immunovia, Isofol och Active Biotech."
+  ],
+  "latest_items": [],
+  "review_needed": [],
+  "review_warning": "Denna första bedömning grundas på verifierade uppgifter per 13 november 2026. Kommande veckokörningar uppdaterar tidsfaktorn och bevakar nya besked; finansiella fakta granskas innan de ändras.",
+  "sources": {
+    "company_report": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
+    "facility": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
+    "official_feed": "https://www.synactpharma.com/en/news-media/news-and-press-releases/"
+  }
+}
