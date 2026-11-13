@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "curated_at": "2026-11-13",
+  "scope": "Sannolikhet för att SynAct annonserar en ny kontant nyemission av aktier eller units inom en rullande tidsperiod. Exklusive redan beslutade teckningsoptioner, enbart konvertering av befintliga Fenja-lån och rena licensavtal.",
+  "company": {
+    "report_date": "2026-09-30",
+    "reported_at": "2026-11-03",
+    "cash_msek": 42.364,
+    "operating_cashflow_q3_msek": -18.714,
+    "operating_cashflow_9months_msek": -86.206,
+    "cash_runway_proxy": "2027-10-01",
+    "runway_guidance": "Bolaget bedömer att finansieringen räcker in i fjärde kvartalet 2027. Modellen använder 1 oktober 2027 som konservativt riktmärke, inte som en säker sista dag.",
+    "q3_url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
+    "q3_2026_report_url": "https://www.synactpharma.com/en/investors/financial-reports/",
+    "fenja": {
+      "agreement_date": "2026-07-20",
+      "total_msek": 100,
+      "already_drawn_gross_msek": 50,
+      "initial_draw_net_msek": 46.5,
+      "possible_remaining_gross_msek": 50,
+      "second_draw_available_until": "2026-12-31",
+      "second_draw_condition": "En ytterligare dragning kan ske i Q4 2026, men total dragning begränsas till 10 % av börsvärdet vid dragning. Återstående belopp är inte likvida medel och kan inte räknas som garanterat tillgängligt.",
+      "maturity_date": "2027-12-31",
+      "variable_interest": "STIBOR 3M, lägst 2,0 %, plus 8 procentenheter",
+      "convertible_price_sek": 24.6,
+      "warrants_count": 2038848,
+      "warrant_price_sek": 27.55,
+      "url": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+    },
+    "other_context": [
+      "Förberedelser inför fas III kan kräva mer kapital än den utvecklingsplan som dagens finansieringshorisont bygger på.",
+      "Hipolabor-avtalet har 50/50 vinstdelning och kostnadsdelning i Brasilien. Inga offentliga garanterade upfront-kontanter räknas in.",
+      "Krediter och konverteringar kan innebära framtida utspädning utan ny kontant företrädesemission."
+    ]
+  },
+  "calculation": {
+    "baseline_monthly_hazard": 0.026,
+    "clinical_phase3_multiplier": 1.25,
+    "credit_dependency_multiplier": 1.05,
+    "proximity_formula": "max(0,85; min(2,60; 1 + 0,10 × (prognosmånader + 9 − månader kvar till riktmärket 1 okt 2027)))",
+    "probability_formula": "P(h) = 1 − exp(−h × 0,026 × 1,25 × 1,05 × närhetsfaktor).",
+    "evidence_note": "Värdet 2,6 % per månad och multiplikatorerna är öppna analytiska antaganden, utformade med stöd av faktiska emissioner nedan. Referensfallen är inte ett slumpmässigt urval och kan INTE ge en statistiskt kalibrerad emissionssannolikhet. Modellens intervall är känslighetsband, inte konfidensintervall.",
+    "uncertainty_band_monthly_hazard_multiplier": [
+      0.62,
+      1.55
+    ],
+    "anchor_reference_cases": "Sju utvalda verkliga emissioner visar varför kapital kan sökas långt innan kassans slut, men de är inte ett representativt frekvensurval."
+  },
+  "peer_cases": [
+    {
+      "company": "BioInvent",
+      "date": "2026-10-28",
+      "event": "Företrädesemission cirka 430 miljoner kr, beslutad med villkor",
+      "amount_msek": 430,
+      "source": "https://mfn.se/a/bioinvent-international/bioinvent-resolves-on-a-rights-issue-of-approximately-sek-430-million-subject-to-approval-by-an-extraordinary-general-meeting-and-earlier-publication-of-interim-report-january-september-2026",
+      "why": "Hade cirka 225 miljoner kr i kassa per 30 september men bedömde ytterligare finansieringsbehov för utveckling in i 2027. Riktkursen för finansiering är kliniska investeringsbehov, inte bara om kassan är slut."
+    },
+    {
+      "company": "Cereno Scientific",
+      "date": "2026-11-12",
+      "event": "Avsikt att genomföra företrädesemission cirka 400 miljoner kr",
+      "amount_msek": 400,
+      "source": "https://www.cerenoscientific.com/en/newsroom/press-releases?slug=cereno-scientific-intends-to-carry-out-a-rights-issue-of-units-of-approximately-sek-400-million-with-a-focus-on-the-global-phase-iib-study-epimode-and-obtains-extended-loan-financing-of-up-to-sek-175-million",
+      "why": "Planen kombinerar betydande eget kapital med utökade lån för kommande klinisk studie. Ett befintligt låneupplägg kan alltså samexistera med emissionsbehov. Emissionen var den 12 november aviserad, ännu inte genomförd."
+    },
+    {
+      "company": "Alligator Bioscience",
+      "date": "2026-07-23",
+      "event": "Företrädesemission upp till cirka 125,6 miljoner kr, beslutad",
+      "amount_msek": 125.6,
+      "source": "https://alligatorbioscience.se/en/mfn_news/alligator-bioscience-publishes-prospectus-in-connection-with-rights-issue-2/",
+      "why": "Nyemission beslutades cirka sju månader efter att föregående emission gav cirka 91 miljoner kr i december 2025. Bolaget hade även Fenja-exponering. Tidigare emission är inget skydd mot snabb ny finansiering."
+    },
+    {
+      "company": "Immunovia",
+      "date": "2026-09-28",
+      "event": "Företrädesemission cirka 63 miljoner kr, annonserad",
+      "amount_msek": 63.4,
+      "source": "https://mfn.se/a/immunovia/immunovia-carries-out-a-rights-issue-of-units-of-approximately-sek-63-million",
+      "why": "Kapital för USA-kommersialisering, kliniska studier och rörelsekapital. Även utveckling mot kommersialisering kan kräva nya aktier innan intäkterna täcker kostnaderna."
+    },
+    {
+      "company": "Isofol Medical",
+      "date": "2025-05-12",
+      "event": "Företrädesemission cirka 85 miljoner kr, annonserad",
+      "amount_msek": 85,
+      "source": "https://view.news.eu.nasdaq.com/view?id=b615b38324ce5cbb5cd4e2e47e94170ef&lang=en&src=micro",
+      "why": "Kapitalanskaffning för fortsatta kliniska studier trots partnersamarbete. Visar att partneravtal inte automatiskt finansierar hela utvecklingsprogrammet."
+    },
+    {
+      "company": "Active Biotech",
+      "date": "2025-10-17",
+      "event": "Fullt säkerställd företrädesemission cirka 70 miljoner kr, annonserad",
+      "amount_msek": 70,
+      "source": "https://www.activebiotech.com/en/mfn_news/active-biotech-year-end-report-2025/",
+      "why": "Bolaget finansierade kliniskt utvecklingsarbete med en ny emission. Källan är bolagets bokslutskommuniké som redovisar oktoberbeslutet."
+    },
+    {
+      "company": "SynAct Pharma (eget historiskt fall)",
+      "date": "2026-03-02",
+      "event": "Riktad nyemission cirka 51,9 miljoner kr, genomförd",
+      "amount_msek": 51.9,
+      "source": "https://www.synactpharma.com/en/synact-pharma-has-carried-out-a-directed-issue-of-new-shares-of-approximately-51-9-msek/",
+      "why": "SynAct tog in kapital för finansiell flexibilitet och partnerdiskussioner efter kliniska data. Bolagets egen historik visar att en emission kan vara strategisk även före akut likviditetsbrist."
+    }
+  ],
+  "monitoring": {
+    "run_frequency": "Måndag varje vecka via GitHub Actions, schemalagt 07:15 UTC (08:15 svensk vintertid, 09:15 sommartid). Körning kan fördröjas av GitHub.",
+    "official_press": "https://www.synactpharma.com/en/news-media/news-and-press-releases/",
+    "financial_reports": "https://www.synactpharma.com/en/investors/financial-reports/",
+    "note": "Bevakar officiella pressmeddelanden och omvärldsrubriker. Nya rapporterade kassavärden och villkor måste kvalitetssäkras innan de ersätter verifierade siffror; om sådan information upptäcks märks bedömningen med granskningsbehov. Automatik kan inte garantera att all publicerad information upptäcks eller tolkas korrekt."
+  }
+}
