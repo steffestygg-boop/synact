@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T21:55:37+01:00",
+  "updated_at": "2026-11-13T22:00:02+01:00",
   "based_on_report": "2026-09-30",
   "automated_checked": true,
   "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
@@ -208,6 +208,6 @@
       "category": "debt"
     }
   ],
-  "alerts_checked_at": "2026-11-13T21:59:15+01:00",
+  "alerts_checked_at": "2026-11-13T22:00:02+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
