@@ -18,7 +18,7 @@ RULES = [
      r"going.concern|likviditetsbrist|otillr[aä]ckligt r[oö]relsekapital|working capital deficit|insufficient (?:working capital|liquidity)|cash shortage|kassan r[aä]cker inte|finansieringsbehov|need for (?:additional |new )?financ|additional (?:equity )?funding (?:is )?required|kapitalbehov",
      "Läs originalrapporten: omfattning, period, befintliga kreditavtal och styrelsens prognos avgör betydelsen."),
     ("deferred_payments", "förhöjd", "Uppskjutna betalningar / anstånd",
-     r"uppskjutna betalningar|betalningsanst[aå]nd|f[oö]rl[aä]ngda betalningsvillkor|deferred pay(?:ment|ables)|payment deferral|extended payment terms|betalningsfrist|anst[aå]nd till leverant[oö]r",
+     r"uppskjutna betalningar|betalningsanst[aå]nd|f[oö]rl[aä]ngda betalningsvillkor|deferred pay(?:ment|ables)|payment deferral|extended payment terms|betalningsfrist|skjuter upp betalningar|anst[aå]nd till leverant[oö]r",
      "Kontrollera vad som skjutits upp, kostnad, belopp och om det är ett ordinarie kommersiellt villkor."),
     ("new_equity", "kritisk", "Nyemission eller kapitalanskaffning annonserad",
      r"f[oö]retr[aä]desemission|nyemission|riktad emission|riktad nyemission|rights? issue|directed share issue|share issuance|private placement|new share issue|equity offering",
@@ -35,7 +35,7 @@ RULES = [
 ]
 NEGATIONS = re.compile(
     r"(?:no|not|without|ingen|inget|inte)\s+(?:new |further |ytterligare |nytt )?"
-    r"(?:rights? issue|financing|capital need|new share issue|emission|kapitalbehov)", re.I
+    r"(?:rights? issue|financing|capital need|new share issue|nyemission|emission|kapitalbehov)", re.I
 )
 RESUMED = re.compile(r"trading resu(?:med|mes)|handeln [aå]teruppt(?:as|agits)|[aå]terupptagen handel|trading resumed", re.I)
 OPTION_NOTICE = re.compile(r"\bTO[12]\b|teckningsoptioner|warrants? exercise|optionsinl[oö]sen", re.I)
