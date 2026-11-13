@@ -523,6 +523,9 @@ footer{
 }
 
 /* SynAct – keeps Isofol layout system while adapting brand and sections. */
+/* TradingView dark widget must not inherit Isofol's iframe color inversion. */
+.stock-overview .tradingview-widget-container iframe{filter:none!important;background:#151e29!important;color-scheme:dark}
+
 :root{--arfo:#47d9ad;--japan:#6cbcff;--company:#f0b66f;--mint:#47d9ad}
 .hero{background:linear-gradient(112deg,#152e30,#13232f 50%,#181d2d)}
 .wrap>.partner-overview{--section-accent:#f0b66f;background:linear-gradient(120deg,#2b2522,#211f28 68%,#1c222b);border-color:#514035}
