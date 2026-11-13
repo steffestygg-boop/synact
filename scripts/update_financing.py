@@ -20,6 +20,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from zoneinfo import ZoneInfo
+from risk_signals import combined_signals
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "data" / "financing_model.json"
@@ -163,6 +164,11 @@ def main() -> None:
         ("omvärld", '"SynAct Pharma" (emission OR finansiering OR shares OR financing OR partnership OR cash) when:75d'),
         ("jämförelsebolag", '("BioInvent" OR "Cereno Scientific" OR "Alligator Bioscience" OR "Immunovia" OR "Isofol Medical" OR "Active Biotech") ("rights issue" OR "share issue" OR "företrädesemission") when:40d'),
     ]
+    # Daily high-signal scan, separate from the weekly probability refresh.
+    feeds.extend([
+        ("varningssignaler", '"SynAct Pharma" (handelsstopp OR "trading halt" OR suspension OR insiderinformation OR "liquidity" OR "cash shortage" OR "deferred payments" OR "going concern" OR emission OR financing) when:35d'),
+        ("börsmeddelanden", 'site:view.news.eu.nasdaq.com "SynAct Pharma" (suspension OR trading OR halt) when:35d'),
+    ])
     if "--offline" not in sys.argv:
         for label, query in feeds:
             try:
@@ -244,6 +250,41 @@ def main() -> None:
           "official_feed": model["monitoring"]["official_press"],
        },
     }
+    # Verified structural warning signals + unverified news headlines.
+    issuer = "synact"
+    current_alerts = combined_signals(model, unique, issuer, current_date)
+    # Retain recent previously surfaced headlines if an individual RSS endpoint
+    # temporarily fails, without describing old headlines as fresh live states.
+    existing = {a.get("id"): a for a in current_alerts}
+    for earlier in old.get("alerts", []):
+        if earlier.get("id", "").startswith("base:") or earlier.get("id") in existing:
+            continue
+        try:
+            age = (current_date - dt.date.fromisoformat(earlier.get("date", "")[:10])).days
+        except ValueError:
+            continue
+        if 0 <= age <= 28:
+            existing[earlier["id"]] = earlier
+    payload["alerts"] = list(existing.values())[:18]
+    payload["alerts_checked_at"] = today.isoformat(timespec="seconds")
+    payload["alerts_source_status"] = ("ofullständig nätkontroll" if source_failures
+                                     else "inga externa källor kontrollerade" if "--offline" in sys.argv
+                                     else "flöden kontrollerade, inte heltäckande")
+    if old.get("price_confirmation"):
+        payload["price_confirmation"] = old["price_confirmation"]
+    if "--signals-only" in sys.argv:
+        # The daily job updates warnings, NOT the probability or finance facts.
+        daily = dict(old)
+        for name in ("alerts", "alerts_checked_at", "alerts_source_status",
+                     "checked_sources", "failed_sources", "latest_items"):
+            if name in payload:
+                daily[name] = payload[name]
+        daily["review_needed"] = payload["review_needed"]
+        if payload.get("emission_detected"):
+            daily["emission_detected"] = payload["emission_detected"]
+        STATE_PATH.write_text(json.dumps(daily, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        print("Daily financing warnings:", len(daily["alerts"]), "coverage", daily["alerts_source_status"])
+        return
     if "--dry-run" in sys.argv or "--offline" in sys.argv:
         print(json.dumps({"updated_at":payload["updated_at"],
             "coverage_status":coverage,"risk":risks,
