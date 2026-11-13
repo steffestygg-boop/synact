@@ -1,0 +1,39 @@
+name: Daglig kontroll av emissionsvarningar
+on:
+  schedule:
+    - cron: '40 10 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/risk_signals.py'
+      - '.github/workflows/check-financing-signals.yml'
+permissions:
+  contents: write
+concurrency:
+  group: synact-financing-refresh
+  cancel-in-progress: false
+jobs:
+  scan-warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Kontrollera syntax
+        run: python -m py_compile scripts/update_financing.py scripts/risk_signals.py
+      - name: Testa varningsregler
+        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Bevaka nya börs- och finansieringsvarningar
+        run: python scripts/update_financing.py --signals-only
+      - name: Publicera varningssignaler
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/financing.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Daily synact risk signal scan"
+            git pull --rebase
+            git push
+          fi
