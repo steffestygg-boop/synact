@@ -7,12 +7,13 @@ on:
     branches: [main]
     paths:
       - 'scripts/update_financing.py'
+      - 'scripts/risk_signals.py'
       - 'data/financing_model.json'
       - '.github/workflows/update-financing.yml'
 permissions:
   contents: write
 concurrency:
-  group: synact-financing-weekly
+  group: synact-financing-refresh
   cancel-in-progress: false
 jobs:
   financing-risk:
@@ -23,7 +24,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Kontrollera modellens Python-kod
-        run: python -m py_compile scripts/update_financing.py
+        run: python -m py_compile scripts/update_financing.py scripts/risk_signals.py
+      - name: Kör tester för signalregler
+        run: python -m unittest discover -s tests -p 'test_*.py'
       - name: Testa riskberäkningen utan nätverk
         run: python scripts/update_financing.py --offline
       - name: Uppdatera risk, tid och nyhetsbevakning
