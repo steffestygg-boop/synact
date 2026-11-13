@@ -653,6 +653,20 @@ footer{
   .timeline .cell{min-height:70px}
   .timeline .milestone{padding:7px 8px}
 }
+/* Narrow milestone columns: fixed sizes instead of 1fr,
+   so tiles do not expand to fill a wide desktop viewport. */
+.timeline{width:max-content!important;min-width:0!important;grid-template-columns:106px repeat(var(--timeline-count,7),124px)!important}
+.timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),124px)!important}
+.timeline .cell{min-height:86px;gap:7px;padding:7px 5px}
+.timeline .milestone{width:100%;padding:11px 8px;line-height:1.32}
+.timeline .milestone strong{font-size:11px;line-height:1.34}
+.timeline .milestone small{font-size:10px;line-height:1.35}
+@media(max-width:650px){
+ .timeline{grid-template-columns:96px repeat(var(--timeline-count,7),118px)!important}
+ .timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),118px)!important}
+ .timeline .cell{min-height:82px}
+ .timeline .milestone{padding:10px 7px}
+}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
