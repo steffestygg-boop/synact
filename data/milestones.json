@@ -327,6 +327,18 @@
     },
     {
       "era": 5,
+      "track": "company",
+      "status": "done",
+      "date": "2021",
+      "title": "Riktad kapitalanskaffning",
+      "subtitle": "Cirka 80 miljoner kr",
+      "body": "En riktad nyemission om cirka 80 miljoner kronor genomfördes för att finansiera nästa steg i AP1189-programmet.",
+      "meaning": "Kapitalet gav utrymme för större prövningar efter fas IIa.",
+      "caveat": "",
+      "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+    },
+    {
+      "era": 5,
       "track": "rvi",
       "status": "done",
       "date": "30 juni 2021",
@@ -348,18 +360,6 @@
       "meaning": "Det förstärkte argumenten för att fortsätta utforska resomelagon i mer än en typ av virusinfektion.",
       "caveat": "Det sammanslagna materialet inkluderade både säkerhetsdel och randomiserad del; resultaten måste ses i ljuset av studiedesignen.",
       "url": "https://www.synactpharma.com/en/synact-pharma-ab-announces-additional-data-from-the-phase-2a-trial-of-ap1189-in-covid-19-infected-patients-and-reminds-of-management-call-to-discuss-results/"
-    },
-    {
-      "era": 5,
-      "track": "company",
-      "status": "done",
-      "date": "2021",
-      "title": "Riktad kapitalanskaffning",
-      "subtitle": "Cirka 80 miljoner kr",
-      "body": "En riktad nyemission om cirka 80 miljoner kronor genomfördes för att finansiera nästa steg i AP1189-programmet.",
-      "meaning": "Kapitalet gav utrymme för större prövningar efter fas IIa.",
-      "caveat": "",
-      "url": "https://www.synactpharma.com/sv/om-oss/historia/"
     },
     {
       "era": 5,
@@ -387,6 +387,18 @@
     },
     {
       "era": 5,
+      "track": "ip",
+      "status": "done",
+      "date": "15 oktober 2021",
+      "title": "Ny tablett testas kliniskt",
+      "subtitle": "Farmakokinetikstudie",
+      "body": "SynAct doserade första friska frivilliga med en vidareutvecklad AP1189-tablett. Det skedde efter problemen med den första formuleringen 2018.",
+      "meaning": "En bättre oral beredning var viktig för att kunna behandla patienter konsekvent under längre studier.",
+      "caveat": "",
+      "url": "https://www.synactpharma.com/en/annual-results-2021/"
+    },
+    {
+      "era": 5,
       "track": "ra",
       "status": "done",
       "date": "22 oktober 2021",
@@ -401,12 +413,12 @@
       "era": 5,
       "track": "ip",
       "status": "done",
-      "date": "15 oktober 2021",
-      "title": "Ny tablett testas kliniskt",
-      "subtitle": "Farmakokinetikstudie",
-      "body": "SynAct doserade första friska frivilliga med en vidareutvecklad AP1189-tablett. Det skedde efter problemen med den första formuleringen 2018.",
-      "meaning": "En bättre oral beredning var viktig för att kunna behandla patienter konsekvent under längre studier.",
-      "caveat": "",
+      "date": "5 november 2021",
+      "title": "Toxikologi för längre dosering",
+      "subtitle": "Tre månader i två djurarter",
+      "body": "SynAct rapporterade att ett tre månader långt toxikologiskt program i två djurarter hade slutförts. Bolaget bedömde därmed att AP1189 kunde prövas i kliniska försök med upp till tre månaders dosering.",
+      "meaning": "Detta var en viktig förutsättning för de längre fas IIb-uppläggen som följde efter BEGIN.",
+      "caveat": "Preklinisk långtidsuppföljning bevisar inte klinisk effekt eller utesluter ovanliga biverkningar.",
       "url": "https://www.synactpharma.com/en/annual-results-2021/"
     },
     {
@@ -455,6 +467,18 @@
       "body": "Bolaget beslutade om och genomförde en fullt garanterad företrädesemission om cirka 150 miljoner kronor.",
       "meaning": "Emissionen finansierade en bredare fas IIb-utveckling och regulatoriskt arbete i USA.",
       "caveat": "",
+      "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+    },
+    {
+      "era": 6,
+      "track": "ra",
+      "status": "done",
+      "date": "29 juni 2022",
+      "title": "FDA ger pre-IND-återkoppling",
+      "subtitle": "Amerikansk regulatorisk plan",
+      "body": "SynAct fick återkoppling från amerikanska FDA inför det formella IND-arbetet för AP1189. Denna dialog skedde före klartecknet för RESOLVE senare samma år.",
+      "meaning": "Pre-IND-svar hjälper utvecklaren att planera doser, studiedesign och säkerhetsunderlag inför ett större amerikanskt prövningsprogram.",
+      "caveat": "Pre-IND är ett rådgivande regulatoriskt steg, inte marknadsgodkännande eller bevisad behandlingseffekt.",
       "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
     },
     {
@@ -543,18 +567,6 @@
     },
     {
       "era": 7,
-      "track": "ra",
-      "status": "done",
-      "date": "3 april 2023",
-      "title": "Nytt vd-skifte",
-      "subtitle": "Torbjørn Bjerke utses",
-      "body": "SynAct utsåg Torbjørn Bjerke till ny vd efter Jeppe Øvlesen. Bolaget fortsatte sina kliniska RA-program under ny operativ ledning.",
-      "meaning": "Ledningsskiften kan påverka prioriteringar, kapitalallokering och tempo i kliniska program.",
-      "caveat": "",
-      "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
-    },
-    {
-      "era": 7,
       "track": "ip",
       "status": "done",
       "date": "30 mars 2023",
@@ -564,6 +576,18 @@
       "meaning": "Ett standardiserat generiskt substansnamn gör det lättare att följa samma läkemedelskandidat i kliniska studier, patent och publikationer.",
       "caveat": "WHOs namnrekommendation är inte ett godkännande av läkemedlet.",
       "url": "https://www.synactpharma.com/en/synact-pharma-introduces-resomelagon-as-generic-name-for-ap1189/"
+    },
+    {
+      "era": 7,
+      "track": "ra",
+      "status": "done",
+      "date": "3 april 2023",
+      "title": "Nytt vd-skifte",
+      "subtitle": "Torbjørn Bjerke utses",
+      "body": "SynAct utsåg Torbjørn Bjerke till ny vd efter Jeppe Øvlesen. Bolaget fortsatte sina kliniska RA-program under ny operativ ledning.",
+      "meaning": "Ledningsskiften kan påverka prioriteringar, kapitalallokering och tempo i kliniska program.",
+      "caveat": "",
+      "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
     },
     {
       "era": 7,
@@ -675,6 +699,18 @@
     },
     {
       "era": 8,
+      "track": "ra",
+      "status": "done",
+      "date": "1 juli 2024",
+      "title": "ADVANCE ansöksprocess inleds",
+      "subtitle": "USA · fas IIb",
+      "body": "SynAct påbörjade den regulatoriska inlämningsprocessen för ADVANCE i USA, som en randomiserad placebokontrollerad fas IIb-studie hos nydiagnostiserade patienter med svår RA.",
+      "meaning": "Det formaliserade det nya RA-upplägg som syftade till att bekräfta tidigare effekttecken med bättre patienturval.",
+      "caveat": "Inlämnad ansökan var ännu inte liktydigt med rekrytering vid aktiva kliniker.",
+      "url": "https://www.synactpharma.com/en/synact-initiates-filing-process-for-phase-2b-advance-study-with-resomelagon/"
+    },
+    {
+      "era": 8,
       "track": "rvi",
       "status": "done",
       "date": "30 augusti 2024",
@@ -696,6 +732,18 @@
       "meaning": "ADVANCE var den avgörande möjligheten att prospektivt testa hypoteserna från BEGIN och EXPAND i en mer definierad patientpopulation.",
       "caveat": "",
       "url": "https://www.synactpharma.com/en/?p=26708"
+    },
+    {
+      "era": 8,
+      "track": "renal",
+      "status": "done",
+      "date": "27–28 oktober 2024",
+      "title": "Uppdaterad iMN-studie godkänns",
+      "subtitle": "CTIS · Danmark och Sverige",
+      "body": "Det europeiska prövningsregistret CTIS redovisar myndighetsbeslut i Danmark och Sverige i oktober 2024 för den reviderade fas II-prövningen vid idiopatisk membranös nefropati. Upplägget avser tolv veckors AP1189-behandling och urinprotein som ett centralt effektmått.",
+      "meaning": "Det visar att njurspåret levde vidare med en modifierad studiedesign efter tidigare förseningar.",
+      "caveat": "Regulatoriskt prövningstillstånd innebär inte att effekten är demonstrerad. Registrets rekryteringsstatus är en separat uppgift.",
+      "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518384-36-00?lang=en"
     },
     {
       "era": 8,
@@ -855,6 +903,18 @@
     },
     {
       "era": 10,
+      "track": "pipeline",
+      "status": "done",
+      "date": "19 mars 2026",
+      "title": "PMR-studie godkänns i Danmark",
+      "subtitle": "Polymyalgia rheumatica · fas II",
+      "body": "Det europeiska prövningsregistret anger att den danska myndigheten gav tillstånd för en randomiserad fas II-studie med AP1189 vid polymyalgia rheumatica, PMR. Studiedesignen avser 100 mg per dag under tolv veckor för patienter som står på glukokortikoidbehandling.",
+      "meaning": "PMR blir ett ytterligare möjligt autoimmunt utvecklingsområde för resomelagon utanför RA.",
+      "caveat": "CTIS anger 'Authorised, recruitment pending' vid kontrollen. Tillståndet ska därför inte presenteras som att patienter redan doserats.",
+      "url": "https://euclinicaltrials.eu/ctis-public/view/2026-525343-33-00?lang=en"
+    },
+    {
+      "era": 10,
       "track": "dengue",
       "status": "done",
       "date": "26 mars 2026",
@@ -999,6 +1059,18 @@
     },
     {
       "era": 12,
+      "track": "dengue",
+      "status": "done",
+      "date": "3 november 2026",
+      "title": "RESOVIR-2 del 1 fullrekryterad",
+      "subtitle": "Dengue · datagranskning planeras",
+      "body": "I sitt vd-brev uppgav SynAct att första delen av denguefas II-studien var färdigrekryterad, trots färre denguefall än vanligt kring studieplatserna. Blindade data räckte enligt bolaget för att verifiera genomförbarheten hos huvudeffektmåttet och planera fortsatt statistisk styrka.",
+      "meaning": "Det ger en bättre grund för protokolländringen och en större del 2 under 2027 års denguesäsong.",
+      "caveat": "Genomförbart effektmått och blindad information är inte bevis för behandlingsnytta. Avblindad analys återstod.",
+      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+    },
+    {
+      "era": 12,
       "track": "company",
       "status": "done",
       "date": "3 november 2026",
@@ -1140,6 +1212,18 @@
       "meaning": "Det ger ett perspektiv på hur länge kliniska och strategiska aktiviteter kan drivas enligt den dåvarande budgeten.",
       "caveat": "Detta är ett ekonomiskt antagande. Faktisk förbrukning, nya studier och finansieringsvillkor kan ändra horisonten.",
       "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+    },
+    {
+      "era": 15,
+      "track": "pipeline",
+      "status": "future",
+      "date": "Tidpunkt ej fastställd",
+      "title": "TXP-11 möjlig fas I-förberedelse",
+      "subtitle": "Organprotektion · prekliniskt program",
+      "body": "Bolaget anger att prekliniskt farmakologiskt arbete med TXP-11 pågår för att stödja en framtida ansökan om klinisk fas I-prövning. Målsättningen i bolagets pipeline har varit fas I-beredskap under 2026.",
+      "meaning": "En första klinisk prövning skulle kunna öppna ett separat program för organprotektion vid kirurgi eller kritisk sjukdom.",
+      "caveat": "Ingen bekräftad klinisk studiestart har verifierats. Målsättningen från bolagets presentationsmaterial är inte ett utfall.",
+      "url": "https://www.synactpharma.com/sv/utvecklingsprogram/"
     }
   ]
 }
