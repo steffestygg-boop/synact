@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1119">
+<meta name="description" content="Oberoende investeraröversikt för SynAct Pharma – aktien, senaste nyheter, kliniska milstolpar, Hipolabor-avtalet och analytikernas värderingar.">
+<title>SynAct Pharma – Aktie, milstolpar & analys</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b1119;--surface:#141e29;--surface-raised:#1b2935;
+  --text:#ecf3f8;--muted:#9aabba;--subtle:#728596;--line:#2a3b48;
+  --mint:#51d7b3;--arfo:#33c7a5;--japan:#65baff;--company:#b5a2ee;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);
+  font:14px/1.58 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(ellipse 800px 500px at 84% -135px,rgba(47,142,152,.15),transparent 70%),
+    radial-gradient(ellipse 580px 600px at -210px 650px,rgba(72,87,160,.07),transparent 72%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:#81c7ff;text-decoration:none;text-underline-offset:3px;transition:color .2s ease}
+a:hover{color:#b4e0ff;text-decoration:underline}
+button{font-family:inherit}
+button:focus-visible,a:focus-visible{outline:2px solid #7ce7c5;outline-offset:4px}
+.wrap{width:min(100%,1560px);margin:0 auto;padding:35px clamp(18px,4.3vw,72px) 75px}
+.hero{
+  isolation:isolate;position:relative;overflow:hidden;
+  min-height:235px;display:flex;align-items:center;
+  padding:32px clamp(27px,4.5vw,66px);
+  border:1px solid #2b474c;border-radius:24px;
+  background:linear-gradient(110deg,#162c33 0%,#12232f 49%,#131d2b 100%);
+  box-shadow:0 16px 50px #020a1260,0 1px 0 #ffffff0c inset;
+}
+.hero:after{
+  content:"";position:absolute;z-index:-1;
+  width:450px;height:450px;right:-60px;top:-120px;border-radius:50%;
+  border:1px solid #78ddc01a;
+  box-shadow:0 0 0 68px #78ddc009,0 0 0 136px #78ddc006,inset 0 0 85px #4bd4b512;
+  background:radial-gradient(circle at 48% 52%,#51d7b310,transparent 67%);
+}
+.hero:before{
+  content:"";position:absolute;left:0;top:0;width:42%;height:2px;
+  background:linear-gradient(90deg,#68e2c6,transparent);
+}
+.hero-content{position:relative;z-index:1;max-width:850px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  color:#a9dbd0;font-size:10px;line-height:1.3;font-weight:750;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#5bdfb7;box-shadow:0 0 12px #5bdfb775}
+.hero h1{
+  margin:16px 0 8px;font-size:clamp(30px,3.5vw,51px);
+  line-height:1.1;font-weight:760;letter-spacing:-.048em;
+}
+.hero h1 span{color:#83e6cb}
+.hero p{max-width:680px;margin:0;color:#b5c7cf;font-size:clamp(13px,1.15vw,16px);line-height:1.6}
+.summary{
+  display:inline-flex;align-items:center;justify-content:center;gap:15px;
+  min-height:40px;padding:9px 15px;margin-top:20px;
+  color:#c5fff0!important;font-size:12px;font-weight:720;
+  border:1px solid #3f7970;border-radius:10px;
+  background:#1c4b482a;box-shadow:0 1px 0 #ffffff09 inset;
+}
+.summary:hover{background:#2c71604a;border-color:#6bbaa4;text-decoration:none}
+.summary .arrow{font-size:16px;line-height:1;color:#8de6ca}
+
+.wrap>section{
+  position:relative;overflow:hidden;
+  border:1px solid #2a3d49;border-radius:19px;
+  padding:clamp(20px,2.5vw,32px);
+  margin:22px 0 0;
+  box-shadow:0 1px 0 #ffffff06 inset,0 10px 35px #0000001a;
+}
+.wrap>section:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--section-accent),transparent 72%);opacity:.85;
+}
+.wrap>.stock-overview{
+  --section-accent:#7bbdff;
+  background:linear-gradient(125deg,#17232f,#17212b 67%,#141e29);
+  border-color:#2a3c4d;
+}
+.wrap>section[aria-labelledby="news-heading"]{
+  --section-accent:#59dfb7;
+  background:linear-gradient(125deg,#162923,#15231f 66%,#162420);
+  border-color:#2c453e;
+}
+.wrap>section[aria-labelledby="milestones-heading"]{
+  --section-accent:#b8a0f2;
+  background:linear-gradient(125deg,#211f2f,#1b1d2a 63%,#1a1e2a);
+  border-color:#3a354e;
+}
+.wrap>.valuation{
+  --section-accent:#78bafa;
+  background:linear-gradient(125deg,#182736,#172331 70%,#17202c);
+  border-color:#2d4356;padding-top:clamp(20px,2.5vw,32px);margin-top:22px;
+}
+.section-kicker{
+  display:flex;align-items:center;gap:9px;
+  margin:0 0 6px;color:var(--section-accent);
+  font-size:10px;line-height:1.4;font-weight:740;letter-spacing:.17em;text-transform:uppercase;
+}
+.section-number{font-variant-numeric:tabular-nums;opacity:.65}
+.section-kicker:after{content:"";width:38px;height:1px;background:currentColor;opacity:.3}
+.wrap>section h2,.section{
+  margin:0;font-size:clamp(19px,1.6vw,24px);
+  line-height:1.28;letter-spacing:-.025em;font-weight:730;color:var(--text);
+}
+.intro{color:#a5b5c3;margin:8px 0 21px;font-size:13px;line-height:1.6}
+.status{margin:0 0 16px;color:#a5c6b9;font-size:12px}
+.stock-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:19px}
+.stock-tile{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;
+  min-width:0;min-height:128px;padding:18px 17px 15px;
+  border:1px solid #354555;border-radius:13px;
+  background:linear-gradient(155deg,#24323e,#1e2b36 80%);
+  box-shadow:0 1px 0 #ffffff0c inset;
+  transition:border-color .2s ease,transform .2s ease;
+}
+.stock-tile:hover{border-color:#627b8c;transform:translateY(-2px)}
+.stock-tile:before{
+  content:"";position:absolute;top:0;left:19px;right:19px;height:2px;
+  background:linear-gradient(90deg,#71bbf777,transparent);
+}
+.stock-tile:nth-child(3):before,.stock-tile:nth-child(4):before{background:linear-gradient(90deg,#68d9bb80,transparent)}
+.stock-tile:nth-child(5):before{background:linear-gradient(90deg,#c2a1ed8c,transparent)}
+.stock-tile small{font-size:11px;color:#b3c0ca;line-height:1.45}
+.stock-tile strong{
+  display:block;margin:9px 0 8px;color:#f5f9fc;
+  font-size:clamp(20px,1.6vw,25px);line-height:1.12;
+  font-variant-numeric:tabular-nums;letter-spacing:-.035em;font-weight:740;
+}
+.stock-tile a{margin-top:auto;font-size:11px;font-weight:600;line-height:1.4}
+.stock-footnote{
+  max-width:1200px;color:#94a6b6;font-size:11px;line-height:1.75;
+  margin:15px 0 0;
+}
+.news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.news-card{
+  display:flex;flex-direction:column;align-items:flex-start;
+  min-width:0;min-height:165px;position:relative;overflow:hidden;
+  padding:20px 20px 17px;
+  background:linear-gradient(155deg,#21342f,#1c2d2a 85%);
+  border:1px solid #335046;border-radius:13px;
+  box-shadow:0 1px 0 #ffffff08 inset;
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.news-card:hover{transform:translateY(-3px);border-color:#588875;box-shadow:0 12px 28px #07170f3a}
+.news-card:before{
+  content:"";position:absolute;top:0;left:0;width:45px;height:2px;
+  background:linear-gradient(90deg,#52d5ab,transparent);
+}
+.news-card small{display:block;color:#86c1ab;font-size:10px;font-weight:700;letter-spacing:.05em;line-height:1.5}
+.news-card h3{
+  margin:12px 0 18px;color:#eaf5ef;
+  font-size:14px;line-height:1.5;font-weight:640;letter-spacing:-.009em;
+}
+.news-card a{
+  display:inline-flex;align-items:center;margin-top:auto;
+  font-size:12px;font-weight:700;color:#8deac6;
+}
+.news-card a:hover{color:#c8ffe8}
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:15px;margin:24px 0 23px;
+}
+.group{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.hint{
+  color:#a6a1bc;font-size:10px;font-weight:700;
+  letter-spacing:.14em;margin-right:8px;
+}
+.toolbar button{
+  min-height:34px;padding:7px 14px;border-radius:9px;
+  border:1px solid #4c465e;background:#201f2c;
+  color:#b9b8cb;font-size:12px;line-height:1.2;font-weight:610;
+  cursor:pointer;transition:background .18s,border-color .18s,transform .18s,opacity .18s;
+}
+.toolbar button:hover{background:#303043;border-color:#7b718e;transform:translateY(-1px)}
+.toolbar button.active.period{
+  color:#1b2030;background:#eef1f7;border-color:#eef1f7;box-shadow:0 2px 9px #0002;
+}
+.toolbar button.track{font-weight:740;color:#0a1723;border-color:transparent}
+.toolbar button.track[data-track="arfo"]{background:var(--arfo)}
+.toolbar button.track[data-track="japan"]{background:var(--japan)}
+.toolbar button.track[data-track="company"]{background:var(--company)}
+.toolbar button.track:not(.active){opacity:.42;filter:saturate(.65)}
+.toolbar button[data-track="all"].active{color:#eff4ff;background:#332c48;border-color:#9990bb}
+.timeline-scroll{
+  overflow-x:auto;overflow-y:visible;border:1px solid #38354b;
+  border-radius:13px;background:#1014205c;padding:12px 12px 14px;
+  scrollbar-color:#675d80 #171624;scrollbar-width:thin;
+}
+.timeline{
+  min-width:1050px;display:grid;
+  grid-template-columns:80px repeat(12,minmax(106px,1fr));position:relative;
+}
+.axis{
+  grid-column:2/-1;display:grid;grid-template-columns:repeat(12,1fr);
+  min-height:41px;border-bottom:1px solid #5b506b;
+}
+.axis span{
+  border-left:1px solid #383447;
+  text-align:center;color:#a7a1bc;padding:10px 2px;
+  font-size:11px;font-weight:680;letter-spacing:.01em;
+}
+.trackrow{display:contents}
+.track-label{
+  position:sticky;left:0;z-index:3;
+  display:flex;align-items:center;padding:12px 7px;
+  background:#181925;border-bottom:1px solid #393447;
+  box-shadow:7px 0 13px #11131c80;
+  font-size:12px;line-height:1.25;font-weight:800;overflow-wrap:anywhere;
+}
+.track-label.arfo{color:var(--arfo)}
+.track-label.japan{color:var(--japan)}
+.track-label.company{color:var(--company)}
+.cell{
+  display:flex;flex-direction:column;align-items:stretch;gap:8px;
+  min-height:178px;padding:9px 6px;border-left:1px solid #353146;
+  border-bottom:1px solid #393447;
+}
+.milestone{
+  position:relative;min-width:0;cursor:pointer;text-align:left;
+  border:1px solid #d4dfe8;border-left:3px solid #b4c4d0;
+  padding:10px 10px 10px 11px;border-radius:9px;
+  background:linear-gradient(150deg,#f3f6f9,#e3eaf1);
+  color:#142231;font:inherit;line-height:1.3;
+  box-shadow:0 2px 10px #08081116;
+  transition:transform .17s,box-shadow .17s,filter .17s;
+}
+.milestone.arfo{border-left-color:var(--arfo)}
+.milestone.japan{border-left-color:var(--japan)}
+.milestone.company{border-left-color:var(--company)}
+.milestone:hover,.milestone:focus-visible{
+  transform:translateY(-4px);box-shadow:0 9px 22px #05050b80;filter:brightness(1.04);z-index:2;
+}
+.milestone.future{
+  background:linear-gradient(135deg,#232536,#1b202d);
+  color:#e7e4f0;border:1px dashed #827d97;border-left:3px solid #89839f;
+  box-shadow:none;
+}
+.milestone.future.arfo{border-left-color:var(--arfo)}
+.milestone.future.japan{border-left-color:var(--japan)}
+.milestone.future.company{border-left-color:var(--company)}
+.milestone strong{display:block;font-size:11px;line-height:1.32;font-weight:760}
+.milestone small{display:block;margin-top:5px;color:#526373;font-size:10px;line-height:1.4}
+.milestone.future small{color:#b0adbf}
+.milestone[hidden],.trackrow[hidden]{display:none!important}
+.trackrow.is-hidden .track-label,.trackrow.is-hidden .cell{display:none}
+.trackrow.is-hidden{display:none}
+.cell:empty:after{content:"";min-height:15px}
+.milestone-key{
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  margin:16px 0 0;color:#bbb6cb;font-size:11px;
+}
+.milestone-key span{display:inline-flex;align-items:center;gap:8px}
+.milestone-key i{
+  display:inline-block;width:34px;height:18px;
+  border:1px solid #e5ebf0;border-radius:5px;background:#e6edf3;
+}
+.milestone-key i.upcoming{border:1px dashed #9991b2;background:#222335}
+.valuation h2{font-size:clamp(19px,1.6vw,24px);color:var(--text);font-weight:730}
+.valuation svg{
+  display:block;width:100%;height:auto;max-height:none;overflow:visible;
+  margin-top:13px;
+}
+.valuation .note{
+  border-top:1px solid #304356;padding-top:15px;
+  margin-top:5px;color:#9babba;font-size:11px;line-height:1.75;
+}
+.modal{position:fixed;inset:0;display:none;pointer-events:none;z-index:20}
+.modal.open{display:block}
+.modal .dialog{
+  pointer-events:auto;position:fixed;overflow-y:auto;
+  max-height:min(76vh,650px);box-shadow:0 22px 60px #000c;
+}
+.dialog{
+  position:relative;max-width:510px;width:100%;
+  padding:25px;color:#ecf3f8;background:linear-gradient(140deg,#223344,#182633);
+  border:1px solid #547081;border-radius:15px;
+}
+.dialog h2{margin:9px 28px 12px 0;font-size:20px;line-height:1.35}
+.dialog .date{color:#80d7bc;font-size:12px;font-weight:690}
+.dialog p{color:#cad7df;line-height:1.75}
+.dialog button{
+  position:absolute;right:13px;top:10px;cursor:pointer;
+  background:#ffffff0b;border:1px solid #506371;border-radius:7px;
+  width:32px;height:32px;color:#e6edf3;font-size:24px;line-height:1;
+}
+.dialog a{display:block;margin-top:11px;font-size:12px;font-weight:650}
+footer{
+  margin:31px 0 0;padding:20px 4px 0;
+  color:#8596a4;border-top:1px solid #273947;font-size:11px;line-height:1.8;
+}
+@media(max-width:1200px){
+ .stock-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .news{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:850px){
+ .wrap{padding-top:19px}
+ .hero{min-height:210px}
+ .stock-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .toolbar{justify-content:flex-start}
+}
+@media(max-width:600px){
+ .wrap{padding:13px 12px 45px}
+ .hero{border-radius:16px;padding:27px 23px;min-height:220px}
+ .hero:after{right:-250px;opacity:.6}
+ .hero h1{font-size:34px}
+ .wrap>section{margin-top:14px;border-radius:14px;padding:20px 17px}
+ .section-kicker{font-size:9px}
+ .stock-grid{gap:9px}
+ .stock-tile{padding:13px 12px;min-height:115px}
+ .stock-tile strong{font-size:19px;overflow-wrap:anywhere}
+ .news{grid-template-columns:1fr}
+ .news-card{min-height:140px;padding:18px}
+ .toolbar{margin:19px 0;gap:17px}
+ .group{gap:6px}
+ .toolbar button{padding:7px 11px;font-size:11px}
+ .timeline-scroll{padding:9px 7px 11px}
+ .timeline{min-width:1080px}
+ .valuation svg{min-width:0}
+ .valuation .note{font-size:11px}
+}
+@media(max-width:350px){
+ .stock-grid{grid-template-columns:1fr}
+ .stock-tile{min-height:100px}
+ .hero h1{font-size:30px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+.price-change{display:block;color:#93afbe;font-size:11px;line-height:1.3;font-weight:650;margin:-1px 0 9px;min-height:0}.price-change.up{color:#76e0b0}.price-change.down{color:#ff9a99}
+/* TradingView hämtar en ny kurs direkt i webbläsaren vid varje sidöppning. */
+.stock-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.stock-price-tile{grid-column:span 2}
+.stock-price-tile .tv-quote{width:100%;min-height:80px;margin:3px 0 5px}
+.stock-price-tile .tradingview-widget-container{width:100%;min-height:75px}
+.stock-price-tile .tradingview-widget-container__widget{min-height:75px}
+.stock-price-tile a{margin-top:auto}
+@media(max-width:1200px){.stock-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.stock-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:350px){.stock-grid{grid-template-columns:1fr}.stock-price-tile{grid-column:span 1}}
+
+/* TradingView sometimes renders the single-quote iframe with a white theme despite dark settings.
+   Force readable dark contrast at the iframe boundary (cross-origin contents cannot be styled). */
+.stock-price-tile .tradingview-widget-container iframe{
+  filter:invert(1) hue-rotate(180deg);
+  background:#fff;
+  border-radius:5px;
+}
+
+/* Aktieöversikt v2: one unified compact market board instead of five separate cards. */
+.stock-overview .market-heading{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.stock-overview .market-exchange{
+  display:inline-flex;gap:8px;align-items:center;white-space:nowrap;
+  color:#a7bdce;font-size:11px;font-weight:700;letter-spacing:.01em;
+  padding:6px 10px;border:1px solid #385364;border-radius:7px;background:#213645;
+}
+.stock-overview .market-exchange:hover{color:#e2f4ff;text-decoration:none;background:#29475a}
+.stock-overview .market-board{
+  display:grid;
+  grid-template-columns:minmax(280px,1.55fr) minmax(170px,.93fr) minmax(210px,1.1fr) minmax(145px,.78fr);
+  margin-top:18px;border:1px solid #385162;border-radius:13px;
+  background:linear-gradient(130deg,#1c2c39 0%,#1a2936 100%);
+  box-shadow:0 2px 14px #07131e42 inset,0 1px 0 #ffffff0c;
+  overflow:hidden;
+}
+.stock-overview .market-quote{
+  padding:14px 16px 11px;
+  min-width:0;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(145deg,#263e4c,#1d3441 75%);
+  border-right:1px solid #3c5663;
+}
+.stock-overview .market-quote-heading{
+  display:flex;align-items:center;justify-content:space-between;gap:9px;
+  font-size:11px;font-weight:700;color:#c5d4dc;
+  margin-bottom:5px;
+}
+.stock-overview .market-quote-heading a{
+  color:#88d9c5;white-space:nowrap;font-size:10px;font-weight:650;
+}
+.stock-overview .tv-quote{min-height:79px;width:100%;margin:0;overflow:hidden;border-radius:7px}
+.stock-overview .tradingview-widget-container{width:100%;min-height:78px}
+.stock-overview .tradingview-widget-container__widget{min-height:78px}
+.stock-overview .tradingview-widget-container iframe{
+  filter:invert(1) hue-rotate(180deg);background:#fff;border-radius:6px;
+}
+.stock-overview .market-metric{
+  min-width:0;min-height:128px;
+  padding:18px clamp(12px,1.35vw,21px) 14px;
+  border-right:1px solid #354756;
+  display:flex;flex-direction:column;align-items:flex-start;
+  justify-content:center;
+}
+.stock-overview .market-metric:last-child{border-right:0}
+.stock-overview .metric-label{
+  color:#91aabd;font-size:10px;font-weight:700;line-height:1.4;
+  text-transform:uppercase;letter-spacing:.065em;
+}
+.stock-overview .market-metric>strong{
+  display:block;margin:11px 0 8px;
+  color:#eff7fc;font-size:clamp(19px,1.5vw,25px);
+  font-weight:740;line-height:1.12;letter-spacing:-.035em;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.stock-overview .market-metric strong small{font-size:13px;color:#aec5d5;font-weight:650}
+.stock-overview .market-metric a{
+  color:#75bddb;font-size:10px;font-weight:650;line-height:1.3;
+}
+.stock-overview .owner-pair{
+  display:grid;grid-template-columns:1fr 1fr;gap:15px;
+  width:100%;margin-top:10px;
+}
+.stock-overview .owner-pair>div{min-width:0}
+.stock-overview .owner-pair>div+div{padding-left:15px;border-left:1px solid #3c5060}
+.stock-overview .owner-pair strong{
+  display:block;margin:0 0 6px;font-size:clamp(18px,1.35vw,23px);
+  font-weight:735;line-height:1.15;letter-spacing:-.028em;
+  font-variant-numeric:tabular-nums;color:#eff7fc;white-space:nowrap;
+}
+.stock-overview .market-footline{
+  display:flex;align-items:baseline;justify-content:space-between;gap:9px 20px;
+  margin:10px 0 0;color:#93a9b9;font-size:10px;line-height:1.6;
+}
+.stock-overview .market-footline details{flex:0 0 auto;position:relative}
+.stock-overview .market-footline summary{
+  color:#a4d6e6;cursor:pointer;list-style:revert;font-weight:650;
+}
+.stock-overview .market-footline details[open]{
+  flex-basis:100%;flex-grow:1;
+  padding:10px 13px;border:1px solid #354f60;background:#1c2c39;
+  border-radius:8px;
+}
+.stock-overview .market-footline details p{margin:5px 0 0;max-width:950px;color:#b2c5d0}
+@media(max-width:1160px){
+ .stock-overview .market-board{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .stock-overview .market-quote{grid-column:1/-1;border-right:0;border-bottom:1px solid #3c5663}
+ .stock-overview .market-metric{grid-column:span 1}
+ .stock-overview .market-owners{grid-column:span 2}
+}
+@media(max-width:640px){
+ .stock-overview .market-board{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .stock-overview .market-quote{grid-column:1/-1;padding:12px}
+ .stock-overview .market-metric{min-height:105px;padding:13px 12px}
+ .stock-overview .market-metric:nth-of-type(3){border-right:0}
+ .stock-overview .market-owners{
+   grid-column:1/-1;grid-row:3;
+   border-top:1px solid #354756;border-right:0;min-height:104px;
+ }
+ .stock-overview .market-metric:last-child{grid-column:2;grid-row:2;border-right:0}
+ .stock-overview .market-metric>strong{font-size:20px}
+ .stock-overview .owner-pair{margin-top:8px}
+ .stock-overview .market-footline{flex-wrap:wrap}
+}
+@media(max-width:350px){
+ .stock-overview .market-metric>strong{font-size:18px}
+ .stock-overview .owner-pair strong{font-size:19px}
+}
+
+/* Interactive valuation events use the same details popover as timeline milestones. */
+.valuation-point{cursor:pointer;outline:none}
+.valuation-point:hover,.valuation-point:focus-visible{
+  stroke:#d7e5f5;stroke-width:1.5;fill:#ffffff12;
+}
+
+/* TO2 scenario board, visually coordinated with the stock overview. */
+.wrap>.to2-overview{
+  --section-accent:#eab86d;
+  background:linear-gradient(125deg,#2a251e,#25231f 58%,#20262c);
+  border-color:#4c4130;
+}
+.to2-heading{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.to2-heading h2{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.to2-period{font-size:12px;font-weight:620;color:#d9b789;letter-spacing:0;white-space:nowrap}
+.to2-status{display:inline-flex;align-items:center;gap:8px;border:1px solid #695339;background:#382e22;color:#edc994;border-radius:50px;padding:6px 11px;font-size:11px;font-weight:710}
+.to2-status:before{content:"";width:6px;height:6px;border-radius:50%;background:#ecbd71}
+.to2-status.is-active{color:#acebd2;border-color:#3b7f62;background:#254237}
+.to2-status.is-active:before{background:#5be1aa}
+.to2-grid{
+  display:grid;grid-template-columns:1fr 1.04fr minmax(215px,.83fr);
+  gap:0;margin-top:18px;background:#191e24;border:1px solid #4b493f;border-radius:13px;overflow:hidden;
+}
+.to2-result{
+  min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:19px clamp(16px,2vw,27px);
+  border-right:1px solid #43443f;background:linear-gradient(145deg,#302e27,#24272a);
+}
+.to2-caption{color:#dbbb86;font-size:11px;font-weight:720;line-height:1.5}
+.to2-result strong{color:#f7f6ef;font-size:clamp(26px,2.4vw,38px);letter-spacing:-.045em;line-height:1.3;margin:8px 0 7px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.to2-result strong small{font-size:14px;letter-spacing:0;font-weight:600;color:#d6c7a9}
+.to2-subtext{color:#a9acac;font-size:10px;line-height:1.6;max-width:310px}
+.to2-input{padding:17px 20px;background:#252720}
+.to2-input label{display:block;color:#ddd3c0;font-size:11px;font-weight:730;margin-bottom:9px}
+.to2-input label span{color:#a8a399;font-weight:500}
+.to2-input-wrap{display:flex;align-items:center;overflow:hidden;border:1px solid #75664b;border-radius:9px;background:#171d22;max-width:240px}
+.to2-input-wrap:focus-within{outline:2px solid #eabb72;outline-offset:2px}
+.to2-input-wrap input{width:100%;min-width:0;appearance:textfield;border:0;outline:0;background:none;color:#f4eee1;font:700 22px/1.2 system-ui,sans-serif;padding:10px 12px;font-variant-numeric:tabular-nums}
+.to2-input-wrap input::-webkit-inner-spin-button,.to2-input-wrap input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.to2-input-wrap>span{color:#b4ae9c;font-size:10px;padding-right:13px;font-weight:700}
+.to2-input p{font-size:10px;color:#b0b1ad;margin:10px 0 0;line-height:1.55}
+.to2-input p strong{color:#e4c99b}
+.to2-details{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:14px;padding:0 2px;color:#b6b8b2;font-size:11px}
+.to2-details span{display:inline-flex;align-items:center;gap:5px}
+.to2-details span+span:before{content:"·";color:#907e62;margin-right:11px}
+.to2-details strong{color:#e8d8b7;font-weight:730}
+.to2-footnote{margin:10px 2px 0;color:#989f9c;font-size:10px;line-height:1.7}
+.to2-footnote a{color:#dcbd8d}
+@media(max-width:1080px){.to2-grid{grid-template-columns:1fr 1fr}.to2-input{grid-column:1/-1;border-top:1px solid #4b493f}.to2-result:nth-child(2){border-right:0}}
+@media(max-width:640px){
+ .to2-grid{grid-template-columns:1fr}
+ .to2-result{padding:16px 18px;border-right:0;border-bottom:1px solid #43443f}
+ .to2-result strong{font-size:29px}
+ .to2-input{grid-column:auto;padding:17px 18px;border-top:0}
+ .to2-details{gap:8px 12px}
+ .to2-details span+span:before{display:none}
+}
+
+/* SynAct – keeps Isofol layout system while adapting brand and sections. */
+:root{--arfo:#47d9ad;--japan:#6cbcff;--company:#f0b66f;--mint:#47d9ad}
+.hero{background:linear-gradient(112deg,#152e30,#13232f 50%,#181d2d)}
+.wrap>.partner-overview{--section-accent:#f0b66f;background:linear-gradient(120deg,#2b2522,#211f28 68%,#1c222b);border-color:#514035}
+.wrap>.stock-overview{--section-accent:#6cbcff}
+.partner-intro{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;margin:16px 0 12px}
+.partner-card{background:#1d2731bd;border:1px solid #41505b;border-radius:14px;padding:18px;min-width:0}
+.partner-card .micro,.micro{font-size:10px;color:#a7becc;text-transform:uppercase;letter-spacing:.11em;font-weight:750}
+.partner-card strong{font-size:clamp(22px,2.4vw,32px);color:#f8fafc;display:block;margin:5px 0}
+.partner-card p{font-size:12px;color:#bdcbd7;margin:6px 0 0}
+.partner-calc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
+.partner-calc label{display:block;font-size:11px;color:#c1cfda}
+.partner-calc input{display:block;width:100%;margin-top:7px;padding:11px;background:#12202a;color:#ecf8fa;border:1px solid #526472;border-radius:8px;font-size:17px;font-family:inherit}
+.calc-result{border:1px solid #4b786d;background:#1c3736;border-radius:11px;padding:12px}
+.calc-result strong{font-size:24px;display:block;color:#88e4cd}
+.tiny-note{color:#9fb1bf;font-size:11px;line-height:1.7}
+.market-board{display:grid;grid-template-columns:repeat(6,1fr);background:#17242f;border:1px solid #344a59;border-radius:14px;overflow:hidden;margin-top:15px}
+.market-quote{grid-column:span 2;min-height:130px;border-right:1px solid #344a59;padding:15px}
+.market-metric{grid-column:span 1;border-right:1px solid #344a59;padding:15px;min-height:130px}
+.market-metric:last-child{border-right:0}
+.market-metric strong{font-size:23px}
+.market-metric a{display:block;margin-top:10px}
+.market-owners{grid-column:span 2}
+.market-owners .owner-pair{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.stock-overview .market-footline{margin-top:12px}
+.stock-overview .market-metric>strong{font-size:23px}
+.stock-overview .tv-quote{min-height:78px}
+.news-placeholder{color:#9fc6b8;font-size:12px}
+.timeline{grid-template-columns:95px repeat(9,minmax(132px,1fr));min-width:1280px}
+.timeline .axis{grid-column:2/-1;grid-template-columns:repeat(9,1fr)}
+.track-label.ra,.toolbar [data-track="ra"]{color:#47d9ad}
+.track-label.dengue,.toolbar [data-track="dengue"]{color:#6cbcff}
+.track-label.rvi,.toolbar [data-track="rvi"]{color:#b3a0ef}
+.track-label.company,.toolbar [data-track="company"]{color:#f0b66f}
+.milestone.ra{border-left-color:#47d9ad}.milestone.dengue{border-left-color:#6cbcff}.milestone.rvi{border-left-color:#b3a0ef}.milestone.company{border-left-color:#f0b66f}
+.toolbar button.track[data-track="ra"]{background:#47d9ad;color:#10231e}
+.toolbar button.track[data-track="dengue"]{background:#6cbcff;color:#0d2636}
+.toolbar button.track[data-track="rvi"]{background:#b3a0ef;color:#241b35}
+.toolbar button.track[data-track="company"]{background:#f0b66f;color:#2c2514}
+.timeline .cell{min-height:120px}
+.valuation-header{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.valuation-legend{display:flex;gap:14px;flex-wrap:wrap}
+.valuation-legend span{font-size:11px;color:#b9c9d6;display:flex;align-items:center;gap:6px}
+.valuation-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.valuation-chart-panel{position:relative;background:#121f2b;border:1px solid #304457;border-radius:12px;padding:14px}
+.valuation svg{max-width:100%;overflow:visible}
+.valuation-point{cursor:pointer;outline:none;transition:r .15s;stroke:#101822;stroke-width:3}
+.valuation-point:hover,.valuation-point:focus{stroke:#fff;stroke-width:4;r:9}
+.chart-table{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.chart-tile{background:#1d3040;border:1px solid #334e61;border-radius:10px;padding:12px;cursor:pointer;text-align:left;color:#edf4f9;font:inherit}
+.chart-tile:hover{background:#294255}
+.chart-tile small{display:block;color:#a4bfd2;font-size:11px}
+.chart-tile strong{font-size:23px}
+.modal{background:#0007}
+.news-card:focus-within{border-color:#70d6ba}
+@media(max-width:930px){.market-board{grid-template-columns:repeat(3,minmax(0,1fr))}.market-quote{grid-column:span 3}.market-metric{grid-column:span 1}.market-owners{grid-column:span 2}.partner-intro{grid-template-columns:1fr}}
+@media(max-width:610px){.market-board{grid-template-columns:repeat(2,minmax(0,1fr))}.market-quote{grid-column:span 2}.market-owners{grid-column:span 2}.partner-calc{grid-template-columns:1fr}.chart-table{grid-template-columns:1fr}.stock-overview .market-metric>strong{font-size:20px}.valuation-chart-panel{padding:5px}}
+</style></head>
+<body><div class="wrap">
+<header class="hero"><div class="hero-content">
+<div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Oberoende investeraröversikt · SYNACT</div>
+<h1>SynAct <span>Pharma</span></h1>
+<p>Aktien, resomelagon, kliniska studier och händelser – med tydlig uppdelning mellan genomförda resultat och bolagets förväntningar.</p>
+<a class="summary" href="#milestones-heading">Utforska milstolpar och kommande triggers <span class="arrow">→</span></a>
+</div></header>
+<section class="stock-overview" aria-labelledby="stock-heading">
+<div class="market-heading"><div><p class="section-kicker"><span class="section-number">01</span> Aktieöversikt</p><h2 id="stock-heading">Aktien · SYNACT</h2></div><span class="market-exchange">Nasdaq Stockholm · SYNACT</span></div>
+<div class="market-board">
+<div class="market-quote"><div class="market-quote-heading"><span>Kurs · fördröjd marknadsdata</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener">TradingView ↗</a></div>
+<div class="tv-quote"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+{"symbol":"OMXSTO:SYNACT","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"sv"}
+</script></div></div><small class="tiny-note">Uppdateras av TradingView när sidan öppnas.</small></div>
+<div class="market-metric"><span class="metric-label">Antal aktier</span><strong>56 213 968</strong><a href="https://www.synactpharma.com/sv/investerare/aktiekapital/" target="_blank" rel="noopener">Bolagets aktiekapital ↗</a></div>
+<div class="market-metric"><span class="metric-label">Rapporterad blankning</span><strong>1,62 <small>%</small></strong><a href="https://www.fi.se/sv/vara-register/blankningsregistret/Positionsinnehavare/" target="_blank" rel="noopener">FI · 7 okt 2026 ↗</a></div>
+<div class="market-metric market-owners"><span class="metric-label">Aktieägare på plattformarna</span><div class="owner-pair">
+<div><strong>13 084</strong><a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Avanza ↗</a></div>
+<div><strong>1 245</strong><a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Nordnet ↗</a></div></div></div>
+</div><div class="market-footline"><span>Aktier: mars 2026 · blankning: 7 oktober 2026 · plattformsägare: uppgift avläst 13 november 2026. Kursen kan vara fördröjd. <a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Källa till ägarstatistik ↗</a></span></div>
+</section>
+<section class="partner-overview" aria-labelledby="partner-heading"><p class="section-kicker"><span class="section-number">02</span> Avtal &amp; finansiering</p>
+<h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
+<div class="partner-intro">
+<div class="partner-card"><span class="micro">Hipolabor · dengue · Brasilien</span><strong>50 / 50 <small style="font-size:13px;color:#b3c8d8">vinstdelning</small></strong><p>Även kostnader för utveckling mot regulatoriskt godkännande delas 50/50. Extra försäljningsmilstolpar är kopplade till <b>200 miljoner USD i kumulativ nettoförsäljning</b> – betalningsbeloppet är inte offentliggjort.</p><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Avtalets fullständiga villkor ↗</a></div>
+<div class="partner-card"><span class="micro">Kassa &amp; Fenja · Q3 2026</span><strong>42,4 <small style="font-size:13px;color:#b3c8d8">miljoner kr i kassa</small></strong><p>Finansieringsfacilitet <b>upp till 100 miljoner kr</b>, varav initialt 50 miljoner kr har dragits. Bolaget bedömer kassans uthållighet till in i Q4 2027. Konverteringskurs: 24,60 kr; teckningsoptioners lösenpris: 27,55 kr.</p><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Q3-rapport &amp; finansiering ↗</a></div>
+</div>
+<p class="micro">Scenariokalkyl · hypotetisk årsförsäljning i Brasilien (inte bolagsprognos)</p>
+<div class="partner-calc"><label>Årlig nettoförsäljning (miljoner USD)<input id="sales" type="number" value="100" min="0" max="100000" step="10"></label><label>Antagen vinstmarginal (%)<input id="margin" type="number" value="20" min="0" max="100" step="1"></label><div class="calc-result"><span class="micro">SynActs andel av årsresultat</span><strong id="profit-result">10,0 MUSD</strong><span class="tiny-note">50 % × försäljning × marginal</span></div></div>
+<p class="tiny-note">Ren räkneövning före skatt och eventuella övriga avtalseffekter. Vinstmarginal, försäljning, lansering och milstolpsersättning är osäkra. Tröskeln 200 MUSD gäller ackumulerad försäljning, inte ett årsresultat.</p>
+</section>
+<section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">03</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
+<p class="intro">Tre källkontrollerade nyheter från bolaget, kompletterade med automatiskt insamlade rubriker när flödet finns tillgängligt.</p><p class="status" id="news-status">Visar verifierade pressmeddelanden · nyhetsflödet läses in när tillgängligt.</p>
+<div class="news" id="news">
+<article class="news-card"><small>13 nov 2026 · SynAct / MFN</small><h3>USA: patentansökan för resomelagons tablettformulering har godkänts för utfärdande</h3><a href="https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
+<article class="news-card"><small>3 nov 2026 · SynAct</small><h3>BioVal värderar tre resomelagontillgångar till sammanlagt 2,9 miljarder kronor</h3><a href="https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
+<article class="news-card"><small>27 okt 2026 · SynAct</small><h3>Första kommersiella partneravtalet med Hipolabor för dengue i Brasilien</h3><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
+</div></section>
+<section aria-labelledby="milestones-heading"><p class="section-kicker"><span class="section-number">04</span> Klinisk utveckling &amp; bolaget</p><h2 class="section" id="milestones-heading">Milstolpar</h2>
+<p class="intro">Klicka på en händelse för datum, bakgrund och originalkälla. Välj period eller spår för att filtrera.</p>
+<div class="toolbar"><div class="group"><span class="hint">VISA</span><button class="period active" data-period="relevant">Aktuellt</button><button class="period" data-period="all">Allt</button><button class="period" data-period="done">Historik</button><button class="period" data-period="future">Framåt</button></div>
+<div class="group"><span class="hint">SPÅR</span><button data-track="all" class="active">Alla</button><button class="track active" data-track="ra">RA</button><button class="track active" data-track="dengue">Dengue</button><button class="track active" data-track="rvi">RESPIRE</button><button class="track active" data-track="company">Bolaget</button></div></div>
+<div class="timeline-scroll"><div class="timeline" id="timeline"><div style="grid-column:1"></div><div class="axis"><span>2024</span><span>2025</span><span>H1 2026</span><span>Q3 2026</span><span>Q4 2026</span><span>Q1 2027</span><span>Q2 2027</span><span>H2 2027</span><span>2028+</span></div></div></div>
+<div class="milestone-key"><span><i aria-hidden="true"></i>Levererad</span><span><i class="upcoming" aria-hidden="true"></i>Planerad / prognos</span></div></section>
+<section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">05</span> Analys &amp; värdering</p>
+<div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Källkontrollerade publiceringar · kr per aktie · klicka på punkter för analysförändringen.</p></div>
+<div class="valuation-legend"><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#ffba79"></i>BioVal*</span></div></div>
+<div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar av Redeye, Edison och BioVal i kr per aktie"></svg></div>
+<div class="chart-table" id="valuation-highlights"></div>
+<p class="note"><b>*Viktigt:</b> BioVals 2,90 miljarder kr är en samlad riskjusterad modellvärdering, inte en publicerad riktkurs per aktie. Punktvärdet (~51,59 kr) är vår omräkning med 56 213 968 utestående aktier. Analysföretagen använder olika antaganden; historiska riktkurser är inte uppdaterade i realtid. Dessa är uppdragsanalyser (betalda av bolaget) och värderingarna utgör inte löften om kursutvecklingen. <a href="https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/" target="_blank" rel="noopener">BioVal 3 november ↗</a> · <a href="https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304" target="_blank" rel="noopener">Edison 4 mars ↗</a> · <a href="https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf" target="_blank" rel="noopener">Redeye 2025 ↗</a>.</p></section>
+<footer>Privat, oberoende investeraröversikt · Datakontroll 13 november 2026 · Ej investeringsrådgivning. Kursdata kan vara fördröjda. Tidslinje och analysvärderingar uppdateras redaktionellt, medan nyhetsflödet kan uppdateras automatiskt. Planerade händelser är inte bekräftade utfall.</footer>
+</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog"><button id="close" aria-label="Stäng">×</button><div class="date" id="modal-date"></div><h2 id="modal-title"></h2><p id="modal-body"></p><div id="modal-links"></div></div></div>
+<script>
+const milestones=[{"track":"ra","col":0,"status":"done","title":"ADVANCE inleds","subtitle":"Fas IIb · RA","date":"2024","body":"SynAct inledde fas IIb-studien ADVANCE med resomelagon för behandling av reumatoid artrit. Studien var avsedd att komplettera tidigare fas IIb-data.","url":"https://www.synactpharma.com/sv/om-oss/historia/"},{"track":"dengue","col":1,"status":"done","title":"RESOVIR-2 startar","subtitle":"Fas II · Brasilien","date":"Q2 2025","body":"SynAct inledde RESOVIR-2 för resomelagon vid denguefeber i Brasilien.","url":"https://www.synactpharma.com/en/about/history/"},{"track":"ra","col":2,"status":"done","title":"Full rekrytering","subtitle":"ADVANCE","date":"6 februari 2026","body":"SynAct meddelade att rekryteringsmålet i fas IIb-studien ADVANCE uppnåtts.","url":"https://www.synactpharma.com/en/synact-pharma-year-end-report-2025/"},{"track":"rvi","col":2,"status":"done","title":"RESPIRE inleds","subtitle":"Fas II · virusinfektioner","date":"30 januari 2026","body":"Fas II-studien RESPIRE initierades för resomelagon hos sjukhusvårdade patienter med respiratorisk insufficiens orsakad av virusinfektion.","url":"https://www.synactpharma.com/en/synact-pharma-initiates-phase-2-study-in-respiratory-insufficiency/"},{"track":"company","col":2,"status":"done","title":"Riktad emission","subtitle":"51,9 miljoner kr","date":"2 mars 2026","body":"En riktad nyemission om cirka 51,9 miljoner kronor genomfördes. Antalet aktier steg till 56 213 968 efter registrering i mars.","url":"https://www.synactpharma.com/sv/?p=27184"},{"track":"ra","col":2,"status":"done","title":"ADVANCE topline","subtitle":"Signaler, ej signifikant i hela gruppen","date":"15 juni 2026","body":"I per-protokollanalysen var ACR20 76,4 % med bästa dos jämfört med 60,8 % i kontrollgruppen (p=0,06). För en specificerad undergrupp rapporterades signifikans (p=0,03). Totalt resultat ska inte beskrivas som en statistiskt bekräftad primär effekt.","url":"https://www.synactpharma.com/en/phase-2b-advance-study-demonstrates-positive-effects-of-resomelagon-in-rheumatoid-arthritis-supports-phase-3-design-regulatory-interactions-and-partnering/"},{"track":"company","col":3,"status":"done","title":"Fenja-facilitet","subtitle":"Upp till 100 miljoner kr","date":"20 juli 2026","body":"SynAct säkrade en konvertibel finansieringsfacilitet på upp till 100 miljoner kronor med Fenja, varav initialt 50 miljoner kronor drogs. Detta är lånefinansiering, inte en kontant köpeskilling från ett läkemedelsavtal.","url":"https://view.news.eu.nasdaq.com/view?id=b2d0201c12f8e5e39e3776fb79c6e776e&lang=en&src=micro"},{"track":"ra","col":3,"status":"done","title":"Fördjupad analys","subtitle":"Explorativ undergrupp","date":"7 september 2026","body":"Efterhandsanalysen av ADVANCE visade ACR20 79 % mot 55 % i en subgrupp med stabilare hsCRP (p<0,05). Resultatet är post hoc och motiverar en prospektiv fas III-design, men är inte en bekräftande fas III-effekt.","url":"https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"},{"track":"dengue","col":3,"status":"done","title":"WHO-uppmärksamhet","subtitle":"En av sex kandidater","date":"16 september 2026","body":"SynAct rapporterade att WHO lyft resomelagon som en av sex dengue-läkemedelskandidater med evidens som motiverar fortsatt klinisk utveckling. Det är inte ett regulatoriskt godkännande.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"dengue","col":4,"status":"done","title":"Hipolabor-avtalet","subtitle":"50/50 · Brasilien","date":"27 oktober 2026","body":"Samarbetet med Hipolabor omfattar 50/50 vinstdelning i Brasilien samt delning av utvecklingskostnaderna 50/50. Ytterligare försäljningsrelaterade milstolpar är kopplade till kumulativ nettoförsäljning om 200 miljoner USD.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"company","col":4,"status":"done","title":"Q3-rapport","subtitle":"42,4 miljoner kr kassa","date":"3 november 2026","body":"Kassan per 30 september var 42,364 miljoner kronor. Bolaget bedömer att finansieringen räcker in i fjärde kvartalet 2027. Bedömningen förutsätter bolagets egna antaganden och utgör ingen garanti.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"company","col":4,"status":"done","title":"BioVal inleder bevakning","subtitle":"2,90 miljarder kr rNPV","date":"3 november 2026","body":"BioVal BioStock Analytics publicerade en av SynAct betald uppdragsanalys. Riskjusterat sammanlagt värde enligt modellen: 2,90 miljarder kronor, där den största delen kommer från RA.","url":"https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"},{"track":"company","col":4,"status":"done","title":"Amerikanskt patentbesked","subtitle":"Notice of Allowance","date":"13 november 2026","body":"USPTO har meddelat Notice of Allowance för patentansökan om resomelagons snabbfrisättande tablettformulering. Patentet förväntas utfärdas efter att utfärdandeavgiften erlagts; beskedet är ännu inte samma sak som ett färdigutfärdat patent.","url":"https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet"},{"track":"ra","col":4,"status":"done","title":"FDA Type C begärs","subtitle":"Fas III-studiedesign","date":"Q4 2026 (rapporterat 3 november)","body":"SynAct har enligt beskedet den 3 november begärt ett Type C-möte med FDA för att diskutera centrala delar i den planerade fas III-designen. FDA:s återkoppling har ännu inte erhållits.","url":"https://www.synactpharma.com/en/synact-pharma-announces-initiation-of-coverage-by-bioval-biostock-analytics/"},{"track":"dengue","col":4,"status":"future","title":"RESOVIR-2 del 1","subtitle":"Data under 2026 · villkorat","date":"Q4 2026 (bolagets mål)","body":"Resultat från del 1 väntas under 2026, beroende på regulatorisk återkoppling och analysarbete. Prognosen är inte en säkerställd rapportdag.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"rvi","col":4,"status":"future","title":"RESPIRE rekrytering","subtitle":"Säsongsberoende","date":"Q4 2026–Q1 2027","body":"Bolaget väntar sig att rekryteringen i Europa kan avslutas när virussäsongen återkommer sent 2026 eller tidigt 2027.","url":"https://www.synactpharma.com/en/investors/message-from-the-ceo/"},{"track":"ra","col":5,"status":"future","title":"FDA:s återkoppling","subtitle":"Type C · fas III","date":"Slutet av 2026–början av 2027","body":"FDA:s återkoppling om föreslagna element i fas III-programmet väntas vid årsskiftet 2026/2027. Beroende på utfallet kan studiedesignen behöva justeras.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"dengue","col":5,"status":"future","title":"Ny dengue-rekrytering","subtitle":"RESOVIR-2 del 2","date":"H1 2027","body":"Bolagets plan är att inkludera ytterligare patienter under dengue-säsongen första halvåret 2027.","url":"https://www.synactpharma.com/en/investors/message-from-the-ceo/"},{"track":"dengue","col":6,"status":"future","title":"Fullständiga toppdata","subtitle":"RESOVIR-2","date":"Q2 2027 (mål)","body":"Bolagets mål är topline-resultat från hela fas II-studien RESOVIR-2 under andra kvartalet 2027. Tidsplan och resultat kan ändras.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"company","col":7,"status":"future","title":"Finansierad verksamhet","subtitle":"In i Q4 2027","date":"Q4 2027 (bedömning)","body":"Bolaget uppger att finansiering finns in i fjärde kvartalet 2027. Det är en prognos och inte en garanti för att inga nya kapitalbehov kan uppstå.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"}];
+const valuations=[{"who":"Redeye","date":"2025-06-27","value":25,"type":"Base Case · uppdragsanalys","body":"Redeye höjde sitt basscenario till 25 kr per aktie från 21 kr i juni 2025. Historiskt estimat; inte en aktuell rekommendation.","url":"https://res.cloudinary.com/redeye/image/upload/v1751001480/article-pdfs/note/synact-pharma-new-indication-provides-diversification_rvek6a.pdf"},{"who":"Edison","date":"2025-10-28","value":36.9,"type":"Motiverat värde · uppdragsanalys","body":"Edison inledde bevakning med ett riskjusterat motiverat värde på 36,90 kr per aktie (sammanlagt cirka 1,97 miljarder kr).","url":"https://www.placera.se/telegram/synact-pharma-edison-inleder-bevakning-av-synact-pharma-ser-varde-om-36-9-kronor-per-aktie-20251028"},{"who":"Redeye","date":"2025-11-03","value":26,"type":"Base Case · uppdragsanalys","body":"Redeye redovisade ett historiskt basscenario på 26 kr per aktie, upp från 25 kr. Senare analyser kan ha ändrat värdet.","url":"https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf"},{"who":"Edison","date":"2026-03-04","value":39.3,"type":"Motiverat värde · uppdragsanalys","body":"Edison höjde sitt motiverade värde från 36,90 till 39,30 kr per aktie (värdering cirka 2,21 miljarder kr) efter rapport och emission.","url":"https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304"},{"who":"BioVal","date":"2026-11-03","value":51.58860160876741,"type":"Omräknat modellvärde per aktie · inte riktkurs","body":"BioVal värderade tre tillgångar till sammanlagt cirka 2,90 miljarder kr i sin betalda rNPV-analys. Grafvärdet är 2 900 000 000 / 56 213 968 ≈ 51,59 kr per befintlig aktie. Detta är en matematisk omräkning, inte en uttalad riktkurs; utfallet är känsligt för antaganden, kostnader och framtida utspädning.","url":"https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/"}];
+const tracks=[["ra","Reumatoid artrit"],["dengue","Dengue"],["rvi","Virusinfektioner"],["company","Bolaget"]];
+const periodButtons=document.querySelectorAll('[data-period]');
+const selected=new Set(tracks.map(x=>x[0]));let period="relevant";let currentAnchor=null;
+function openInfo(m, anchor){
+ const modal=document.getElementById('modal');
+ if(modal.classList.contains('open') && currentAnchor===anchor){closeInfo();return;}
+ currentAnchor=anchor;
+ document.getElementById('modal-date').textContent=m.date||'';
+ document.getElementById('modal-title').textContent=m.title;
+ document.getElementById('modal-body').textContent=m.body||'';
+ const links=document.getElementById('modal-links');links.replaceChildren();
+ if(m.url){const a=document.createElement('a');a.href=m.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Läs originalkällan ↗';links.append(a);}
+ modal.classList.add('open');positionInfo();
+}
+function closeInfo(){document.getElementById('modal').classList.remove('open');currentAnchor=null}
+function positionInfo(){
+ if(!currentAnchor)return;
+ const dialog=document.querySelector('#modal .dialog');const r=currentAnchor.getBoundingClientRect();
+ const w=Math.min(510,innerWidth-24);dialog.style.width=w+'px';dialog.style.left=Math.max(12,Math.min(r.left,innerWidth-w-12))+'px';
+ const h=dialog.getBoundingClientRect().height;const below=r.bottom+10;
+ dialog.style.top=(below+h<innerHeight-10?below:Math.max(12,r.top-h-10))+'px';
+}
+document.getElementById('close').addEventListener('click',closeInfo);
+document.addEventListener('pointerdown',e=>{if(currentAnchor&&!e.target.closest('.dialog')&&!e.target.closest('.milestone')&&!e.target.closest('.valuation-point')&&!e.target.closest('.chart-tile'))closeInfo()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo()});
+window.addEventListener('resize',positionInfo);window.addEventListener('scroll',positionInfo,true);
+function renderTimeline(){
+ const board=document.getElementById('timeline');board.querySelectorAll('.trackrow').forEach(x=>x.remove());
+ for(const [track,label] of tracks){
+  const row=document.createElement('div');row.className='trackrow';
+  if(!selected.has(track)){continue}
+  const caption=document.createElement('div');caption.className='track-label '+track;caption.textContent=label;row.append(caption);
+  for(let col=0;col<9;col++){
+   const cell=document.createElement('div');cell.className='cell';
+   for(const m of milestones.filter(m=>m.track===track && m.col===col && (period==='all'||period==='relevant'&&(m.col>=3)||period==='done'&&m.status==='done'||period==='future'&&m.status==='future'))){
+    const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'');
+    const s=document.createElement('strong');s.textContent=m.title;const small=document.createElement('small');small.textContent=m.subtitle;
+    b.append(s,small);b.title=m.date+' · '+m.title;b.addEventListener('click',()=>openInfo(m,b));cell.append(b);
+   }
+   row.append(cell);
+  }
+  board.append(row);
+ }
+ document.querySelectorAll('.track').forEach(b=>b.classList.toggle('active',selected.has(b.dataset.track)));
+ document.querySelector('[data-track="all"]').classList.toggle('active',selected.size===tracks.length);
+}
+periodButtons.forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;periodButtons.forEach(x=>x.classList.toggle('active',b===x));renderTimeline()}));
+document.querySelectorAll('.track').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.track;if(selected.has(t)){if(selected.size>1)selected.delete(t)}else selected.add(t);renderTimeline()}));
+document.querySelector('[data-track="all"]').addEventListener('click',()=>{selected.clear();tracks.forEach(x=>selected.add(x[0]));renderTimeline()});
+renderTimeline();
+function drawValuations(){
+ const svg=document.getElementById('valuation-chart');const ns='http://www.w3.org/2000/svg';
+ const el=(tag,atts,parent=svg)=>{const node=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(atts))node.setAttribute(k,v);parent.append(node);return node};
+ const left=65,right=1047,top=35,bottom=313;
+ const from=Date.parse('2025-05-01'),to=Date.parse('2027-01-01'),max=60;
+ const x=d=>left+(Date.parse(d)-from)/(to-from)*(right-left);
+ const y=v=>bottom-v/max*(bottom-top);
+ for(let v=0;v<=60;v+=10){el('line',{x1:left,x2:right,y1:y(v),y2:y(v),stroke:'#334657','stroke-dasharray':'5 8'});const t=el('text',{x:52,y:y(v)+4,fill:'#b1c1d0','font-size':12,'text-anchor':'end'});t.textContent=v;}
+ for(const [date,label] of [['2025-06-01','Jun 2025'],['2025-10-01','Okt 2025'],['2026-03-01','Mar 2026'],['2026-07-01','Jul 2026'],['2026-11-01','Nov 2026']]){const t=el('text',{x:x(date),y:344,fill:'#b1c1d0','font-size':12,'text-anchor':'middle'});t.textContent=label;}
+ const typecolor={Edison:'#5cc8fb',Redeye:'#9fe2b0',BioVal:'#ffba79'};
+ for(const who of ['Redeye','Edison','BioVal']){
+  const points=valuations.filter(v=>v.who===who).sort((a,b)=>a.date.localeCompare(b.date));
+  if(points.length>1)el('path',{d:points.map((p,i)=>(i?'L':'M')+x(p.date).toFixed(2)+' '+y(p.value).toFixed(2)).join(' '),fill:'none',stroke:typecolor[who],'stroke-width':'2.5','stroke-dasharray':'7 5','stroke-linecap':'round'});
+  for(const p of points){
+   const dot=el('circle',{cx:x(p.date),cy:y(p.value),r:7,fill:typecolor[who],class:'valuation-point',tabindex:0,role:'button','aria-label':who+' '+p.value.toFixed(2)+' kronor, '+p.date});
+   const title=el('title',{},dot);title.textContent=who+' · '+p.value.toFixed(2)+' kr · '+p.date;
+   const detail={date:p.date,title:who+' · '+p.value.toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kr/aktie',body:p.type+'. '+p.body,url:p.url};
+   dot.addEventListener('click',()=>openInfo(detail,dot));dot.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInfo(detail,dot)}});
+   const label=el('text',{x:x(p.date)+13,y:y(p.value)-9,fill:typecolor[who],'font-size':13,'font-weight':750});label.textContent=p.value.toLocaleString('sv-SE',{maximumFractionDigits:2})+' kr';
+  }
+ }
+ const host=document.getElementById('valuation-highlights');for(const p of [valuations[2],valuations[3],valuations[4]]){
+  const b=document.createElement('button');b.type='button';b.className='chart-tile';b.innerHTML='<small></small><strong></strong><small></small>';
+  b.children[0].textContent=p.who+' · '+p.date;b.children[1].textContent=p.value.toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kr';b.children[2].textContent=p.type;
+  b.addEventListener('click',()=>openInfo({date:p.date,title:p.who+' · värderingsuppdatering',body:p.body,url:p.url},b));host.append(b);
+ }
+}
+drawValuations();
+function updateCalc(){const sales=Number(document.getElementById('sales').value),margin=Number(document.getElementById('margin').value);const output=document.getElementById('profit-result');output.textContent=Number.isFinite(sales)&&sales>=0&&Number.isFinite(margin)&&margin>=0&&margin<=100?(sales*margin/200).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' MUSD':'—';}
+document.getElementById('sales').addEventListener('input',updateCalc);document.getElementById('margin').addEventListener('input',updateCalc);updateCalc();
+(async()=>{
+ const status=document.getElementById('news-status');
+ try{
+  const response=await fetch('./data/news.json',{cache:'no-store'});if(!response.ok)throw Error(String(response.status));
+  const data=await response.json();const items=(data.items||[]).filter(it=>/synact|resomelagon/i.test(it.title||'')).slice(0,10);
+  const host=document.getElementById('news');const present=new Set([...host.querySelectorAll('a')].map(a=>a.href));
+  let added=0;
+  for(const it of items){if(!/^https:\/\//.test(it.url)||present.has(it.url))continue;
+   const article=document.createElement('article');article.className='news-card';const s=document.createElement('small');s.textContent=[it.date,it.source].filter(Boolean).join(' · ');const h=document.createElement('h3');h.textContent=it.title;const a=document.createElement('a');a.href=it.url;a.rel='noopener noreferrer';a.target='_blank';a.textContent='Läs originalartikeln ↗';article.append(s,h,a);host.append(article);present.add(it.url);added++;
+  }
+  status.textContent=added?'Senaste RSS-hämtning: '+new Date(data.updated_at).toLocaleString('sv-SE')+' · '+added+' ytterligare rubriker':'Visar verifierade pressmeddelanden; inga nya RSS-rubriker.';
+ }catch(err){status.textContent='Visar verifierade pressmeddelanden. Automatisk RSS är ännu inte tillgänglig.';}
+})();
+</script></body></html>
