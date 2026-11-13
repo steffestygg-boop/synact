@@ -637,6 +637,22 @@ footer{
 #modal-links{margin-top:15px;padding-top:12px;border-top:1px solid #456273}
 #modal-links a{font-size:13px;font-weight:700}
 @media(max-width:650px){.timeline{grid-template-columns:100px repeat(var(--timeline-count,7),minmax(142px,1fr))!important}.timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),minmax(142px,1fr))!important}.timeline .track-label{font-size:11px}.modal .dialog{max-height:87vh}}
+
+/* Compact milestone tiles — same two-line presentation as Isofol.
+   Full dates are intentionally available only in the clickable details. */
+.timeline{grid-template-columns:106px repeat(var(--timeline-count,7),minmax(136px,1fr))!important}
+.timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),minmax(136px,1fr))!important}
+.timeline .track-label{min-height:76px;padding:8px 6px;font-size:11px;line-height:1.22}
+.timeline .cell{min-height:76px;gap:6px;padding:7px 5px}
+.timeline .milestone{width:100%;padding:8px 9px;border-radius:8px;line-height:1.25}
+.timeline .milestone strong{font-size:11px;line-height:1.28}
+.timeline .milestone small{font-size:10px;line-height:1.32;margin-top:4px}
+@media(max-width:650px){
+  .timeline{grid-template-columns:96px repeat(var(--timeline-count,7),minmax(130px,1fr))!important}
+  .timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),minmax(130px,1fr))!important}
+  .timeline .cell{min-height:70px}
+  .timeline .milestone{padding:7px 8px}
+}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -785,9 +801,10 @@ function renderTimeline(){
    for(const m of trackMilestones.filter(m=>m.era===era)){
     const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'');
     const s=document.createElement('strong');s.textContent=m.title;
-    const small=document.createElement('small');small.textContent=m.subtitle||m.date;
-    const miniDate=document.createElement('small');miniDate.className='milestone-date';miniDate.textContent=m.date;
-    b.append(s,small,miniDate);b.title=m.date+' · '+m.title;
+    const small=document.createElement('small');small.textContent=m.subtitle||'';
+    b.append(s);
+    if(small.textContent.trim())b.append(small);
+    b.title=m.date+' · '+m.title;
     b.addEventListener('click',()=>openInfo(m,b));cell.append(b);shown++;
    }
    row.append(cell);
