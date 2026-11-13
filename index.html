@@ -604,6 +604,39 @@ footer{
 .stock-overview .market-footline details p{margin:8px 0 0;max-width:800px;line-height:1.7}
 @media(max-width:1200px){.stock-overview .market-board{grid-template-columns:repeat(4,minmax(0,1fr))}.stock-overview .market-quote{grid-column:1/-1;border-bottom:1px solid #395263;border-right:0}.stock-overview .market-metric{grid-column:span 1}.stock-overview .market-owners{grid-column:span 2}}
 @media(max-width:650px){.stock-overview .market-board{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-overview .market-quote{grid-column:1/-1}.stock-overview .market-metric{min-height:105px;padding:14px 12px}.stock-overview .market-owners{grid-column:1/-1;border-top:1px solid #395263}.stock-overview .market-metric:last-child{border-right:0}.stock-overview .market-metric strong{font-size:21px}}
+
+/* Utökad källkontrollerad historik: skala tidsaxeln efter valt årsintervall. */
+#milestones-heading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.milestone-total{font-size:12px;font-weight:650;color:#b7a7de;letter-spacing:0}
+.timeline-overview{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:6px 1px 9px;font-size:11px;color:#c6bde1}
+.timeline{display:grid!important;grid-template-columns:114px repeat(var(--timeline-count,7),minmax(154px,1fr))!important;min-width:max-content!important}
+.timeline .axis{grid-column:2/-1!important;display:grid!important;grid-template-columns:repeat(var(--timeline-count,7),minmax(154px,1fr))!important}
+.timeline .axis span{min-width:0;white-space:nowrap}
+.timeline .axis-filler{grid-column:1;position:sticky;left:0;background:#181925;z-index:4;border-bottom:1px solid #393447}
+.timeline .track-label{min-height:105px;white-space:normal}
+.timeline .cell{min-height:120px;min-width:0}
+.timeline .milestone{width:100%;min-width:0;padding:11px 9px 10px;overflow-wrap:anywhere}
+.timeline .milestone-date{border-top:1px solid #29384535;margin-top:9px;padding-top:6px;font-size:10px}
+.timeline .milestone.future .milestone-date{border-color:#a6a1c02e}
+.track-label.renal{color:#e0c782}.track-label.pipeline{color:#e7a1d6}.track-label.ip{color:#a7dddc}
+.milestone.renal,.milestone.future.renal{border-left-color:#e0c782}
+.milestone.pipeline,.milestone.future.pipeline{border-left-color:#e7a1d6}
+.milestone.ip,.milestone.future.ip{border-left-color:#a7dddc}
+.toolbar button.track[data-track="renal"]{background:#e0c782;color:#302515}
+.toolbar button.track[data-track="pipeline"]{background:#e7a1d6;color:#311b2a}
+.toolbar button.track[data-track="ip"]{background:#a7dddc;color:#193032}
+.toolbar .group{flex-wrap:wrap}
+.milestone-disclaimer{flex:1;min-width:200px;line-height:1.6}
+.modal .dialog{max-height:min(85vh,760px)}
+.modal .date{line-height:1.5}
+.modal-body{margin-top:12px}
+.modal-explain{padding-top:11px;margin-top:10px;border-top:1px solid #405564}
+.modal-explain:first-child{border-top:0;margin-top:0;padding-top:0}
+.modal-explain h3{margin:0 0 5px;font-size:12px;color:#83e1c5;text-transform:uppercase;letter-spacing:.07em}
+.modal-explain p{margin:0;font-size:13px;line-height:1.68;color:#d2e0e8}
+#modal-links{margin-top:15px;padding-top:12px;border-top:1px solid #456273}
+#modal-links a{font-size:13px;font-weight:700}
+@media(max-width:650px){.timeline{grid-template-columns:100px repeat(var(--timeline-count,7),minmax(142px,1fr))!important}.timeline .axis{grid-template-columns:repeat(var(--timeline-count,7),minmax(142px,1fr))!important}.timeline .track-label{font-size:11px}.modal .dialog{max-height:87vh}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -644,12 +677,39 @@ footer{
 <article class="news-card"><small>3 nov 2026 · SynAct</small><h3>BioVal värderar tre resomelagontillgångar till sammanlagt 2,9 miljarder kronor</h3><a href="https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 <article class="news-card"><small>27 okt 2026 · SynAct</small><h3>Första kommersiella partneravtalet med Hipolabor för dengue i Brasilien</h3><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 </div></section>
-<section aria-labelledby="milestones-heading"><p class="section-kicker"><span class="section-number">04</span> Klinisk utveckling &amp; bolaget</p><h2 class="section" id="milestones-heading">Milstolpar</h2>
-<p class="intro">Klicka på en händelse för datum, bakgrund och originalkälla. Välj period eller spår för att filtrera.</p>
-<div class="toolbar"><div class="group"><span class="hint">VISA</span><button class="period active" data-period="relevant">Aktuellt</button><button class="period" data-period="all">Allt</button><button class="period" data-period="done">Historik</button><button class="period" data-period="future">Framåt</button></div>
-<div class="group"><span class="hint">SPÅR</span><button data-track="all" class="active">Alla</button><button class="track active" data-track="ra">RA</button><button class="track active" data-track="dengue">Dengue</button><button class="track active" data-track="rvi">RESPIRE</button><button class="track active" data-track="company">Bolaget</button></div></div>
-<div class="timeline-scroll"><div class="timeline" id="timeline"><div style="grid-column:1"></div><div class="axis"><span>2024</span><span>2025</span><span>H1 2026</span><span>Q3 2026</span><span>Q4 2026</span><span>Q1 2027</span><span>Q2 2027</span><span>H2 2027</span><span>2028+</span></div></div></div>
-<div class="milestone-key"><span><i aria-hidden="true"></i>Levererad</span><span><i class="upcoming" aria-hidden="true"></i>Planerad / prognos</span></div></section>
+<section aria-labelledby="milestones-heading">
+<p class="section-kicker"><span class="section-number">04</span> Klinisk utveckling &amp; bolaget</p>
+<h2 class="section" id="milestones-heading">Milstolpar <span id="milestone-total" class="milestone-total"></span></h2>
+<p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Klicka på varje ruta för fördjupning, vad händelsen betyder och länk till ursprungskälla.</p>
+<p class="status" id="research-status">Läser in källkontrollerad milstolpshistorik …</p>
+<div class="toolbar">
+  <div class="group"><span class="hint">PERIOD</span>
+    <button type="button" class="period active" data-period="relevant">Aktuellt</button>
+    <button type="button" class="period" data-period="all">Alla år</button>
+    <button type="button" class="period" data-period="early">2011–2020</button>
+    <button type="button" class="period" data-period="middle">2021–2024</button>
+    <button type="button" class="period" data-period="done">Levererat</button>
+    <button type="button" class="period" data-period="future">Framåt</button>
+  </div>
+  <div class="group"><span class="hint">SPÅR</span>
+    <button type="button" data-track="all" class="active">Alla</button>
+    <button type="button" class="track active" data-track="ra">RA</button>
+    <button type="button" class="track active" data-track="dengue">Dengue</button>
+    <button type="button" class="track active" data-track="rvi">Virus / RESPIRE</button>
+    <button type="button" class="track active" data-track="renal">Njure</button>
+    <button type="button" class="track active" data-track="pipeline">TXP / övrigt</button>
+    <button type="button" class="track active" data-track="ip">Patent</button>
+    <button type="button" class="track active" data-track="company">Bolaget</button>
+  </div>
+</div>
+<div class="timeline-overview"><span id="milestone-count">Laddar händelser …</span><span>Sidled för fler år <span aria-hidden="true">↔</span></span></div>
+<div class="timeline-scroll" id="timeline-scroll"><div class="timeline" id="timeline"><div class="axis-filler"></div><div class="axis" id="timeline-axis"></div></div></div>
+<div class="milestone-key" aria-label="Milstolpsstatus">
+<span><i aria-hidden="true"></i>Genomförd / rapporterad</span>
+<span><i class="upcoming" aria-hidden="true"></i>Planerad / prognos</span>
+<span class="milestone-disclaimer">En undergruppsanalys eller en plan är inte samma sak som bekräftad klinisk effekt.</span>
+</div>
+</section>
 <section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">05</span> Analys &amp; värdering</p>
 <div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Källkontrollerade publiceringar · kr per aktie · klicka på punkter för analysförändringen.</p></div>
 <div class="valuation-legend"><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#ffba79"></i>BioVal*</span></div></div>
@@ -658,22 +718,31 @@ footer{
 <p class="note"><b>*Viktigt:</b> BioVals 2,90 miljarder kr är en samlad riskjusterad modellvärdering, inte en publicerad riktkurs per aktie. Punktvärdet (~51,59 kr) är vår omräkning med 56 213 968 utestående aktier. Analysföretagen använder olika antaganden; historiska riktkurser är inte uppdaterade i realtid. Dessa är uppdragsanalyser (betalda av bolaget) och värderingarna utgör inte löften om kursutvecklingen. <a href="https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/" target="_blank" rel="noopener">BioVal 3 november ↗</a> · <a href="https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304" target="_blank" rel="noopener">Edison 4 mars ↗</a> · <a href="https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf" target="_blank" rel="noopener">Redeye 2025 ↗</a>.</p></section>
 <footer>Privat, oberoende investeraröversikt · Datakontroll 13 november 2026 · Ej investeringsrådgivning. Kursdata kan vara fördröjda. Tidslinje och analysvärderingar uppdateras redaktionellt, medan nyhetsflödet kan uppdateras automatiskt. Planerade händelser är inte bekräftade utfall.</footer>
 </div>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog"><button id="close" aria-label="Stäng">×</button><div class="date" id="modal-date"></div><h2 id="modal-title"></h2><p id="modal-body"></p><div id="modal-links"></div></div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog"><button id="close" aria-label="Stäng">×</button><div class="date" id="modal-date"></div><h2 id="modal-title"></h2><div id="modal-body" class="modal-body"></div><div id="modal-links"></div></div></div>
 <script>
-const milestones=[{"track":"ra","col":0,"status":"done","title":"ADVANCE inleds","subtitle":"Fas IIb · RA","date":"2024","body":"SynAct inledde fas IIb-studien ADVANCE med resomelagon för behandling av reumatoid artrit. Studien var avsedd att komplettera tidigare fas IIb-data.","url":"https://www.synactpharma.com/sv/om-oss/historia/"},{"track":"dengue","col":1,"status":"done","title":"RESOVIR-2 startar","subtitle":"Fas II · Brasilien","date":"Q2 2025","body":"SynAct inledde RESOVIR-2 för resomelagon vid denguefeber i Brasilien.","url":"https://www.synactpharma.com/en/about/history/"},{"track":"ra","col":2,"status":"done","title":"Full rekrytering","subtitle":"ADVANCE","date":"6 februari 2026","body":"SynAct meddelade att rekryteringsmålet i fas IIb-studien ADVANCE uppnåtts.","url":"https://www.synactpharma.com/en/synact-pharma-year-end-report-2025/"},{"track":"rvi","col":2,"status":"done","title":"RESPIRE inleds","subtitle":"Fas II · virusinfektioner","date":"30 januari 2026","body":"Fas II-studien RESPIRE initierades för resomelagon hos sjukhusvårdade patienter med respiratorisk insufficiens orsakad av virusinfektion.","url":"https://www.synactpharma.com/en/synact-pharma-initiates-phase-2-study-in-respiratory-insufficiency/"},{"track":"company","col":2,"status":"done","title":"Riktad emission","subtitle":"51,9 miljoner kr","date":"2 mars 2026","body":"En riktad nyemission om cirka 51,9 miljoner kronor genomfördes. Antalet aktier steg till 56 213 968 efter registrering i mars.","url":"https://www.synactpharma.com/sv/?p=27184"},{"track":"ra","col":2,"status":"done","title":"ADVANCE topline","subtitle":"Signaler, ej signifikant i hela gruppen","date":"15 juni 2026","body":"I per-protokollanalysen var ACR20 76,4 % med bästa dos jämfört med 60,8 % i kontrollgruppen (p=0,06). För en specificerad undergrupp rapporterades signifikans (p=0,03). Totalt resultat ska inte beskrivas som en statistiskt bekräftad primär effekt.","url":"https://www.synactpharma.com/en/phase-2b-advance-study-demonstrates-positive-effects-of-resomelagon-in-rheumatoid-arthritis-supports-phase-3-design-regulatory-interactions-and-partnering/"},{"track":"company","col":3,"status":"done","title":"Fenja-facilitet","subtitle":"Upp till 100 miljoner kr","date":"20 juli 2026","body":"SynAct säkrade en konvertibel finansieringsfacilitet på upp till 100 miljoner kronor med Fenja, varav initialt 50 miljoner kronor drogs. Detta är lånefinansiering, inte en kontant köpeskilling från ett läkemedelsavtal.","url":"https://view.news.eu.nasdaq.com/view?id=b2d0201c12f8e5e39e3776fb79c6e776e&lang=en&src=micro"},{"track":"ra","col":3,"status":"done","title":"Fördjupad analys","subtitle":"Explorativ undergrupp","date":"7 september 2026","body":"Efterhandsanalysen av ADVANCE visade ACR20 79 % mot 55 % i en subgrupp med stabilare hsCRP (p<0,05). Resultatet är post hoc och motiverar en prospektiv fas III-design, men är inte en bekräftande fas III-effekt.","url":"https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"},{"track":"dengue","col":3,"status":"done","title":"WHO-uppmärksamhet","subtitle":"En av sex kandidater","date":"16 september 2026","body":"SynAct rapporterade att WHO lyft resomelagon som en av sex dengue-läkemedelskandidater med evidens som motiverar fortsatt klinisk utveckling. Det är inte ett regulatoriskt godkännande.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"dengue","col":4,"status":"done","title":"Hipolabor-avtalet","subtitle":"50/50 · Brasilien","date":"27 oktober 2026","body":"Samarbetet med Hipolabor omfattar 50/50 vinstdelning i Brasilien samt delning av utvecklingskostnaderna 50/50. Ytterligare försäljningsrelaterade milstolpar är kopplade till kumulativ nettoförsäljning om 200 miljoner USD.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"company","col":4,"status":"done","title":"Q3-rapport","subtitle":"42,4 miljoner kr kassa","date":"3 november 2026","body":"Kassan per 30 september var 42,364 miljoner kronor. Bolaget bedömer att finansieringen räcker in i fjärde kvartalet 2027. Bedömningen förutsätter bolagets egna antaganden och utgör ingen garanti.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"company","col":4,"status":"done","title":"BioVal inleder bevakning","subtitle":"2,90 miljarder kr rNPV","date":"3 november 2026","body":"BioVal BioStock Analytics publicerade en av SynAct betald uppdragsanalys. Riskjusterat sammanlagt värde enligt modellen: 2,90 miljarder kronor, där den största delen kommer från RA.","url":"https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"},{"track":"company","col":4,"status":"done","title":"Amerikanskt patentbesked","subtitle":"Notice of Allowance","date":"13 november 2026","body":"USPTO har meddelat Notice of Allowance för patentansökan om resomelagons snabbfrisättande tablettformulering. Patentet förväntas utfärdas efter att utfärdandeavgiften erlagts; beskedet är ännu inte samma sak som ett färdigutfärdat patent.","url":"https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet"},{"track":"ra","col":4,"status":"done","title":"FDA Type C begärs","subtitle":"Fas III-studiedesign","date":"Q4 2026 (rapporterat 3 november)","body":"SynAct har enligt beskedet den 3 november begärt ett Type C-möte med FDA för att diskutera centrala delar i den planerade fas III-designen. FDA:s återkoppling har ännu inte erhållits.","url":"https://www.synactpharma.com/en/synact-pharma-announces-initiation-of-coverage-by-bioval-biostock-analytics/"},{"track":"dengue","col":4,"status":"future","title":"RESOVIR-2 del 1","subtitle":"Data under 2026 · villkorat","date":"Q4 2026 (bolagets mål)","body":"Resultat från del 1 väntas under 2026, beroende på regulatorisk återkoppling och analysarbete. Prognosen är inte en säkerställd rapportdag.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"rvi","col":4,"status":"future","title":"RESPIRE rekrytering","subtitle":"Säsongsberoende","date":"Q4 2026–Q1 2027","body":"Bolaget väntar sig att rekryteringen i Europa kan avslutas när virussäsongen återkommer sent 2026 eller tidigt 2027.","url":"https://www.synactpharma.com/en/investors/message-from-the-ceo/"},{"track":"ra","col":5,"status":"future","title":"FDA:s återkoppling","subtitle":"Type C · fas III","date":"Slutet av 2026–början av 2027","body":"FDA:s återkoppling om föreslagna element i fas III-programmet väntas vid årsskiftet 2026/2027. Beroende på utfallet kan studiedesignen behöva justeras.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"},{"track":"dengue","col":5,"status":"future","title":"Ny dengue-rekrytering","subtitle":"RESOVIR-2 del 2","date":"H1 2027","body":"Bolagets plan är att inkludera ytterligare patienter under dengue-säsongen första halvåret 2027.","url":"https://www.synactpharma.com/en/investors/message-from-the-ceo/"},{"track":"dengue","col":6,"status":"future","title":"Fullständiga toppdata","subtitle":"RESOVIR-2","date":"Q2 2027 (mål)","body":"Bolagets mål är topline-resultat från hela fas II-studien RESOVIR-2 under andra kvartalet 2027. Tidsplan och resultat kan ändras.","url":"https://www.synactpharma.com/en/?p=27624"},{"track":"company","col":7,"status":"future","title":"Finansierad verksamhet","subtitle":"In i Q4 2027","date":"Q4 2027 (bedömning)","body":"Bolaget uppger att finansiering finns in i fjärde kvartalet 2027. Det är en prognos och inte en garanti för att inga nya kapitalbehov kan uppstå.","url":"https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"}];
+let milestones=[];
+let eras=[];
 const valuations=[{"who":"Redeye","date":"2025-06-27","value":25,"type":"Base Case · uppdragsanalys","body":"Redeye höjde sitt basscenario till 25 kr per aktie från 21 kr i juni 2025. Historiskt estimat; inte en aktuell rekommendation.","url":"https://res.cloudinary.com/redeye/image/upload/v1751001480/article-pdfs/note/synact-pharma-new-indication-provides-diversification_rvek6a.pdf"},{"who":"Edison","date":"2025-10-28","value":36.9,"type":"Motiverat värde · uppdragsanalys","body":"Edison inledde bevakning med ett riskjusterat motiverat värde på 36,90 kr per aktie (sammanlagt cirka 1,97 miljarder kr).","url":"https://www.placera.se/telegram/synact-pharma-edison-inleder-bevakning-av-synact-pharma-ser-varde-om-36-9-kronor-per-aktie-20251028"},{"who":"Redeye","date":"2025-11-03","value":26,"type":"Base Case · uppdragsanalys","body":"Redeye redovisade ett historiskt basscenario på 26 kr per aktie, upp från 25 kr. Senare analyser kan ha ändrat värdet.","url":"https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf"},{"who":"Edison","date":"2026-03-04","value":39.3,"type":"Motiverat värde · uppdragsanalys","body":"Edison höjde sitt motiverade värde från 36,90 till 39,30 kr per aktie (värdering cirka 2,21 miljarder kr) efter rapport och emission.","url":"https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304"},{"who":"BioVal","date":"2026-11-03","value":51.58860160876741,"type":"Omräknat modellvärde per aktie · inte riktkurs","body":"BioVal värderade tre tillgångar till sammanlagt cirka 2,90 miljarder kr i sin betalda rNPV-analys. Grafvärdet är 2 900 000 000 / 56 213 968 ≈ 51,59 kr per befintlig aktie. Detta är en matematisk omräkning, inte en uttalad riktkurs; utfallet är känsligt för antaganden, kostnader och framtida utspädning.","url":"https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/"}];
-const tracks=[["ra","Reumatoid artrit"],["dengue","Dengue"],["rvi","Virusinfektioner"],["company","Bolaget"]];
+const tracks=[["ra","Reumatoid artrit"],["dengue","Dengue"],["rvi","Virusinfektioner"],["renal","Njursjukdom"],["pipeline","TXP / övriga program"],["ip","Patent / formulering"],["company","Bolaget / finansiering"]];
 const periodButtons=document.querySelectorAll('[data-period]');
 const selected=new Set(tracks.map(x=>x[0]));let period="relevant";let currentAnchor=null;
 function openInfo(m, anchor){
  const modal=document.getElementById('modal');
  if(modal.classList.contains('open') && currentAnchor===anchor){closeInfo();return;}
  currentAnchor=anchor;
- document.getElementById('modal-date').textContent=m.date||'';
- document.getElementById('modal-title').textContent=m.title;
- document.getElementById('modal-body').textContent=m.body||'';
+ const status=m.status==='future'?' · PLANERAD / EJ RAPPORTERAT UTFALL':m.status==='done'?' · RAPPORTERAD HÄNDELSE':'';
+ document.getElementById('modal-date').textContent=(m.date||'')+status;
+ document.getElementById('modal-title').textContent=m.title||'Information';
+ const body=document.getElementById('modal-body');body.replaceChildren();
+ for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Att tänka på',m.caveat]]){
+  if(!value)continue;
+  const item=document.createElement('div');item.className='modal-explain';
+  const heading=document.createElement('h3');heading.textContent=label;
+  const p=document.createElement('p');p.textContent=value;
+  item.append(heading,p);body.append(item);
+ }
  const links=document.getElementById('modal-links');links.replaceChildren();
- if(m.url){const a=document.createElement('a');a.href=m.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Läs originalkällan ↗';links.append(a);}
+ if(m.url){const a=document.createElement('a');a.href=m.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Öppna originalkälla ↗';links.append(a);}
  modal.classList.add('open');positionInfo();
 }
 function closeInfo(){document.getElementById('modal').classList.remove('open');currentAnchor=null}
@@ -688,23 +757,45 @@ document.getElementById('close').addEventListener('click',closeInfo);
 document.addEventListener('pointerdown',e=>{if(currentAnchor&&!e.target.closest('.dialog')&&!e.target.closest('.milestone')&&!e.target.closest('.valuation-point')&&!e.target.closest('.chart-tile'))closeInfo()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo()});
 window.addEventListener('resize',positionInfo);window.addEventListener('scroll',positionInfo,true);
+const periodEraMap={
+ relevant:[9,10,11,12,13,14,15],
+ all:Array.from({length:16},(_,i)=>i),
+ early:[0,1,2,3,4],
+ middle:[5,6,7,8],
+ done:Array.from({length:13},(_,i)=>i),
+ future:[12,13,14,15]
+};
 function renderTimeline(){
- const board=document.getElementById('timeline');board.querySelectorAll('.trackrow').forEach(x=>x.remove());
+ const board=document.getElementById('timeline');
+ const axis=document.getElementById('timeline-axis');
+ const periodEras=periodEraMap[period]||periodEraMap.relevant;
+ board.querySelectorAll('.trackrow').forEach(x=>x.remove());
+ axis.replaceChildren();
+ board.style.setProperty('--timeline-count',periodEras.length);
+ for(const era of periodEras){const tick=document.createElement('span');tick.textContent=eras[era]||'?';axis.append(tick);}
+ let shown=0;
  for(const [track,label] of tracks){
+  if(!selected.has(track))continue;
+  const trackMilestones=milestones.filter(m=>m.track===track&&periodEras.includes(m.era)&&(period!=='done'||m.status==='done')&&(period!=='future'||m.status==='future'));
+  if(!trackMilestones.length)continue;
   const row=document.createElement('div');row.className='trackrow';
-  if(!selected.has(track)){continue}
   const caption=document.createElement('div');caption.className='track-label '+track;caption.textContent=label;row.append(caption);
-  for(let col=0;col<9;col++){
+  for(const era of periodEras){
    const cell=document.createElement('div');cell.className='cell';
-   for(const m of milestones.filter(m=>m.track===track && m.col===col && (period==='all'||period==='relevant'&&(m.col>=3)||period==='done'&&m.status==='done'||period==='future'&&m.status==='future'))){
+   for(const m of trackMilestones.filter(m=>m.era===era)){
     const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'');
-    const s=document.createElement('strong');s.textContent=m.title;const small=document.createElement('small');small.textContent=m.subtitle;
-    b.append(s,small);b.title=m.date+' · '+m.title;b.addEventListener('click',()=>openInfo(m,b));cell.append(b);
+    const s=document.createElement('strong');s.textContent=m.title;
+    const small=document.createElement('small');small.textContent=m.subtitle||m.date;
+    const miniDate=document.createElement('small');miniDate.className='milestone-date';miniDate.textContent=m.date;
+    b.append(s,small,miniDate);b.title=m.date+' · '+m.title;
+    b.addEventListener('click',()=>openInfo(m,b));cell.append(b);shown++;
    }
    row.append(cell);
   }
   board.append(row);
  }
+ document.getElementById('milestone-count').textContent=shown+' visade av '+milestones.length+' dokumenterade händelser';
+ document.getElementById('milestone-total').textContent=milestones.length?'· '+milestones.length+' händelser':'';
  document.querySelectorAll('.track').forEach(b=>b.classList.toggle('active',selected.has(b.dataset.track)));
  document.querySelector('[data-track="all"]').classList.toggle('active',selected.size===tracks.length);
 }
@@ -712,6 +803,20 @@ periodButtons.forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period
 document.querySelectorAll('.track').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.track;if(selected.has(t)){if(selected.size>1)selected.delete(t)}else selected.add(t);renderTimeline()}));
 document.querySelector('[data-track="all"]').addEventListener('click',()=>{selected.clear();tracks.forEach(x=>selected.add(x[0]));renderTimeline()});
 renderTimeline();
+(async function loadResearch(){
+ const status=document.getElementById('research-status');
+ try{
+  const r=await fetch('./data/milestones.json',{cache:'no-store'});
+  if(!r.ok)throw new Error('HTTP '+r.status);
+  const d=await r.json();
+  if(!Array.isArray(d.milestones)||d.milestones.length<50||!Array.isArray(d.eras))throw new Error('Ofullständig datafil');
+  milestones=d.milestones;eras=d.eras;
+  renderTimeline();
+  status.textContent='Källkontrollerad historik · senast genomgången '+(d.updated_at||'13 november 2026')+' · datum för framtida händelser är bolagets prognoser.';
+ }catch(e){
+  status.textContent='Det gick inte att hämta milstolparna. Uppdatera sidan. ('+e.message+')';
+ }
+})();
 function drawValuations(){
  const svg=document.getElementById('valuation-chart');const ns='http://www.w3.org/2000/svg';
  const el=(tag,atts,parent=svg)=>{const node=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(atts))node.setAttribute(k,v);parent.append(node);return node};
