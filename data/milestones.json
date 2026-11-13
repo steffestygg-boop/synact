@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-13",
-  "editorial_note": "Redaktionellt verifierade historiska milstolpar och uttryckligt märkta planerade händelser. Innehållet uppdateras inte automatiskt.",
+  "editorial_note": "Historiska händelser källanknutna; framtida milstolpar placerade per kvartal. time_basis 'estimated' är analystolkning, 'company' är angivet kvartal eller officiellt fönster. Tidsfönster och osäkerhet läses i informationsrutan.",
   "source_index": {
     "history": "https://www.synactpharma.com/sv/om-oss/historia/",
     "news": "https://www.synactpharma.com/en/news-media/news-and-press-releases/",
@@ -22,7 +22,8 @@
     "Q4 2026",
     "Q1 2027",
     "Q2 2027",
-    "H2 2027+"
+    "Q3 2027",
+    "Q4 2027"
   ],
   "milestones": [
     {
@@ -1127,103 +1128,121 @@
       "body": "SynAct hade per 3 november färdigrekryterat den första delen av dengue-studien och planerade att analysera avblindade data. Bolaget siktade på att kunna kommunicera del 1-resultat under 2026.",
       "meaning": "En första kontrollerad analys kan ge besked om effektmått, möjlig effekt och planering av en större del 2.",
       "caveat": "Tidplanen är beroende av lokal myndighetsåterkoppling om protokolländring och analys. Resultat är inte publicerade bara för att perioden närmar sig.",
-      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
+      "time_basis": "company",
+      "time_rationale": "SynAct anger Q4 2026 som målsättning för del 1, villkorat av brasiliansk myndighet och protokolländring."
     },
     {
       "era": 13,
       "track": "ra",
       "status": "future",
-      "date": "Slutet 2026–början 2027",
+      "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
       "title": "FDA:s Type C-återkoppling",
       "subtitle": "Fas III · studiedesign",
       "body": "Bolaget förväntar sig regulatorisk respons på planerad fas III-design för RA, inklusive vilka effektmått, patientkriterier och toxikologiska underlag som behövs.",
       "meaning": "Utfallet kan styra studiens utformning, omfattning och framtida finansieringsbehov.",
-      "caveat": "Detta är bolagets prognos och myndigheten kan begära ändringar eller ytterligare data.",
-      "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+      "caveat": "Detta är bolagets prognos och myndigheten kan begära ändringar eller ytterligare data. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/",
+      "time_basis": "estimated",
+      "time_rationale": "Bolaget anger återkoppling från FDA i slutet av 2026 eller i början av 2027. Placeringen i Q1 2027 är den senare delen av det officiella tidsfönstret; FDA kan svara tidigare eller senare."
     },
     {
       "era": 13,
       "track": "rvi",
       "status": "future",
-      "date": "Q4 2026–Q1 2027",
+      "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
       "title": "RESPIRE: rekryteringsfönster",
       "subtitle": "Virussäsong i Europa",
       "body": "SynAct väntar sig att europeisk rekrytering kan slutföras när säsongen för luftvägsvirus återkommer. Bolaget har även öppnat kliniker i Nya Zeeland för en kompletterande virussäsong.",
       "meaning": "Rekryteringshastigheten styr när RESPIRE kan avläsas och hur snabbt bolaget får ett första effektbesked i den indikationen.",
-      "caveat": "Säsongsberoende och infektionsspridning gör tidsplanen osäker.",
-      "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+      "caveat": "Säsongsberoende och infektionsspridning gör tidsplanen osäker. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/",
+      "time_basis": "estimated",
+      "time_rationale": "SynAct anger slutförd europeisk rekrytering sent Q4 2026 eller under Q1 2027. Q1 används som försiktigare placering i tidslinjen."
     },
     {
       "era": 13,
       "track": "dengue",
       "status": "future",
-      "date": "Första halvåret 2027",
+      "date": "Q1 2027 · uppskattning inom bolagets H1 2027",
       "title": "RESOVIR-2 del 2 rekryterar",
       "subtitle": "Ny denguesäsong",
       "body": "Bolagets plan är att ta in ytterligare patienter i den andra delen av RESOVIR-2 under 2027 års denguesäsong i Brasilien.",
       "meaning": "En större del 2 behövs för att testa det kliniska upplägget på ett bredare material och skapa underlag för nästa regulatoriska steg.",
-      "caveat": "Patientantal, regulatoriska ändringar och epidemiologi kan påverka planerna.",
-      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+      "caveat": "Patientantal, regulatoriska ändringar och epidemiologi kan påverka planerna. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
+      "time_basis": "estimated",
+      "time_rationale": "SynAct anger första halvåret 2027 för del 2 och den brasilianska denguesäsongen. Q1 är ett antaget startkvartal, inte ett fastställt datum; start kan hamna i Q2."
     },
     {
       "era": 14,
       "track": "dengue",
       "status": "future",
-      "date": "Q2 2027 · bolagets mål",
+      "date": "Q2 2027 · bolagets prognos",
       "title": "RESOVIR-2 fullständiga toppdata",
       "subtitle": "Dengue fas II",
       "body": "SynAct bedömer att topline-resultat från hela RESOVIR-2 kan bli tillgängliga under andra kvartalet 2027.",
       "meaning": "Resultaten blir en av de viktigaste framtida katalysatorerna för Hipolabor-samarbetet och fortsatta internationella dengueaffärer.",
       "caveat": "Tidplanen är en prognos och ett positivt fas II-utfall kräver normalt mer regulatoriskt arbete före marknadsgodkännande.",
-      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+      "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
+      "time_basis": "company",
+      "time_rationale": "Bolaget anger uttryckligen Q2 2027 för fullständiga topline-data från RESOVIR-2. Datumet är fortfarande beroende av rekrytering och myndighetstillstånd."
     },
     {
-      "era": 15,
+      "era": 16,
       "track": "ra",
       "status": "future",
-      "date": "Tidpunkt ej fastställd",
+      "date": "Q4 2027 · analytisk uppskattning, inget bolagslöfte",
       "title": "Eventuell RA fas III-start",
       "subtitle": "Förberedelser efter FDA-dialog",
       "body": "Efter myndighetsdiskussioner och beslut om finansiering eller partnerskap kan SynAct gå vidare med en bekräftande fas III-studie inom RA.",
       "meaning": "Ett faktiskt fas III-besked skulle ge tydligare information om kostnad, studiedesign och sannolik utvecklingsväg mot registrering.",
-      "caveat": "Bolaget har inte fastslagit ett verifierat startdatum. En planerad studie får inte presenteras som redan beslutad.",
-      "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+      "caveat": "Bolaget har inte fastslagit ett verifierat startdatum. En planerad studie får inte presenteras som redan beslutad. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/",
+      "time_basis": "estimated",
+      "time_rationale": "Bolaget har inte offentliggjort något startkvartal. Q4 2027 är en illustrativ senare planeringspunkt efter FDA/EMA-dialog, toxikologiarbete, avtal och finansiering. Studien kan börja tidigare, senare eller inte alls."
     },
     {
       "era": 15,
       "track": "rvi",
       "status": "future",
-      "date": "Tidpunkt ej fastställd",
+      "date": "Q3 2027 · analytisk uppskattning, inget bolagslöfte",
       "title": "RESPIRE: kliniska resultat",
       "subtitle": "Fas II · virusrelaterad andningssvikt",
       "body": "Efter avslutad rekrytering och uppföljning väntas SynAct analysera RESPIRE-studien och bedöma effekt och säkerhet i respiratoriska virusinfektioner.",
       "meaning": "En tydlig effektbild skulle kunna öppna för ett ytterligare partnerspår vid sidan av RA och dengue.",
-      "caveat": "Ingen tillförlitligt fastställd topline-dag är angiven; detta är en framtida möjlighet, inte ett bekräftat resultat.",
-      "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+      "caveat": "Ingen tillförlitligt fastställd topline-dag är angiven; detta är en framtida möjlighet, inte ett bekräftat resultat. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/",
+      "time_basis": "estimated",
+      "time_rationale": "SynAct har inte lämnat ett bindande avläsningskvartal. Q3 2027 är ett illustrativt scenario efter rekrytering i den europeiska virussäsongen Q4 2026–Q1 2027 och efterföljande uppföljning/databearbetning."
     },
     {
-      "era": 15,
+      "era": 16,
       "track": "company",
       "status": "future",
-      "date": "In i Q4 2027 · prognos",
+      "date": "Q4 2027 · bolagets finansieringsprognos",
       "title": "Bedömd finansieringshorisont",
       "subtitle": "Bolagets Q3-uppgift",
       "body": "SynAct uppgav i rapporten den 3 november 2026 att tillgängliga pengar och finansieringsmöjligheter bedöms räcka in i fjärde kvartalet 2027.",
       "meaning": "Det ger ett perspektiv på hur länge kliniska och strategiska aktiviteter kan drivas enligt den dåvarande budgeten.",
       "caveat": "Detta är ett ekonomiskt antagande. Faktisk förbrukning, nya studier och finansieringsvillkor kan ändra horisonten.",
-      "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+      "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
+      "time_basis": "company",
+      "time_rationale": "Bolaget bedömer att finansieringen räcker in i fjärde kvartalet 2027. Detta är en finansiell prognos, inte ett fast datum för kapitalbrist eller nyemission."
     },
     {
-      "era": 15,
+      "era": 16,
       "track": "pipeline",
       "status": "future",
-      "date": "Tidpunkt ej fastställd",
+      "date": "Q4 2027 · illustrativ placering, datum saknas",
       "title": "TXP-11 möjlig fas I-förberedelse",
       "subtitle": "Organprotektion · prekliniskt program",
       "body": "Bolaget anger att prekliniskt farmakologiskt arbete med TXP-11 pågår för att stödja en framtida ansökan om klinisk fas I-prövning. Målsättningen i bolagets pipeline har varit fas I-beredskap under 2026.",
       "meaning": "En första klinisk prövning skulle kunna öppna ett separat program för organprotektion vid kirurgi eller kritisk sjukdom.",
-      "caveat": "Ingen bekräftad klinisk studiestart har verifierats. Målsättningen från bolagets presentationsmaterial är inte ett utfall.",
-      "url": "https://www.synactpharma.com/sv/utvecklingsprogram/"
+      "caveat": "Ingen bekräftad klinisk studiestart har verifierats. Målsättningen från bolagets presentationsmaterial är inte ett utfall. Kvartalsplaceringen är en uppskattning och inte en offentliggjord tidsplan.",
+      "url": "https://www.synactpharma.com/sv/utvecklingsprogram/",
+      "time_basis": "estimated",
+      "time_rationale": "Det finns inget verifierat bolagsdatum för fas I-start. Q4 2027 är endast en platsmarkör på en kvartalsuppdelad tidslinje, inte en klinisk tidsprognos. Ny finansiering och regulatoriska beslut kan påverka när eller om det sker."
     }
   ]
 }
