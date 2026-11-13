@@ -1,8 +1,15 @@
 {
-  "updated_at": "2026-11-13T20:58:00+01:00",
+  "updated_at": "2026-11-13T21:09:54+01:00",
   "based_on_report": "2026-09-30",
-  "automated_checked": false,
-  "coverage_status": "initial_bedömning",
+  "automated_checked": true,
+  "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
+  "checked_sources": [
+    "bolaget: Google News RSS",
+    "omvärld: Google News RSS",
+    "jämförelsebolag: Google News RSS",
+    "officiell presslista"
+  ],
+  "failed_sources": [],
   "days_since_report": 44,
   "months_to_company_runway_proxy": 10.6,
   "methodology_version": "1.0.0",
@@ -24,14 +31,141 @@
     }
   },
   "latest_information": [
-    "Q3-rapport 3 november 2026: 42,4 miljoner kr kassa, operativt kassaflöde −18,7 miljoner kr under Q3 och bolagets finansieringsprognos in i Q4 2027.",
-    "Fenja-facilitet 20 juli 2026: upp till 100 miljoner kr, initialt 50 miljoner kr utnyttjade. Nästa uttag villkorat och tillgängligt endast under Q4 2026.",
-    "Hipolabor 27 oktober 2026: regionalt 50/50-avtal utan offentlig garanterad upfront-likvid. Inte inräknat som likvida medel.",
-    "Referensfall uppdaterade till 12 november 2026: BioInvent, Cereno, Alligator, Immunovia, Isofol och Active Biotech."
+    "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
+    "Fenja: upp till 100 miljoner kr, 50 miljoner kr initialt dragna. Eventuellt nytt uttag under Q4 2026 är villkorat av bland annat börsvärde.",
+    "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka."
   ],
-  "latest_items": [],
+  "latest_items": [
+    {
+      "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten - SynAct Pharma",
+      "date": "2026-11-13",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPV2ZTYUROVHBidk0tRkQyclJjbUtKZjM2VUcxT3dhTVIxZmViZnhySm9wWTdxNExWRjJpWHF0Z1pVZUF0MEp0dWxxcTNWeEhaQkNUcktjVjREd041czJIaElla0RDYmlyMnlHc0FyejBNOHdYNGI2YTN1S0xKUkl0bFBxRUNVUVNlSnA3RFpsZTVxcmVVcGFmdXZ2YnItcENwTmpzVmpNRF9MZG5sWnJUVEhvSlhJTVY1amR4RFV5MXppaHg0N2J0UlR6aS14MkF5NC1z?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "övrigt"
+    },
+    {
+      "title": "Cereno Scientific rasar efter handelsstopp 13 november 2026 - HurBra.se",
+      "date": "2026-11-13",
+      "source": "HurBra.se",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5CcFdTR3pIa0NUMnNMUklqX0NpWUNDV3F3RWloSEFZUWNzYWVwMVVFbFllaDRjaXVSNXZqdWFKczhrVktVeHk5R0dxTGVZZEJhaGxkTndOX0NmVUtSSmF0a3ladU42em5vakl1VWtwc3NjUkVz?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "övrigt"
+    },
+    {
+      "title": "Cereno Scientific planerar företrädesemission om 400 miljoner kronor för fortsatt klinisk utveckling - Biostock",
+      "date": "2026-11-12",
+      "source": "Biostock",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQVmRaek9sMVZyc0Y4MC1EakZQWmRvOHQ5MHE1VlZocGpWN1R1MTRkVzRLUEFRaGFHTHdOMEw2UE9BcjBGbkVXWDhnb2h5c3ZCZ09yNWh4d1BpaU9OdG9GbUJQanpVa25zZUI4azEyWTlyUk9TNlNGeURJWDhHa3lpaldtdlZzMEJZVTFqbjV1ek1RZTJVZUV6M2ZyM0xPcThhUThrRDhHTVVXOW1mRDFlc1NVbHRHWWtFeG5Kb0RMUDczRDN1a0tZVQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Cereno Scientific planerar företrädesemission på 400 miljoner kronor – förlänger lån - Börsvärlden",
+      "date": "2026-11-12",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdGZjdVdjVWNHSURna1VrRWtLQ0xPNHRkV2NRamo4QnlhTEJsbUtpVW9meThLOUpna3dTWVUxMXlWYjZHRjNoaXJuc0JCWUUteERRRWlfd1EwSFBsdFFQT1NKVGpaRHdmSWJSeWJGQVRIVkZxXzFrc19xTFFYRUdSN1ctYWNPRkF1Q05YT0VkN1V3YU9aM1RqcXBLMkM1cS04bzU5Y0tUOG1nSHNranFRcFhPVkpuUQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Bioinvents nyemission: Tre flaggor efter kursslakten - Affärsvärlden",
+      "date": "2026-11-11",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSzAyeVp0eDRDWW1Pa3c1ZzNHOEdBUl9Ram5tdklqY3NndndlV0JRS0VKNWpwVlY4R3FnRW9TOWdlUXh1dEpudW5iLWowSncyeXVJMm5kVGFKTGY1Q0N0TFJZbEl0TmFrMktEdHhndGllLWNHNVJtRWRYRHoxWlRiMlRWSlNiR1lFYXI3ZjJuVUswQQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Bioinvent rasar vidare – teckningskurs 1 krona - Affärsvärlden",
+      "date": "2026-11-06",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYlFEaFVrbHA5RU5TSTdYeExLYVVjV3Rnd19GQzlMbk5lbTBiYlJPUHNmV0NoNDBVR19vNGljRXRnSGdXLWhJel9pREdvanc2UVR6NmpjbHppSGx4UzV2bC1IUExQUHgyRUNNbE5HejJJVWFkVHJ6OFNEYV90NGRsRndDQlJTQnR4?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "övrigt"
+    },
+    {
+      "title": "SynAct Pharma meddelar att bolaget kommer att delta och presentera vid kommande investerarkonferenser - SynAct Pharma",
+      "date": "2026-11-04",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQeGF6UDM4QjNRd1NqenY5dGJCSXdIVzFhMktoNVV3QTN1YXZtNTVGVi03bU9GdkRXSEZKWnhIZjlhbmlkV0Jwd29GWEI3d0lONndGcGpBbEVGaG9idFRMd2RtS2JWdmNLTFFqSVIxQlJhMVRlWm1QMFFlTkMtSEZVeERSeWxocWUxVnktRWh0Vzh0QmtITVFwTDRkTjZaYjRRb0Q0a21aRzg4ZWRpZU9pOU1HeGZWejQxTkpYd01XaEpWTUNMelp0VWNfRUpnV0k?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "övrigt"
+    },
+    {
+      "title": "SynAct Pharma publicerar delårsrapport för tredje kvartalet 2026 - SynAct Pharma",
+      "date": "2026-11-03",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeFllOHBWSWhvc1Q4bXNWWEdqRTJzTE5qclBxajNJZWlrM3djMDZ4bzk5cWNCQUtNcG5NRHNPRUZMRTVkWjRBR2JHWTl0eDNDYXpHWGowRWJBVm5xOWt1MkNLb3htMHoxMFpJUmlKd3Z6OEJ2UTlfX2dleEJMYS14Z21XTXZ3LXhTY3F3SkFTaWVSYkQ1dVNUbUlNekEwUQ?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "rapport"
+    },
+    {
+      "title": "BioVal™ analysis: SynAct's RA project valued at SEK 2.7B - Biostock",
+      "date": "2026-11-03",
+      "source": "Biostock",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HMjdoM1llcFVFcm1LRDA3NXBLRjAwSEkyXzgtZzlUQWJ2M0JJZTJtSWRvY2VGXzNXYjcwLXpIem1XQ09rN3FhaldoWmExQVhpcW9pa2FnRGZzUFJKTW5qblgxZ055dTgtNU02QlJ6ck9WNUFN?oc=5",
+      "category": "omvärld",
+      "official": false,
+      "signal": "övrigt"
+    },
+    {
+      "title": "SynAct skärper sina fas III-planer för resomelagon - Biostock",
+      "date": "2026-11-03",
+      "source": "Biostock",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
+      "category": "omvärld",
+      "official": false,
+      "signal": "kliniskt / regulatoriskt"
+    },
+    {
+      "title": "Immunovia: Fem flaggor – aktien halverades i väntan på villkor - Affärsvärlden",
+      "date": "2026-10-30",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbHd0bjhybFBOdUotejdzdDEzc2NsSWxjRXZaTTIxSVk0RXAyQWRzdFlDZXVWQUJtdGxuM1ZHTDNPLVg5NFBfVVlUNVpOYk1taTE1Wndid0V1U2FQT1FudXdydFdyUnNtZzVGZzJNRFRXYkhZRVVoQlBhcDhEYmZiU2ZOSjNrMG5CckJlbkpqb2luVmdWWi1UNExyWEs?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "övrigt"
+    },
+    {
+      "title": "Immunovia beslutar om villkor i aviserad företrädesemission - Börsvärlden",
+      "date": "2026-10-29",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUjRENWdwRFJSQllsb2dVWnRtRzM4N1k1OW1nQTJLdng2UUF2Y0ZqWWdOSGxDdEpFM2RNczVoU0xWM3MxWWJiYTREUjFlWldSTkI3eWNiRjlZaXZwUmFya3RjUU9pNVpIWEtBZWhRNG9rUXhtWlA3VFVkLVRoZXM3U0hsY0tUVXU2c0h1NW9iUHdVSUF0Umk1WXVJcnk?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Immunovia behöver pengar: Ber om 63 miljoner till 76% utspädning - Affärsvärlden",
+      "date": "2026-10-29",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdTRnLThCMGF3SF9jbUh3Q3llMlpuejllaW9HeGRrNHFsMUZOTlZ0M1hIRlN4QThZRUprVGJOalY1NXpfSk9PSFRTTmlTZzl3R2s4RmlrQjlxdUNDMmhheEY3T0p0QzB0SkdVSTBNMzN0WEtCbVAwRzZjZ2E3M1MweEVaWE1UZmNJQjFVVzlXb2lOenZfc0JSSEZ3REpSMksw?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "övrigt"
+    },
+    {
+      "title": "Bioinvent minskade rörelseförlusten i tredje kvartalet - föreslår stor nyemission - Börsvärlden",
+      "date": "2026-10-29",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcmhOb1lyenJjYnNsQlRMVVNTSGU2dEJCdktVSmJGZnJzaEtYTDh0WkRvTGdVSlNod3g2NlotZWszbGg0TFNQNVV1RGxpUWtyMmFyYnM4cWExVkoySTczRHh0UmxuSWxUN0hDWlVxZktyYzJLRmJrTHNZeF82Um5WaE9HTldmM1JiNHYtNk82cFN2S3MwNE5GaElKLUlNUUF5UGN2Rjg1OTFMamxZUDJMS2RB?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    }
+  ],
   "review_needed": [],
-  "review_warning": "Denna första bedömning grundas på verifierade uppgifter per 13 november 2026. Kommande veckokörningar uppdaterar tidsfaktorn och bevakar nya besked; finansiella fakta granskas innan de ändras.",
+  "emission_detected": [],
+  "review_warning": "Detta är en regelstyrd bedömningsmodell, inte ett objektivt förutsagt utfall. Tidsfaktorn uppdateras automatiskt. RSS och officiell presslista bevakas men rubriker kan varken ersätta rapportläsning eller garantera att alla nyheter hittas. Nya villkor, kassavärden och eventuella emissioner måste verifieras mot fullständiga originalbesked innan prognosen omkalibreras.",
   "sources": {
     "company_report": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
     "facility": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
