@@ -109,5 +109,27 @@
     "official_press": "https://www.synactpharma.com/en/news-media/news-and-press-releases/",
     "financial_reports": "https://www.synactpharma.com/en/investors/financial-reports/",
     "note": "Bevakar officiella pressmeddelanden och omvärldsrubriker. Nya rapporterade kassavärden och villkor måste kvalitetssäkras innan de ersätter verifierade siffror; om sådan information upptäcks märks bedömningen med granskningsbehov. Automatik kan inte garantera att all publicerad information upptäcks eller tolkas korrekt."
+  },
+  "warning_signals": {
+    "screening_frequency": "Dagligen, cirka 10:40 UTC för SynAct och 10:50 UTC för Isofol, via GitHub Actions (schemalagda körningar kan försenas).",
+    "calculation_frequency": "Risktal 3, 6 och 12 månader uppdateras som tidigare en gång varje måndag.",
+    "verified_baseline_rules": {
+      "cash_burn": "Om rapporterad kassa motsvarar högst nio månader av senaste kvartalets operativa förbrukning visas bevakning; under sex månader höjs varningsprioriteten. Lån och framtida utgifter ingår inte i denna enkla kvot.",
+      "runway": "Om konservativ proxy för bolagets finansieringshorisont ligger inom tolv månader visas bevakning, inom sex månader ökad prioritet.",
+      "conditional_financing": "Fenja-facilitetens villkorade framtida dragning och förfall anges som verifierad bakgrund.",
+      "stale_financials": "Om kassa och prognos fortfarande bygger på en balansdag minst 115 dagar tillbaka markeras att en ny rapport behövs."
+    },
+    "headline_flags": [
+      "Handelsstopp och börsens insiderinformationsmeddelanden",
+      "Uttalat bristande rörelsekapital, likviditetsproblem eller behov av ny finansiering",
+      "Betalningsanstånd, uppskjutna leverantörs-/CRO-betalningar",
+      "Nya lån, konvertibler och bryggfinansiering",
+      "Nya emissioner (redan utgivna TO2-optioner räknas inte som ny emission)",
+      "Kraftigt kursfall och ovanligt hög handel (endast rubriksignal, inte bevis på finansieringsproblem)",
+      "Oväntade studiekostnadsökningar eller förlorade licens-/partneravtal"
+    ],
+    "verification": "Direkt beräknade rapportkvoter och kända kredit-/TO2-villkor märks som dokumenterad siffergrund. Automatisk analys av rubriker är alltid bara en signal för manuell kontroll mot börs eller bolagets fullständiga originalbesked.",
+    "probability_policy": "Obekräftade varningssignaler ändrar inte automatiskt emissionssannolikheten. Verifierad ny information måste införas i finansieringsmodellen, annars skulle systemet ge falskt exakta procentsatser.",
+    "sources": "Se varje varningsruta för originalkälla och data/financing_model.json för rapport- och avtalsreferenser."
   }
 }
