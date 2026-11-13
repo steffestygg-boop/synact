@@ -1,0 +1,32 @@
+name: Uppdatera finansierings- och emissionsrisk
+on:
+  schedule:
+    - cron: '15 7 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: synact-financing-weekly
+  cancel-in-progress: false
+jobs:
+  financing-risk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Kontrollera modellens Python-kod
+        run: python -m py_compile scripts/update_financing.py
+      - name: Uppdatera risk, tid och nyhetsbevakning
+        run: python scripts/update_financing.py
+      - name: Spara och publicera senaste finansieringsrisk
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/financing.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Weekly SynAct financing and equity risk update"
+            git pull --rebase
+            git push
+          fi
