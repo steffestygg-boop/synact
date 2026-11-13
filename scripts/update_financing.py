@@ -26,7 +26,6 @@ MODEL_PATH = ROOT / "data" / "financing_model.json"
 STATE_PATH = ROOT / "data" / "financing.json"
 USER_AGENT = "Mozilla/5.0 (compatible; SynActFinancingMonitor/1.0)"
 TIMEZONE = ZoneInfo("Europe/Stockholm")
-DATE_RX = re.compile(r"\\b(?:202[5-9])-(?:0[1-9]|1[0-2])-(?:[0-2][0-9]|3[01])\\b")
 _FINANCE_RX = re.compile(
     r"f[oö]retr[aä]desemission|riktad(?:e)? (?:ny)?emission|nyemission|"
     r"rights? issue|directed issue|private placement|issue of new shares|"
@@ -59,7 +58,7 @@ def pct_probability(months: int, months_left: float, inputs: dict, scale: float 
                * inputs["clinical_phase3_multiplier"]
                * inputs["credit_dependency_multiplier"]
                * proximity * scale)
-    return round(100.0 * (1.0 - math.exp(-months * monthly)))
+    return round(100.0 * (1.0 - math.exp(-months * monthly)), 1)
 
 def fetch_url(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/rss+xml,application/xml,*/*"})
