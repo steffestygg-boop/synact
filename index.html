@@ -746,10 +746,10 @@ footer{
   <div class="fin-grid">
     <div class="fin-risk">
       <div class="fin-caption">Modellrisk · närmaste 6 månader</div>
-      <div class="fin-main"><strong id="fin-risk-6">26 %</strong><span id="fin-risk-level">Förhöjd men osäker</span></div>
+      <div class="fin-main"><strong id="fin-risk-6">25,6 %</strong><span id="fin-risk-level">Förhöjd men osäker</span></div>
       <div class="fin-meter"><div id="fin-risk-bar" style="width:26%"></div></div>
-      <p class="fin-small">Känslighetsintervall <b id="fin-range">17–37 %</b> · inte statistiskt konfidensintervall</p>
-      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">11 %</strong></div><div><small>12 månader</small><strong id="fin-risk-12">57 %</strong></div></div>
+      <p class="fin-small">Känslighetsintervall <b id="fin-range">16,7–36,7 %</b> · inte statistiskt konfidensintervall</p>
+      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">11,0 %</strong></div><div><small>12 månader</small><strong id="fin-risk-12">56,7 %</strong></div></div>
       <p class="fin-small">Procentsatserna är uttryckligen <b>subjektiva scenarioantaganden</b> – inte en historiskt uppmätt emissionsfrekvens.</p>
     </div>
     <div class="fin-facts">
@@ -770,7 +770,7 @@ footer{
   <div class="fin-comps">
     <h3>Historiska jämförelsefall <small>Dokumenterade emissioner hos andra biotechbolag</small></h3>
     <div class="fin-cases" id="fin-cases">
-      <div class="fin-case"><strong>BioInvent · oktober 2026</strong><p>Avsiserade en emission om 430 miljoner kr trots 225 miljoner kr i rapporterad kassa.</p><a href="https://mfn.se/a/bioinvent-international/bioinvent-resolves-on-a-rights-issue-of-approximately-sek-430-million-subject-to-approval-by-an-extraordinary-general-meeting-and-earlier-publication-of-interim-report-january-september-2026" target="_blank" rel="noopener">Originalkälla ↗</a></div>
+      <div class="fin-case"><strong>BioInvent · oktober 2026</strong><p>Aviserade en emission om 430 miljoner kr trots 225 miljoner kr i rapporterad kassa.</p><a href="https://mfn.se/a/bioinvent-international/bioinvent-resolves-on-a-rights-issue-of-approximately-sek-430-million-subject-to-approval-by-an-extraordinary-general-meeting-and-earlier-publication-of-interim-report-january-september-2026" target="_blank" rel="noopener">Originalkälla ↗</a></div>
       <div class="fin-case"><strong>Cereno Scientific · november 2026</strong><p>Avsikt att emittera 400 miljoner kr parallellt med utökade lån.</p><a href="https://www.cerenoscientific.com/en/newsroom/press-releases?slug=cereno-scientific-intends-to-carry-out-a-rights-issue-of-units-of-approximately-sek-400-million-with-a-focus-on-the-global-phase-iib-study-epimode-and-obtains-extended-loan-financing-of-up-to-sek-175-million" target="_blank" rel="noopener">Originalkälla ↗</a></div>
       <div class="fin-case"><strong>Alligator · juli 2026</strong><p>Beslutade om ny emission ett drygt halvår efter sin föregående emission.</p><a href="https://alligatorbioscience.se/en/mfn_news/alligator-bioscience-publishes-prospectus-in-connection-with-rights-issue-2/" target="_blank" rel="noopener">Originalkälla ↗</a></div>
     </div>
@@ -1001,11 +1001,11 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
      el('fin-risk-3').textContent='—';el('fin-risk-12').textContent='—';
    }else{
      const p=d.risk.months_6;
-     el('fin-risk-6').textContent=p.percent+' %';el('fin-risk-bar').style.width=Math.max(0,Math.min(100,p.percent))+'%';
+     el('fin-risk-6').textContent=Number(p.percent).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';el('fin-risk-bar').style.width=Math.max(0,Math.min(100,p.percent))+'%';
      el('fin-risk-level').textContent=p.percent>=45?'Hög modellrisk':p.percent>=20?'Förhöjd men osäker':'Lägre kortsiktig risk';
-     el('fin-range').textContent=p.low+'–'+p.high+' %';
-     el('fin-risk-3').textContent=d.risk.months_3.percent+' %';
-     el('fin-risk-12').textContent=d.risk.months_12.percent+' %';
+     el('fin-range').textContent=Number(p.low).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+'–'+Number(p.high).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
+     el('fin-risk-3').textContent=Number(d.risk.months_3.percent).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
+     el('fin-risk-12').textContent=Number(d.risk.months_12.percent).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
    }
    el('fin-runway').textContent='≈ '+Number(d.months_to_company_runway_proxy).toLocaleString('sv-SE',{maximumFractionDigits:1})+' månader till riktmärket 1 okt 2027';
    const date=new Date(d.updated_at);
