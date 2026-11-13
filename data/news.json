@@ -1,0 +1,24 @@
+{
+  "updated_at": "2026-11-13T16:30:00+01:00",
+  "feed": "Initial: källkontrollerade pressmeddelanden. Uppdateras via Google News RSS.",
+  "items": [
+    {
+      "date": "2026-11-13",
+      "source": "SynAct Pharma / MFN",
+      "title": "SynAct Pharma announces Notice of Allowance of a US patent covering the resomelagon tablet",
+      "url": "https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet"
+    },
+    {
+      "date": "2026-11-03",
+      "source": "SynAct Pharma",
+      "title": "SynAct Pharma announces initiation of coverage by BioVal BioStock Analytics",
+      "url": "https://www.synactpharma.com/en/synact-pharma-announces-initiation-of-coverage-by-bioval-biostock-analytics/"
+    },
+    {
+      "date": "2026-10-27",
+      "source": "SynAct Pharma",
+      "title": "SynAct Pharma signs first commercial partnership for resomelagon with leading Brazilian pharmaceutical company",
+      "url": "https://www.synactpharma.com/en/?p=27624"
+    }
+  ]
+}
