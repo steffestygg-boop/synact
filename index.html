@@ -732,6 +732,11 @@ footer{
 .fin-alert-card a{display:inline-block;font-size:11px;margin-top:4px}
 .fin-signal-foot{font-size:10px;color:#a7b8c4;line-height:1.7;margin:12px 0 0}
 @media(max-width:700px){.fin-alert-list{grid-template-columns:1fr}.fin-signals{padding:14px}.fin-alert-card{padding:11px}}
+
+/* Framtida milstolpar har alltid kvartalsaxel; våra tidsuppskattningar märks ≈. */
+.timeline .milestone.estimated-time{position:relative;border-style:dashed;border-color:#99815a}
+.timeline .milestone.estimated-time:after{content:"≈";font-size:12px;position:absolute;top:4px;right:5px;color:#e5c08c;font-weight:750}
+.timeline .milestone.estimated-time strong{padding-right:10px}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -832,7 +837,7 @@ footer{
 <section aria-labelledby="milestones-heading">
 <p class="section-kicker"><span class="section-number">05</span> Klinisk utveckling &amp; bolaget</p>
 <h2 class="section" id="milestones-heading">Milstolpar <span id="milestone-total" class="milestone-total"></span></h2>
-<p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Klicka på varje ruta för fördjupning, vad händelsen betyder och länk till ursprungskälla.</p>
+<p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Alla framtida milstolpar visas per kvartal. Placeringar utan officiell kvartalsprognos är uttryckligen uppskattningar. Klicka på en ruta för fördjupning och tidsmotivering.</p>
 <p class="status" id="research-status">Läser in källkontrollerad milstolpshistorik …</p>
 <div class="toolbar">
   <div class="group"><span class="hint">PERIOD</span>
@@ -859,7 +864,7 @@ footer{
 <div class="milestone-key" aria-label="Milstolpsstatus">
 <span><i aria-hidden="true"></i>Genomförd / rapporterad</span>
 <span><i class="upcoming" aria-hidden="true"></i>Planerad / prognos</span>
-<span class="milestone-disclaimer">En undergruppsanalys eller en plan är inte samma sak som bekräftad klinisk effekt.</span>
+<span class="milestone-disclaimer">Alla framtida händelser ligger i kvartal. Markeringen ≈ betyder vår kvartalsuppskattning, inte bolagets löfte. Klicka för skäl och osäkerhet.</span>
 </div>
 </section>
 <section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">06</span> Analys &amp; värdering</p>
@@ -886,7 +891,7 @@ function openInfo(m, anchor){
  document.getElementById('modal-date').textContent=(m.date||'')+status;
  document.getElementById('modal-title').textContent=m.title||'Information';
  const body=document.getElementById('modal-body');body.replaceChildren();
- for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Att tänka på',m.caveat]]){
+ for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Tidsbedömning',m.time_rationale],['Att tänka på',m.caveat]]){
   if(!value)continue;
   const item=document.createElement('div');item.className='modal-explain';
   const heading=document.createElement('h3');heading.textContent=label;
@@ -910,12 +915,12 @@ document.addEventListener('pointerdown',e=>{if(currentAnchor&&!e.target.closest(
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo()});
 window.addEventListener('resize',positionInfo);window.addEventListener('scroll',positionInfo,true);
 const periodEraMap={
- relevant:[9,10,11,12,13,14,15],
- all:Array.from({length:16},(_,i)=>i),
+ relevant:[9,10,11,12,13,14,15,16],
+ all:Array.from({length:17},(_,i)=>i),
  early:[0,1,2,3,4],
  middle:[5,6,7,8],
  done:Array.from({length:13},(_,i)=>i),
- future:[12,13,14,15]
+ future:[12,13,14,15,16]
 };
 function renderTimeline(){
  const board=document.getElementById('timeline');
@@ -935,7 +940,7 @@ function renderTimeline(){
   for(const era of periodEras){
    const cell=document.createElement('div');cell.className='cell';
    for(const m of trackMilestones.filter(m=>m.era===era)){
-    const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'');
+    const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'')+(m.time_basis==='estimated'?' estimated-time':'');
     const s=document.createElement('strong');s.textContent=m.title;
     const small=document.createElement('small');small.textContent=m.subtitle||'';
     b.append(s);
@@ -965,7 +970,7 @@ renderTimeline();
   if(!Array.isArray(d.milestones)||d.milestones.length<50||!Array.isArray(d.eras))throw new Error('Ofullständig datafil');
   milestones=d.milestones;eras=d.eras;
   renderTimeline();
-  status.textContent='Källkontrollerad historik · senast genomgången '+(d.updated_at||'13 november 2026')+' · datum för framtida händelser är bolagets prognoser.';
+  status.textContent='Källkontrollerad historik · uppdaterad '+(d.updated_at||'13 november 2026')+' · framtida kvartal är bolagets tidsmål eller tydligt märkta uppskattningar.';
  }catch(e){
   status.textContent='Det gick inte att hämta milstolparna. Uppdatera sidan. ('+e.message+')';
  }
