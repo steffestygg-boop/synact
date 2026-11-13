@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T21:09:54+01:00",
+  "updated_at": "2026-11-13T21:11:28+01:00",
   "based_on_report": "2026-09-30",
   "automated_checked": true,
   "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
@@ -15,19 +15,19 @@
   "methodology_version": "1.0.0",
   "risk": {
     "months_3": {
-      "percent": 11,
-      "low": 7,
-      "high": 17
+      "percent": 11.0,
+      "low": 7.0,
+      "high": 16.6
     },
     "months_6": {
-      "percent": 26,
-      "low": 17,
-      "high": 37
+      "percent": 25.6,
+      "low": 16.7,
+      "high": 36.7
     },
     "months_12": {
-      "percent": 57,
-      "low": 40,
-      "high": 73
+      "percent": 56.7,
+      "low": 40.5,
+      "high": 72.6
     }
   },
   "latest_information": [
