@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: '15 7 * * 1'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_financing.py'
+      - 'data/financing_model.json'
+      - '.github/workflows/update-financing.yml'
 permissions:
   contents: write
 concurrency:
@@ -18,6 +24,8 @@ jobs:
           python-version: '3.12'
       - name: Kontrollera modellens Python-kod
         run: python -m py_compile scripts/update_financing.py
+      - name: Testa riskberäkningen utan nätverk
+        run: python scripts/update_financing.py --offline
       - name: Uppdatera risk, tid och nyhetsbevakning
         run: python scripts/update_financing.py
       - name: Spara och publicera senaste finansieringsrisk
