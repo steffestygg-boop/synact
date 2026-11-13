@@ -667,6 +667,45 @@ footer{
  .timeline .cell{min-height:82px}
  .timeline .milestone{padding:10px 7px}
 }
+
+.wrap>.financing-overview{--section-accent:#ecc08b;background:linear-gradient(120deg,#2b2928,#1b2931);border-color:#4c4540}
+.fin-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.fin-head .intro{max-width:850px}.fin-frequency{white-space:nowrap;border:1px solid #876e4c;border-radius:20px;color:#f5d4a5;padding:5px 11px;font-size:11px}
+.fin-grid{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr);gap:12px}
+.fin-risk,.fin-facts,.fin-box,.fin-comps,.fin-method{background:#1a2a34;border:1px solid #43545d;border-radius:13px;overflow:hidden}
+.fin-risk{padding:19px;background:linear-gradient(135deg,#323332,#1b3038)}
+.fin-caption{font-size:11px;color:#d9c5a9;letter-spacing:.06em;text-transform:uppercase;font-weight:730}
+.fin-main{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:8px 0 13px}
+.fin-main strong{font-size:clamp(38px,3vw,55px);color:#fcf5e9;letter-spacing:-.04em}
+.fin-main span{font-size:12px;color:#f0c486;font-weight:720}
+.fin-meter{height:9px;background:#35434c;border-radius:6px;overflow:hidden}.fin-meter>div{height:100%;border-radius:6px;background:linear-gradient(90deg,#7bd4b9,#ecc080);transition:width .2s ease}
+.fin-small{font-size:11px;color:#b0c3cc;line-height:1.75;margin:11px 0}
+.fin-horizons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px 0}
+.fin-horizons>div{border:1px solid #52636a;border-radius:10px;padding:11px;background:#18252e}
+.fin-horizons small{display:block;font-size:11px;color:#bdd0d7}
+.fin-horizons strong{display:block;font-size:24px;color:#eaf4f6}
+.fin-facts{display:grid;grid-template-columns:1fr 1fr}
+.fin-facts>div{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:18px;border-bottom:1px solid #40515b}
+.fin-facts>div:nth-child(odd){border-right:1px solid #40515b}.fin-facts>div:nth-child(n+3){border-bottom:0}
+.fin-facts small{font-size:11px;color:#b1c5cf;line-height:1.4}.fin-facts strong{font-size:clamp(19px,1.8vw,27px);line-height:1.2}
+.fin-facts strong em{font-size:12px;font-style:normal;color:#b7c9d5}
+.fin-facts span,.fin-facts a{font-size:11px;color:#bbd0d8;line-height:1.5}
+.fin-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.fin-box{padding:17px 19px}.fin-box h3,.fin-comps h3{margin:0 0 9px;font-size:14px}
+.fin-box p{color:#c1d1d9;line-height:1.7;font-size:12px;margin:6px 0}
+.fin-box p+p{margin-top:9px}.fin-comps{padding:17px 19px;margin-top:12px}
+.fin-comps h3 small{font-size:11px;color:#9fb5c4;font-weight:400;margin-left:7px}
+.fin-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fin-case{min-width:0;background:#22323c;border:1px solid #455660;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px}
+.fin-case strong{font-size:12px}.fin-case p{font-size:11px;line-height:1.6;color:#bfd0d9;margin:0;flex:1}.fin-case a{font-size:11px}
+.fin-method{margin:12px 0 0;padding:0 17px}
+.fin-method summary{font-size:12px;color:#cfedff;font-weight:700;cursor:pointer;padding:14px 0}
+.fin-method p{font-size:12px;line-height:1.8;color:#b9ccd5}.fin-method code{white-space:normal}
+.fin-news-item{padding:8px 0;border-bottom:1px solid #40535a;font-size:11px;color:#c7d6de}
+.fin-news-item a{display:block;margin-top:4px}
+.fin-warning{font-size:11px;color:#f3c99b;padding:9px;border-radius:8px;background:#50402c70}
+@media(max-width:900px){.fin-grid,.fin-two{grid-template-columns:1fr}.fin-cases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.fin-cases{grid-template-columns:1fr}.fin-facts>div{padding:12px}.fin-facts strong{font-size:19px}.fin-facts strong em{display:block;font-size:11px}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -700,7 +739,54 @@ footer{
 <div class="partner-calc"><label>Årlig nettoförsäljning (miljoner USD)<input id="sales" type="number" value="100" min="0" max="100000" step="10"></label><label>Antagen vinstmarginal (%)<input id="margin" type="number" value="20" min="0" max="100" step="1"></label><div class="calc-result"><span class="micro">SynActs andel av årsresultat</span><strong id="profit-result">10,0 MUSD</strong><span class="tiny-note">50 % × försäljning × marginal</span></div></div>
 <p class="tiny-note">Ren räkneövning före skatt och eventuella övriga avtalseffekter. Vinstmarginal, försäljning, lansering och milstolpsersättning är osäkra. Tröskeln 200 MUSD gäller ackumulerad försäljning, inte ett årsresultat.</p>
 </section>
-<section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">03</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
+
+<section class="financing-overview" aria-labelledby="fin-title">
+  <p class="section-kicker"><span class="section-number">03</span> Finansiering och risk</p>
+  <div class="fin-head"><div><h2 id="fin-title">Emissionsbarometern</h2><p class="intro">Hur stor är risken att SynAct <b>annonserar en ny kontant nyemission</b> under kommande månader? Riktiga jämförelsefall, finansieringsläge och tiden som återstår vägs samman.</p></div><span class="fin-frequency">Uppdateras varje vecka</span></div>
+  <div class="fin-grid">
+    <div class="fin-risk">
+      <div class="fin-caption">Modellrisk · närmaste 6 månader</div>
+      <div class="fin-main"><strong id="fin-risk-6">26 %</strong><span id="fin-risk-level">Förhöjd men osäker</span></div>
+      <div class="fin-meter"><div id="fin-risk-bar" style="width:26%"></div></div>
+      <p class="fin-small">Känslighetsintervall <b id="fin-range">17–37 %</b> · inte statistiskt konfidensintervall</p>
+      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">11 %</strong></div><div><small>12 månader</small><strong id="fin-risk-12">57 %</strong></div></div>
+      <p class="fin-small">Procentsatserna är uttryckligen <b>subjektiva scenarioantaganden</b> – inte en historiskt uppmätt emissionsfrekvens.</p>
+    </div>
+    <div class="fin-facts">
+      <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
+      <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span></div>
+      <div><small>Fenja · möjlighet till extra uttag</small><strong>Upp till 50 <em>miljoner kr</em></strong><span>Villkorat uttag under Q4 2026, inte kassa</span></div>
+      <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span></div>
+    </div>
+  </div>
+  <div class="fin-two">
+    <div class="fin-box"><h3>Vad höjer emissionsrisken?</h3><p>En eventuell fas III-studie inom RA kan kräva mycket mer kapital. Fenjas extra lånemöjlighet är villkorad, bland annat av börsvärdet, och lånet förfaller den 31 december 2027. Historiska fall visar att bioteknikbolag ofta emitterar <b>innan</b> kassan tagit slut.</p></div>
+    <div class="fin-box"><h3>Vad talar emot en snar emission?</h3><p>SynAct bedömer att finansieringen räcker in i Q4 2027 och planerar flera värdeskapande kliniska besked före dess. Partnerskap kan ge alternativa finansieringsvägar. Hipolabor-avtalet har däremot ingen offentlig garanterad kontant upfront-betalning som modellen kan räkna in.</p></div>
+  </div>
+  <div class="fin-two">
+    <div class="fin-box"><h3>Senaste riskuppdatering</h3><p id="fin-updated">Grundbedömning 13 november 2026. Automatisk veckobevakning är schemalagd på måndagar.</p><p id="fin-coverage">Nya kassasiffror och finansieringsvillkor kräver källkontroll innan de ändrar modellen.</p></div>
+    <div class="fin-box"><h3>Upptäckta nyheter att kontrollera</h3><div id="fin-news"><p>Automatiken bevakar pressmeddelanden, finansiella rapporter, licensaffärer och nya emissioner hos referensbolagen.</p></div></div>
+  </div>
+  <div class="fin-comps">
+    <h3>Historiska jämförelsefall <small>Dokumenterade emissioner hos andra biotechbolag</small></h3>
+    <div class="fin-cases" id="fin-cases">
+      <div class="fin-case"><strong>BioInvent · oktober 2026</strong><p>Avsiserade en emission om 430 miljoner kr trots 225 miljoner kr i rapporterad kassa.</p><a href="https://mfn.se/a/bioinvent-international/bioinvent-resolves-on-a-rights-issue-of-approximately-sek-430-million-subject-to-approval-by-an-extraordinary-general-meeting-and-earlier-publication-of-interim-report-january-september-2026" target="_blank" rel="noopener">Originalkälla ↗</a></div>
+      <div class="fin-case"><strong>Cereno Scientific · november 2026</strong><p>Avsikt att emittera 400 miljoner kr parallellt med utökade lån.</p><a href="https://www.cerenoscientific.com/en/newsroom/press-releases?slug=cereno-scientific-intends-to-carry-out-a-rights-issue-of-units-of-approximately-sek-400-million-with-a-focus-on-the-global-phase-iib-study-epimode-and-obtains-extended-loan-financing-of-up-to-sek-175-million" target="_blank" rel="noopener">Originalkälla ↗</a></div>
+      <div class="fin-case"><strong>Alligator · juli 2026</strong><p>Beslutade om ny emission ett drygt halvår efter sin föregående emission.</p><a href="https://alligatorbioscience.se/en/mfn_news/alligator-bioscience-publishes-prospectus-in-connection-with-rights-issue-2/" target="_blank" rel="noopener">Originalkälla ↗</a></div>
+    </div>
+    <p class="fin-small">Referensfallen är utvalda faktiska händelser, inte ett representativt urval där man kan beräkna en statistiskt giltig emissionsfrekvens. Klicka på källorna för detaljer.</p>
+  </div>
+  <details class="fin-method">
+    <summary>Visa modellen, antagandena och hur veckouppdateringen fungerar</summary>
+    <p><b>Vad räknas?</b> Nya kontanta emissioner av aktier eller units. Utövande av redan utgivna optioner och enbart konvertering av Fenja-lånet räknas inte som en nyemission, men utspädningsrisken finns ändå.</p>
+    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, 1,05 för villkorad kredit och en närhetsfaktor som stiger när avståndet till 1 oktober 2027 minskar. Sannolikheten över h månader sätts till <code>1 − exp(−h × månatlig riskintensitet)</code>. Detta är en transparent scenariomodell, inte en statistiskt kalibrerad prognos.</p>
+    <p><b>Varje vecka:</b> Ett GitHub Actions-jobb räknar om antal dagar kvar till finansieringsriktmärket och uppdaterar 3-, 6- och 12-månadersutfall. Det söker också i bolagets pressmeddelanden och breda RSS-flöden. Nya finansiella besked flaggas för granskning; modellen hittar inte garanterat alla nyheter och uppdaterar inte påhittade kassasiffror utifrån rubriker.</p>
+    <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Fenja-avtalet är på upp till 100 miljoner kr totalt, varav 50 miljoner kr var dragna i juli. Mer kredit är villkorad och förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
+    <p><b>Modellrisk:</b> Känslighetsintervallet varierar den valda riskintensiteten med ×0,62 till ×1,55, och är inte ett konfidensintervall. <a href="https://github.com/steffestygg-boop/synact/blob/main/data/financing_model.json" target="_blank" rel="noopener">Visa alla referensfall och antaganden på GitHub ↗</a></p>
+  </details>
+  <p class="fin-small">Schemalagd veckokontroll varje måndag kl. 07:15 UTC via GitHub Actions (normalt 08:15 svensk vintertid). Om en körning misslyckas eller en källa inte går att läsa ska det synas i statusen. Informationen är ingen investeringsrekommendation.</p>
+</section>
+<section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">04</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
 <p class="intro">Tre källkontrollerade nyheter från bolaget, kompletterade med automatiskt insamlade rubriker när flödet finns tillgängligt.</p><p class="status" id="news-status">Visar verifierade pressmeddelanden · nyhetsflödet läses in när tillgängligt.</p>
 <div class="news" id="news">
 <article class="news-card"><small>13 nov 2026 · SynAct / MFN</small><h3>USA: patentansökan för resomelagons tablettformulering har godkänts för utfärdande</h3><a href="https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
@@ -708,7 +794,7 @@ footer{
 <article class="news-card"><small>27 okt 2026 · SynAct</small><h3>Första kommersiella partneravtalet med Hipolabor för dengue i Brasilien</h3><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 </div></section>
 <section aria-labelledby="milestones-heading">
-<p class="section-kicker"><span class="section-number">04</span> Klinisk utveckling &amp; bolaget</p>
+<p class="section-kicker"><span class="section-number">05</span> Klinisk utveckling &amp; bolaget</p>
 <h2 class="section" id="milestones-heading">Milstolpar <span id="milestone-total" class="milestone-total"></span></h2>
 <p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Klicka på varje ruta för fördjupning, vad händelsen betyder och länk till ursprungskälla.</p>
 <p class="status" id="research-status">Läser in källkontrollerad milstolpshistorik …</p>
@@ -740,7 +826,7 @@ footer{
 <span class="milestone-disclaimer">En undergruppsanalys eller en plan är inte samma sak som bekräftad klinisk effekt.</span>
 </div>
 </section>
-<section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">05</span> Analys &amp; värdering</p>
+<section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">06</span> Analys &amp; värdering</p>
 <div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Källkontrollerade publiceringar · kr per aktie · klicka på punkter för analysförändringen.</p></div>
 <div class="valuation-legend"><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#ffba79"></i>BioVal*</span></div></div>
 <div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar av Redeye, Edison och BioVal i kr per aktie"></svg></div>
@@ -891,4 +977,72 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
   status.textContent=added?'Senaste RSS-hämtning: '+new Date(data.updated_at).toLocaleString('sv-SE')+' · '+added+' ytterligare rubriker':'Visar verifierade pressmeddelanden; inga nya RSS-rubriker.';
  }catch(err){status.textContent='Visar verifierade pressmeddelanden. Automatisk RSS är ännu inte tillgänglig.';}
 })();
+
+(async function updateFinancingBarometer(){
+ const el=id=>document.getElementById(id);
+ function link(parent,label,url){
+   if(!url||!url.startsWith('https://'))return;
+   const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';parent.append(a);
+ }
+ try{
+   const resp=await Promise.all([
+     fetch('./data/financing.json',{cache:'no-store'}),
+     fetch('./data/financing_model.json',{cache:'no-store'})
+   ]);
+   if(!resp[0].ok||!resp[1].ok)throw Error('Datafilerna kan inte läsas');
+   const [d,model]=await Promise.all(resp.map(x=>x.json()));
+   if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
+   const issue=(d.emission_detected||[])[0];
+   if(issue){
+     el('fin-risk-6').textContent='Besked';
+     el('fin-risk-level').textContent='Möjlig nyemission upptäckt';
+     el('fin-risk-bar').style.width='100%';
+     el('fin-range').textContent='Granska originalbeskedet';
+     el('fin-risk-3').textContent='—';el('fin-risk-12').textContent='—';
+   }else{
+     const p=d.risk.months_6;
+     el('fin-risk-6').textContent=p.percent+' %';el('fin-risk-bar').style.width=Math.max(0,Math.min(100,p.percent))+'%';
+     el('fin-risk-level').textContent=p.percent>=45?'Hög modellrisk':p.percent>=20?'Förhöjd men osäker':'Lägre kortsiktig risk';
+     el('fin-range').textContent=p.low+'–'+p.high+' %';
+     el('fin-risk-3').textContent=d.risk.months_3.percent+' %';
+     el('fin-risk-12').textContent=d.risk.months_12.percent+' %';
+   }
+   el('fin-runway').textContent='≈ '+Number(d.months_to_company_runway_proxy).toLocaleString('sv-SE',{maximumFractionDigits:1})+' månader till riktmärket 1 okt 2027';
+   const date=new Date(d.updated_at);
+   el('fin-updated').textContent='Senaste beräkning '+(Number.isFinite(date.getTime())?date.toLocaleDateString('sv-SE'):'okänt datum')+' · '+d.days_since_report+' dagar sedan Q3-balansdagen.';
+   const statuses={
+     initial_bedömning:'Grundbedömning; den automatiska veckokontrollen har ännu inte körts.',
+     källor_kontrollerade_inga_nya_finansfakta:'Källor har kontrollerats. Inga nya finansrubriker identifierades automatiskt.',
+     nytt_besked_kräver_granskning:'Nytt bolagsbesked upptäckt. Tidseffekten är uppdaterad men de nya villkoren kräver genomgång.',
+     emissionsbesked_upptäckt:'VARNING: en ny emissionsrubrik har upptäckts. Läs originalkällan för att bekräfta villkoren.',
+     delvis_kontrollerad:'Källkontrollen var ofullständig; minst en källa gick inte att läsa.',
+     ingen_nätkontroll:'Ingen fungerande nyhetskontroll; endast tidseffekten har uppdaterats.'
+   };
+   el('fin-coverage').textContent=statuses[d.coverage_status]||'Se veckokontroll i GitHub Actions.';
+   const news=el('fin-news');news.replaceChildren();
+   const relevant=(d.review_needed||[]).slice(0,6);
+   if(!relevant.length){
+     const p=document.createElement('p');p.textContent='Inga nytillkomna finansrelaterade rubriker redovisas. Automatisk bevakning är aldrig heltäckande.';news.append(p);
+   }
+   for(const item of relevant){
+     const box=document.createElement('div');box.className='fin-news-item';
+     const title=document.createElement('span');title.textContent=(item.date||'Datum ej angivet')+' · '+(item.signal||'Nyhet')+' · '+item.source;
+     box.append(title);link(box,item.title,item.url);news.append(box);
+   }
+   if(relevant.length){
+     const p=document.createElement('p');p.className='fin-warning';p.textContent='Nya rubriker kräver källkontroll; nya belopp räknas inte in automatiskt.';news.append(p);
+   }
+   const comps=el('fin-cases');comps.replaceChildren();
+   for(const x of model.peer_cases){
+     const box=document.createElement('div');box.className='fin-case';
+     const heading=document.createElement('strong');heading.textContent=x.company+' · '+x.date;
+     const event=document.createElement('p');event.textContent=x.event;
+     const why=document.createElement('p');why.textContent=x.why;
+     box.append(heading,event,why);link(box,'Läs källa ↗',x.source);comps.append(box);
+   }
+ }catch(err){
+   el('fin-coverage').textContent='Kunde inte hämta veckodata: '+err.message+'. Visar grundbedömningen från 13 november 2026.';
+ }
+})();
+
 </script></body></html>
