@@ -282,7 +282,7 @@ def main() -> None:
         daily["review_needed"] = payload["review_needed"]
         if payload.get("emission_detected"):
             daily["emission_detected"] = payload["emission_detected"]
-        STATE_PATH.write_text(json.dumps(daily, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        STATE_PATH.write_text(json.dumps(daily, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print("Daily financing warnings:", len(daily["alerts"]), "coverage", daily["alerts_source_status"])
         return
     if "--dry-run" in sys.argv or "--offline" in sys.argv:
