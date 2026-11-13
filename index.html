@@ -706,6 +706,32 @@ footer{
 .fin-warning{font-size:11px;color:#f3c99b;padding:9px;border-radius:8px;background:#50402c70}
 @media(max-width:900px){.fin-grid,.fin-two{grid-template-columns:1fr}.fin-cases{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.fin-cases{grid-template-columns:1fr}.fin-facts>div{padding:12px}.fin-facts strong{font-size:19px}.fin-facts strong em{display:block;font-size:11px}}
+
+/* Financial early-warning signals: sourced metrics vs unverified headline leads */
+.fin-signals{margin-top:14px;border:1px solid #445761;border-radius:13px;background:#182834;padding:16px 18px}
+.fin-signals-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fin-signals-heading h3{font-size:15px;margin:0 0 4px;color:#f1f4f0}
+.fin-signals-heading p{margin:0;color:#b9cbd4;font-size:11px;line-height:1.55}
+.fin-signals-counter{display:inline-flex;align-items:center;justify-content:center;min-width:23px;padding:2px 5px;border-radius:7px;background:#344753;font-size:11px;color:#e6e9de;vertical-align:middle}
+.fin-signals-frequency{font-size:11px;color:#c7dbe5;border:1px solid #49606a;border-radius:20px;padding:5px 10px;white-space:nowrap}
+.fin-alert-status{font-size:11px;line-height:1.55;color:#a9bcca;margin:10px 0 12px}
+.fin-alert-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.fin-alert-list>p{grid-column:1/-1;font-size:12px;color:#c9d0d0}
+.fin-alert-card{background:#1f303a;border:1px solid #415765;border-left:3px solid #7dabb4;border-radius:9px;padding:12px 13px;min-width:0}
+.fin-alert-card[data-level="bevakning"]{border-left-color:#85b6bf}
+.fin-alert-card[data-level="förhöjd"]{border-left-color:#d5a85e}
+.fin-alert-card[data-level="kritisk"]{border-left-color:#de8580}
+.fin-alert-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.fin-alert-card-top strong{color:#f2f3ee;font-size:12px;line-height:1.4}
+.fin-alert-severity{font-size:10px;white-space:nowrap;color:#e7c99f}
+.fin-alert-card[data-level="kritisk"] .fin-alert-severity{color:#f0a5a2}
+.fin-alert-card[data-level="bevakning"] .fin-alert-severity{color:#abd9df}
+.fin-alert-card>p{font-size:11px;color:#c2d2d8;line-height:1.65;margin:9px 0}
+.fin-alert-verification{display:block;font-size:10px;color:#b2bcc5;line-height:1.5;margin-top:5px}
+.fin-alert-next{font-size:10px;color:#cdd5d4;line-height:1.65;margin:7px 0}
+.fin-alert-card a{display:inline-block;font-size:11px;margin-top:4px}
+.fin-signal-foot{font-size:10px;color:#a7b8c4;line-height:1.7;margin:12px 0 0}
+@media(max-width:700px){.fin-alert-list{grid-template-columns:1fr}.fin-signals{padding:14px}.fin-alert-card{padding:11px}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -759,7 +785,17 @@ footer{
       <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span></div>
     </div>
   </div>
-  <div class="fin-two">
+  <div class="fin-signals" id="fin-signals" aria-labelledby="fin-signals-heading">
+  <div class="fin-signals-heading">
+    <div><h3 id="fin-signals-heading">Varningssignaler <span class="fin-signals-counter" id="fin-alert-count">–</span></h3>
+    <p>Bevakade finansieringsförhållanden och nyheter som kan ändra emissionsrisken.</p></div>
+    <span class="fin-signals-frequency">Daglig kontroll</span>
+  </div>
+  <p id="fin-alert-status" class="fin-alert-status">Senaste varningskontrollen hämtas …</p>
+  <div class="fin-alert-list" id="fin-alert-list"><p>Kontrollerar likviditet, finansieringshorisont, villkorade lån eller TO2, handelsstopp, uppskjutna betalningar, kapitalbehov och större kliniska kostnader.</p></div>
+  <p class="fin-signal-foot"><b>Viktigt:</b> Bekräftade rapportförhållanden ingår redan i den ordinarie bedömningen. Nya rubrikträffar är <em>obekräftade</em> tills originalkällan granskats, och höjer därför inte automatiskt riskprocenten.</p>
+</div>
+<div class="fin-two">
     <div class="fin-box"><h3>Vad höjer emissionsrisken?</h3><p>En eventuell fas III-studie inom RA kan kräva mycket mer kapital. Fenjas extra lånemöjlighet är villkorad, bland annat av börsvärdet, och lånet förfaller den 31 december 2027. Historiska fall visar att bioteknikbolag ofta emitterar <b>innan</b> kassan tagit slut.</p></div>
     <div class="fin-box"><h3>Vad talar emot en snar emission?</h3><p>SynAct bedömer att finansieringen räcker in i Q4 2027 och planerar flera värdeskapande kliniska besked före dess. Partnerskap kan ge alternativa finansieringsvägar. Hipolabor-avtalet har däremot ingen offentlig garanterad kontant upfront-betalning som modellen kan räkna in.</p></div>
   </div>
@@ -992,11 +1028,51 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
    if(!resp[0].ok||!resp[1].ok)throw Error('Datafilerna kan inte läsas');
    const [d,model]=await Promise.all(resp.map(x=>x.json()));
    if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
+
+   /* Show verified financial facts and tentative headline alerts separately. */
+   const alertList=el('fin-alert-list');
+   const alertCount=el('fin-alert-count');
+   const alertStatus=el('fin-alert-status');
+   const alerts=Array.isArray(d.alerts)?d.alerts:[];
+   alertList.replaceChildren();
+   const severe=alerts.filter(a=>a.level==='kritisk'||a.level==='förhöjd').length;
+   alertCount.textContent=alerts.length+' signaler'+(severe?' · '+severe+' prioriterade':'');
+   if(!alerts.length){
+     const p=document.createElement('p');
+     p.textContent='Inga aktiva varningssignaler i senaste körningen. Kontrollera att den dagliga bevakningen lyckats; frånvaro av träffar är ingen garanti.';
+     alertList.append(p);
+   }
+   for(const a of alerts.slice(0,12)){
+     const item=document.createElement('article');item.className='fin-alert-card';
+     item.dataset.level=['kritisk','förhöjd','bevakning'].includes(a.level)?a.level:'bevakning';
+     const top=document.createElement('div');top.className='fin-alert-card-top';
+     const title=document.createElement('strong');title.textContent=a.title||'Varningssignal';
+     const sev=document.createElement('span');sev.className='fin-alert-severity';
+     sev.textContent=a.level==='kritisk'?'Hög prioritet':a.level==='förhöjd'?'Förhöjd':'Bevaka';
+     top.append(title,sev);
+     const p=document.createElement('p');p.textContent=a.detail||'';
+     const origin=document.createElement('small');origin.className='fin-alert-verification';
+     origin.textContent=(a.date||'Datum saknas')+' · '+(a.status||'Kontroll krävs');
+     const next=document.createElement('div');next.className='fin-alert-next';
+     next.textContent='Att kontrollera: '+(a.next_step||'Läs originalkällan.');
+     item.append(top,p,origin,next);
+     link(item,'Öppna källa ↗',a.source);alertList.append(item);
+   }
+   if(d.alerts_checked_at){
+     const checked=new Date(d.alerts_checked_at);
+     const age=(Date.now()-checked.getTime())/3600000;
+     const formatted=Number.isNaN(checked.getTime())?String(d.alerts_checked_at):checked.toLocaleString('sv-SE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+     alertStatus.textContent='Senaste kontroll: '+formatted+' · '+(d.alerts_source_status||'')+
+       (Number.isFinite(age)&&age>48?' · OBS: bevakningen har inte uppdaterats på över 48 timmar.':'');
+   }else{
+     alertStatus.textContent='Daglig signalbevakning ännu inte verifierad. Visar senast tillgängliga rapportuppgifter.';
+   }
+
    const issue=(d.emission_detected||[])[0];
    if(issue){
      el('fin-risk-6').textContent='Besked';
      el('fin-risk-level').textContent='Möjlig nyemission upptäckt';
-     el('fin-risk-bar').style.width='100%';
+     el('fin-risk-bar').style.width='0%';
      el('fin-range').textContent='Granska originalbeskedet';
      el('fin-risk-3').textContent='—';el('fin-risk-12').textContent='—';
    }else{
