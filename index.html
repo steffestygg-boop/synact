@@ -582,6 +582,28 @@ footer{
 .news-card:focus-within{border-color:#70d6ba}
 @media(max-width:930px){.market-board{grid-template-columns:repeat(3,minmax(0,1fr))}.market-quote{grid-column:span 3}.market-metric{grid-column:span 1}.market-owners{grid-column:span 2}.partner-intro{grid-template-columns:1fr}}
 @media(max-width:610px){.market-board{grid-template-columns:repeat(2,minmax(0,1fr))}.market-quote{grid-column:span 2}.market-owners{grid-column:span 2}.partner-calc{grid-template-columns:1fr}.chart-table{grid-template-columns:1fr}.stock-overview .market-metric>strong{font-size:20px}.valuation-chart-panel{padding:5px}}
+
+/* Aktieöversikt: matcha Isofols kompakta fyrdelade layout utan SynActs tidigare sexkolumns-override. */
+.stock-overview .market-board{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) minmax(0,1.55fr) minmax(0,1fr);gap:0;margin-top:15px;background:linear-gradient(120deg,#203746,#192b3a);border:1px solid #355365;border-radius:15px;overflow:hidden}
+.stock-overview .market-quote{grid-column:auto;min-width:0;min-height:144px;padding:18px 20px;border-right:1px solid #395263;border-bottom:0}
+.stock-overview .market-metric{grid-column:auto;min-height:144px;padding:19px 20px;border-right:1px solid #395263;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.stock-overview .market-metric:last-child{border-right:0}
+.stock-overview .market-owners{grid-column:auto}
+.stock-overview .owner-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;width:100%;margin-top:9px}
+.stock-overview .owner-pair>div{min-width:0}
+.stock-overview .owner-pair>div+div{padding-left:15px;border-left:1px solid #3c5060}
+.stock-overview .market-metric strong{font-size:clamp(20px,1.9vw,29px);line-height:1.25}
+.stock-overview .market-metric a{margin-top:8px}
+.stock-overview .market-quote-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.stock-overview .tv-quote{width:100%;min-height:86px;overflow:hidden;margin:5px 0 0;border-radius:7px}
+.stock-overview .tradingview-widget-container,.stock-overview .tradingview-widget-container__widget{width:100%;min-height:82px}
+.stock-overview .tradingview-widget-container iframe{filter:invert(1) hue-rotate(180deg)!important;background:#fff!important;border-radius:7px}
+.stock-overview .market-footline{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-top:12px;color:#a5bdcb;font-size:11px}
+.stock-overview .market-footline details{position:relative;flex:0 0 auto}
+.stock-overview .market-footline summary{cursor:pointer;color:#a2dfff;font-weight:700}
+.stock-overview .market-footline details p{margin:8px 0 0;max-width:800px;line-height:1.7}
+@media(max-width:1200px){.stock-overview .market-board{grid-template-columns:repeat(4,minmax(0,1fr))}.stock-overview .market-quote{grid-column:1/-1;border-bottom:1px solid #395263;border-right:0}.stock-overview .market-metric{grid-column:span 1}.stock-overview .market-owners{grid-column:span 2}}
+@media(max-width:650px){.stock-overview .market-board{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-overview .market-quote{grid-column:1/-1}.stock-overview .market-metric{min-height:105px;padding:14px 12px}.stock-overview .market-owners{grid-column:1/-1;border-top:1px solid #395263}.stock-overview .market-metric:last-child{border-right:0}.stock-overview .market-metric strong{font-size:21px}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -594,16 +616,16 @@ footer{
 <div class="market-heading"><div><p class="section-kicker"><span class="section-number">01</span> Aktieöversikt</p><h2 id="stock-heading">Aktien · SYNACT</h2></div><span class="market-exchange">Nasdaq Stockholm · SYNACT</span></div>
 <div class="market-board">
 <div class="market-quote"><div class="market-quote-heading"><span>Kurs · fördröjd marknadsdata</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener">TradingView ↗</a></div>
-<div class="tv-quote"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+<div class="tv-quote" aria-label="Senaste tillgängliga fördröjda kurs för SynAct Pharma från TradingView"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-{"symbol":"OMXSTO:SYNACT","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"sv"}
-</script></div></div><small class="tiny-note">Uppdateras av TradingView när sidan öppnas.</small></div>
+{"symbol":"OMXSTO:SYNACT","width":"100%","isTransparent":false,"colorTheme":"dark","locale":"sv"}
+</script></div></div></div>
 <div class="market-metric"><span class="metric-label">Antal aktier</span><strong>56 213 968</strong><a href="https://www.synactpharma.com/sv/investerare/aktiekapital/" target="_blank" rel="noopener">Bolagets aktiekapital ↗</a></div>
-<div class="market-metric"><span class="metric-label">Rapporterad blankning</span><strong>1,62 <small>%</small></strong><a href="https://www.fi.se/sv/vara-register/blankningsregistret/Positionsinnehavare/" target="_blank" rel="noopener">FI · 7 okt 2026 ↗</a></div>
 <div class="market-metric market-owners"><span class="metric-label">Aktieägare på plattformarna</span><div class="owner-pair">
 <div><strong>13 084</strong><a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Avanza ↗</a></div>
 <div><strong>1 245</strong><a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Nordnet ↗</a></div></div></div>
-</div><div class="market-footline"><span>Aktier: mars 2026 · blankning: 7 oktober 2026 · plattformsägare: uppgift avläst 13 november 2026. Kursen kan vara fördröjd. <a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Källa till ägarstatistik ↗</a></span></div>
+<div class="market-metric"><span class="metric-label">Rapporterad blankning</span><strong>1,62 <small>%</small></strong><a href="https://www.fi.se/sv/vara-register/blankningsregistret/Positionsinnehavare/" target="_blank" rel="noopener">FI · 7 okt 2026 ↗</a></div>
+</div><div class="market-footline"><span>Aktier: mars 2026 · blankning: 7 oktober 2026 · plattformsägare: uppgift avläst 13 november 2026. Kursen hämtas från TradingView och kan vara fördröjd.</span><details><summary>Om uppgifterna</summary><p>Ägarantal avser respektive plattform och kan förändras. Blankning avser rapporterade korta nettopositioner enligt Finansinspektionen. Uppgifterna är ögonblicksbilder, inte livevärden. <a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Källa till ägarstatistik ↗</a></p></details></div>
 </section>
 <section class="partner-overview" aria-labelledby="partner-heading"><p class="section-kicker"><span class="section-number">02</span> Avtal &amp; finansiering</p>
 <h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
