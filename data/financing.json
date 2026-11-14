@@ -156,13 +156,13 @@
       "signal": "övrigt"
     },
     {
-      "title": "Bioinvent minskade rörelseförlusten i tredje kvartalet - föreslår stor nyemission - Börsvärlden",
-      "date": "2026-10-29",
-      "source": "Börsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcmhOb1lyenJjYnNsQlRMVVNTSGU2dEJCdktVSmJGZnJzaEtYTDh0WkRvTGdVSlNod3g2NlotZWszbGg0TFNQNVV1RGxpUWtyMmFyYnM4cWExVkoySTczRHh0UmxuSWxUN0hDWlVxZktyYzJLRmJrTHNZeF82Um5WaE9HTldmM1JiNHYtNk82cFN2S3MwNE5GaElKLUlNUUF5UGN2Rjg1OTFMamxZUDJMS2RB?oc=5",
-      "category": "jämförelsebolag",
-      "official": false,
-      "signal": "emission"
+      "title": "SynAct Pharma ingår det första kommersiella partnerskapsavtalet för resomelagon med ledande brasilianskt läkemedelsbolag - SynAct Pharma",
+      "date": "2026-10-27",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQVlZCMlpBSWVqMnQ5cjlPOTNVZ2F2cGVlWEVGWGtXYkp1TVhVejF2RUZmbVd6aFhScVdSVjF4OEZlaWY2RVJBS0JZUDZXdldhekt1dUZ1bFBGdVFUb0t3dDFHTGdobi1ZbjRyTTdhSkk1VVlOUWxqM0NaWmFkRHRPaU9UVmIzcVJRQ1VWb29WNGZZLWJXclpvaDB2ZHhqTGFYbGl5cnFNOXFDVlpPSUZWYXY0OU9mNl9MTWpwZ2lxbnprdWthR1U2WVFRVnh4RUNtampGcHJXZmpNRTFaeVNoNlBQa2ZfZXNW?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "övrigt"
     }
   ],
   "review_needed": [],
@@ -189,9 +189,9 @@
       "id": "base:runway",
       "level": "bevakning",
       "title": "Finansieringshorisonten närmar sig",
-      "detail": "Omkring 10.6 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
+      "detail": "Omkring 10.5 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
-      "date": "2026-11-13",
+      "date": "2026-11-14",
       "status": "Beräknad från verifierad bolagsprognos",
       "next_step": "Kontrollera ny likviditetsprognos i kommande kvartalsrapport.",
       "category": "runway"
@@ -208,6 +208,6 @@
       "category": "debt"
     }
   ],
-  "alerts_checked_at": "2026-11-13T22:00:02+01:00",
+  "alerts_checked_at": "2026-11-14T12:15:13+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
