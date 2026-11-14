@@ -1,24 +1,48 @@
 {
-  "updated_at": "2026-11-13T16:30:00+01:00",
-  "feed": "Initial: källkontrollerade pressmeddelanden. Uppdateras via Google News RSS.",
+  "updated_at": "2026-11-14T07:29:24+00:00",
+  "feed": "Google News RSS – automatically aggregated headlines, not independently verified",
   "items": [
     {
-      "date": "2026-11-13",
-      "source": "SynAct Pharma / MFN",
-      "title": "SynAct Pharma announces Notice of Allowance of a US patent covering the resomelagon tablet",
-      "url": "https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet"
-    },
-    {
+      "title": "SynAct skärper sina fas III-planer för resomelagon - Biostock",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
       "date": "2026-11-03",
-      "source": "SynAct Pharma",
-      "title": "SynAct Pharma announces initiation of coverage by BioVal BioStock Analytics",
-      "url": "https://www.synactpharma.com/en/synact-pharma-announces-initiation-of-coverage-by-bioval-biostock-analytics/"
+      "source": "Biostock"
     },
     {
+      "title": "BioVal™ analysis: SynAct's RA project valued at SEK 2.7B - Biostock",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HMjdoM1llcFVFcm1LRDA3NXBLRjAwSEkyXzgtZzlUQWJ2M0JJZTJtSWRvY2VGXzNXYjcwLXpIem1XQ09rN3FhaldoWmExQVhpcW9pa2FnRGZzUFJKTW5qblgxZ055dTgtNU02QlJ6ck9WNUFN?oc=5",
+      "date": "2026-11-03",
+      "source": "Biostock"
+    },
+    {
+      "title": "SynAct on signing resomelagon’s first commercial partner - Biostock",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOckxaUkRIY2xaZGhRcWdVdnBtVFdMRDVjeUkxVGFROFVtQ1I5THN5enJQcmkzSms5NHU5eHJOazZkVWx1VFlRMU41QlhZZzJXLW15QlYwSzJHMVVOb0lpRkEwODhtUzBBWkJoM3BjQUFzQnE0dVBuTlRJMXhGWE5Wam4zTzE3eUFIVEFXLXlsd1hHcmpD?oc=5",
+      "date": "2026-10-28",
+      "source": "Biostock"
+    },
+    {
+      "title": "Synact Pharma stiger efter Brasilienavtal - DI",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9wZHA3VWJ2YW01djZ5aU16WmxpOGZnY3UxeXhscHNDcDJaSXh2djFIRmc2VzNNUjh6T1Y4UVZYbDdLRzcyZU05bWdaNnFweWVCcGQxWGtsc0ZJMVJGaXhHcThHanZ5MUxXOXFXNGNWeGxXWTg?oc=5",
       "date": "2026-10-27",
-      "source": "SynAct Pharma",
-      "title": "SynAct Pharma signs first commercial partnership for resomelagon with leading Brazilian pharmaceutical company",
-      "url": "https://www.synactpharma.com/en/?p=27624"
+      "source": "DI"
+    },
+    {
+      "title": "Synact Pharma: gains WHO dengue validation for resomelagon - Edison - Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQem1ObnNjMkxUOWNCX3lmWUtjQmh3WFRTN25hTzQ3b1RUNk1EMGNvVWFkVDNMMUFvNTUxc1kxLWVlMXVxREx2aXp5SnoxLXlVS0ZyM1k1QjNaUnc4bWZISVVfZ2p0dlM2S0RXeHVmLU5tUXFYQnJuUUpnZmoxVU1YSWFhLVg4QlVaUXhFLV90VERvXzROaFBIZVc1RHJoTU5qWmJR?oc=5",
+      "date": "2026-09-22",
+      "source": "Börsvärlden"
+    },
+    {
+      "title": "Synact Pharmas förlust krymper - Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9IZE1IZWlHNmJNaUNuOU8yU1FMNU91N0NJbGwzMzNvQ09qbVlWUHRyd0UxTDNUYUljR09iNXZXVzlaVkliNC13SEVUYkMxZFRmZDR0UWtPVTE1Mm9VTDN3cEwxd25yLWN3WkZheUNYUHNDZGU2QVE?oc=5",
+      "date": "2026-08-20",
+      "source": "Affärsvärlden"
+    },
+    {
+      "title": "Minskade förluster för Synact Pharma - DI",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1nZHpaYzRhQnpmRGlZOFRmNkRxLXI2eER0cllMLXNRczBmU0VPOVdJX2VOSWpkbm56MHZRd243Y0FBYXoyU0pGdXNKbVlhNEljeHhuTGVUcEpUZFpvNW9makRlbTFxdDBSY1dhUQ?oc=5",
+      "date": "2026-08-20",
+      "source": "DI"
     }
   ]
 }
