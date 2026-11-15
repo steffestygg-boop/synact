@@ -737,6 +737,30 @@ footer{
 .timeline .milestone.estimated-time{position:relative;border-style:dashed;border-color:#99815a}
 .timeline .milestone.estimated-time:after{content:"≈";font-size:12px;position:absolute;top:4px;right:5px;color:#e5c08c;font-weight:750}
 .timeline .milestone.estimated-time strong{padding-right:10px}
+
+/* Explicit Fenja refinancing stress: never equate nominal credit with cash */
+.fin-fenja-panel{border:1px solid #686049;border-radius:13px;padding:17px 19px;background:linear-gradient(135deg,#302a23,#1b2a30 72%);margin-top:12px}
+.fin-fenja-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.fin-fenja-head h3{font-size:15px;color:#f9e9cf;margin:0 0 8px}
+.fin-fenja-head p{max-width:760px;font-size:12px;line-height:1.7;color:#c4d2d9;margin:0}
+.fin-fenja-pill{font-size:10px;border:1px solid #8b7048;border-radius:16px;color:#ebca95;padding:5px 10px;white-space:nowrap}
+.fin-fenja-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:15px 0}
+.fin-fenja-stats>div{display:flex;flex-direction:column;gap:7px;border:1px solid #5c584e;border-radius:9px;padding:14px;background:#192934}
+.fin-fenja-stats span{font-size:11px;color:#c7d1d4;line-height:1.5}
+.fin-fenja-stats strong{font-size:clamp(20px,2.3vw,27px);color:#f6f3e9}
+.fin-fenja-stats strong small{font-size:12px;color:#bfcecf}
+.fin-fenja-stats div>small{font-size:10px;line-height:1.5;color:#aebec7}
+.fin-fenja-simulator{background:#202e34;border:1px solid #455a60;border-radius:10px;padding:13px 15px}
+.fin-fenja-simhead{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.fin-fenja-simhead label{font-size:12px;color:#d9e5e6}
+.fin-fenja-simhead strong{font-size:16px;color:#f2d7ae}
+.fin-fenja-simulator input[type="range"]{width:100%;accent-color:#e4b975;margin:14px 0 9px;cursor:pointer}
+.fin-fenja-simulator p{font-size:11px;color:#d0d9d7;line-height:1.6;margin:4px 0}
+.fin-fenja-disclaimer{font-size:10px!important;color:#aebcc0!important}
+.fin-fenja-model-note{font-size:11px;line-height:1.8;color:#bdcbd0;margin-top:11px}
+.fin-fenja-model-note b{color:#f0dec4}
+.fin-fenja-model-note a{display:inline-block;margin-left:5px}
+@media(max-width:860px){.fin-fenja-stats{grid-template-columns:1fr}.fin-fenja-stats>div{padding:11px}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -786,10 +810,28 @@ footer{
     <div class="fin-facts">
       <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
       <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span></div>
-      <div><small>Fenja · möjlighet till extra uttag</small><strong>Upp till 50 <em>miljoner kr</em></strong><span>Villkorat uttag under Q4 2026, inte kassa</span></div>
+      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
       <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span></div>
     </div>
   </div>
+  <div class="fin-fenja-panel" aria-labelledby="fin-fenja-heading">
+   <div class="fin-fenja-head"><div>
+     <h3 id="fin-fenja-heading">Fenja – vad begränsar finansieringen?</h3>
+     <p>Faciliteten uppgår till 100 Mkr men 50 Mkr är redan utnyttjade. En ny dragning måste rymmas inom <b>10 % av börsvärdet</b>. Värdena nedan utgår från senaste verifierade kursbild, inte en livekurs.</p>
+   </div><span class="fin-fenja-pill">Villkorad kredit · bevakas</span></div>
+   <div class="fin-fenja-stats">
+     <div><span>Möjligt extra uttag enligt 10 %-taket</span><strong id="fenja-additional">24,3 <small>Mkr</small></strong><small id="fenja-cap-context">Av nominellt 50 Mkr – kurs 13,22 kr den 13 nov 2026</small></div>
+     <div><span>Minsta årsränta på befintliga 50 Mkr</span><strong id="fenja-interest">5,0 <small>Mkr/år</small></strong><small>Minst 10 % årligen, exklusive eventuell outnyttjad-kreditkostnad</small></div>
+     <div><span>Konvertibellånets förfall</span><strong>31 dec 2027</strong><small>Strax efter finansieringshorisonten in i Q4 2027; omförhandling/konvertering kan ändra utfallet</small></div>
+   </div>
+   <div class="fin-fenja-simulator">
+     <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Testa aktiekurs vid nytt uttag</label><strong id="fenja-scenario-output">13,22 kr</strong></div>
+     <input type="range" id="fenja-scenario-price" min="5" max="35" value="13.22" step="0.01" aria-label="Antagen aktiekurs i kronor vid nytt Fenja-uttag">
+     <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p>
+     <p class="fin-fenja-disclaimer">Illustrativ känslighet, <b>inte</b> en prognos eller ett bekräftat uttag. Reglaget ändrar inte emissionsbarometerns sparade riskprocent. Där används senast verifierade kursbild från <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
+   </div>
+   <div class="fin-fenja-model-note"><b>Ingen dubbelräkning:</b> Kreditberoendet ingick redan i barometern (×1,05). Nu tillkommer bara en separat kapacitetsfaktor för kreditdelen som 10 %-taket hindrar oss från att räkna som tillgänglig. <b>Ränta, förfall och bolagets finansieringshorisont visas som risksignaler, men ger inga extra fristående multiplikatorer.</b> <a id="fenja-original-source" href="https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/" target="_blank" rel="noopener noreferrer">Läs lånevillkoren hos SynAct ↗</a></div>
+ </div>
   <div class="fin-signals" id="fin-signals" aria-labelledby="fin-signals-heading">
   <div class="fin-signals-heading">
     <div><h3 id="fin-signals-heading">Varningssignaler <span class="fin-signals-counter" id="fin-alert-count">–</span></h3>
@@ -820,7 +862,7 @@ footer{
   <details class="fin-method">
     <summary>Visa modellen, antagandena och hur veckouppdateringen fungerar</summary>
     <p><b>Vad räknas?</b> Nya kontanta emissioner av aktier eller units. Utövande av redan utgivna optioner och enbart konvertering av Fenja-lånet räknas inte som en nyemission, men utspädningsrisken finns ändå.</p>
-    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, 1,05 för villkorad kredit och en närhetsfaktor som stiger när avståndet till 1 oktober 2027 minskar. Sannolikheten över h månader sätts till <code>1 − exp(−h × månatlig riskintensitet)</code>. Detta är en transparent scenariomodell, inte en statistiskt kalibrerad prognos.</p>
+    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, <b>1,05 för redan känd kreditberoenderisk</b>, samt en <b>ny, separat tillgänglighetsfaktor</b> som bara beaktar hur stor del av Fenjas extra 50 Mkr som begränsas av avtalsvillkoret om 10 % av börsvärdet. Denna faktor är <b id="fenja-factor-display">×1,103</b> vid referenskursen 13,22 kr. Den tidigare närhetsfaktorn till oktober 2027 finns kvar. Sannolikheten över h månader är <code>1 − exp(−h × månatlig riskintensitet)</code>. Antagandet om hur mycket en begränsad kredit ska höja risken är subjektivt och inte kalibrerat mot representativ historisk statistik.</p><p><b>Avgränsning:</b> Ränta och lånets förfall 31 december 2027 får egna tydliga varningar men höjer inte procenttalen en andra gång. Bolagets finansieringshorisont och tidigare kreditberoende finns redan i risken. Referenskursen uppdateras först efter källkontroll; veckojobbet uppdaterar däremot tidsfaktorn.</p>
     <p><b>Varje vecka:</b> Ett GitHub Actions-jobb räknar om antal dagar kvar till finansieringsriktmärket och uppdaterar 3-, 6- och 12-månadersutfall. Det söker också i bolagets pressmeddelanden och breda RSS-flöden. Nya finansiella besked flaggas för granskning; modellen hittar inte garanterat alla nyheter och uppdaterar inte påhittade kassasiffror utifrån rubriker.</p>
     <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Fenja-avtalet är på upp till 100 miljoner kr totalt, varav 50 miljoner kr var dragna i juli. Mer kredit är villkorad och förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
     <p><b>Modellrisk:</b> Känslighetsintervallet varierar den valda riskintensiteten med ×0,62 till ×1,55, och är inte ett konfidensintervall. <a href="https://github.com/steffestygg-boop/synact/blob/main/data/financing_model.json" target="_blank" rel="noopener">Visa alla referensfall och antaganden på GitHub ↗</a></p>
@@ -1033,6 +1075,47 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
    if(!resp[0].ok||!resp[1].ok)throw Error('Datafilerna kan inte läsas');
    const [d,model]=await Promise.all(resp.map(x=>x.json()));
    if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
+
+   /* Dated source-based Fenja capacity, separate from the price-scenario slider. */
+   if(model.company&&model.company.fenja&&model.company.fenja.market_snapshot){
+     const loan=model.company.fenja;
+     const snapshot=loan.market_snapshot;
+     const pct=Number(loan.market_cap_limit_fraction);
+     const shares=Number(snapshot.shares_outstanding);
+     const drawn=Number(loan.already_drawn_gross_msek);
+     const remaining=Number(loan.remaining_nominal_msek);
+     const maximum=Number(loan.total_msek);
+     const fmt=(x,d=1)=>Number(x).toLocaleString('sv-SE',{minimumFractionDigits:d,maximumFractionDigits:d});
+     const extraAt=price=>Math.max(0,Math.min(remaining,maximum-drawn,shares*price/1e6*pct-drawn));
+     const referPrice=Number(snapshot.price_sek);
+     const available=extraAt(referPrice);
+     const amount=el('fenja-additional');
+     amount.replaceChildren(document.createTextNode(fmt(available)+' '));
+     const unit=document.createElement('small');unit.textContent='Mkr';amount.append(unit);
+     const fact=el('fenja-fact-extra');fact.replaceChildren(document.createTextNode('≈'+fmt(available)+' '));
+     const munit=document.createElement('em');munit.textContent='miljoner kr';fact.append(munit);
+     const annual=Number(loan.min_drawn_interest_percent_per_year)*drawn/100;
+     const interest=el('fenja-interest');interest.replaceChildren(document.createTextNode(fmt(annual)+' '));
+     const intUnit=document.createElement('small');intUnit.textContent='Mkr/år';interest.append(intUnit);
+     const dateString=new Date(snapshot.as_of_date+'T12:00:00Z').toLocaleDateString('sv-SE',{day:'numeric',month:'short',year:'numeric'});
+     el('fenja-snapshot-date').textContent=dateString;
+     el('fenja-cap-context').textContent='Av nominellt '+fmt(remaining,0)+' Mkr · kurs '+fmt(referPrice,2)+' kr ('+dateString+')';
+     const factor=Number(d.fenja_assessment?.fenja_cap_factor||
+       (1+Number(model.calculation.fenja_capacity_penalty_weight)*(1-available/remaining)));
+     el('fenja-factor-display').textContent='×'+fmt(factor,3);
+     const slider=el('fenja-scenario-price');
+     slider.value=String(referPrice);
+     const update=()=>{
+       const p=Number(slider.value);
+       el('fenja-scenario-output').textContent=fmt(p,2)+' kr';
+       const e=extraAt(p);
+       const totalMarketCap=shares*p/1e6;
+       el('fenja-scenario-summary').textContent='Vid '+fmt(p,2)+' kr blir illustrativt börsvärde '+fmt(totalMarketCap)+' Mkr, varav 10 % är '+fmt(totalMarketCap*pct)+' Mkr. Efter redan dragna '+fmt(drawn,0)+' Mkr återstår då högst '+fmt(e)+' Mkr av de nominella '+fmt(remaining,0)+' Mkr.';
+     };
+     slider.addEventListener('input',update);update();
+     el('fenja-original-source').href=loan.url;
+   }
+
 
    /* Show verified financial facts and tentative headline alerts separately. */
    const alertList=el('fin-alert-list');
