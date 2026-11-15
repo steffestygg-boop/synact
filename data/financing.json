@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T22:00:02+01:00",
+  "updated_at": "2026-11-15T16:19:25+01:00",
   "based_on_report": "2026-09-30",
   "automated_checked": true,
   "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
@@ -12,24 +12,24 @@
     "officiell presslista"
   ],
   "failed_sources": [],
-  "days_since_report": 44,
-  "months_to_company_runway_proxy": 10.6,
-  "methodology_version": "1.0.0",
+  "days_since_report": 46,
+  "months_to_company_runway_proxy": 10.5,
+  "methodology_version": "1.1.0-fenja",
   "risk": {
     "months_3": {
-      "percent": 11.0,
+      "percent": 11.1,
       "low": 7.0,
-      "high": 16.6
+      "high": 16.7
     },
     "months_6": {
-      "percent": 25.6,
-      "low": 16.7,
-      "high": 36.7
+      "percent": 25.7,
+      "low": 16.8,
+      "high": 36.9
     },
     "months_12": {
-      "percent": 56.7,
-      "low": 40.5,
-      "high": 72.6
+      "percent": 56.8,
+      "low": 40.6,
+      "high": 72.8
     }
   },
   "latest_information": [
@@ -156,13 +156,13 @@
       "signal": "övrigt"
     },
     {
-      "title": "Bioinvent minskade rörelseförlusten i tredje kvartalet - föreslår stor nyemission - Börsvärlden",
-      "date": "2026-10-29",
-      "source": "Börsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcmhOb1lyenJjYnNsQlRMVVNTSGU2dEJCdktVSmJGZnJzaEtYTDh0WkRvTGdVSlNod3g2NlotZWszbGg0TFNQNVV1RGxpUWtyMmFyYnM4cWExVkoySTczRHh0UmxuSWxUN0hDWlVxZktyYzJLRmJrTHNZeF82Um5WaE9HTldmM1JiNHYtNk82cFN2S3MwNE5GaElKLUlNUUF5UGN2Rjg1OTFMamxZUDJMS2RB?oc=5",
+      "title": "Bioinvent gör emission på 430 Mkr - DI",
+      "date": "2026-10-28",
+      "source": "DI",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1IcENJREpRdjA1ZGFZemp2dEoxaG1HR0FjTkk3NERkX3ZzaUVnaG44N180X2ZOMmZhTk00ZV9GUDRCNGhBRGRBSHptcHY1bEJrbnNPSk9ZTDVXM2RUY2NqWFZ0SloxSm41?oc=5",
       "category": "jämförelsebolag",
       "official": false,
-      "signal": "emission"
+      "signal": "övrigt"
     }
   ],
   "review_needed": [],
@@ -208,6 +208,6 @@
       "category": "debt"
     }
   ],
-  "alerts_checked_at": "2026-11-15T12:17:32+01:00",
+  "alerts_checked_at": "2026-11-15T16:19:25+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
