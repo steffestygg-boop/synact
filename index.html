@@ -761,6 +761,31 @@ footer{
 .fin-fenja-model-note b{color:#f0dec4}
 .fin-fenja-model-note a{display:inline-block;margin-left:5px}
 @media(max-width:860px){.fin-fenja-stats{grid-template-columns:1fr}.fin-fenja-stats>div{padding:11px}}
+
+/* Clickable and fully explained financial calculations */
+.fin-calc-trigger{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-left:7px;padding:0;width:24px;height:24px;border-radius:7px;border:1px solid #a98551;background:#372e24;color:#ffe0a4;font-size:14px;line-height:1;cursor:pointer;flex-shrink:0;transition:background .16s,border-color .16s}
+.fin-calc-trigger:hover,.fin-calc-trigger:focus-visible{background:#655034;border-color:#f0c588;color:#fff;outline-offset:2px}
+.fin-calc-trigger:focus-visible{outline:2px solid #f5d5a0}
+.fin-calc-trigger.fin-calc-inline{margin-left:5px;width:21px;height:21px;font-size:12px}
+.fin-calc-trigger[disabled]{opacity:.55;cursor:default}
+.fin-calc-explain{font-size:10px;color:#e8c58d;white-space:nowrap;vertical-align:middle}
+.fin-calculation-modal[hidden]{display:none!important}
+.fin-calculation-modal{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(7,12,19,.82);backdrop-filter:blur(3px)}
+.fin-calculation-dialog{position:relative;width:min(620px,100%);max-height:min(85vh,740px);overflow-y:auto;border:1px solid #71818a;border-radius:15px;background:linear-gradient(145deg,#253743,#172530);box-shadow:0 20px 75px rgba(0,0,0,.7);padding:26px 25px 24px;color:#e6eef1}
+.fin-calculation-dialog h2{margin:0 40px 9px 0;font-size:21px;line-height:1.3;color:#fff5e3}
+.fin-calculation-dialog h3{margin:17px 0 8px;font-size:12px;letter-spacing:.02em;color:#f4d4a2}
+.fin-calculation-dialog .fin-calc-lead{margin:0 0 15px;font-size:12px;line-height:1.7;color:#c8d9e0}
+.fin-calculation-dialog .fin-calc-formula{font-size:12px;line-height:1.7;font-weight:680;color:#f1e4c7;background:#172730;border:1px solid #546879;padding:12px 14px;border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere}
+.fin-calculation-dialog ol{padding-left:22px;margin:8px 0}
+.fin-calculation-dialog li{font-size:12px;line-height:1.8;color:#d0dce1;margin-bottom:5px}
+.fin-calculation-dialog .fin-calc-result{display:block;font-size:19px;font-weight:760;color:#f7d5a3;margin:13px 0}
+.fin-calculation-dialog .fin-calc-caveat{background:#2c2d2b;border:1px solid #6c604d;border-radius:9px;padding:10px 12px;font-size:11px;line-height:1.75;color:#dfd4c2}
+.fin-calculation-dialog .fin-calc-sources{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px}
+.fin-calculation-dialog .fin-calc-sources a{font-size:11px;color:#f4c980}
+.fin-calculation-close{position:absolute;top:12px;right:13px;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;border:1px solid #637786;background:#263745;color:#e7f1f3;font-size:21px;cursor:pointer}
+.fin-calculation-close:hover,.fin-calculation-close:focus-visible{background:#46606b;outline:2px solid #e0bc8c;outline-offset:2px}
+body.fin-calc-open{overflow:hidden}
+@media(max-width:600px){.fin-calculation-dialog{padding:23px 16px 18px}.fin-calculation-dialog h2{font-size:18px}.fin-calculation-modal{padding:10px}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -801,17 +826,17 @@ footer{
   <div class="fin-grid">
     <div class="fin-risk">
       <div class="fin-caption">Modellrisk · närmaste 6 månader</div>
-      <div class="fin-main"><strong id="fin-risk-6">25,6 %</strong><span id="fin-risk-level">Förhöjd men osäker</span></div>
+      <div class="fin-main"><strong id="fin-risk-6">25,6 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-6" title="Visa beräkningen av emissionsrisk inom 6 månader" aria-label="Visa beräkningen av emissionsrisk inom 6 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span id="fin-risk-level">Förhöjd men osäker</span></div>
       <div class="fin-meter"><div id="fin-risk-bar" style="width:26%"></div></div>
-      <p class="fin-small">Känslighetsintervall <b id="fin-range">16,7–36,7 %</b> · inte statistiskt konfidensintervall</p>
-      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">11,0 %</strong></div><div><small>12 månader</small><strong id="fin-risk-12">56,7 %</strong></div></div>
+      <p class="fin-small">Känslighetsintervall <b id="fin-range">16,7–36,7 %</b><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="sensitivity" title="Visa beräkningen av känslighetsintervallet" aria-label="Visa beräkningen av känslighetsintervallet" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button> · inte statistiskt konfidensintervall</p>
+      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">11,0 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-3" title="Visa beräkningen av emissionsrisk inom 3 månader" aria-label="Visa beräkningen av emissionsrisk inom 3 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div><div><small>12 månader</small><strong id="fin-risk-12">56,7 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-12" title="Visa beräkningen av emissionsrisk inom 12 månader" aria-label="Visa beräkningen av emissionsrisk inom 12 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div></div>
       <p class="fin-small">Procentsatserna är uttryckligen <b>subjektiva scenarioantaganden</b> – inte en historiskt uppmätt emissionsfrekvens.</p>
     </div>
     <div class="fin-facts">
       <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
-      <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span></div>
-      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
-      <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span></div>
+      <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="cash-burn" title="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-label="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div>
+      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-capacity" title="Visa beräkningen av återstående möjliga Fenja-uttag" aria-label="Visa beräkningen av återstående möjliga Fenja-uttag" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
+      <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="runway" title="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-label="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">ⓘ</button></div>
     </div>
   </div>
   <div class="fin-fenja-panel" aria-labelledby="fin-fenja-heading">
@@ -820,14 +845,14 @@ footer{
      <p>Faciliteten uppgår till 100 Mkr men 50 Mkr är redan utnyttjade. En ny dragning måste rymmas inom <b>10 % av börsvärdet</b>. Värdena nedan utgår från senaste verifierade kursbild, inte en livekurs.</p>
    </div><span class="fin-fenja-pill">Villkorad kredit · bevakas</span></div>
    <div class="fin-fenja-stats">
-     <div><span>Möjligt extra uttag enligt 10 %-taket</span><strong id="fenja-additional">24,3 <small>Mkr</small></strong><small id="fenja-cap-context">Av nominellt 50 Mkr – kurs 13,22 kr den 13 nov 2026</small></div>
-     <div><span>Minsta årsränta på befintliga 50 Mkr</span><strong id="fenja-interest">5,0 <small>Mkr/år</small></strong><small>Minst 10 % årligen, exklusive eventuell outnyttjad-kreditkostnad</small></div>
+     <div><span>Möjligt extra uttag enligt 10 %-taket</span><strong id="fenja-additional">24,3 <small>Mkr</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-capacity" title="Visa beräkningen av Fenjas 10-procentsbegränsning" aria-label="Visa beräkningen av Fenjas 10-procentsbegränsning" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small id="fenja-cap-context">Av nominellt 50 Mkr – kurs 13,22 kr den 13 nov 2026</small></div>
+     <div><span>Minsta årsränta på befintliga 50 Mkr</span><strong id="fenja-interest">5,0 <small>Mkr/år</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-interest" title="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-label="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small>Minst 10 % årligen, exklusive eventuell outnyttjad-kreditkostnad</small></div>
      <div><span>Konvertibellånets förfall</span><strong>31 dec 2027</strong><small>Strax efter finansieringshorisonten in i Q4 2027; omförhandling/konvertering kan ändra utfallet</small></div>
    </div>
    <div class="fin-fenja-simulator">
      <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Testa aktiekurs vid nytt uttag</label><strong id="fenja-scenario-output">13,22 kr</strong></div>
      <input type="range" id="fenja-scenario-price" min="5" max="35" value="13.22" step="0.01" aria-label="Antagen aktiekurs i kronor vid nytt Fenja-uttag">
-     <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p>
+     <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-scenario" title="Visa beräkningen för aktiekursen som valts med reglaget" aria-label="Visa beräkningen för aktiekursen som valts med reglaget" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
      <p class="fin-fenja-disclaimer">Illustrativ känslighet, <b>inte</b> en prognos eller ett bekräftat uttag. Reglaget ändrar inte emissionsbarometerns sparade riskprocent. Där används senast verifierade kursbild från <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
    </div>
    <div class="fin-fenja-model-note"><b>Ingen dubbelräkning:</b> Kreditberoendet ingick redan i barometern (×1,05). Nu tillkommer bara en separat kapacitetsfaktor för kreditdelen som 10 %-taket hindrar oss från att räkna som tillgänglig. <b>Ränta, förfall och bolagets finansieringshorisont visas som risksignaler, men ger inga extra fristående multiplikatorer.</b> <a id="fenja-original-source" href="https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/" target="_blank" rel="noopener noreferrer">Läs lånevillkoren hos SynAct ↗</a></div>
@@ -862,7 +887,7 @@ footer{
   <details class="fin-method">
     <summary>Visa modellen, antagandena och hur veckouppdateringen fungerar</summary>
     <p><b>Vad räknas?</b> Nya kontanta emissioner av aktier eller units. Utövande av redan utgivna optioner och enbart konvertering av Fenja-lånet räknas inte som en nyemission, men utspädningsrisken finns ändå.</p>
-    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, <b>1,05 för redan känd kreditberoenderisk</b>, samt en <b>ny, separat tillgänglighetsfaktor</b> som bara beaktar hur stor del av Fenjas extra 50 Mkr som begränsas av avtalsvillkoret om 10 % av börsvärdet. Denna faktor är <b id="fenja-factor-display">×1,103</b> vid referenskursen 13,22 kr. Den tidigare närhetsfaktorn till oktober 2027 finns kvar. Sannolikheten över h månader är <code>1 − exp(−h × månatlig riskintensitet)</code>. Antagandet om hur mycket en begränsad kredit ska höja risken är subjektivt och inte kalibrerat mot representativ historisk statistik.</p><p><b>Avgränsning:</b> Ränta och lånets förfall 31 december 2027 får egna tydliga varningar men höjer inte procenttalen en andra gång. Bolagets finansieringshorisont och tidigare kreditberoende finns redan i risken. Referenskursen uppdateras först efter källkontroll; veckojobbet uppdaterar däremot tidsfaktorn.</p>
+    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, <b>1,05 för redan känd kreditberoenderisk</b>, samt en <b>ny, separat tillgänglighetsfaktor</b> som bara beaktar hur stor del av Fenjas extra 50 Mkr som begränsas av avtalsvillkoret om 10 % av börsvärdet. Denna faktor är <b id="fenja-factor-display">×1,103</b><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-factor" title="Visa beräkningen av Fenja-tillgänglighetsfaktorn" aria-label="Visa beräkningen av Fenja-tillgänglighetsfaktorn" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button> vid referenskursen 13,22 kr. Den tidigare närhetsfaktorn till oktober 2027 finns kvar. Sannolikheten över h månader är <code>1 − exp(−h × månatlig riskintensitet)</code>. Antagandet om hur mycket en begränsad kredit ska höja risken är subjektivt och inte kalibrerat mot representativ historisk statistik.</p><p><b>Avgränsning:</b> Ränta och lånets förfall 31 december 2027 får egna tydliga varningar men höjer inte procenttalen en andra gång. Bolagets finansieringshorisont och tidigare kreditberoende finns redan i risken. Referenskursen uppdateras först efter källkontroll; veckojobbet uppdaterar däremot tidsfaktorn.</p>
     <p><b>Varje vecka:</b> Ett GitHub Actions-jobb räknar om antal dagar kvar till finansieringsriktmärket och uppdaterar 3-, 6- och 12-månadersutfall. Det söker också i bolagets pressmeddelanden och breda RSS-flöden. Nya finansiella besked flaggas för granskning; modellen hittar inte garanterat alla nyheter och uppdaterar inte påhittade kassasiffror utifrån rubriker.</p>
     <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Fenja-avtalet är på upp till 100 miljoner kr totalt, varav 50 miljoner kr var dragna i juli. Mer kredit är villkorad och förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
     <p><b>Modellrisk:</b> Känslighetsintervallet varierar den valda riskintensiteten med ×0,62 till ×1,55, och är inte ett konfidensintervall. <a href="https://github.com/steffestygg-boop/synact/blob/main/data/financing_model.json" target="_blank" rel="noopener">Visa alla referensfall och antaganden på GitHub ↗</a></p>
@@ -918,6 +943,20 @@ footer{
 <footer>Privat, oberoende investeraröversikt · Datakontroll 13 november 2026 · Ej investeringsrådgivning. Kursdata kan vara fördröjda. Tidslinje och analysvärderingar uppdateras redaktionellt, medan nyhetsflödet kan uppdateras automatiskt. Planerade händelser är inte bekräftade utfall.</footer>
 </div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog"><button id="close" aria-label="Stäng">×</button><div class="date" id="modal-date"></div><h2 id="modal-title"></h2><div id="modal-body" class="modal-body"></div><div id="modal-links"></div></div></div>
+
+<div class="fin-calculation-modal" id="fin-calculation-modal" hidden role="presentation">
+  <div class="fin-calculation-dialog" role="dialog" aria-modal="true" aria-labelledby="fin-calc-title" aria-describedby="fin-calc-lead" tabindex="-1">
+    <button type="button" id="fin-calculation-close" class="fin-calculation-close" aria-label="Stäng beräkningsrutan">×</button>
+    <h2 id="fin-calc-title">Så har siffran beräknats</h2>
+    <p id="fin-calc-lead" class="fin-calc-lead"></p>
+    <div id="fin-calc-formula" class="fin-calc-formula"></div>
+    <h3>Insatta värden och uträkning</h3>
+    <ol id="fin-calc-steps"></ol>
+    <strong id="fin-calc-result" class="fin-calc-result"></strong>
+    <p id="fin-calc-caveat" class="fin-calc-caveat"></p>
+    <div id="fin-calc-sources" class="fin-calc-sources"></div>
+  </div>
+</div>
 <script>
 let milestones=[];
 let eras=[];
