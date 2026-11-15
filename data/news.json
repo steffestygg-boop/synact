@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T07:29:24+00:00",
+  "updated_at": "2026-11-15T07:32:16+00:00",
   "feed": "Google News RSS – automatically aggregated headlines, not independently verified",
   "items": [
     {
@@ -15,12 +15,6 @@
       "source": "Biostock"
     },
     {
-      "title": "SynAct on signing resomelagon’s first commercial partner - Biostock",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOckxaUkRIY2xaZGhRcWdVdnBtVFdMRDVjeUkxVGFROFVtQ1I5THN5enJQcmkzSms5NHU5eHJOazZkVWx1VFlRMU41QlhZZzJXLW15QlYwSzJHMVVOb0lpRkEwODhtUzBBWkJoM3BjQUFzQnE0dVBuTlRJMXhGWE5Wam4zTzE3eUFIVEFXLXlsd1hHcmpD?oc=5",
-      "date": "2026-10-28",
-      "source": "Biostock"
-    },
-    {
       "title": "Synact Pharma stiger efter Brasilienavtal - DI",
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9wZHA3VWJ2YW01djZ5aU16WmxpOGZnY3UxeXhscHNDcDJaSXh2djFIRmc2VzNNUjh6T1Y4UVZYbDdLRzcyZU05bWdaNnFweWVCcGQxWGtsc0ZJMVJGaXhHcThHanZ5MUxXOXFXNGNWeGxXWTg?oc=5",
       "date": "2026-10-27",
@@ -33,16 +27,16 @@
       "source": "Börsvärlden"
     },
     {
-      "title": "Synact Pharmas förlust krymper - Affärsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9IZE1IZWlHNmJNaUNuOU8yU1FMNU91N0NJbGwzMzNvQ09qbVlWUHRyd0UxTDNUYUljR09iNXZXVzlaVkliNC13SEVUYkMxZFRmZDR0UWtPVTE1Mm9VTDN3cEwxd25yLWN3WkZheUNYUHNDZGU2QVE?oc=5",
-      "date": "2026-08-20",
-      "source": "Affärsvärlden"
-    },
-    {
       "title": "Minskade förluster för Synact Pharma - DI",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1nZHpaYzRhQnpmRGlZOFRmNkRxLXI2eER0cllMLXNRczBmU0VPOVdJX2VOSWpkbm56MHZRd243Y0FBYXoyU0pGdXNKbVlhNEljeHhuTGVUcEpUZFpvNW9makRlbTFxdDBSY1dhUQ?oc=5",
       "date": "2026-08-20",
       "source": "DI"
+    },
+    {
+      "title": "Synact Pharmas förlust krymper - Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9IZE1IZWlHNmJNaUNuOU8yU1FMNU91N0NJbGwzMzNvQ09qbVlWUHRyd0UxTDNUYUljR09iNXZXVzlaVkliNC13SEVUYkMxZFRmZDR0UWtPVTE1Mm9VTDN3cEwxd25yLWN3WkZheUNYUHNDZGU2QVE?oc=5",
+      "date": "2026-08-20",
+      "source": "Affärsvärlden"
     }
   ]
 }
