@@ -88,17 +88,66 @@ def baseline_signals(model: dict[str, Any], today: dt.date) -> list[dict[str, st
         ))
     if "fenja" in c:
         loan = c["fenja"]
-        if today <= dt.date.fromisoformat(loan["maturity_date"]):
+        snap = loan.get("market_snapshot", {})
+        if snap:
+            shares = int(snap["shares_outstanding"])
+            price = float(snap["price_sek"])
+            market_cap_msek = shares * price / 1_000_000
+            drawn = float(loan["already_drawn_gross_msek"])
+            nominal_remaining = float(loan["remaining_nominal_msek"])
+            permitted_total = market_cap_msek * float(loan["market_cap_limit_fraction"])
+            extra = max(0.0, min(nominal_remaining, permitted_total - drawn))
+            reduced = extra < nominal_remaining - 0.1
             alerts.append(_alert(
-                "base:conditional_credit", "bevakning",
-                "Villkorad kredit och framtida förfall",
-                "SynAct har en Fenja-facilitet, men ett ytterligare uttag är "
-                "villkorat och den befintliga finansieringen innebär låne- "
-                "och konverteringsvillkor. Outnyttjad kredit är inte kassa.",
+                "base:fenja_capacity", "förhöjd" if reduced else "bevakning",
+                "Fenja: låneutrymmet begränsas av börsvärdet",
+                "Den offentliga faciliteten är 100 Mkr varav 50 Mkr redan dragits. "
+                "10 procent av börsvärdet (%.1f Mkr enligt kurs %.2f kr den %s) "
+                "begränsar den återstående möjliga dragningen till cirka %.1f Mkr "
+                "av nominellt 50 Mkr. Kursen och aktieantalet är en daterad "
+                "referensbild, INTE aktuell livekurs eller bekräftat lån. "
+                "En särskild kapacitetsfaktor ingår redan i emissionsrisken."
+                % (permitted_total, price, snap["as_of_date"], extra),
+                loan["url"], snap["as_of_date"],
+                "Avtalsvillkor verifierade; räkneexempel med daterad börskurs",
+                "Kontrollera aktuell aktiekurs och aktieantal, beslut om nytt uttag "
+                "och om bolaget meddelat ändrade villkor före Q4 2026:s slut.",
+                "credit_capacity"
+            ))
+        if today <= dt.date.fromisoformat(loan["maturity_date"]):
+            months_to_maturity = (dt.date.fromisoformat(loan["maturity_date"]) - today).days / 30.4375
+            alerts.append(_alert(
+                "base:fenja_maturity", "förhöjd" if months_to_maturity < 18 else "bevakning",
+                "Fenja: förfall 31 december 2027",
+                "Konvertibelt lån om nominellt 50 Mkr förfaller 31 december 2027, "
+                "om det inte dessförinnan konverterats, återbetalats eller "
+                "omförhandlats. Detta ligger nära bolagets finansieringsprognos "
+                "in i Q4 2027. Vid låg aktiekurs relativt konverteringskursen "
+                "24,60 kr kan kontant återbetalning eller refinansiering bli "
+                "relevant. Förfallsrisken är redan representerad genom "
+                "tidsnärheten i modellen och höjer inte procentsatsen igen.",
                 loan["url"], loan["agreement_date"],
-                "Verifierade avtalsvillkor – inte en ny händelse",
-                "Bevaka nytt uttag, ändrade lånevillkor, förfall och utspädning.",
-                "debt"
+                "Bekräftat låneförfall – framtida betalningsbehov osäkert",
+                "Bevaka partneravtal, refinansiering, konverteringar och "
+                "eventuella förtida återbetalningsvillkor.",
+                "debt_maturity"
+            ))
+            drawn = float(loan["already_drawn_gross_msek"])
+            minimum_interest_msek = drawn * float(loan["min_drawn_interest_percent_per_year"]) / 100
+            alerts.append(_alert(
+                "base:fenja_cost", "bevakning",
+                "Fenja: minst 10 % årlig låneränta",
+                "Minimiräntan är 10 procent per år (STIBOR 3M, lägst 2 procent "
+                "+ 8 procentenheter). På 50 Mkr motsvarar det minst %.1f "
+                "Mkr per år i årstakt. Outnyttjad facilitet har dessutom "
+                "minst 4 procent årlig avgift/ränta till 31 december 2026. "
+                "Detta är ett räkneexempel, inte en verifierad framtida "
+                "betalning och ger ingen andra riskmultiplikator." % minimum_interest_msek,
+                loan["url"], loan["agreement_date"],
+                "Verifierade minimivillkor – uppskattad årstakt",
+                "Följ faktisk ränta, kassaflöde och eventuella nya krediter "
+                "i kommande finansrapporter.",
+                "debt_cost"
             ))
     if "warrants" in c:
         warrants = c["warrants"]
