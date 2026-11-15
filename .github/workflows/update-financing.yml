@@ -8,6 +8,8 @@ on:
     paths:
       - 'scripts/update_financing.py'
       - 'scripts/risk_signals.py'
+      - 'tests/test_fenja_financing.py'
+      - 'tests/test_risk_signals.py'
       - 'data/financing_model.json'
       - '.github/workflows/update-financing.yml'
 permissions:
