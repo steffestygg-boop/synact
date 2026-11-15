@@ -58,8 +58,55 @@ def pct_probability(months: int, months_left: float, inputs: dict, scale: float 
     monthly = (inputs["baseline_monthly_hazard"]
                * inputs["clinical_phase3_multiplier"]
                * inputs["credit_dependency_multiplier"]
+               * inputs.get("fenja_cap_factor", 1.0)
                * proximity * scale)
     return round(100.0 * (1.0 - math.exp(-months * monthly)), 1)
+
+def fenja_capacity_metrics(company: dict, calculation: dict) -> dict:
+    """Dated reference snapshot; no live share-price data is assumed."""
+    f = company["fenja"]
+    snap = f["market_snapshot"]
+    outstanding = float(snap["shares_outstanding"])
+    price = float(snap["price_sek"])
+    total_cap_msek = (outstanding * price) / 1_000_000
+    drawn = float(f["already_drawn_gross_msek"])
+    nominal_remaining = float(f["remaining_nominal_msek"])
+    facility_max = float(f["total_msek"])
+    permitted_total = total_cap_msek * float(f["market_cap_limit_fraction"])
+    available = max(0.0, min(nominal_remaining, facility_max - drawn,
+                              permitted_total - drawn))
+    share_available = (available / nominal_remaining) if nominal_remaining else 1.0
+    incremental_factor = 1.0 + float(calculation["fenja_capacity_penalty_weight"]) * (1.0 - share_available)
+    return {
+      "price_sek": price,
+      "price_as_of": snap["as_of_date"],
+      "shares_outstanding": int(outstanding),
+      "price_source": snap["price_source"],
+      "share_count_source": snap["share_count_source"],
+      "market_cap_msek": round(total_cap_msek, 2),
+      "limit_percent_of_market_cap": 100.0 * float(f["market_cap_limit_fraction"]),
+      "max_total_draw_msek": round(permitted_total, 2),
+      "previously_drawn_msek": round(drawn, 2),
+      "remaining_nominal_msek": round(nominal_remaining, 2),
+      "additional_draw_msek": round(available, 2),
+      "additional_access_ratio": round(share_available, 4),
+      "price_for_full_draw_sek": round(facility_max / float(f["market_cap_limit_fraction"]) * 1_000_000 / outstanding, 2),
+      "fenja_cap_factor": round(incremental_factor, 6),
+      "existing_credit_factor": float(calculation["credit_dependency_multiplier"]),
+      "effective_credit_factor": round(
+          incremental_factor * float(calculation["credit_dependency_multiplier"]), 6),
+      "annual_minimum_drawn_interest_msek": round(
+          drawn * float(f["min_drawn_interest_percent_per_year"]) / 100.0, 2),
+      "annual_minimum_undrawn_fee_msek": round(
+          nominal_remaining * float(f["min_undrawn_fee_percent_per_year_through_2026"]) / 100.0, 2),
+      "maturity_date": f["maturity_date"],
+      "second_draw_deadline": f["second_draw_available_until"],
+      "source": f["url"],
+      "note": "Beräknat från börskursen som gällde vid snapshot-datum. "
+              "Låneförfall, ränta och Q3-kassa får ingen extra multiplikator "
+              "utöver tidsfaktorn och redan inlagd kreditrisk."
+    }
+
 
 def fetch_url(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/rss+xml,application/xml,*/*"})
@@ -150,13 +197,16 @@ def main() -> None:
     report_date = dt.date.fromisoformat(company["report_date"])
     runway_proxy = dt.date.fromisoformat(company["cash_runway_proxy"])
     months_left = (runway_proxy - current_date).days / 30.4375
+    fenja = fenja_capacity_metrics(company, calc)
+    risk_inputs = dict(calc)
+    risk_inputs["fenja_cap_factor"] = fenja["fenja_cap_factor"]
     bounds = calc["uncertainty_band_monthly_hazard_multiplier"]
     risks = {}
     for n in (3, 6, 12):
         risks["months_" + str(n)] = {
-            "percent": pct_probability(n, months_left, calc),
-            "low": pct_probability(n, months_left, calc, bounds[0]),
-            "high": pct_probability(n, months_left, calc, bounds[1]),
+            "percent": pct_probability(n, months_left, risk_inputs),
+            "low": pct_probability(n, months_left, risk_inputs, bounds[0]),
+            "high": pct_probability(n, months_left, risk_inputs, bounds[1]),
         }
     sources_ok, source_failures, all_items = [], [], []
     feeds = [
@@ -207,6 +257,7 @@ def main() -> None:
       "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
       "Fenja: upp till 100 miljoner kr, 50 miljoner kr initialt dragna. Eventuellt nytt uttag under Q4 2026 är villkorat av bland annat börsvärde.",
       "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka.",
+      "Fenjas extra kreditutrymme kan vara lägre än 50 Mkr på grund av bolagets 10 %-tak. Beräknad tillgänglighet vid daterad stängningskurs %s: %.1f Mkr. Räntekostnad och förfall redovisas men dubbelräknas inte i sannolikhetsmodellen." % (fenja["price_as_of"], fenja["additional_draw_msek"]),
     ]
     if issues:
         latest_info.insert(0, "OBS: Officiell rubrik om ny aktieemission upptäckt; se källan och kontrollera villkoren.")
@@ -235,6 +286,7 @@ def main() -> None:
        "months_to_company_runway_proxy": round(months_left, 1),
        "methodology_version": model["version"],
        "risk": risks,
+       "fenja_assessment": fenja,
        "latest_information": latest_info,
        "latest_items": unique[:14],
        "review_needed": (review + new_peers)[:12],
