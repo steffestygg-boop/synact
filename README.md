@@ -80,3 +80,15 @@ SynActs kreditram från Fenja (avtal 20 juli 2026) är **högst 100 miljoner kr,
 - De kontrollerade siffrorna och beräknad kapacitet finns i `data/financing.json` under `fenja_assessment`. Risken omräknas varje vecka via `scripts/update_financing.py`. Regressionstester för kapacitetsformeln och frånvaro av dubbelräkning finns i `tests/test_fenja_financing.py`.
 
 **Originalkällor:** [Fenja-villkoren 20 juli 2026](https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/), [SynActs Q3-rapport 3 november 2026](https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/), [historisk börskurs för 13 november](https://stockanalysis.com/quote/sto/SYNACT/history/).
+
+
+## Klickbara finansiella beräkningar
+
+**∑** intill ett beräknat tal öppnar en separat, tangentbordstillgänglig dialog med formeln, de värden som faktiskt används, uträkningen, avrundat resultat och relevanta originalkällor. Tryck **Escape**, klicka utanför dialogen eller använd stängknappen för att stänga; fokus återgår till den ursprungliga knappen.
+
+- På båda sidorna: emissionsrisk 3/6/12 månader och känslighetsintervall, Q3:s genomsnittliga månatliga operativa kassaflöde och antalet månader fram till finansieringsmodellens riktmärke.
+- **Finansieringshorisont:** Bolagets uttalande är en *guidning från originalrapporten*, inte en matematisk slutsats härledd ur historiskt kassaflöde. Dialogen skiljer uttryckligen bolagets guidning från veckomodellens datumräkning och en separat, förenklad Q3-baserad kassakvot.
+- SynAct: Fenja-facilitetens maximala ytterligare uttag vid 10 %-taket, minst årlig ränta, tillgänglighetsfaktor samt beräkningen för den aktiekurs användaren valt i simuleringen. Reglaget ändrar inte de publicerade riskprocentsatserna.
+- Underlaget läses från `data/financing.json` och `data/financing_model.json`. Ingen data ersätts med en förmodad aktuell kurs eller likvid när filer inte kan läsas.
+
+Begränsning: det är en beskrivning av modellens beräkningsgång och antaganden, **inte** en statistiskt kalibrerad riskprognos eller investeringsrekommendation.
