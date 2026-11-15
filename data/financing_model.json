@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "curated_at": "2026-11-13",
+  "version": "1.1.0-fenja",
+  "curated_at": "2026-11-15",
   "scope": "Sannolikhet för att SynAct annonserar en ny kontant nyemission av aktier eller units inom en rullande tidsperiod. Exklusive redan beslutade teckningsoptioner, enbart konvertering av befintliga Fenja-lån och rena licensavtal.",
   "company": {
     "report_date": "2026-09-30",
@@ -25,7 +25,22 @@
       "convertible_price_sek": 24.6,
       "warrants_count": 2038848,
       "warrant_price_sek": 27.55,
-      "url": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+      "url": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
+      "market_cap_limit_fraction": 0.1,
+      "remaining_nominal_msek": 50,
+      "min_drawn_interest_percent_per_year": 10,
+      "min_undrawn_fee_percent_per_year_through_2026": 4,
+      "arrangement_fee_percent": 3.5,
+      "market_snapshot": {
+        "as_of_date": "2026-11-13",
+        "price_sek": 13.22,
+        "shares_outstanding": 56213968,
+        "price_source": "https://stockanalysis.com/quote/sto/SYNACT/history/",
+        "share_count_source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
+        "note": "Senaste verifierade börskursen vid modelländringen, inte en automatisk livekurs. Antalet aktier 56 213 968 kommer från SynActs pressmeddelande 20 juli. Kräver ny verifiering efter emission, konvertering eller väsentlig kursförändring."
+      },
+      "refinancing_risk_note": "Förfaller 31 december 2027. Vid låga kurser relativt konverteringskursen 24,60 kr kan kontant återbetalning eller refinansiering bli relevant. Detta sammanfaller med bolagets prognos om finansiering in i Q4 2027. Förfall och finansieringshorisont visas som bevakningssignal, inte separat automatisk riskmultiplikator eftersom tidsnärheten redan finns i modellen.",
+      "loan_interest_note": "Minst 10 procent per år på nominellt draget belopp, cirka 5 miljoner kronor per år på 50 miljoner kronor, samt minst 4 procent per år på outnyttjad del fram till 31 december 2026. Den framtida faktiska utgiften beror på STIBOR, eventuella ytterligare uttag och konvertering."
     },
     "other_context": [
       "Förberedelser inför fas III kan kräva mer kapital än den utvecklingsplan som dagens finansieringshorisont bygger på.",
@@ -38,13 +53,16 @@
     "clinical_phase3_multiplier": 1.25,
     "credit_dependency_multiplier": 1.05,
     "proximity_formula": "max(0,85; min(2,60; 1 + 0,10 × (prognosmånader + 9 − månader kvar till riktmärket 1 okt 2027)))",
-    "probability_formula": "P(h) = 1 − exp(−h × 0,026 × 1,25 × 1,05 × närhetsfaktor).",
-    "evidence_note": "Värdet 2,6 % per månad och multiplikatorerna är öppna analytiska antaganden, utformade med stöd av faktiska emissioner nedan. Referensfallen är inte ett slumpmässigt urval och kan INTE ge en statistiskt kalibrerad emissionssannolikhet. Modellens intervall är känslighetsband, inte konfidensintervall.",
+    "probability_formula": "P(h) = 1 − exp(−h × 0,026 × 1,25 × 1,05 × Fenja-tillgänglighetsfaktor × närhetsfaktor), med kapacitetsfaktor från daterad kurs 13 november. Samtliga multiplikatorer är subjektiva analytiska antaganden, inte empiriskt kalibrerad statistik.",
+    "evidence_note": "Värdet 2,6 % per månad och multiplikatorerna är öppna analytiska antaganden, utformade med stöd av faktiska emissioner nedan. Referensfallen är inte ett slumpmässigt urval och kan INTE ge en statistiskt kalibrerad emissionssannolikhet. Modellens intervall är känslighetsband, inte konfidensintervall. Från 15 november 2026 beaktas även andelen av Fenjas extra kredit som 10%-taket tillåter vid senast kontrollerad börskurs. Endast den NYA tillgänglighetsbegränsningen tillkommer; löptid, ränta och Q3-kassaflöde redovisas separat som kvalitativa riskfaktorer.",
     "uncertainty_band_monthly_hazard_multiplier": [
       0.62,
       1.55
     ],
-    "anchor_reference_cases": "Sju utvalda verkliga emissioner visar varför kapital kan sökas långt innan kassans slut, men de är inte ett representativt frekvensurval."
+    "anchor_reference_cases": "Sju utvalda verkliga emissioner visar varför kapital kan sökas långt innan kassans slut, men de är inte ett representativt frekvensurval.",
+    "fenja_capacity_penalty_weight": 0.2,
+    "fenja_capacity_formula": "Marknadsvärde = noterad referenskurs × senaste verifierade antal aktier. Möjligt extra uttag = max(0; min(50; 10 % av marknadsvärdet − 50 redan dragna)), i miljoner kr. Tillgänglighetsfaktor = 1 + 0,20 × (1 − möjligt extra uttag / 50).",
+    "fenja_factor_policy": "Tidigare kreditberoendefaktor 1,05 behålls. Endast DEN DEL AV det maximala extra låneutrymmet som saknas vid verifierad börskurs ger ett ytterligare transparent påslag. Räntekostnaden, förfallodatum och finansieringshorisonten visas separat som kvalitativa varningssignaler; de multipliceras INTE på nytt och faktorerna från kassan/riskhorisonten dubbelräknas inte. Referenskursen är en daterad ögonblicksbild och uppdateras inte automatiskt från en otillförlitlig aktiekursfeed."
   },
   "peer_cases": [
     {
@@ -116,7 +134,7 @@
     "verified_baseline_rules": {
       "cash_burn": "Om rapporterad kassa motsvarar högst nio månader av senaste kvartalets operativa förbrukning visas bevakning; under sex månader höjs varningsprioriteten. Lån och framtida utgifter ingår inte i denna enkla kvot.",
       "runway": "Om konservativ proxy för bolagets finansieringshorisont ligger inom tolv månader visas bevakning, inom sex månader ökad prioritet.",
-      "conditional_financing": "Fenja-facilitetens villkorade framtida dragning och förfall anges som verifierad bakgrund.",
+      "conditional_financing": "Fenjas återstående kredit begränsas av 10 % av börsvärdet, minus 50 Mkr redan dragna. Visa beräknat faktiskt maximalt extra uttag med daterad aktiekurs, minsta årliga räntekostnad och återbetalningsdatum. Skilj en strukturell avtalsrisk från en nyhet eller akut likviditetskris.",
       "stale_financials": "Om kassa och prognos fortfarande bygger på en balansdag minst 115 dagar tillbaka markeras att en ny rapport behövs."
     },
     "headline_flags": [
@@ -129,7 +147,7 @@
       "Oväntade studiekostnadsökningar eller förlorade licens-/partneravtal"
     ],
     "verification": "Direkt beräknade rapportkvoter och kända kredit-/TO2-villkor märks som dokumenterad siffergrund. Automatisk analys av rubriker är alltid bara en signal för manuell kontroll mot börs eller bolagets fullständiga originalbesked.",
-    "probability_policy": "Obekräftade varningssignaler ändrar inte automatiskt emissionssannolikheten. Verifierad ny information måste införas i finansieringsmodellen, annars skulle systemet ge falskt exakta procentsatser.",
+    "probability_policy": "Den redan inkluderade kreditberoendefaktorn 1,05 behålls. En separat Fenja-tillgänglighetsfaktor ökar risken i proportion till ett påvisat bortfall av återstående kreditutrymme enligt 10%-taket. Förfall, ränta och finansieringshorisont visas som varningar men skapar INTE extra sannolikhetspåslag eftersom det skulle dubbelräkna tids- och krediteffekterna. Ny aktiekurs och ny kapitalstruktur måste verifieras innan snapshot ändras; obekräftade rubriker justerar aldrig risken.",
     "sources": "Se varje varningsruta för originalkälla och data/financing_model.json för rapport- och avtalsreferenser."
   }
 }
