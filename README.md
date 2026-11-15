@@ -63,3 +63,20 @@ Båda investerarsidorna har nu ett särskilt avsnitt **Varningssignaler** direkt
 - Om bolaget bara angivit ett halvår eller inget datum alls visas en försiktig analytisk kvartalsuppskattning med **≈-markering**. Det betyder inte att bolaget har lovat kvartalet.
 - Klicka på en framtida milstolpe för utförlig **tidsbedömning**, bakgrund, osäkerhet och länk till originalkälla. Osäkra placeringar kan behöva omprövas när bolaget uppdaterar tidsplanen.
 - Historiska händelser får fortsätta grupperas per år eller längre perioder.
+
+
+## Fenja-risk i emissionsbarometern – modellrevidering 15 november 2026
+
+SynActs kreditram från Fenja (avtal 20 juli 2026) är **högst 100 miljoner kr, varav 50 miljoner redan dragits**. Ett ytterligare uttag får ske under Q4 2026, men **det totala uttaget begränsas till 10 % av börsvärdet vid dragning**. Ett outnyttjat nominellt utrymme på 50 miljoner kr är alltså inte detsamma som tillgänglig finansiering.
+
+**Daterad kurssituation (13 november 2026):** aktiekurs 13,22 kr och 56 213 968 aktier ger ca 743,1 miljoner kr i börsvärde. 10 % är ca 74,3 miljoner kr; minus 50 miljoner redan dragna lämnar **ca 24,3 miljoner kr** som matematiskt möjligt andra uttag, jämfört med nominella 50 miljoner kr. För fullständig kreditutnyttjande på 100 miljoner kr behövs omkring 1 miljard kr i börsvärde (ca 17,79 kr/aktie med oförändrat antal aktier). Detta är **inte** en livekurs eller en garanti att ett andra uttag kan ske.
+
+**Modellens antagande:**
+- 2,6 % subjektiv basrisk per månad × 1,25 för fas III × **1,05 redan existerande kreditberoende** × **ny Fenja-tillgänglighetsfaktor** × redan existerande tidsnärhet till Q4 2027.
+- Fenja-tillgänglighetsfaktorn är `1 + 0,20 × (1 − maximalt möjligt extra uttag / nominellt återstående 50 Mkr)`, vilket med 13 november-kursen blir **1,102741**. Valet av 0,20 som vikt är en transparent analytisk bedömning, inte en skattning ur en statistiskt representativ jämförelsepopulation.
+- Den begränsade kapaciteten lyfter emissionssannolikheten för sex månader från ca 25,7 % till **27,9 % per den 15 november**. Alla tal är subjektiva modellutfall, inte empiriskt verifierade procentsatser.
+- **Ingen dubbelräkning:** Fenjas förfall **31 december 2027** och räntan **minst 10 % årligen på nominellt dragen skuld** (ca 5 Mkr/år på 50 Mkr) visas som separata bevakningssignaler, men ger inte ytterligare oberoende riskpåslag. Närheten till finansieringshorisonten finns redan i tidsfaktorn. Minst 4 % på outnyttjat belopp gäller endast till **31 december 2026**.
+- Den sista verifierade kursbilden är en **manuell ögonblicksbild**, som behöver uppdateras i `data/financing_model.json` när ny kurs och nytt antal aktier källgranskats. Det dagliga jobbet upptäcker möjliga nyheter, men ersätter inte kursbilden med automatiskt gissade uppgifter.
+- De kontrollerade siffrorna och beräknad kapacitet finns i `data/financing.json` under `fenja_assessment`. Risken omräknas varje vecka via `scripts/update_financing.py`. Regressionstester för kapacitetsformeln och frånvaro av dubbelräkning finns i `tests/test_fenja_financing.py`.
+
+**Originalkällor:** [Fenja-villkoren 20 juli 2026](https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/), [SynActs Q3-rapport 3 november 2026](https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/), [historisk börskurs för 13 november](https://stockanalysis.com/quote/sto/SYNACT/history/).
