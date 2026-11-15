@@ -1100,6 +1100,229 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
  }catch(err){status.textContent='Visar verifierade pressmeddelanden. Automatisk RSS är ännu inte tillgänglig.';}
 })();
 
+
+/* Reproducible, source-linked calculation explanations shared by SynAct and Isofol.
+   No guessed current share prices or invented clinical financing dates. */
+const finCalcState={finance:null,model:null};
+function finCalcProof(key){
+ const d=finCalcState.finance,m=finCalcState.model;
+ const empty={title:'Beräkningsunderlag ej inläst',lead:'Veckodatat kunde inte läsas in ännu.',formula:'Inga tal kan verifieras utan de aktuella datafilerna.',steps:['Ladda om sidan och prova igen.'],result:'—',caveat:'Inga värden har räknats fram från antaganden eller gamla sidtexter.',sources:[]};
+ if(!d||!m||!m.company||!m.calculation)return empty;
+ const c=m.company,calc=m.calculation;
+ const num=(v,dec=1)=>Number(v).toLocaleString('sv-SE',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+ const pct=(v,dec=1)=>num(v,dec)+' %';
+ const source=(url,label)=>({url,label});
+ const baseSources=[source(c.q3_url,'Bolagets Q3-rapport'),source('https://github.com/steffestygg-boop/'+(c.fenja?'synact':'isofol')+'/blob/main/data/financing_model.json','Antaganden och källdata'),source('https://github.com/steffestygg-boop/'+(c.fenja?'synact':'isofol')+'/blob/main/data/financing.json','Senaste beräknade värden')];
+ const dateStr=String(d.updated_at||'').slice(0,10);
+ const dateMs=Date.parse(dateStr+'T00:00:00Z');
+ const futureMs=Date.parse(c.cash_runway_proxy+'T00:00:00Z');
+ const days=Number.isFinite(dateMs)&&Number.isFinite(futureMs)?Math.round((futureMs-dateMs)/86400000):NaN;
+ const monthsLeft=days/30.4375;
+ const monthlyBurn=Math.abs(Number(c.operating_cashflow_q3_msek))/3;
+ const simpleRunway=monthlyBurn>0?Number(c.cash_msek)/monthlyBurn:NaN;
+ if(key==='runway'){
+   return {title:'Finansieringshorisont – bolagsuppgift och beräknad tid',
+    lead:'Bolagets finansieringsprognos är en uppgift från Q3-rapporten. Sidan beräknar endast tiden fram till ett försiktigt kalender-riktmärke – inte när kassan tar slut.',
+    formula:'Månader kvar = (datum för modellriktmärke − datum för senaste veckoberäkning) / 30,4375 dagar per månad',
+    steps:[
+     'Bolagets egen bedömning: '+c.runway_guidance,
+     'Balansdag: '+c.report_date+'; senaste riskberäkning: '+dateStr+'.',
+     'Modellens konservativa riktmärke: '+c.cash_runway_proxy+' (inte bekräftad kassabristdag).',
+     num(days,0)+' dagar ÷ 30,4375 = '+num(monthsLeft,2)+' månader; i barometern visas '+num(d.months_to_company_runway_proxy,1)+' månader.',
+     'Som separat historiskt räkneexempel: '+num(c.cash_msek,3)+' Mkr rapporterad kassa ÷ ('+num(Math.abs(c.operating_cashflow_q3_msek),3)+' Mkr i Q3-förbrukning ÷ 3) = '+num(simpleRunway,1)+' månader i OFÖRÄNDRAD Q3-takt. Detta används inte som en prognos eller ersättning för bolagets vägledning.'
+    ],
+    result:'≈ '+num(d.months_to_company_runway_proxy,1)+' månader till modellerat riktmärke',
+    caveat:'Viktigt: Bolagets vägledning är inte beräknad med kassa ÷ föregående kvartals kassaförbrukning. Studiekostnader, krediter, betalningar och partneravtal kan ändra den faktiska finansieringshorisonten. Förfall och möjlig nyemission får inte likställas med ett kassaslut.',
+    sources:baseSources};
+ }
+ if(key==='cash-burn'){
+   return {title:'Genomsnittligt operativt kassaflöde per månad (Q3)',
+    lead:'Ett rapporterat kvartalsutfall delat på tre kalendermånader, inte ett löfte om samma förbrukning framöver.',
+    formula:'Kassaflöde per månad = kassaflöde från den löpande verksamheten under Q3 / 3',
+    steps:['Rapporterat Q3-värde: '+num(c.operating_cashflow_q3_msek,3)+' miljoner kr.',
+      num(c.operating_cashflow_q3_msek,3)+' ÷ 3 = '+num(Number(c.operating_cashflow_q3_msek)/3,3)+' Mkr/månad.',
+      'En förenklad kassa-i-Q3-takt-kvot skulle vara '+num(c.cash_msek,3)+' / '+num(monthlyBurn,3)+' = '+num(simpleRunway,1)+' månader, men ingår INTE som bolagets rapporterade finansieringshorisont.'],
+    result:num(Number(c.operating_cashflow_q3_msek)/3,1)+' Mkr/månad',
+    caveat:'Operativt kassaflöde kan skilja sig från totalt kassautflöde och framtida investeringsbehov. Detta är ett historiskt snitt som inte inkluderar framtida fas II/fas III-kostnader.',
+    sources:[baseSources[0]]};
+ }
+ if(key.startsWith('risk-')||key==='sensitivity'){
+   const horizon=key==='sensitivity'?6:Number(key.split('-')[1]);
+   if(![3,6,12].includes(horizon))return empty;
+   const r=d.risk&&d.risk['months_'+horizon];
+   if(!r)return empty;
+   const clip=(x,low,high)=>Math.max(low,Math.min(high,x));
+   const proximity=clip(1+.1*(horizon+9-monthsLeft),.85,2.6);
+   const hasFenja=!!c.fenja;
+   const fenjaFac=hasFenja?Number(d.fenja_assessment?.fenja_cap_factor||
+    (calc.fenja_capacity_penalty_weight?(
+      1+Number(calc.fenja_capacity_penalty_weight)*(1-
+        Math.max(0,Math.min(
+          Number(c.fenja.remaining_nominal_msek),
+          Number(c.fenja.market_snapshot.shares_outstanding)*Number(c.fenja.market_snapshot.price_sek)/1e6*Number(c.fenja.market_cap_limit_fraction)-Number(c.fenja.already_drawn_gross_msek)
+        ))/Number(c.fenja.remaining_nominal_msek))
+    ):1)):1;
+   const monthly=Number(calc.baseline_monthly_hazard)*
+    Number(calc.clinical_phase3_multiplier)*Number(calc.credit_dependency_multiplier)*fenjaFac*proximity;
+   const p=100*(1-Math.exp(-horizon*monthly));
+   const band=calc.uncertainty_band_monthly_hazard_multiplier||[.62,1.55];
+   const result=key==='sensitivity'?num(r.low,1)+'–'+num(r.high,1)+' %':pct(r.percent,1);
+   const steps=[
+    'Horisont h = '+horizon+' månader; daterat riktmärke: '+c.cash_runway_proxy+'; månader kvar enligt kalendern: '+num(monthsLeft,2)+'.',
+    'Basrisk '+num(calc.baseline_monthly_hazard*100,2)+' %/månad × klinisk faktor '+num(calc.clinical_phase3_multiplier,2)+' × kredit-/finansieringsfaktor '+num(calc.credit_dependency_multiplier,2)+'.',
+    hasFenja?'Fenja-kapacitetsfaktor '+num(fenjaFac,6)+' baserad på verifierad kursbild '+c.fenja.market_snapshot.as_of_date+' (inte livekurs).':'Inget redan erhållet TO2-kapital räknas in; utfallet är ännu obekräftat.',
+    'Tidsfaktor = max(0,85; min(2,60; 1 + 0,10 × ('+horizon+' + 9 − '+num(monthsLeft,2)+'))) = '+num(proximity,3)+'.',
+    'Månatlig riskintensitet = '+num(monthly*100,3)+' %. P = 100 × (1 − e^(−'+horizon+' × '+num(monthly,6)+')) ≈ '+num(p,1)+' %.',
+    'Känslighetsgränser: riskintensiteten × '+num(band[0],2)+' respektive × '+num(band[1],2)+' = '+num(r.low,1)+'–'+num(r.high,1)+' %.'
+   ];
+   return {title:key==='sensitivity'?'Så beräknas riskintervallet':'Emissionsrisk de närmaste '+horizon+' månaderna',
+    lead:'Siffran är en transparent subjektiv scenarioberäkning, inte en statistisk sannolikhet uppmätt bland representativa biotechbolag.',
+    formula:'P(h) = 100 × (1 − exp(−h × basrisk × klinisk faktor × kreditfaktor × '+(hasFenja?'Fenja-tillgänglighetsfaktor × ':'')+'tidsfaktor))',
+    steps,result:result+' (publicerad modellberäkning)',
+    caveat:'Riskfaktorerna är analytiska antaganden och riskintervallet ett känslighetsband – inte ett konfidensintervall. Om kontrollräkningen skiljer någon tiondel från den publicerade siffran beror det på avrundning av kvarvarande månader eller modellversion. En ny uppgift i pressen ändrar inte automatiskt modellparametrarna.',
+    sources:baseSources};
+ }
+ if(c.fenja&&key.startsWith('fenja-')){
+   const f=c.fenja, snap=f.market_snapshot;
+   const marketPrice=key==='fenja-scenario'?
+    Number(document.getElementById('fenja-scenario-price')?.value||snap.price_sek):Number(snap.price_sek);
+   const shares=Number(snap.shares_outstanding), drawn=Number(f.already_drawn_gross_msek),
+    remaining=Number(f.remaining_nominal_msek),maxFacility=Number(f.total_msek),capRate=Number(f.market_cap_limit_fraction);
+   const cap=marketPrice*shares/1e6;
+   const limit=cap*capRate;
+   const available=Math.max(0,Math.min(remaining,maxFacility-drawn,limit-drawn));
+   const common=[
+    'Aktiekurs '+num(marketPrice,2)+' kr × '+num(shares,0)+' aktier ÷ 1 000 000 = '+num(cap,2)+' Mkr i illustrativt börsvärde.',
+    num(cap,2)+' Mkr × '+num(capRate*100,0)+' % = '+num(limit,2)+' Mkr högsta totala dragning.',
+    'Redan draget '+num(drawn,1)+' Mkr; återstående nominellt utrymme '+num(remaining,1)+' Mkr.',
+    'Möjligt extra = max(0; min('+num(remaining,1)+'; '+num(maxFacility-drawn,1)+'; '+num(limit,2)+' − '+num(drawn,1)+')) = '+num(available,2)+' Mkr.'
+   ];
+   const sources=[source(f.url,'Fenja-avtalet'),source(snap.price_source,'Källan till daterad börskurs'),source(snap.share_count_source,'Källa till antal aktier'),baseSources[1]];
+   if(key==='fenja-interest'){
+     const rate=Number(f.min_drawn_interest_percent_per_year)/100;
+     const undrawn=Number(f.min_undrawn_fee_percent_per_year_through_2026)/100;
+     return {title:'Fenjas minsta årliga finansieringskostnad',
+      lead:'Årstakt vid rapporterat redan utnyttjat belopp; inte en prognos över kontantutgifter för en hel tolvmånadersperiod.',
+      formula:'Årlig ränta = draget nominellt lån × max(STIBOR 3M, 2 %) + 8 procentenheter',
+      steps:['Lägsta räntesats på draget belopp: 2 % + 8 % = '+num(rate*100,1)+' % per år.',
+       num(drawn,1)+' Mkr × '+num(rate*100,1)+' % = '+num(drawn*rate,2)+' Mkr per år i lägsta årstakt.',
+       num(remaining,1)+' Mkr ej draget × '+num(undrawn*100,1)+' % = '+num(remaining*undrawn,2)+' Mkr/år som årstakt, men avgiften på outnyttjad kredit gäller bara till 31 december 2026.'],
+      result:'Minst '+num(drawn*rate,1)+' Mkr/år på 50 Mkr draget',
+      caveat:'STIBOR kan höja räntan. Faktiska kostnader beror på tid, utnyttjande, avtalsändringar och konverteringar. Uppläggningsavgift är separat. Ingen extra emissionsriskfaktor tas ut för räntan.',
+      sources:[source(f.url,'Fenja-avtalet')]};
+   }
+   if(key==='fenja-factor'){
+     const weight=Number(calc.fenja_capacity_penalty_weight);
+     const factor=1+weight*(1-available/remaining);
+     return {title:'Fenjas tillgänglighetsfaktor i emissionsbarometern',
+      lead:'Den gamla kreditberoendefaktorn finns kvar. Den nya faktorn höjer bara riskscenariot för den del av det nominella låneutrymmet som 10 %-begränsningen gör otillgänglig.',
+      formula:'Kapacitetsfaktor = 1 + vikt × (1 − beräknat tillgängligt extra uttag / nominellt återstående 50 Mkr)',
+      steps:[...common,
+       'Ofinansierbar andel = 1 − '+num(available,2)+' / '+num(remaining,1)+' = '+num(1-available/remaining,4)+'.',
+       'Viktning = 1 + '+num(weight,2)+' × '+num(1-available/remaining,4)+' = '+num(factor,6)+'.',
+       'Total kreditfaktor = gammal faktor '+num(calc.credit_dependency_multiplier,2)+' × ny faktor '+num(factor,6)+' = '+num(Number(calc.credit_dependency_multiplier)*factor,6)+'.'],
+      result:'×'+num(d.fenja_assessment?.fenja_cap_factor||factor,3)+' i den publicerade modellen',
+      caveat:'Vikten är ett uttryckligt, subjektivt antagande; inte empiriskt kalibrerad. Ränta, låneförfall och tidsnärhet multipliceras inte på nytt. Här används daterad kurs och oförändrat antal aktier.',
+      sources};
+   }
+   return {title:key==='fenja-scenario'?'Fenjas kreditutrymme vid vald aktiekurs':'Fenjas maximala extra kreditutrymme',
+    lead:key==='fenja-scenario'?'Reglaget är ett scenario. Det påverkar inte sparade procentsatser i emissionsbarometern.':'Beräknas med 10 %-taket från avtalet och en kursbild daterad '+snap.as_of_date+'. Utgör inte en garanti för nytt uttag.',
+    formula:'Möjligt extra = max(0; min(nominellt kvar; maximalt totalbelopp − redan draget; 10 % × aktiekurs × aktier / 1 000 000 − redan draget))',
+    steps:common,result:'Högst '+num(available,1)+' Mkr extra',
+    caveat:'Detta är en aritmetisk övre gräns enligt det offentliggjorda taket. Ett nytt uttag kan dessutom förutsätta andra avtalsvillkor och måste ske inom avtalets tidsfönster. Referenskursen är inte en livekurs.',
+    sources};
+ }
+ if(c.warrants&&key.startsWith('to2-')){
+   const w=c.warrants;
+   const input=document.getElementById('to2-take-up');
+   const value=input?input.value:'100';
+   const takeup=value===''?NaN:Math.max(0,Math.min(100,Number(value)));
+   if(!Number.isFinite(takeup))return {title:'TO2-scenario',lead:'Ange nyttjandegrad mellan 0 och 100 procent först.',formula:'—',steps:[],result:'—',caveat:'Inget belopp kan beräknas innan ett giltigt scenario har valts.',sources:[source(w.url,'Isofols TO2-villkor')]};
+   const options=Number(w.option_count),price=Number(w.fixed_price_sek),
+     sharesBefore=Number(c.shares_before_to2||320491623);
+   const newShares=Math.round(options*takeup/100);
+   const gross=newShares*price/1e6;
+   const dilution=100*newShares/(sharesBefore+newShares);
+   const shared=[
+    'Utestående optioner: '+num(options,0)+'; varje TO2 ger rätt att teckna 1 aktie.',
+    'Nyttjandegrad från ditt scenario: '+num(takeup,1)+' %.',
+    'Nya aktier = avrunda('+num(options,0)+' × '+num(takeup,1)+' %)= '+num(newShares,0)+' stycken.',
+    'Fastställt lösenpris: '+num(price,2)+' kr per ny aktie.'
+   ];
+   const sources=[source(w.url,'Isofols officiella TO2-villkor'),baseSources[1]];
+   if(key==='to2-shares'){
+     return {title:'Antal nya aktier från TO2',lead:'Antal aktier vid den nyttjandegrad du själv valt i kalkylatorn.',formula:'Nya aktier = avrunda(utestående TO2 × nyttjandegrad / 100)',
+      steps:shared,result:num(newShares,0)+' nya aktier',
+      caveat:'Det verkliga utfallet fastställs efter nyttjandeperioden. En option kan endast utnyttjas som hel enhet och det exakta utfallet kan avvika från en avrundad scenariomodell.',sources};
+   }
+   if(key==='to2-dilution'){
+     return {title:'Utspädning efter TO2-nyttjande',lead:'Utspädningen beräknas som nya aktier dividerat med totalt antal aktier efter nyteckningen.',
+      formula:'Utspädning = nya aktier / (aktier före TO2 + nya aktier) × 100',
+      steps:[...shared,'Aktier före TO2: '+num(sharesBefore,0)+'; efter scenario: '+num(sharesBefore+newShares,0)+'.',
+        'Utspädning = '+num(newShares,0)+' / '+num(sharesBefore+newShares,0)+' × 100 = '+pct(dilution,2)+'.'],
+      result:pct(dilution,2)+' utspädning',
+      caveat:'Utspädning gäller ägarandel, inte automatiskt samma procentuella kursfall. Beräkningen förutsätter oförändrat antal övriga aktier.',sources};
+   }
+   const press=Number(w.full_exercise_press_release_approx_msek);
+   return {title:'TO2: beräknad bruttolikvid',lead:'Beräknas från den fastställda teckningskursen och den valda andelen optioner som används.',
+    formula:'Bruttolikvid = avrunda(TO2 × nyttjandegrad / 100) × 0,95 kr ÷ 1 000 000',
+    steps:[...shared,
+      num(newShares,0)+' × '+num(price,2)+' kr = '+num(newShares*price,2)+' kr = '+num(gross,3)+' Mkr.',
+      takeup===100?'Vid 100 % nyttjande anger bolagets pressmeddelande cirka '+num(press,1)+' Mkr medan direkt multiplikation ger '+num(gross,1)+' Mkr; avvikelsen är inte förklarad.':'Vid mindre än 100 % blir beloppet ett scenario och inte bolagets uppgivna maximala belopp.'],
+    result:num(gross,1)+' Mkr brutto',
+    caveat:'Beloppet är före emissionskostnader och ännu inte erhållen kassa. Den faktiska likviden beror på hur många optioner som utnyttjas och fullföljd betalning.',
+    sources};
+ }
+ return empty;
+}
+function finCalcOpen(key,opener){
+ const modal=document.getElementById('fin-calculation-modal');
+ const p=finCalcProof(key);
+ document.getElementById('fin-calc-title').textContent=p.title;
+ document.getElementById('fin-calc-lead').textContent=p.lead;
+ document.getElementById('fin-calc-formula').textContent=p.formula;
+ const steps=document.getElementById('fin-calc-steps');steps.replaceChildren();
+ for(const line of p.steps){const li=document.createElement('li');li.textContent=line;steps.append(li);}
+ document.getElementById('fin-calc-result').textContent=p.result;
+ document.getElementById('fin-calc-caveat').textContent=p.caveat;
+ const sources=document.getElementById('fin-calc-sources');sources.replaceChildren();
+ for(const s of p.sources||[]){
+   if(!s.url||!/^https:\/\//.test(s.url))continue;
+   const a=document.createElement('a');a.href=s.url;a.textContent=s.label+' ↗';
+   a.target='_blank';a.rel='noopener noreferrer';sources.append(a);
+ }
+ finCalcOpen.previousFocus=opener;
+ modal.hidden=false;
+ document.body.classList.add('fin-calc-open');
+ document.getElementById('fin-calculation-close').focus();
+}
+function finCalcClose(){
+ const modal=document.getElementById('fin-calculation-modal');
+ if(modal.hidden)return;
+ modal.hidden=true;document.body.classList.remove('fin-calc-open');
+ if(finCalcOpen.previousFocus&&finCalcOpen.previousFocus.isConnected)finCalcOpen.previousFocus.focus();
+}
+document.addEventListener('click',event=>{
+ const btn=event.target.closest('[data-fin-calc]');
+ if(btn){event.preventDefault();finCalcOpen(btn.dataset.finCalc,btn);}
+});
+document.getElementById('fin-calculation-close').addEventListener('click',finCalcClose);
+document.getElementById('fin-calculation-modal').addEventListener('click',event=>{
+ if(event.target===event.currentTarget)finCalcClose();
+});
+document.addEventListener('keydown',event=>{
+ const modal=document.getElementById('fin-calculation-modal');
+ if(modal.hidden)return;
+ if(event.key==='Escape'){event.preventDefault();finCalcClose();return;}
+ if(event.key==='Tab'){
+   const focusables=[...modal.querySelectorAll('button:not([disabled]), a[href]')].filter(x=>x.getClientRects().length);
+   if(!focusables.length)return;
+   const first=focusables[0],last=focusables[focusables.length-1];
+   if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+ }
+});
+
 (async function updateFinancingBarometer(){
  const el=id=>document.getElementById(id);
  function link(parent,label,url){
@@ -1113,6 +1336,7 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
    ]);
    if(!resp[0].ok||!resp[1].ok)throw Error('Datafilerna kan inte läsas');
    const [d,model]=await Promise.all(resp.map(x=>x.json()));
+   finCalcState.finance=d;finCalcState.model=model;
    if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
 
    /* Dated source-based Fenja capacity, separate from the price-scenario slider. */
