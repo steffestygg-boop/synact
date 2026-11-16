@@ -287,7 +287,7 @@ def collect_events(start, end, config, finance):
         seen_url.add(e["url"])
         deduped.append(e)
     deduped.sort(key=lambda e: (e["date"], event_priority(e)), reverse=True)
-    return deduped[:30], max(0, len(deduped)-30), errors
+    return deduped, 0, errors
 
 def snapshot_financing(model, finance):
     risks = finance.get("risk") or {}
@@ -506,7 +506,7 @@ def collect_local(start, end, config, finance):
         result.append(e)
         seen.add(e["url"])
     result.sort(key=lambda e: (e["date"], event_priority(e)), reverse=True)
-    return result[:30], max(0, len(result)-30), ["Nätkontroll avstängd"]
+    return result, 0, ["Nätkontroll avstängd"]
 
 if __name__ == "__main__":
     main()
