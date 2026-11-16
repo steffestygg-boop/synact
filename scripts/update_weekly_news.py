@@ -138,6 +138,14 @@ def event_priority(event):
         score += 12
     if event.get("origin") == "milstolpe":
         score += 6
+    # Resumed trading is important, but an issuer's new funding announcement
+    # normally merits greater prominence in the short editorial lead.
+    title = event.get("title", "").casefold()
+    if "återupptas" in title or "handelsstopp hävs" in title:
+        score -= 33
+    if event["category"] == "Emission och finansiering" and (
+            "400 mkr" in title or "miljoner" in title or "företrädesemission" in title):
+        score += 22
     return score
 
 def similar(a, b):
@@ -367,7 +375,8 @@ def intro_text(items, updates):
     if not items and not updates:
         return "Inga daterade nya händelser hittades i de källflöden som kunde läsas. Det betyder inte att ingenting har hänt."
     highlights = [item for item in items if item.get("verified")]
-    lead = highlights[0] if highlights else (items[0] if items else None)
+    ranked = highlights if highlights else items
+    lead = max(ranked, key=event_priority) if ranked else None
     if lead:
         prefix = "Veckans tydligaste källanknutna besked" if lead.get("verified") else "En framträdande nyhetsrubrik"
         summary = f"{prefix}: {lead['title']}."
