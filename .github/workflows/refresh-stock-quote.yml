@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/update_stock_quote.py'
+      - 'tests/test_stock_quote.py'
       - '.github/workflows/refresh-stock-quote.yml'
 permissions:
   contents: write
@@ -26,6 +27,7 @@ jobs:
         run: |
           python -m py_compile scripts/update_stock_quote.py
           python scripts/update_stock_quote.py --check-only
+          python -m unittest discover -s tests -p 'test_stock_quote.py'
       - name: Hämta senaste tidsstämplade börskurs
         run: python scripts/update_stock_quote.py
       - name: Publicera kursuppdateringen
