@@ -65,6 +65,16 @@ class WeeklyDigestTests(unittest.TestCase):
         self.assertFalse(retro)
         self.assertEqual(current_week["risk_6"], 27.9)
 
+
+    def test_clickable_weekly_news_modal_is_present(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        for marker in ("id=\"weekly-event-overlay\"", "id=\"weekly-event-title\"",
+                       "id=\"weekly-event-facts\"", "id=\"weekly-event-links\"",
+                       "button.addEventListener('click',()=>openEvent(it,button))",
+                       "event.key==='Escape'"):
+            self.assertIn(marker, html)
+        self.assertIn("id=\"weekly-history\"", html)
+
     def test_curated_event_facts_survive_regeneration(self):
         curated = w.read_json(w.DATA / "weekly_event_details.json", {}).get("by_title", {})
         self.assertTrue(curated)
