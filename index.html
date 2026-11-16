@@ -787,6 +787,47 @@ footer{
 .fin-calculation-close:hover,.fin-calculation-close:focus-visible{background:#46606b;outline:2px solid #e0bc8c;outline-offset:2px}
 body.fin-calc-open{overflow:hidden}
 @media(max-width:600px){.fin-calculation-dialog{padding:23px 16px 18px}.fin-calculation-dialog h2{font-size:18px}.fin-calculation-modal{padding:10px}}
+
+.weekly-overview{background:linear-gradient(140deg,#252c34,#172832);border:1px solid #4b5b68;border-radius:17px;margin:23px 0;padding:clamp(17px,2.5vw,27px)}
+.weekly-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.weekly-head h2{margin:2px 0 7px;font-size:clamp(21px,2.1vw,28px);color:#f8f1e5}
+.weekly-head p.weekly-intro{font-size:12px;color:#bdcbd3;margin:0;line-height:1.7;max-width:770px}
+.weekly-tag{border:1px solid #967b55;background:#342e26;border-radius:16px;font-size:10px;color:#f5d8aa;padding:6px 11px;white-space:nowrap}
+.weekly-status{margin:12px 0;font-size:11px;color:#aebfca;line-height:1.6}
+.weekly-main{background:#21313c;border:1px solid #526371;border-radius:12px;padding:17px}
+.weekly-row{display:flex;gap:8px 14px;align-items:center;flex-wrap:wrap;margin-bottom:11px}
+.weekly-week{font-size:17px;font-weight:800;color:#f5e7ce}
+.weekly-date{font-size:11px;color:#b9cdd4}
+.weekly-summary{font-size:13px;line-height:1.7;color:#e4edf0;margin:8px 0 12px}
+.weekly-counts{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.weekly-counts span{font-size:10px;border:1px solid #5b6d77;border-radius:15px;color:#cbdce2;background:#273b46;padding:4px 8px}
+.weekly-counts .verified{border-color:#538174;color:#a7e3cb}
+.weekly-subhead{font-size:13px;color:#f0dec0;margin:16px 0 9px}
+.weekly-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.weekly-card{background:#182935;border:1px solid #405461;border-radius:10px;padding:13px 14px;min-width:0}
+.weekly-meta{font-size:10px;color:#c2bdab;display:flex;flex-wrap:wrap;gap:7px 12px;margin-bottom:6px}
+.weekly-card h4{font-size:12px;margin:0 0 8px;line-height:1.5}
+.weekly-card h4 a{color:#f5f0e8}
+.weekly-card p{font-size:11px;color:#c0d0d8;margin:0 0 8px;line-height:1.65}
+.weekly-origin{font-size:10px;color:#a9bcc3}
+.weekly-origin.verified{color:#9cdfc8}
+.weekly-analysis{background:#182a34;border:1px solid #52646c;border-radius:10px;padding:13px 15px;margin-top:14px}
+.weekly-analysis h3{color:#f1dcb9;font-size:12px;margin:0 0 9px}
+.weekly-analysis .metric{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;color:#d2e0e5;font-size:11px}
+.weekly-analysis .metric strong{font-size:17px;color:#eac68e}
+.weekly-small{font-size:10px;color:#a8bdc5;line-height:1.6;margin:7px 0}
+.weekly-changes{padding:0;list-style:none;display:grid;gap:9px;margin:12px 0}
+.weekly-changes li{border-left:3px solid #c6a977;padding:0 0 0 11px}
+.weekly-changes strong{display:block;font-size:12px;color:#e9e8e3}
+.weekly-changes p{font-size:11px;color:#b9cdd4;line-height:1.6;margin:4px 0}
+.weekly-more,.weekly-history,.weekly-past{border:1px solid #4d616c;background:#1b2d38;border-radius:10px;margin-top:12px}
+.weekly-more summary,.weekly-history>summary,.weekly-past>summary{padding:11px 13px;cursor:pointer;color:#f2d3a6;font-size:12px;font-weight:650}
+.weekly-more .weekly-events{margin:0 12px 12px}
+.weekly-history>div{padding:0 12px 12px}
+.weekly-past .weekly-main{margin:0 10px 10px;background:#23343c;padding:13px}
+.weekly-foot{font-size:10px;line-height:1.6;color:#a5bac5;margin:13px 0 0}
+.weekly-overview a:focus-visible,.weekly-overview summary:focus-visible{outline:2px solid #f5ca8b;outline-offset:3px}
+@media(max-width:710px){.weekly-events{grid-template-columns:1fr}.weekly-overview{padding:15px}.weekly-main{padding:13px}.weekly-tag{white-space:normal}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -810,7 +851,22 @@ body.fin-calc-open{overflow:hidden}
 <div class="market-metric"><span class="metric-label">Rapporterad blankning</span><strong>1,62 <small>%</small></strong><a href="https://www.fi.se/sv/vara-register/blankningsregistret/Positionsinnehavare/" target="_blank" rel="noopener">FI · 7 okt 2026 ↗</a></div>
 </div><div class="market-footline"><span>Aktier: mars 2026 · blankning: 7 oktober 2026 · plattformsägare: uppgift avläst 13 november 2026. Kursen hämtas från TradingView och kan vara fördröjd.</span><details><summary>Om uppgifterna</summary><p>Ägarantal avser respektive plattform och kan förändras. Blankning avser rapporterade korta nettopositioner enligt Finansinspektionen. Uppgifterna är ögonblicksbilder, inte livevärden. <a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Källa till ägarstatistik ↗</a></p></details></div>
 </section>
-<section class="partner-overview" aria-labelledby="partner-heading"><p class="section-kicker"><span class="section-number">02</span> Avtal &amp; finansiering</p>
+<section class="weekly-overview" aria-labelledby="weekly-heading">
+ <div class="weekly-head">
+  <div><p class="section-kicker"><span class="section-number">02</span> Veckosammanfattning</p>
+  <h2 id="weekly-heading">Veckans nyheter</h2>
+  <p class="weekly-intro">Veckans viktigaste händelser, finansieringsläget och förändringar i analyser och milstolpar. Källor och datum visas för varje händelse.</p></div>
+  <span class="weekly-tag">Söndagskväll · veckovis</span>
+ </div>
+ <p class="weekly-status" id="weekly-status" role="status" aria-live="polite">Läser in veckans sammanställning …</p>
+ <div id="weekly-current"><p class="weekly-small">Veckans nyheter hämtas från veckoregistret.</p></div>
+ <details class="weekly-history" id="weekly-history" hidden>
+  <summary>Visa tidigare veckor <span id="weekly-history-count"></span></summary>
+  <div id="weekly-history-inside"></div>
+ </details>
+ <p class="weekly-foot">Automatisk bevakning kan missa händelser. Källgranskade uppgifter skiljs från rubriker som inte har fulltextgranskats. Riskbedömningen är modellens lägesbild vid sammanställningen – inte ett faktabesked från bolaget.</p>
+</section>
+<section class="partner-overview" aria-labelledby="partner-heading"><p class="section-kicker"><span class="section-number">03</span> Avtal &amp; finansiering</p>
 <h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
 <div class="partner-intro">
 <div class="partner-card"><span class="micro">Hipolabor · dengue · Brasilien</span><strong>50 / 50 <small style="font-size:13px;color:#b3c8d8">vinstdelning</small></strong><p>Även kostnader för utveckling mot regulatoriskt godkännande delas 50/50. Extra försäljningsmilstolpar är kopplade till <b>200 miljoner USD i kumulativ nettoförsäljning</b> – betalningsbeloppet är inte offentliggjort.</p><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Avtalets fullständiga villkor ↗</a></div>
@@ -822,7 +878,7 @@ body.fin-calc-open{overflow:hidden}
 </section>
 
 <section class="financing-overview" aria-labelledby="fin-title">
-  <p class="section-kicker"><span class="section-number">03</span> Finansiering och risk</p>
+  <p class="section-kicker"><span class="section-number">04</span> Finansiering och risk</p>
   <div class="fin-head"><div><h2 id="fin-title">Emissionsbarometern</h2><p class="intro">Hur stor är risken att SynAct <b>annonserar en ny kontant nyemission</b> under kommande månader? Riktiga jämförelsefall, finansieringsläge och tiden som återstår vägs samman.</p></div><span class="fin-frequency">Uppdateras varje vecka</span></div>
   <p class="fin-calc-hint">Välj <span aria-hidden="true">∑</span> bredvid en beräknad uppgift för att se formel, insatta värden, uträkning och källor. <span aria-hidden="true">ⓘ</span> förklarar bolagets egen prognos jämfört med modellens datum.</p>
   <div class="fin-grid">
@@ -896,7 +952,7 @@ body.fin-calc-open{overflow:hidden}
   </details>
   <p class="fin-small">Schemalagd veckokontroll varje måndag kl. 07:15 UTC via GitHub Actions (normalt 08:15 svensk vintertid). Om en körning misslyckas eller en källa inte går att läsa ska det synas i statusen. Informationen är ingen investeringsrekommendation.</p>
 </section>
-<section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">04</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
+<section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">05</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
 <p class="intro">Tre källkontrollerade nyheter från bolaget, kompletterade med automatiskt insamlade rubriker när flödet finns tillgängligt.</p><p class="status" id="news-status">Visar verifierade pressmeddelanden · nyhetsflödet läses in när tillgängligt.</p>
 <div class="news" id="news">
 <article class="news-card"><small>13 nov 2026 · SynAct / MFN</small><h3>USA: patentansökan för resomelagons tablettformulering har godkänts för utfärdande</h3><a href="https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
@@ -904,7 +960,7 @@ body.fin-calc-open{overflow:hidden}
 <article class="news-card"><small>27 okt 2026 · SynAct</small><h3>Första kommersiella partneravtalet med Hipolabor för dengue i Brasilien</h3><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 </div></section>
 <section aria-labelledby="milestones-heading">
-<p class="section-kicker"><span class="section-number">05</span> Klinisk utveckling &amp; bolaget</p>
+<p class="section-kicker"><span class="section-number">06</span> Klinisk utveckling &amp; bolaget</p>
 <h2 class="section" id="milestones-heading">Milstolpar <span id="milestone-total" class="milestone-total"></span></h2>
 <p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Alla framtida milstolpar visas per kvartal. Placeringar utan officiell kvartalsprognos är uttryckligen uppskattningar. Klicka på en ruta för fördjupning och tidsmotivering.</p>
 <p class="status" id="research-status">Läser in källkontrollerad milstolpshistorik …</p>
@@ -936,7 +992,7 @@ body.fin-calc-open{overflow:hidden}
 <span class="milestone-disclaimer">Alla framtida händelser ligger i kvartal. Markeringen ≈ betyder vår kvartalsuppskattning, inte bolagets löfte. Klicka för skäl och osäkerhet.</span>
 </div>
 </section>
-<section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">06</span> Analys &amp; värdering</p>
+<section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">07</span> Analys &amp; värdering</p>
 <div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Källkontrollerade publiceringar · kr per aktie · klicka på punkter för analysförändringen.</p></div>
 <div class="valuation-legend"><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#ffba79"></i>BioVal*</span></div></div>
 <div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar av Redeye, Edison och BioVal i kr per aktie"></svg></div>
@@ -1472,6 +1528,119 @@ document.addEventListener('keydown',event=>{
  }catch(err){
    el('fin-coverage').textContent='Kunde inte hämta veckodata: '+err.message+'. Visar grundbedömningen från 13 november 2026.';
  }
+})();
+
+
+
+(function weeklyNews(){
+ const current=document.getElementById('weekly-current');
+ const status=document.getElementById('weekly-status');
+ const archive=document.getElementById('weekly-history');
+ const history=document.getElementById('weekly-history-inside');
+ const make=(tag,cls,text)=>{
+  const e=document.createElement(tag);if(cls)e.className=cls;
+  if(text!==undefined)e.textContent=String(text);return e;
+ };
+ const validUrl=url=>typeof url==='string'&&url.startsWith('https://');
+ const dateString=v=>{
+  const d=new Date(String(v||'')+'T12:00:00Z');
+  return Number.isNaN(d.getTime())?String(v||''):
+   d.toLocaleDateString('sv-SE',{timeZone:'Europe/Stockholm',day:'numeric',month:'short',year:'numeric'});
+ };
+ const stamp=v=>{
+  const d=new Date(v);
+  return Number.isNaN(d.getTime())?String(v||''):d.toLocaleString('sv-SE',{
+   timeZone:'Europe/Stockholm',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+ };
+ const addLink=(parent,url,text)=>{
+  if(!validUrl(url))return;
+  const a=make('a','',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';parent.append(a);
+ };
+ function items(parent,records){
+  const grid=make('div','weekly-events');
+  for(const it of records){
+   const card=make('article','weekly-card'),meta=make('div','weekly-meta');
+   meta.append(make('span','',dateString(it.date)),make('span','',it.category||'Händelse'));
+   card.append(meta);
+   const h=make('h4');
+   if(validUrl(it.url))addLink(h,it.url,it.title||'Läs originalkällan');
+   else h.textContent=it.title||'Källa saknas';
+   card.append(h,make('p','',it.summary||'Läs originalkällan för detaljer.'));
+   card.append(make('div','weekly-origin'+(it.verified?' verified':''),
+    (it.verified?'Källgranskad post':'Rubrik, ej fulltextgranskad')+' · '+(it.source||'Okänd källa')));
+   grid.append(card);
+  }
+  parent.append(grid);
+ }
+ function edition(w){
+  const shell=make('article','weekly-main'),head=make('div','weekly-row');
+  head.append(make('strong','weekly-week','Vecka '+w.week+' · '+w.year),
+   make('span','weekly-date',dateString(w.start)+' – '+dateString(w.end)));
+  shell.append(head,make('p','weekly-summary',w.intro||'Veckans sammanfattning'));
+  const events=Array.isArray(w.events)?w.events:[];
+  const updates=Array.isArray(w.updates)?w.updates:[];
+  const counts=make('div','weekly-counts');
+  counts.append(make('span','',events.length+' händelser'),
+   make('span','verified',events.filter(x=>x.verified).length+' källgranskade'),
+   make('span','',updates.length+' analysändringar'));
+  shell.append(counts,make('h3','weekly-subhead','Händelser under veckan'));
+  if(events.length){
+   items(shell,events.slice(0,6));
+   if(events.length>6){
+    const other=make('details','weekly-more');
+    other.append(make('summary','','Visa ytterligare '+(events.length-6)+' händelser i vecka '+w.week));
+    items(other,events.slice(6));shell.append(other);
+   }
+  }else shell.append(make('p','weekly-small','Inga daterade händelser hittades i de källor som gick att läsa. Detta innebär inte att inget har hänt.'));
+  const analysis=make('div','weekly-analysis');
+  analysis.append(make('h3','','Ändringar i emissionsbarometer och milstolpar'));
+  const s=w.finance_snapshot||{},label=make('div','metric');
+  if(typeof s.risk_6==='number'){
+   label.append(make('span','','Emissionsrisk inom sex månader:'),
+    make('strong','',s.risk_6.toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %'));
+  }else if(s.emission_status){
+   label.append(make('span','','Finansieringsstatus:'),make('strong','',s.emission_status.replace(/_/g,' ')));
+  }else label.append(make('span','','Ingen numerisk emissionsbarometer finns för bolaget.'));
+  analysis.append(label);
+  analysis.append(make('p','weekly-small',s.explanation||'Lägesbild vid sammanställningen.'));
+  if(s.risk_as_of)analysis.append(make('p','weekly-small','Senast avläst '+stamp(s.risk_as_of)));
+  if(updates.length){
+   const list=make('ul','weekly-changes');
+   for(const x of updates){
+    const li=make('li');
+    li.append(make('strong','',x.title||'Uppdatering'),make('p','',x.detail||''));
+    addLink(li,x.url,'Källa ↗');list.append(li);
+   }
+   analysis.append(list);
+  }else analysis.append(make('p','weekly-small','Ingen förändring gentemot en tidigare jämförbar veckoutgåva är registrerad.'));
+  shell.append(analysis);
+  if(w.omitted_events) shell.append(make('p','weekly-small',String(w.omitted_events)+' ytterligare rubriker har utelämnats av utrymmesskäl.'));
+  shell.append(make('p','weekly-foot','Sammanställd '+stamp(w.generated_at)+
+   (w.source_errors?.length?' · Kontrollera källfel: '+w.source_errors.join('; '):' · Inga rapporterade hämtningsfel.')));
+  return shell;
+ }
+ fetch('./data/weekly_news.json',{cache:'no-store'})
+ .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+ .then(d=>{
+  const weeks=(Array.isArray(d.weeks)?d.weeks:[]).slice().sort((a,b)=>String(b.id).localeCompare(String(a.id)));
+  if(!weeks.length)throw new Error('Ingen veckoarkivfil finns ännu');
+  current.replaceChildren(edition(weeks[0]));
+  status.textContent='Senaste uppdatering '+stamp(d.updated_at)+' · '+weeks.length+' veckor i arkivet.';
+  if(weeks.length>1){
+   archive.hidden=false;
+   document.getElementById('weekly-history-count').textContent='('+String(weeks.length-1)+')';
+   history.replaceChildren();
+   for(const w of weeks.slice(1)){
+    const group=make('details','weekly-past');
+    group.append(make('summary','','Vecka '+w.week+' · '+w.year+' · '+dateString(w.start)+'–'+dateString(w.end)+' · '+(w.events||[]).length+' händelser'));
+    group.append(edition(w));history.append(group);
+   }
+  }else archive.hidden=true;
+ })
+ .catch(e=>{
+  status.textContent='Kunde inte läsa Veckans nyheter: '+e.message;
+  current.replaceChildren(make('p','weekly-small','Se nyhetsflödet längre ned på sidan och GitHub Actions för källkontroll.'));
+ });
 })();
 
 </script></body></html>
