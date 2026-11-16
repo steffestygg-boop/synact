@@ -857,6 +857,28 @@ body.fin-calc-open{overflow:hidden}
 .weekly-event-close:hover,.weekly-event-close:focus-visible{background:#536671;outline:2px solid #f3d5a4;outline-offset:2px}
 body.weekly-dialog-open{overflow:hidden}
 @media(max-width:650px){.weekly-event-overlay{padding:10px}.weekly-event-dialog{padding:22px 16px 18px;max-height:90vh}}
+
+/* One market quote source is shared with the Fenja slider; highlight loan capacity. */
+.synact-quote-tile{display:flex;flex-direction:column;gap:3px;justify-content:center;min-height:91px;padding:4px 0 2px}
+.synact-quote-tile>strong{font-size:clamp(30px,3vw,43px);font-weight:780;letter-spacing:-.04em;color:#f1f7f4;line-height:1.15;font-variant-numeric:tabular-nums}
+.synact-quote-tile>strong small{font-size:17px;letter-spacing:0;color:#c0d1dc}
+.synact-quote-status{font-size:11px;color:#c4d4df;line-height:1.4;margin-top:5px}
+.synact-quote-shared{font-size:10px;color:#91b5bb;line-height:1.55}
+.fin-fenja-highlight{background:linear-gradient(125deg,#493b25,#3e3227 60%,#292f2a);border:2px solid #e6b972;border-radius:14px;padding:20px 22px;margin:16px 0;box-shadow:0 4px 18px #040e153b}
+.fin-fenja-highlight-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.fin-fenja-highlight-label{color:#f2d9ad;font-size:11px;font-weight:750;letter-spacing:.055em;line-height:1.5}
+.fin-fenja-mode{display:inline-block;padding:4px 9px;border:1px solid #aa986e;border-radius:14px;background:#2d302d;font-size:10px;color:#f0d6ae}
+.fin-fenja-highlight-number{display:flex;align-items:center;gap:12px;margin:7px 0 0}
+.fin-fenja-highlight-number>strong{font-size:clamp(42px,6.1vw,75px);font-weight:820;letter-spacing:-.055em;line-height:1.08;color:#fff1d0;font-variant-numeric:tabular-nums}
+.fin-fenja-highlight-number>strong small{font-size:clamp(17px,2.1vw,24px);letter-spacing:0;color:#f2d9ad;font-weight:650}
+.fin-fenja-highlight-share{font-size:14px;color:#e9e0cb;margin:11px 0 12px}
+.fin-fenja-highlight-share strong{color:#ffefd0;font-size:16px}
+.fin-fenja-capacity-track{height:16px;width:100%;border-radius:16px;overflow:hidden;background:#171e21;border:1px solid #8d7857}
+.fin-fenja-capacity-fill{height:100%;border-radius:16px;background:linear-gradient(90deg,#c19653,#f7d397);transition:width .18s ease}
+.fin-fenja-highlight-caption{font-size:11px;color:#d6cdbd;margin-top:10px;line-height:1.55}
+.fin-fenja-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:700px){.fin-fenja-highlight{padding:16px}.fin-fenja-highlight-number>strong{font-size:clamp(39px,9vw,61px)}}
+
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -868,11 +890,12 @@ body.weekly-dialog-open{overflow:hidden}
 <section class="stock-overview" aria-labelledby="stock-heading">
 <div class="market-heading"><div><p class="section-kicker"><span class="section-number">01</span> Aktieöversikt</p><h2 id="stock-heading">Aktien · SYNACT</h2></div><span class="market-exchange">Nasdaq Stockholm · SYNACT</span></div>
 <div class="market-board">
-<div class="market-quote"><div class="market-quote-heading"><span>Kurs · fördröjd marknadsdata</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener">TradingView ↗</a></div>
-<div class="tv-quote" aria-label="Senaste tillgängliga fördröjda kurs för SynAct Pharma från TradingView"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-{"symbol":"OMXSTO:SYNACT","width":"100%","isTransparent":false,"colorTheme":"dark","locale":"sv"}
-</script></div></div></div>
+<div class="market-quote"><div class="market-quote-heading"><span>Kurs · SynAct Pharma · potentiellt fördröjd</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener noreferrer">Jämför på TradingView ↗</a></div>
+<div class="synact-quote-tile" aria-label="Samma tidsstämplade börskurs som används av Fenja-kalkylatorn">
+ <strong id="synact-shared-price">13,22 <small>kr</small></strong>
+ <div id="synact-quote-status" class="synact-quote-status">Referenskurs 13 november 2026. Läser in senaste tillgängliga kurs …</div>
+ <div class="synact-quote-shared">Samma kurs används automatiskt som startvärde i Fenja-reglaget.</div>
+</div></div>
 <div class="market-metric"><span class="metric-label">Antal aktier</span><strong>56 213 968</strong><a href="https://www.synactpharma.com/sv/investerare/aktiekapital/" target="_blank" rel="noopener">Bolagets aktiekapital ↗</a></div>
 <div class="market-metric market-owners"><span class="metric-label">Aktieägare på plattformarna</span><div class="owner-pair">
 <div><strong>13 084</strong><a href="https://www.borskollen.se/aktie/synact-pharma" target="_blank" rel="noopener">Avanza ↗</a></div>
@@ -942,18 +965,32 @@ body.weekly-dialog-open{overflow:hidden}
   <div class="fin-fenja-panel" aria-labelledby="fin-fenja-heading">
    <div class="fin-fenja-head"><div>
      <h3 id="fin-fenja-heading">Fenja – vad begränsar finansieringen?</h3>
-     <p>Faciliteten uppgår till 100 Mkr men 50 Mkr är redan utnyttjade. En ny dragning måste rymmas inom <b>10 % av börsvärdet</b>. Värdena nedan utgår från senaste verifierade kursbild, inte en livekurs.</p>
+     <p>Av kreditramen på 100 Mkr är 50 Mkr redan utnyttjade. Resterande belopp begränsas av <b>10 % av börsvärdet</b>. Vi använder en och samma tidsstämplade börskurs under Aktien och här i kalkylatorn.</p>
    </div><span class="fin-fenja-pill">Villkorad kredit · bevakas</span></div>
+   <div class="fin-fenja-highlight" aria-live="polite" aria-atomic="true">
+     <div class="fin-fenja-highlight-top">
+       <span class="fin-fenja-highlight-label">HÖGST MÖJLIGA YTTERLIGARE LÅNEUTRYMME</span>
+       <span id="fenja-scenario-badge" class="fin-fenja-mode">Senast hämtad kurs</span>
+     </div>
+     <div class="fin-fenja-highlight-number">
+       <strong id="fenja-additional">24,3 <small>miljoner kr</small></strong>
+       <button type="button" class="fin-calc-trigger" data-fin-calc="fenja-capacity" title="Visa hur det möjliga låneutrymmet har beräknats" aria-label="Visa beräkningen av Fenjas låneutrymme" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
+     </div>
+     <div class="fin-fenja-highlight-share"><strong id="fenja-available-percent">48,6 %</strong> av de nominellt återstående <strong>50 miljoner kronorna</strong></div>
+     <div class="fin-fenja-capacity-track" id="fenja-capacity-track" role="progressbar" aria-label="Andel av Fenjas återstående nominella kredit som ryms inom börsvärdestaket" aria-valuemin="0" aria-valuemax="100" aria-valuenow="49">
+       <div id="fenja-capacity-fill" class="fin-fenja-capacity-fill" style="width:48.6%"></div>
+     </div>
+     <div id="fenja-cap-context" class="fin-fenja-highlight-caption">Av nominellt 50 Mkr · kurs 13,22 kr den 13 nov 2026</div>
+   </div>
    <div class="fin-fenja-stats">
-     <div><span>Möjligt extra uttag enligt 10 %-taket</span><strong id="fenja-additional">24,3 <small>Mkr</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-capacity" title="Visa beräkningen av Fenjas 10-procentsbegränsning" aria-label="Visa beräkningen av Fenjas 10-procentsbegränsning" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small id="fenja-cap-context">Av nominellt 50 Mkr – kurs 13,22 kr den 13 nov 2026</small></div>
      <div><span>Minsta årsränta på befintliga 50 Mkr</span><strong id="fenja-interest">5,0 <small>Mkr/år</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-interest" title="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-label="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small>Minst 10 % årligen, exklusive eventuell outnyttjad-kreditkostnad</small></div>
      <div><span>Konvertibellånets förfall</span><strong>31 dec 2027</strong><small>Strax efter finansieringshorisonten in i Q4 2027; omförhandling/konvertering kan ändra utfallet</small></div>
    </div>
    <div class="fin-fenja-simulator">
-     <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Testa aktiekurs vid nytt uttag</label><strong id="fenja-scenario-output">13,22 kr</strong></div>
+     <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Aktiekurs vid eventuellt nytt uttag <small>– synkad med Aktien</small></label><strong id="fenja-scenario-output">13,22 kr</strong></div>
      <input type="range" id="fenja-scenario-price" min="5" max="35" value="13.22" step="0.01" aria-label="Antagen aktiekurs i kronor vid nytt Fenja-uttag">
      <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-scenario" title="Visa beräkningen för aktiekursen som valts med reglaget" aria-label="Visa beräkningen för aktiekursen som valts med reglaget" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
-     <p class="fin-fenja-disclaimer">Illustrativ känslighet, <b>inte</b> en prognos eller ett bekräftat uttag. Reglaget ändrar inte emissionsbarometerns sparade riskprocent. Där används senast verifierade kursbild från <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
+     <p class="fin-fenja-disclaimer"><b id="fenja-quote-sync-status">Kursuppdatering sker automatiskt under börsdagar. Senaste verifierade referenskurs visas tills en ny publiceras.</b> Dra själv i reglaget för att testa andra aktiekurser; när en ny börskurs publiceras ställs reglaget om till den. Detta ändrar inte den separata, veckovis uppdaterade emissionsrisken som använder referenskursen <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
    </div>
    <div class="fin-fenja-model-note"><b>Ingen dubbelräkning:</b> Kreditberoendet ingick redan i barometern (×1,05). Nu tillkommer bara en separat kapacitetsfaktor för kreditdelen som 10 %-taket hindrar oss från att räkna som tillgänglig. <b>Ränta, förfall och bolagets finansieringshorisont visas som risksignaler, men ger inga extra fristående multiplikatorer.</b> <a id="fenja-original-source" href="https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/" target="_blank" rel="noopener noreferrer">Läs lånevillkoren hos SynAct ↗</a></div>
  </div>
