@@ -828,6 +828,35 @@ body.fin-calc-open{overflow:hidden}
 .weekly-foot{font-size:10px;line-height:1.6;color:#a5bac5;margin:13px 0 0}
 .weekly-overview a:focus-visible,.weekly-overview summary:focus-visible{outline:2px solid #f5ca8b;outline-offset:3px}
 @media(max-width:710px){.weekly-events{grid-template-columns:1fr}.weekly-overview{padding:15px}.weekly-main{padding:13px}.weekly-tag{white-space:normal}}
+
+/* Week cards are interactive: whole surface opens an informative modal. */
+.weekly-card{padding:0;transition:border-color .18s,box-shadow .18s,transform .18s}
+.weekly-card:hover,.weekly-card:focus-within{border-color:#bd9a66;box-shadow:0 6px 19px #070c124d;transform:translateY(-1px)}
+.weekly-event-open{display:block;width:100%;height:100%;background:transparent;border:0;text-align:left;padding:13px 14px;color:inherit;font:inherit;cursor:pointer;border-radius:9px}
+.weekly-event-open:focus-visible{outline:2px solid #e8c991;outline-offset:2px}
+.weekly-event-open h4{color:#f6eee1;margin:0 0 8px;font-size:13px;line-height:1.5}
+.weekly-event-open p{font-size:11px;line-height:1.65;color:#d3dce0;margin:0 0 9px}
+.weekly-open-cue{display:flex;gap:6px;align-items:center;font-size:11px;font-weight:700;color:#efc68a;margin-top:10px}
+.weekly-origin{margin-top:8px}
+.weekly-event-overlay[hidden]{display:none!important}
+.weekly-event-overlay{position:fixed;inset:0;z-index:100003;display:flex;justify-content:center;align-items:center;padding:20px;background:rgba(3,10,17,.84);backdrop-filter:blur(5px)}
+.weekly-event-dialog{position:relative;background:linear-gradient(145deg,#263943,#172732);color:#eaf0f3;border:1px solid #7b8b92;width:min(675px,100%);max-height:86vh;overflow:auto;padding:27px 27px 24px;border-radius:15px;box-shadow:0 24px 80px #000a}
+.weekly-event-dialog h2{margin:0 35px 12px 0;font-size:clamp(19px,2.3vw,25px);line-height:1.35;color:#faecd9}
+.weekly-event-meta{font-size:11px;color:#dfc49b;margin:0 32px 8px 0}
+.weekly-event-lead{font-size:14px;color:#e8eff1;line-height:1.75;margin:0 0 16px}
+.weekly-event-facts{border:1px solid #566b73;background:#1c2f39;padding:14px 16px;border-radius:10px;margin:13px 0}
+.weekly-event-facts strong,.weekly-event-detail strong,.weekly-event-importance strong{display:block;font-size:12px;color:#f4d5a5;margin-bottom:7px}
+.weekly-event-facts ul{margin:0;padding-left:19px;display:grid;gap:6px}
+.weekly-event-facts li{font-size:12px;line-height:1.6;color:#e0e6e8}
+.weekly-event-detail{font-size:12px;line-height:1.8;color:#d1dfe3;margin:16px 0}
+.weekly-event-detail p,.weekly-event-importance p{margin:6px 0}
+.weekly-event-importance{border-left:3px solid #cfa16d;background:#2b3135;border-radius:4px;padding:10px 14px;margin:15px 0;font-size:12px;line-height:1.75;color:#ddd5c9}
+.weekly-event-links{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:17px}
+.weekly-event-links a{font-size:12px;color:#f3c887;text-decoration:underline;text-underline-offset:3px}
+.weekly-event-close{position:absolute;top:13px;right:14px;width:36px;height:36px;background:#2b404c;border:1px solid #6b8390;border-radius:10px;color:#f6f3ed;display:grid;place-items:center;font-size:21px;cursor:pointer}
+.weekly-event-close:hover,.weekly-event-close:focus-visible{background:#536671;outline:2px solid #f3d5a4;outline-offset:2px}
+body.weekly-dialog-open{overflow:hidden}
+@media(max-width:650px){.weekly-event-overlay{padding:10px}.weekly-event-dialog{padding:22px 16px 18px;max-height:90vh}}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -866,6 +895,19 @@ body.fin-calc-open{overflow:hidden}
  </details>
  <p class="weekly-foot">Automatisk bevakning kan missa händelser. Källgranskade uppgifter skiljs från rubriker som inte har fulltextgranskats. Riskbedömningen är modellens lägesbild vid sammanställningen – inte ett faktabesked från bolaget.</p>
 </section>
+
+<div class="weekly-event-overlay" id="weekly-event-overlay" role="presentation" hidden>
+ <div class="weekly-event-dialog" role="dialog" aria-modal="true" aria-labelledby="weekly-event-title" aria-describedby="weekly-event-lead" tabindex="-1">
+  <button class="weekly-event-close" id="weekly-event-close" type="button" aria-label="Stäng veckans nyhet">×</button>
+  <p class="weekly-event-meta" id="weekly-event-meta"></p>
+  <h2 id="weekly-event-title"></h2>
+  <p id="weekly-event-lead" class="weekly-event-lead"></p>
+  <div id="weekly-event-facts" class="weekly-event-facts" hidden></div>
+  <div id="weekly-event-detail" class="weekly-event-detail" hidden></div>
+  <div id="weekly-event-importance" class="weekly-event-importance" hidden></div>
+  <div id="weekly-event-links" class="weekly-event-links"></div>
+ </div>
+</div>
 <section class="partner-overview" aria-labelledby="partner-heading"><p class="section-kicker"><span class="section-number">03</span> Avtal &amp; finansiering</p>
 <h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
 <div class="partner-intro">
@@ -1556,22 +1598,78 @@ document.addEventListener('keydown',event=>{
   if(!validUrl(url))return;
   const a=make('a','',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';parent.append(a);
  };
+
+
+ const popup=document.getElementById('weekly-event-overlay');
+ const closeButton=document.getElementById('weekly-event-close');
+ let originalFocus=null;
+ function hideEvent(){
+  if(popup.hidden)return;
+  popup.hidden=true;
+  document.body.classList.remove('weekly-dialog-open');
+  if(originalFocus&&originalFocus.isConnected)originalFocus.focus();
+ }
+ function openEvent(it,trigger){
+  originalFocus=trigger;
+  document.getElementById('weekly-event-meta').textContent=dateString(it.date)+' · '+(it.category||'Händelse')+
+   ' · '+(it.editorial_verified||it.verified?'Källgranskad uppgift':'Nyhetsrubrik');
+  document.getElementById('weekly-event-title').textContent=it.title||'Veckans händelse';
+  document.getElementById('weekly-event-lead').textContent=it.summary||it.title||'';
+  const facts=document.getElementById('weekly-event-facts');
+  facts.replaceChildren();const bulletItems=Array.isArray(it.key_facts)?it.key_facts:[];
+  facts.hidden=!bulletItems.length;
+  if(bulletItems.length){
+   facts.append(make('strong','','Viktigaste uppgifterna'));
+   const ul=make('ul');
+   for(const value of bulletItems){ul.append(make('li','',value));}
+   facts.append(ul);
+  }
+  const details=document.getElementById('weekly-event-detail');
+  details.replaceChildren();details.hidden=!it.details;
+  if(it.details){details.append(make('strong','','Mer om händelsen'),make('p','',it.details));}
+  const relevance=document.getElementById('weekly-event-importance');
+  relevance.replaceChildren();relevance.hidden=!it.importance;
+  if(it.importance){relevance.append(make('strong','','Varför det spelar roll'),make('p','',it.importance));}
+  const links=document.getElementById('weekly-event-links');links.replaceChildren();
+  addLink(links,it.url,'Läs originalkällan ↗');
+  if(it.additional_source_url&&it.additional_source_url!==it.url){
+   addLink(links,it.additional_source_url,'Se ytterligare publicering ↗');
+  }
+  popup.hidden=false;document.body.classList.add('weekly-dialog-open');closeButton.focus();
+ }
  function items(parent,records){
   const grid=make('div','weekly-events');
   for(const it of records){
-   const card=make('article','weekly-card'),meta=make('div','weekly-meta');
+   const card=make('article','weekly-card'),button=make('button','weekly-event-open');
+   button.type='button';
+   button.setAttribute('aria-haspopup','dialog');
+   button.setAttribute('aria-controls','weekly-event-overlay');
+   button.setAttribute('aria-label','Visa fördjupning: '+(it.title||'Veckans händelse'));
+   const meta=make('div','weekly-meta');
    meta.append(make('span','',dateString(it.date)),make('span','',it.category||'Händelse'));
-   card.append(meta);
-   const h=make('h4');
-   if(validUrl(it.url))addLink(h,it.url,it.title||'Läs originalkällan');
-   else h.textContent=it.title||'Källa saknas';
-   card.append(h,make('p','',it.summary||'Läs originalkällan för detaljer.'));
-   card.append(make('div','weekly-origin'+(it.verified?' verified':''),
-    (it.verified?'Källgranskad post':'Rubrik, ej fulltextgranskad')+' · '+(it.source||'Okänd källa')));
-   grid.append(card);
+   button.append(meta,make('h4','',it.title||'Händelse'));
+   if(it.summary){button.append(make('p','',it.summary));}
+   button.append(make('div','weekly-origin'+(it.editorial_verified||it.verified?' verified':''),
+    (it.editorial_verified||it.verified?'Källgranskad uppgift':'Nyhetsrubrik')+' · '+(it.source||'Källa')));
+   button.append(make('span','weekly-open-cue','Visa mer om händelsen  ↗'));
+   button.addEventListener('click',()=>openEvent(it,button));
+   card.append(button);grid.append(card);
   }
   parent.append(grid);
  }
+ closeButton.addEventListener('click',hideEvent);
+ popup.addEventListener('click',event=>{if(event.target===popup)hideEvent();});
+ document.addEventListener('keydown',event=>{
+  if(popup.hidden)return;
+  if(event.key==='Escape'){event.preventDefault();event.stopPropagation();hideEvent();return;}
+  if(event.key!=='Tab')return;
+  const focusables=[...popup.querySelectorAll('button:not([disabled]),a[href]')].filter(x=>x.getClientRects().length);
+  if(!focusables.length)return;
+  const first=focusables[0],last=focusables[focusables.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+ });
+
  function edition(w){
   const shell=make('article','weekly-main'),head=make('div','weekly-row');
   head.append(make('strong','weekly-week','Vecka '+w.week+' · '+w.year),
