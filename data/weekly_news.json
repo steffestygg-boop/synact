@@ -19,17 +19,21 @@
           "date": "2026-11-13",
           "title": "SynAct: amerikanskt patentbesked för resomelagon-tablett",
           "category": "Regulatoriskt och patent",
-          "summary": "",
+          "summary": "USPTO har godkänt patentansökan 18/065,702 för resomelagons snabbfrisättande tablettformulering inför utfärdande. Formellt patent väntas efter avgift.",
           "source": "Dokumenterad milstolpe",
           "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-notice-of-allowance-for-ett-amerikanskt-patent-som-omfattar-resomelagon-tabletten/",
           "verified": true,
           "origin": "milstolpe",
           "source_note": "Manuellt källgranskad post",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
+          "details": "Den 13 november meddelade SynAct att den amerikanska patentmyndigheten utfärdat Notice of Allowance för den orala tablettformulering av resomelagon (AP1189-acetat) som används i kliniska studier. Patentet väntas utfärdas inom några veckor efter betalning av avgiften. Det ger ett ytterligare patentskydd kring den kliniska produkten, utöver bolagets kristallpatent.",
+          "importance": "Notice of Allowance betyder att ansökan godkänts för utfärdande, men det formella patentet var ännu inte utfärdat vid beskedet.",
+          "key_facts": [
+            "Patentansökan: US 18/065,702",
+            "Avser: snabbfrisättande oral resomelagon-tablett",
+            "Status: Notice of Allowance, 13 november 2026"
+          ],
           "additional_source_url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/",
-          "editorial_verified": false
+          "editorial_verified": true
         }
       ],
       "updates": [],
@@ -748,33 +752,43 @@
         },
         {
           "date": "2026-11-03",
-          "title": "SynAct skärper sina fas III-planer för resomelagon",
+          "title": "SynAct: fas III-design diskuteras med FDA",
           "category": "Studie och resultat",
-          "summary": "",
+          "summary": "SynAct förbereder Type C-dialog med FDA om RA-fas III, inklusive patienturval, effektmått och kompletterande toxikologiska underlag.",
           "source": "Biostock",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
+          "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
           "verified": false,
           "origin": "rubrik",
           "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
+          "details": "Den kliniska planeringen bygger på analyser från tidigare RA-studier. Nästa steg är regulatorisk diskussion om hur en bekräftande fas III-studie kan utformas. Kostnad och startdatum kan påverkas av myndighetens återkoppling.",
+          "importance": "Ett slutligt studiedesignbeslut är viktigt inför partnerförhandlingar och kapitalanskaffning.",
+          "key_facts": [
+            "Kliniskt program: RA, resomelagon",
+            "Planerat regulatoriskt steg: FDA Type C",
+            "Studiestadium: förberedelser för bekräftande fas III"
+          ],
+          "editorial_verified": true,
+          "additional_source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5"
         },
         {
           "date": "2026-11-03",
-          "title": "SynAct Pharma publicerar delårsrapport för tredje kvartalet 2026",
+          "title": "SynAct Q3: kassan 42,4 Mkr, finansiering in i Q4 2027",
           "category": "Rapport och ekonomi",
-          "summary": "",
+          "summary": "I Q3-rapporten uppgick kassan till cirka 42,4 Mkr den 30 september. Bolaget bedömer att tillgänglig finansiering räcker in i Q4 2027.",
           "source": "SynAct Pharma",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeFllOHBWSWhvc1Q4bXNWWEdqRTJzTE5qclBxajNJZWlrM3djMDZ4bzk5cWNCQUtNcG5NRHNPRUZMRTVkWjRBR2JHWTl0eDNDYXpHWGowRWJBVm5xOWt1MkNLb3htMHoxMFpJUmlKd3Z6OEJ2UTlfX2dleEJMYS14Z21XTXZ3LXhTY3F3SkFTaWVSYkQ1dVNUbUlNekEwUQ?oc=5",
+          "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
           "verified": false,
           "origin": "rubrik",
           "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
+          "details": "Rapporten omfattar programmen inom RA och dengue, arbetet med en bekräftande fas III-design och fortsatta partnerdiskussioner. Fenja-krediten omfattar högst 100 Mkr, men eventuellt ytterligare uttag är villkorat.",
+          "importance": "Låneförfallet under 2027 och eventuell finansiering av fas III behöver vägas mot bolagets kassabedömning.",
+          "key_facts": [
+            "Rapporterad kassa: 42,4 Mkr",
+            "Bedömd finansieringshorisont: in i Q4 2027",
+            "Initialt Fenja-lån: 50 Mkr"
+          ],
+          "editorial_verified": true,
+          "additional_source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeFllOHBWSWhvc1Q4bXNWWEdqRTJzTE5qclBxajNJZWlrM3djMDZ4bzk5cWNCQUtNcG5NRHNPRUZMRTVkWjRBR2JHWTl0eDNDYXpHWGowRWJBVm5xOWt1MkNLb3htMHoxMFpJUmlKd3Z6OEJ2UTlfX2dleEJMYS14Z21XTXZ3LXhTY3F3SkFTaWVSYkQ1dVNUbUlNekEwUQ?oc=5"
         },
         {
           "date": "2026-11-03",
@@ -797,18 +811,23 @@
         },
         {
           "date": "2026-11-03",
-          "title": "SynAct Pharma meddelar att BioVal BioStock Analytics inleder analysbevakning av bolaget",
+          "title": "BioVal börjar bevaka SynAct – modellvärde omkring 2,90 miljarder kr",
           "category": "Analys och marknad",
-          "summary": "",
+          "summary": "BioVal BioStock Analytics inleder uppdragsanalys; riskjusterat nuvärde för tre tillgångar uppskattas till cirka 2,90 miljarder kronor.",
           "source": "SynAct Pharma",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2k2aVdpSHJUTHAtMlExc1dfaHR6b19yOFlVZUpUbDhTNUQ2S1lqYnBIbTNfMUNtb0ZYY084YzJhQUpuMUM2czB2SS16emRqb0IxZVZ2aEFxZGd5eGFJbFVuTzhKVEFwWkhUSWxySWl1dlhzWTBVcktnc3ZTUU5SckVGWkRQVmpjOW5xVFA5RlBQYUZWOFczYlVSWDJQQ2NxNDB0UVFmM3pVa2Z2UEN3X2RGdHYxa2Noem5ITg?oc=5",
+          "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/",
           "verified": false,
           "origin": "rubrik",
           "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
+          "details": "Den största modellerade tillgången är RA-programmet, som i en separat sammanfattning värderas till omkring 2,7 miljarder kronor. Värderingen bygger på scenarier för marknad, sannolikhet för godkännande och utvecklingskostnader.",
+          "importance": "Uppdragsanalysen är ett analytiskt scenario och inte ett kontant partnerbud.",
+          "key_facts": [
+            "Riskjusterad modellportfölj: cirka 2,90 miljarder kr",
+            "RA-program: cirka 2,7 miljarder kr",
+            "Typ: betald analytikerbevakning"
+          ],
+          "editorial_verified": true,
+          "additional_source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2k2aVdpSHJUTHAtMlExc1dfaHR6b19yOFlVZUpUbDhTNUQ2S1lqYnBIbTNfMUNtb0ZYY084YzJhQUpuMUM2czB2SS16emRqb0IxZVZ2aEFxZGd5eGFJbFVuTzhKVEFwWkhUSWxySWl1dlhzWTBVcktnc3ZTUU5SckVGWkRQVmpjOW5xVFA5RlBQYUZWOFczYlVSWDJQQ2NxNDB0UVFmM3pVa2Z2UEN3X2RGdHYxa2Noem5ITg?oc=5"
         }
       ],
       "updates": [],
