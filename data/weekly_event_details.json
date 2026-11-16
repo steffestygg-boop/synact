@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-16",
+  "editorial_policy": "Kort med konkreta tal direkt. Fördjupning i klickbar dialog. Redaktionella uppgifter källgranskade mot varje primärkälla. Framtida RSS-rubriker får inte automatiskt felaktiga fakta.",
+  "by_title": {
+    "Notice of Allowance i USA": {
+      "title": "SynAct: amerikanskt patentbesked för resomelagon-tablett",
+      "summary": "USPTO har godkänt patentansökan 18/065,702 för resomelagons snabbfrisättande tablettformulering inför utfärdande. Formellt patent väntas efter avgift.",
+      "details": "Den 13 november meddelade SynAct att den amerikanska patentmyndigheten utfärdat Notice of Allowance för den orala tablettformulering av resomelagon (AP1189-acetat) som används i kliniska studier. Patentet väntas utfärdas inom några veckor efter betalning av avgiften. Det ger ett ytterligare patentskydd kring den kliniska produkten, utöver bolagets kristallpatent.",
+      "importance": "Notice of Allowance betyder att ansökan godkänts för utfärdande, men det formella patentet var ännu inte utfärdat vid beskedet.",
+      "key_facts": [
+        "Patentansökan: US 18/065,702",
+        "Avser: snabbfrisättande oral resomelagon-tablett",
+        "Status: Notice of Allowance, 13 november 2026"
+      ],
+      "source_url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-notice-of-allowance-for-ett-amerikanskt-patent-som-omfattar-resomelagon-tabletten/"
+    },
+    "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten": {
+      "title": "Resomelagon: nytt amerikanskt patentsteg",
+      "summary": "USPTO har meddelat Notice of Allowance för patentansökan 18/065,702, som skyddar den snabbfrisättande tablettformen av resomelagon.",
+      "details": "SynAct räknar med ett formellt patent inom några veckor efter att utfärdandeavgiften erlagts. Tablettskyddet kompletterar befintliga substans- och kristallrelaterade patent.",
+      "importance": "Beskedet gäller patentansökan – inte ett nytt regulatoriskt läkemedelsgodkännande.",
+      "key_facts": [
+        "Patentnummer/ansökan: 18/065,702",
+        "Formulering: AP1189-acetat, snabb frisättning",
+        "Meddelat: 13 november 2026"
+      ],
+      "source_url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-notice-of-allowance-for-ett-amerikanskt-patent-som-omfattar-resomelagon-tabletten/"
+    },
+    "Q3-rapport och finansieringsläge": {
+      "title": "SynAct Q3: 42,4 Mkr kassa och finansiering in i Q4 2027",
+      "summary": "SynAct redovisade cirka 42,4 Mkr i kassan per 30 september och bedömer finansiering in i Q4 2027. Det finns ett konvertibelt Fenja-lån.",
+      "details": "Ledningen lyfter kliniskt arbete inom RA och dengue, partnerdiskussioner och planering inför fas III. Finansieringshorisonten påverkas av villkoren i Fenja-faciliteten, där högst 100 Mkr omfattas av avtalet och 50 Mkr hade dragits initialt.",
+      "importance": "Bolagets finansieringsprognos är inte ett löfte om att inga ytterligare lån eller emissioner behövs.",
+      "key_facts": [
+        "Kassa 30 september: 42,4 Mkr",
+        "Finansieringsprognos: in i Q4 2027",
+        "Fenja initialt draget: 50 Mkr"
+      ],
+      "source_url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+    },
+    "RESOVIR-2 del 1 fullrekryterad": {
+      "title": "RESOVIR-2: första delen fullrekryterad",
+      "summary": "SynAct uppger att den första delen av dengue-studien är fullrekryterad. Blindade data stödjer fortsatt planering av effektmått inför en större del 2.",
+      "details": "Studien genomförs i Brasilien. Enligt bolaget var antalet denguefall kring studieplatserna lägre än vanligt, men tillräckligt många patienter inkluderades för att analysera genomförbarheten i studiens primära mått och fortsätta statistikplaneringen. Nästa del planeras under 2027 års denguesäsong.",
+      "importance": "Fullrekryterad första studiedel innebär inte att fullständiga effektresultat från hela studien redan finns.",
+      "key_facts": [
+        "Studie: RESOVIR-2 fas II",
+        "Del 1: fullrekryterad per 3 november",
+        "Del 2: planerad under 2027"
+      ],
+      "source_url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+    },
+    "BioVal inleder uppdragsanalys": {
+      "title": "BioVal presenterar riskjusterat portföljvärde 2,90 miljarder kr",
+      "summary": "BioVal/BioStock Analytics startar betald bevakning. De tre projekten i modellen värderas tillsammans till cirka 2,90 miljarder kr enligt riskjusterat nuvärde.",
+      "details": "Värderingen summerar BioVals olika projektscenarier och bygger på antaganden om klinisk framgång, framtida försäljning, licensintäkter och kostnader. En annan rubrik lyfter omkring 2,7 miljarder kr för enbart RA-projektet.",
+      "importance": "Det är en uppdragsanalys och ett teoretiskt riskjusterat företagsvärde, inte ett garanterat uppköpsvärde eller ett aktuellt börsvärde.",
+      "key_facts": [
+        "Summerad portföljvärdering: cirka 2,90 miljarder kr",
+        "RA-projektets modellvärde: cirka 2,7 miljarder kr",
+        "Källa: BioVal/BioStock Analytics, uppdragsanalys"
+      ],
+      "source_url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"
+    },
+    "BioVal™ analysis: SynAct's RA project valued at SEK 2.7B": {
+      "title": "BioVal: RA-projektet värderas till cirka 2,7 miljarder kr",
+      "summary": "BioVals riskjusterade modell uppskattar RA-projektet till cirka 2,7 miljarder kr. Hela den modellerade projektportföljen uppgår till cirka 2,90 miljarder kr.",
+      "details": "Bedömningen är ett teoretiskt riskjusterat nuvärde baserat på antaganden om kliniska utfall och marknadspotential. Den publicerades i samband med att BioVal inledde betald bevakning.",
+      "importance": "Modellvärdet är inte ett pris som någon har erbjudit sig att betala för bolaget eller teknologin.",
+      "key_facts": [
+        "RA-modellvärde: omkring 2,7 miljarder kr",
+        "Summa modellerade tillgångar: omkring 2,9 miljarder kr"
+      ],
+      "source_url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"
+    },
+    "FDA Type C-dialog förbereds": {
+      "title": "FDA-dialog: SynAct förbereder fas III-design för RA",
+      "summary": "SynAct förbereder Type C-dialog med FDA om en bekräftande fas III-studie i RA, inklusive patienturval, primära mått och stödjande toxikologi.",
+      "details": "Regulatorisk återkoppling ska bidra till slutlig studiedesign. Dialogen är ett viktigt steg mot en möjlig större klinisk studie, men beslut om finansiering, studieupplägg och myndighetskrav återstår.",
+      "importance": "Dialogen förbereds; ett godkännande av en specifik fas III-design kan inte tas för givet.",
+      "key_facts": [
+        "Myndighet: FDA",
+        "Typ av möte: Type C",
+        "Syfte: fas III-design, RA"
+      ],
+      "source_url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+    }
+  }
+}
