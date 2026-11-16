@@ -11,6 +11,7 @@ on:
     paths:
       - 'scripts/update_weekly_news.py'
       - 'tests/test_weekly_news.py'
+      - 'data/weekly_event_details.json'
       - '.github/workflows/weekly-news.yml'
 permissions:
   contents: write
