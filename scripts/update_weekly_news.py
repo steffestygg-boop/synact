@@ -401,12 +401,13 @@ def visible_finance_snapshot(current, sunday):
 def enrich_events(events):
     """Attach factual, source-attributed information; omit generic boilerplate."""
     curated = read_json(DATA / "weekly_event_details.json", {}).get("by_title", {})
+    curated_new_titles = {v.get("title"): v for v in curated.values() if v.get("title")}
     milestone_map = {m.get("title"): m for m in load_milestones() if m.get("title")}
     result = []
     for raw in events:
         entry = dict(raw)
         original_title = entry.get("title", "")
-        info = curated.get(original_title)
+        info = curated.get(original_title) or curated_new_titles.get(original_title)
         milestone = milestone_map.get(original_title)
         if info:
             entry["title"] = info.get("title", original_title)
