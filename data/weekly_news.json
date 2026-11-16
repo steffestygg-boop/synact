@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Söndag kväll 19:30 UTC (20:30 vintertid / 21:30 sommartid), med måndagskontroll",
-  "updated_at": "2026-11-16T11:17:41+01:00",
+  "updated_at": "2026-11-16T11:19:46+01:00",
   "latest_week": "2026-W46",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-09",
       "end": "2026-11-15",
-      "generated_at": "2026-11-16T11:17:41+01:00",
+      "generated_at": "2026-11-16T11:19:46+01:00",
       "intro": "Veckans tydligaste källanknutna besked: Notice of Allowance i USA.",
       "events": [
         {
