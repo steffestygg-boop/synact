@@ -701,18 +701,22 @@
       "events": [
         {
           "date": "2026-11-04",
-          "title": "SynAct Pharma meddelar att bolaget kommer att delta och presentera vid kommande investerarkonferenser",
+          "title": "SynAct: partnering i Köln 9–11 nov och Stockholm 2 dec",
           "category": "Övrigt",
-          "summary": "",
+          "summary": "CBO Mads Bjerregaard deltar på BIO-Europe 9–11 november och presenterar om partnerskap på Pharma Outsourcing i Stockholm den 2 december.",
           "source": "SynAct Pharma",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQeGF6UDM4QjNRd1NqenY5dGJCSXdIVzFhMktoNVV3QTN1YXZtNTVGVi03bU9GdkRXSEZKWnhIZjlhbmlkV0Jwd29GWEI3d0lONndGcGpBbEVGaG9idFRMd2RtS2JWdmNLTFFqSVIxQlJhMVRlWm1QMFFlTkMtSEZVeERSeWxocWUxVnktRWh0Vzh0QmtITVFwTDRkTjZaYjRRb0Q0a21aRzg4ZWRpZU9pOU1HeGZWejQxTkpYd01XaEpWTUNMelp0VWNfRUpnV0k?oc=5",
+          "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bolaget-kommer-att-delta-och-presentera-vid-kommande-investerarkonferenser/",
           "verified": false,
           "origin": "rubrik",
           "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
+          "details": "SynAct meddelade den 4 november att bolaget deltar i partnerkonferenser under Q4 2026. Vid BIO-Europe i Köln 9–11 november möter bolaget läkemedelsindustrin. Vid Pharma Outsourcing i Stockholm den 2 december presenterar Mads Bjerregaard kl. 11.55 om att bygga partnerskap över flera indikationer och dela risk.",
+          "importance": "Mötena kan möjliggöra nya partnerkontakter, men inget nytt licensavtal presenterades i konferensbeskedet.",
+          "key_facts": [
+            "BIO-Europe: 9–11 november 2026, Köln",
+            "Pharma Outsourcing: 2 december, Stockholm",
+            "Mads Bjerregaard presenterar kl. 11.55"
+          ],
+          "editorial_verified": true
         },
         {
           "date": "2026-11-03",
