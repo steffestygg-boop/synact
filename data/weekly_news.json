@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Söndag kväll 19:30 UTC (20:30 vintertid / 21:30 sommartid), med måndagskontroll",
-  "updated_at": "2026-11-16T11:28:51+01:00",
+  "updated_at": "2026-11-16T12:00:00+01:00",
   "latest_week": "2026-W46",
   "weeks": [
     {
@@ -13,27 +13,23 @@
       "start": "2026-11-09",
       "end": "2026-11-15",
       "generated_at": "2026-11-16T11:28:51+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: SynAct: amerikanskt patentbesked för resomelagon-tablett.",
+      "intro": "Veckans viktigaste besked: SynAct: amerikanskt patentbesked för resomelagon-tablett.",
       "events": [
         {
           "date": "2026-11-13",
           "title": "SynAct: amerikanskt patentbesked för resomelagon-tablett",
           "category": "Regulatoriskt och patent",
-          "summary": "USPTO har godkänt patentansökan 18/065,702 för resomelagons snabbfrisättande tablettformulering inför utfärdande. Formellt patent väntas efter avgift.",
+          "summary": "",
           "source": "Dokumenterad milstolpe",
           "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-notice-of-allowance-for-ett-amerikanskt-patent-som-omfattar-resomelagon-tabletten/",
           "verified": true,
           "origin": "milstolpe",
           "source_note": "Manuellt källgranskad post",
-          "details": "Den 13 november meddelade SynAct att den amerikanska patentmyndigheten utfärdat Notice of Allowance för den orala tablettformulering av resomelagon (AP1189-acetat) som används i kliniska studier. Patentet väntas utfärdas inom några veckor efter betalning av avgiften. Det ger ett ytterligare patentskydd kring den kliniska produkten, utöver bolagets kristallpatent.",
-          "importance": "Notice of Allowance betyder att ansökan godkänts för utfärdande, men det formella patentet var ännu inte utfärdat vid beskedet.",
-          "key_facts": [
-            "Patentansökan: US 18/065,702",
-            "Avser: snabbfrisättande oral resomelagon-tablett",
-            "Status: Notice of Allowance, 13 november 2026"
-          ],
+          "details": "",
+          "importance": "",
+          "key_facts": [],
           "additional_source_url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/",
-          "editorial_verified": true
+          "editorial_verified": false
         }
       ],
       "updates": [],
@@ -694,106 +690,125 @@
       "start": "2026-11-02",
       "end": "2026-11-08",
       "generated_at": "2026-11-16T11:10:42+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: Q3-rapport och finansieringsläge.",
+      "intro": "Veckans viktigaste besked: SynAct Q3: 42,4 Mkr kassa och finansiering in i Q4 2027.",
       "events": [
         {
           "date": "2026-11-04",
           "title": "SynAct Pharma meddelar att bolaget kommer att delta och presentera vid kommande investerarkonferenser",
           "category": "Övrigt",
-          "summary": "Nyhetsrubriken återges med källa; detaljerna behöver kontrolleras i originalet.",
+          "summary": "",
           "source": "SynAct Pharma",
           "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQeGF6UDM4QjNRd1NqenY5dGJCSXdIVzFhMktoNVV3QTN1YXZtNTVGVi03bU9GdkRXSEZKWnhIZjlhbmlkV0Jwd29GWEI3d0lONndGcGpBbEVGaG9idFRMd2RtS2JWdmNLTFFqSVIxQlJhMVRlWm1QMFFlTkMtSEZVeERSeWxocWUxVnktRWh0Vzh0QmtITVFwTDRkTjZaYjRRb0Q0a21aRzg4ZWRpZU9pOU1HeGZWejQxTkpYd01XaEpWTUNMelp0VWNfRUpnV0k?oc=5",
           "verified": false,
           "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
         },
         {
           "date": "2026-11-03",
-          "title": "Q3-rapport och finansieringsläge",
+          "title": "SynAct Q3: 42,4 Mkr kassa och finansiering in i Q4 2027",
           "category": "Emission och finansiering",
-          "summary": "Finansieringsvillkor och möjlig utspädning behöver skiljas från faktiskt inbetald likvid.",
-          "source": "Dokumenterad milstolpe",
-          "url": "https://www.synactpharma.com/sv/synact-pharma-publicerar-delarsrapport-for-tredje-kvartalet-2026/",
-          "verified": true,
-          "origin": "milstolpe",
-          "source_note": "Manuellt källgranskad post"
-        },
-        {
-          "date": "2026-11-03",
-          "title": "RESOVIR-2 del 1 fullrekryterad",
-          "category": "Studie och resultat",
-          "summary": "Följ skillnaden mellan planerad milstolpe och kliniska data som verkligen har rapporterats.",
-          "source": "Dokumenterad milstolpe",
-          "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
-          "verified": true,
-          "origin": "milstolpe",
-          "source_note": "Manuellt källgranskad post"
-        },
-        {
-          "date": "2026-11-03",
-          "title": "FDA Type C-dialog förbereds",
-          "category": "Regulatoriskt och patent",
-          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
+          "summary": "SynAct redovisade cirka 42,4 Mkr i kassan per 30 september och bedömer finansiering in i Q4 2027. Det finns ett konvertibelt Fenja-lån.",
           "source": "Dokumenterad milstolpe",
           "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
           "verified": true,
           "origin": "milstolpe",
-          "source_note": "Manuellt källgranskad post"
+          "source_note": "Manuellt källgranskad post",
+          "details": "Ledningen lyfter kliniskt arbete inom RA och dengue, partnerdiskussioner och planering inför fas III. Finansieringshorisonten påverkas av villkoren i Fenja-faciliteten, där högst 100 Mkr omfattas av avtalet och 50 Mkr hade dragits initialt.",
+          "importance": "Bolagets finansieringsprognos är inte ett löfte om att inga ytterligare lån eller emissioner behövs.",
+          "key_facts": [
+            "Kassa 30 september: 42,4 Mkr",
+            "Finansieringsprognos: in i Q4 2027",
+            "Fenja initialt draget: 50 Mkr"
+          ],
+          "editorial_verified": true,
+          "additional_source_url": "https://www.synactpharma.com/sv/synact-pharma-publicerar-delarsrapport-for-tredje-kvartalet-2026/"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "RESOVIR-2: första delen fullrekryterad",
+          "category": "Studie och resultat",
+          "summary": "SynAct uppger att den första delen av dengue-studien är fullrekryterad. Blindade data stödjer fortsatt planering av effektmått inför en större del 2.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post",
+          "details": "Studien genomförs i Brasilien. Enligt bolaget var antalet denguefall kring studieplatserna lägre än vanligt, men tillräckligt många patienter inkluderades för att analysera genomförbarheten i studiens primära mått och fortsätta statistikplaneringen. Nästa del planeras under 2027 års denguesäsong.",
+          "importance": "Fullrekryterad första studiedel innebär inte att fullständiga effektresultat från hela studien redan finns.",
+          "key_facts": [
+            "Studie: RESOVIR-2 fas II",
+            "Del 1: fullrekryterad per 3 november",
+            "Del 2: planerad under 2027"
+          ],
+          "editorial_verified": true
         },
         {
           "date": "2026-11-03",
           "title": "SynAct skärper sina fas III-planer för resomelagon",
           "category": "Studie och resultat",
-          "summary": "Följ skillnaden mellan planerad milstolpe och kliniska data som verkligen har rapporterats.",
+          "summary": "",
           "source": "Biostock",
           "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
           "verified": false,
           "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
         },
         {
           "date": "2026-11-03",
           "title": "SynAct Pharma publicerar delårsrapport för tredje kvartalet 2026",
           "category": "Rapport och ekonomi",
-          "summary": "Rapporterad kassa och historiskt kassaflöde är inte en dagsaktuell finansieringsprognos.",
+          "summary": "",
           "source": "SynAct Pharma",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeFllOHBWSWhvc1Q4bXNWWEdqRTJzTE5qclBxajNJZWlrM3djMDZ4bzk5cWNCQUtNcG5NRHNPRUZMRTVkWjRBR2JHWTl0eDNDYXpHWGowRWJBVm5xOWt1MkNLb3htMHoxMFpJUmlKd3Z6OEJ2UTlfX2dleEJMYS14Z21XTXZ3LXhTY3F3SkFTaWVSYkQ1dVNUbUlNekEwUQ?oc=5",
           "verified": false,
           "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
         },
         {
           "date": "2026-11-03",
-          "title": "BioVal inleder uppdragsanalys",
+          "title": "BioVal presenterar riskjusterat portföljvärde 2,90 miljarder kr",
           "category": "Analys och marknad",
-          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
+          "summary": "BioVal/BioStock Analytics startar betald bevakning. De tre projekten i modellen värderas tillsammans till cirka 2,90 miljarder kr enligt riskjusterat nuvärde.",
           "source": "Dokumenterad milstolpe",
           "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/",
           "verified": true,
           "origin": "milstolpe",
-          "source_note": "Manuellt källgranskad post"
-        },
-        {
-          "date": "2026-11-03",
-          "title": "BioVal™ analysis: SynAct's RA project valued at SEK 2.7B",
-          "category": "Analys och marknad",
-          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
-          "source": "Biostock",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HMjdoM1llcFVFcm1LRDA3NXBLRjAwSEkyXzgtZzlUQWJ2M0JJZTJtSWRvY2VGXzNXYjcwLXpIem1XQ09rN3FhaldoWmExQVhpcW9pa2FnRGZzUFJKTW5qblgxZ055dTgtNU02QlJ6ck9WNUFN?oc=5",
-          "verified": false,
-          "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Manuellt källgranskad post",
+          "details": "Värderingen summerar BioVals olika projektscenarier och bygger på antaganden om klinisk framgång, framtida försäljning, licensintäkter och kostnader. En annan rubrik lyfter omkring 2,7 miljarder kr för enbart RA-projektet.",
+          "importance": "Det är en uppdragsanalys och ett teoretiskt riskjusterat företagsvärde, inte ett garanterat uppköpsvärde eller ett aktuellt börsvärde.",
+          "key_facts": [
+            "Summerad portföljvärdering: cirka 2,90 miljarder kr",
+            "RA-projektets modellvärde: cirka 2,7 miljarder kr",
+            "Källa: BioVal/BioStock Analytics, uppdragsanalys"
+          ],
+          "editorial_verified": true
         },
         {
           "date": "2026-11-03",
           "title": "SynAct Pharma meddelar att BioVal BioStock Analytics inleder analysbevakning av bolaget",
           "category": "Analys och marknad",
-          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
+          "summary": "",
           "source": "SynAct Pharma",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2k2aVdpSHJUTHAtMlExc1dfaHR6b19yOFlVZUpUbDhTNUQ2S1lqYnBIbTNfMUNtb0ZYY084YzJhQUpuMUM2czB2SS16emRqb0IxZVZ2aEFxZGd5eGFJbFVuTzhKVEFwWkhUSWxySWl1dlhzWTBVcktnc3ZTUU5SckVGWkRQVmpjOW5xVFA5RlBQYUZWOFczYlVSWDJQQ2NxNDB0UVFmM3pVa2Z2UEN3X2RGdHYxa2Noem5ITg?oc=5",
           "verified": false,
           "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
         }
       ],
       "updates": [],
