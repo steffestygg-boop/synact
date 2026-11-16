@@ -55,16 +55,6 @@ CATEGORIES = [
     ("Rapport och ekonomi", r"delårsrapport|kvartal|q[1234]\b|financial results|interim report|rörelseresultat|förlust"),
     ("Analys och marknad", r"analys|riktkurs|kursras|börsvärde|redeye|edison|abg|research|aktiens|aktien"),
 ]
-CATEGORY_CONTEXT = {
-    "Handelsstopp": "Börshandelns status eller orsak berörs. Kontrollera börsens och bolagets daterade originalbesked.",
-    "Emission och finansiering": "Finansieringsvillkor och möjlig utspädning behöver skiljas från faktiskt inbetald likvid.",
-    "Studie och resultat": "Följ skillnaden mellan planerad milstolpe och kliniska data som verkligen har rapporterats.",
-    "Regulatoriskt och patent": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
-    "Partner och avtal": "Avtalsnyheter ska inte automatiskt tolkas som garanterade kontanta intäkter.",
-    "Rapport och ekonomi": "Rapporterad kassa och historiskt kassaflöde är inte en dagsaktuell finansieringsprognos.",
-    "Analys och marknad": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
-    "Övrigt": "Nyhetsrubriken återges med källa; detaljerna behöver kontrolleras i originalet.",
-}
 SWEDISH_MONTHS = {
     "jan": 1, "januari": 1, "feb": 2, "februari": 2, "mar": 3, "mars": 3,
     "apr": 4, "april": 4, "maj": 5, "jun": 6, "juni": 6,
@@ -166,7 +156,7 @@ def event(title, date, url, source, verified=False, origin="rubrik"):
     kind = category(title)
     return {
         "date": str(date)[:10], "title": title[:220],
-        "category": kind, "summary": CATEGORY_CONTEXT[kind],
+        "category": kind, "summary": "",
         "source": str(source or "Källa okänd")[:100], "url": url,
         "verified": bool(verified), "origin": origin,
         "source_note": "Manuellt källgranskad post" if verified else
@@ -408,6 +398,56 @@ def visible_finance_snapshot(current, sunday):
     }, too_new
 
 
+def enrich_events(events):
+    """Attach factual, source-attributed information; omit generic boilerplate."""
+    curated = read_json(DATA / "weekly_event_details.json", {}).get("by_title", {})
+    milestone_map = {m.get("title"): m for m in load_milestones() if m.get("title")}
+    result = []
+    for raw in events:
+        entry = dict(raw)
+        original_title = entry.get("title", "")
+        info = curated.get(original_title)
+        milestone = milestone_map.get(original_title)
+        if info:
+            entry["title"] = info.get("title", original_title)
+            entry["summary"] = info.get("summary", "")
+            entry["details"] = info.get("details", "")
+            entry["importance"] = info.get("importance", "")
+            entry["key_facts"] = list(info.get("key_facts", []))[:9]
+            primary = info.get("source_url")
+            if primary and primary.startswith("https://"):
+                if entry.get("url") and entry["url"] != primary:
+                    entry["additional_source_url"] = entry["url"]
+                entry["url"] = primary
+            entry["editorial_verified"] = True
+        elif milestone:
+            entry["summary"] = str(milestone.get("body", "")).strip()
+            entry["details"] = str(milestone.get("meaning", "")).strip()
+            entry["importance"] = ""
+            entry["key_facts"] = []
+            entry["editorial_verified"] = True
+        else:
+            entry["summary"] = ""
+            entry["details"] = ""
+            entry["importance"] = ""
+            entry["key_facts"] = []
+            entry["editorial_verified"] = False
+        result.append(entry)
+    # Two separately syndicated headlines about a single issuer announcement
+    # should become one well-sourced story, not repetitive cards.
+    compact, duplicates = [], set()
+    for e in sorted(result, key=lambda x: (
+          int(x.get("verified", False)), int(x.get("editorial_verified", False)),
+          event_priority(x)), reverse=True):
+        key = (e["date"], e.get("url"))
+        if key in duplicates:
+            continue
+        duplicates.add(key)
+        compact.append(e)
+    compact.sort(key=lambda e: (e["date"], event_priority(e)), reverse=True)
+    return compact
+
+
 def create_edition(sunday, current, existing, headlines, errors, omitted):
     start, end, week_id, week_num = bounds(sunday)
     older_id = (start - dt.timedelta(days=1)).isocalendar()
@@ -415,6 +455,7 @@ def create_edition(sunday, current, existing, headlines, errors, omitted):
     prev = next((x for x in existing if x.get("id") == previous_key), None)
     prior_snapshot = prev.get("snapshot") if prev else None
     visible, reconstructed = visible_finance_snapshot(current, sunday)
+    headlines = enrich_events(headlines)
     updates = [] if reconstructed else snapshot_changes(current, prior_snapshot)
     # Do not use future model values to retroactively describe earlier weeks.
     return {
