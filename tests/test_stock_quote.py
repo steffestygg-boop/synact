@@ -53,6 +53,15 @@ class SynActQuoteTests(unittest.TestCase):
                      "updateStockQuote(price,quote.quote_time"):
             self.assertIn(item, html)
 
+    def test_resync_restores_latest_shared_quote_after_manual_adjustment(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('id="fenja-resync-quote"', html)
+        self.assertIn("resyncButton.addEventListener('click',()=>{", html)
+        self.assertIn("setSliderPrice(quotePrice);", html)
+        self.assertIn("resyncButton.disabled=false;", html)
+        self.assertIn("resyncButton.disabled=true;", html)
+        self.assertIn("resyncHint.textContent='Reglaget följer senast hämtade kurs", html)
+
     def test_latest_quote_and_loan_math(self):
         quote = json.loads((ROOT / "data" / "stock_quote.json").read_text(encoding="utf-8"))
         model = json.loads((ROOT / "data" / "financing_model.json").read_text(encoding="utf-8"))
