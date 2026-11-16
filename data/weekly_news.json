@@ -1,0 +1,1453 @@
+{
+  "version": 1,
+  "company": "SynAct Pharma",
+  "timezone": "Europe/Stockholm",
+  "schedule": "Söndag kväll 19:30 UTC (20:30 vintertid / 21:30 sommartid), med måndagskontroll",
+  "updated_at": "2026-11-16T11:10:42+01:00",
+  "latest_week": "2026-W46",
+  "weeks": [
+    {
+      "id": "2026-W46",
+      "week": 46,
+      "year": 2026,
+      "start": "2026-11-09",
+      "end": "2026-11-15",
+      "generated_at": "2026-11-16T11:10:42+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: Notice of Allowance i USA.",
+      "events": [
+        {
+          "date": "2026-11-13",
+          "title": "Notice of Allowance i USA",
+          "category": "Regulatoriskt och patent",
+          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post"
+        },
+        {
+          "date": "2026-11-13",
+          "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten",
+          "category": "Regulatoriskt och patent",
+          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
+          "source": "SynAct Pharma",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPV2ZTYUROVHBidk0tRkQyclJjbUtKZjM2VUcxT3dhTVIxZmViZnhySm9wWTdxNExWRjJpWHF0Z1pVZUF0MEp0dWxxcTNWeEhaQkNUcktjVjREd041czJIaElla0RDYmlyMnlHc0FyejBNOHdYNGI2YTN1S0xKUkl0bFBxRUNVUVNlSnA3RFpsZTVxcmVVcGFmdXZ2YnItcENwTmpzVmpNRF9MZG5sWnJUVEhvSlhJTVY1amR4RFV5MXppaHg0N2J0UlR6aS14MkF5NC1z?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        }
+      ],
+      "updates": [],
+      "omitted_events": 0,
+      "finance_snapshot": {
+        "risk_3": 12.2,
+        "risk_6": 27.9,
+        "risk_12": 60.4,
+        "risk_as_of": "2026-11-15",
+        "emission_status": "",
+        "explanation": "Lägesbild vid sammanställningen, inte ett påstående om att siffrorna offentliggjordes denna vecka."
+      },
+      "snapshot": {
+        "risk_3": 12.2,
+        "risk_6": 27.9,
+        "risk_12": 60.4,
+        "risk_as_of": "2026-11-15",
+        "model_version": "1.1.0-fenja",
+        "model_fingerprint": "4faa50e88bbcb67e",
+        "emission_status": "",
+        "alerts": {
+          "base:quarterly_burn": {
+            "title": "Kassan jämfört med senaste kvartalets förbrukning",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "base:runway": {
+            "title": "Finansieringshorisonten närmar sig",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "base:fenja_capacity": {
+            "title": "Fenja: begränsat extra låneutrymme",
+            "level": "förhöjd",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          },
+          "base:fenja_maturity": {
+            "title": "Fenja: förfall 31 december 2027",
+            "level": "förhöjd",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          },
+          "base:fenja_cost": {
+            "title": "Fenja: minst 10 % årlig ränta",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          }
+        },
+        "milestones": {
+          "Första amerikanska substanspatenten": {
+            "date": "2011",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "SynAct Pharma ApS grundas": {
+            "date": "2012",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Preklinisk säkerhetsgrund": {
+            "date": "2015",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Europeiskt substanspatent": {
+            "date": "2015",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "SynAct Pharma AB bildas": {
+            "date": "April 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Kapitalanskaffning inför notering": {
+            "date": "Maj–juni 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/en/synact-pharma-year-end-report-2016/"
+          },
+          "AktieTorget-debut": {
+            "date": "11 juli 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/market-announcement-174-16-synact-pharma-ab-listed-on-aktietorget-11-july-2016-corrected-version/"
+          },
+          "Första fas I-ansökan": {
+            "date": "December 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Fas I flyttas till Belgien": {
+            "date": "25 april 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-provides-an-update-on-the-clinical-development-plan-for-ap1189/"
+          },
+          "Tillstånd för första fas I": {
+            "date": "10 maj 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-ab-erhaller-godkannande-att-starta-klinisk-fas-i-studie-med-ap1189-en-ny-potentiell-behandling-av-psoriasisartrit/"
+          },
+          "Första människan doseras": {
+            "date": "7 juni 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-the-start-of-clinical-phase-i-study/"
+          },
+          "Fas I singeldos klar": {
+            "date": "3 oktober 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/the-first-part-of-the-clinical-phase-i-study-with-synact-pharmas-drug-candidate-ap1189-successfully-completed/"
+          },
+          "Breddad preklinisk forskning": {
+            "date": "2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Företrädesemission": {
+            "date": "28 mars–april 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "Tablettformulering får problem": {
+            "date": "12 juni 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-adapts-the-continued-clinical-development-programme-for-ap1189-based-on-new-results-from-the-phase-i-study/"
+          },
+          "Godkänd återstart av fas I": {
+            "date": "23 juli 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-obtains-regulatory-approval-for-the-implementation-of-the-multiple-dose-part-in-phase-i-study-with-candidate-drug-ap1189/"
+          },
+          "Fas I flerdosdel återupptas": {
+            "date": "13 september 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announced-the-start-of-the-multiple-dose-part-of-the-phase-i-study-with-ap1189/"
+          },
+          "Fas I avslutad": {
+            "date": "11 februari 2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/en/synact-reported-positive-phase-i-results-for-candidate-drug-ap1189-and-prepared-funding-for-broadened-phase-ii-programmes/"
+          },
+          "RA fas IIa inleds": {
+            "date": "2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Ny företrädesemission": {
+            "date": "2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Covid-19-spåret växer fram": {
+            "date": "31 mars 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q1-2020-interim-report-in-swedish/"
+          },
+          "Njurstudie startas": {
+            "date": "29 juni 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/synact-pharma-has-initiated-the-phase-ii-clinical-study-with-ap1189-in-nephrotic-syndrome/"
+          },
+          "RESOVIR-samarbete startar": {
+            "date": "28 augusti 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2020"
+          },
+          "Positiv RA-interimsanalys": {
+            "date": "9 november 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/?p=5049"
+          },
+          "TO2 tillför kapital": {
+            "date": "Juli 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2020"
+          },
+          "Riktad kapitalanskaffning": {
+            "date": "2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "RESOVIR-1-data vid covid-19": {
+            "date": "30 juni 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-announces-positive-data-from-a-phase-2a-trial-of-ap1189-in-covid-19-infected-patients/"
+          },
+          "Utökade coviddata": {
+            "date": "7 juli 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-announces-additional-data-from-the-phase-2a-trial-of-ap1189-in-covid-19-infected-patients-and-reminds-of-management-call-to-discuss-results/"
+          },
+          "Njursjukdomsstudien görs om": {
+            "date": "2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "BEGIN färdigrekryterad": {
+            "date": "24 september 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2021"
+          },
+          "Ny tablett testas kliniskt": {
+            "date": "15 oktober 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "Sista BEGIN-dosen": {
+            "date": "22 oktober 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-completes-dosing-in-the-begin-study/"
+          },
+          "Toxikologi för längre dosering": {
+            "date": "5 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "Positiva tablettdata": {
+            "date": "23 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "BEGIN når primärt effektmått": {
+            "date": "30 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/?p=25088"
+          },
+          "Fördjupade BEGIN-data": {
+            "date": "2 december 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-additional-data-from-the-begin-study/"
+          },
+          "FDA ger pre-IND-återkoppling": {
+            "date": "29 juni 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "Listbyte till Nasdaq Stockholm": {
+            "date": "12 juli 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/trading-in-synact-pharmas-shares-on-nasdaq-stockholm-commences-today/"
+          },
+          "Utvecklad tablett för fas IIb": {
+            "date": "2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Resomelagon föreslås som INN": {
+            "date": "16 augusti 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "EXPAND startar rekrytering": {
+            "date": "27 september 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/?p=25633"
+          },
+          "FDA godkänner IND för RESOLVE": {
+            "date": "1 november 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/synact-pharma-receives-ind-clearance-from-the-fda-for-phase-2a-b-trial-of-ap1189-in-ra/"
+          },
+          "TXP-förvärv aviseras": {
+            "date": "12 december 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "TXP Pharma förvärvas": {
+            "date": "16 januari 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/?p=25748"
+          },
+          "Resomelagon blir rekommenderat INN": {
+            "date": "30 mars 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-introduces-resomelagon-as-generic-name-for-ap1189/"
+          },
+          "Nytt vd-skifte": {
+            "date": "3 april 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "EXPAND färdigrekryterad": {
+            "date": "24 april 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "EXPAND missar primärt mål": {
+            "date": "4 september 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-top-line-data-from-the-12-week-expand-p2b-clinical-trial-in-severely-active-newly-diagnosed-rheumatoid-arthritis-patients/"
+          },
+          "EXPAND visar undergruppssignal": {
+            "date": "12 september 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-additional-data-from-the-expand-p2b-clinical-trial-and-identifies-population-with-responsiveness-to-resomelagon/"
+          },
+          "Riktad emission och teckningsoptioner": {
+            "date": "11 oktober 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "RESOLVE-data ifrågasätts": {
+            "date": "1 november 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-evaluation-of-the-4-week-resolve-p2a-clinical-trial-in-moderate-to-severely-active-rheumatoid-arthritis-patients-with-an-incomplete-response-to-methotrexate/"
+          },
+          "EXPAND analyseras vidare": {
+            "date": "22 februari 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "RESOLVE-granskning klar": {
+            "date": "10 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-outcomes-of-the-independent-audit-of-the-4-week-resolve-p2a-clinical-trial-in-rheumatoid-arthritis/"
+          },
+          "Styrelsen byts – Jeppe återkommer": {
+            "date": "20 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-pharma-appoints-jeppe-ovlesen-ceo/"
+          },
+          "Kapital till omstarten": {
+            "date": "27 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "ADVANCE ansöksprocess inleds": {
+            "date": "1 juli 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-initiates-filing-process-for-phase-2b-advance-study-with-resomelagon/"
+          },
+          "Vetenskaplig viruspublikation": {
+            "date": "30 augusti 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/sv/nyheter-media/nyheter-och-pressmeddelanden/?y=2024"
+          },
+          "ADVANCE startar i USA": {
+            "date": "23 september 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/?p=26708"
+          },
+          "Uppdaterad iMN-studie godkänns": {
+            "date": "27–28 oktober 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518384-36-00?lang=en"
+          },
+          "Data presenteras vid ACR": {
+            "date": "14 november 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "EU ger ADVANCE-tillstånd": {
+            "date": "27 november 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "Ytterligare emissioner": {
+            "date": "November–december 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "Företrädesemissionens utfall": {
+            "date": "9 januari 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "Amerikanskt kristallpatent": {
+            "date": "4 mars 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/pivotal-us-patent-protecting-resomelagon-ap1189-granted-to-synact-pharma/"
+          },
+          "Europeiskt patentbesked": {
+            "date": "17 mars 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "RESOVIR-2 initieras i Brasilien": {
+            "date": "11 april 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-start-av-fas-ii-studie-med-resomelagon-ap1189-for-behandling-av-patienter-med-denguefeber/"
+          },
+          "Ny finansiering till 2026": {
+            "date": "3–4 juni 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "Teckningsoptioner ger ny likvid": {
+            "date": "Juli–augusti 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "ADVANCE når 190 patienter": {
+            "date": "3 november 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/resomelagon-phase-2b-advance-study-update-190-patients-randomized-tracking-for-year-end-recruitment-completion/"
+          },
+          "RESPIRE fas II initieras": {
+            "date": "30 januari 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-initiates-phase-2-study-in-respiratory-insufficiency/"
+          },
+          "ADVANCE når rekryteringsmålet": {
+            "date": "6 februari 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-year-end-report-2025/"
+          },
+          "Riktad emission": {
+            "date": "2 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2026"
+          },
+          "PMR-studie godkänns i Danmark": {
+            "date": "19 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://euclinicaltrials.eu/ctis-public/view/2026-525343-33-00?lang=en"
+          },
+          "Första RESOVIR-2-patienterna doseras": {
+            "date": "26 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-doses-first-patients-in-the-phase-2-resovir-2-study-with-resomelagon/"
+          },
+          "Sista ADVANCE-dosen": {
+            "date": "6 maj 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/?p=27460"
+          },
+          "Amerikanskt patent till 2044": {
+            "date": "12–23 juni 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-obtains-key-us-patent-for-resomelagon-securing-exclusivity-until-2044/"
+          },
+          "ADVANCE toppresultat": {
+            "date": "15 juni 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/phase-2b-advance-study-demonstrates-positive-effects-of-resomelagon-in-rheumatoid-arthritis-supports-phase-3-design-regulatory-interactions-and-partnering/"
+          },
+          "Artrosdata i djurmodell": {
+            "date": "9 juli 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/resomelagon-shows-reduced-inflammation-and-joint-damage-in-osteoarthritis-model/"
+          },
+          "Fenja-finansiering säkras": {
+            "date": "20 juli 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Positivt patentbeslut i USA": {
+            "date": "5 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Term sheet med Hipolabor": {
+            "date": "19 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-progresses-first-commercial-agreement-on-resomelagon-for-treatment-of-dengue-in-brazil-term-sheet-signed/"
+          },
+          "Nya data vid inflammationskongress": {
+            "date": "28 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "ADVANCE efterhandsanalys": {
+            "date": "7 september 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "WHO uppmärksammar resomelagon": {
+            "date": "16 september 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Hipolabor-avtalet undertecknas": {
+            "date": "27 oktober 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-ingar-det-forsta-kommersiella-partnerskapsavtalet-for-resomelagon-med-ledande-brasilianskt-lakemedelsbolag/"
+          },
+          "RESOVIR-2 del 1 fullrekryterad": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "Q3-rapport och finansieringsläge": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-publicerar-delarsrapport-for-tredje-kvartalet-2026/"
+          },
+          "BioVal inleder uppdragsanalys": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"
+          },
+          "FDA Type C-dialog förbereds": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Notice of Allowance i USA": {
+            "date": "13 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/"
+          },
+          "RESOVIR-2 del 1: analys": {
+            "date": "Q4 2026 · bolagets mål",
+            "status": "future",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "FDA:s Type C-återkoppling": {
+            "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "RESPIRE: rekryteringsfönster": {
+            "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+          },
+          "RESOVIR-2 del 2 rekryterar": {
+            "date": "Q1 2027 · uppskattning inom bolagets H1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "RESOVIR-2 fullständiga toppdata": {
+            "date": "Q2 2027 · bolagets prognos",
+            "status": "future",
+            "period": "14",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "Eventuell RA fas III-start": {
+            "date": "Q4 2027 · analytisk uppskattning, inget bolagslöfte",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "RESPIRE: kliniska resultat": {
+            "date": "Q3 2027 · analytisk uppskattning, inget bolagslöfte",
+            "status": "future",
+            "period": "15",
+            "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+          },
+          "Bedömd finansieringshorisont": {
+            "date": "Q4 2027 · bolagets finansieringsprognos",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "TXP-11 möjlig fas I-förberedelse": {
+            "date": "Q4 2027 · illustrativ placering, datum saknas",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/sv/utvecklingsprogram/"
+          }
+        }
+      },
+      "sources_checked": [
+        "lokal bevakningsfil",
+        "nyhetssökningar via Google News RSS",
+        "daterade milstolpar",
+        "finansierings- och riskdata"
+      ],
+      "source_errors": [],
+      "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade."
+    },
+    {
+      "id": "2026-W45",
+      "week": 45,
+      "year": 2026,
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "generated_at": "2026-11-16T11:10:42+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: Q3-rapport och finansieringsläge.",
+      "events": [
+        {
+          "date": "2026-11-04",
+          "title": "SynAct Pharma meddelar att bolaget kommer att delta och presentera vid kommande investerarkonferenser",
+          "category": "Övrigt",
+          "summary": "Nyhetsrubriken återges med källa; detaljerna behöver kontrolleras i originalet.",
+          "source": "SynAct Pharma",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQeGF6UDM4QjNRd1NqenY5dGJCSXdIVzFhMktoNVV3QTN1YXZtNTVGVi03bU9GdkRXSEZKWnhIZjlhbmlkV0Jwd29GWEI3d0lONndGcGpBbEVGaG9idFRMd2RtS2JWdmNLTFFqSVIxQlJhMVRlWm1QMFFlTkMtSEZVeERSeWxocWUxVnktRWh0Vzh0QmtITVFwTDRkTjZaYjRRb0Q0a21aRzg4ZWRpZU9pOU1HeGZWejQxTkpYd01XaEpWTUNMelp0VWNfRUpnV0k?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "Q3-rapport och finansieringsläge",
+          "category": "Emission och finansiering",
+          "summary": "Finansieringsvillkor och möjlig utspädning behöver skiljas från faktiskt inbetald likvid.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/sv/synact-pharma-publicerar-delarsrapport-for-tredje-kvartalet-2026/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "RESOVIR-2 del 1 fullrekryterad",
+          "category": "Studie och resultat",
+          "summary": "Följ skillnaden mellan planerad milstolpe och kliniska data som verkligen har rapporterats.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "FDA Type C-dialog förbereds",
+          "category": "Regulatoriskt och patent",
+          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "SynAct skärper sina fas III-planer för resomelagon",
+          "category": "Studie och resultat",
+          "summary": "Följ skillnaden mellan planerad milstolpe och kliniska data som verkligen har rapporterats.",
+          "source": "Biostock",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "SynAct Pharma publicerar delårsrapport för tredje kvartalet 2026",
+          "category": "Rapport och ekonomi",
+          "summary": "Rapporterad kassa och historiskt kassaflöde är inte en dagsaktuell finansieringsprognos.",
+          "source": "SynAct Pharma",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeFllOHBWSWhvc1Q4bXNWWEdqRTJzTE5qclBxajNJZWlrM3djMDZ4bzk5cWNCQUtNcG5NRHNPRUZMRTVkWjRBR2JHWTl0eDNDYXpHWGowRWJBVm5xOWt1MkNLb3htMHoxMFpJUmlKd3Z6OEJ2UTlfX2dleEJMYS14Z21XTXZ3LXhTY3F3SkFTaWVSYkQ1dVNUbUlNekEwUQ?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "BioVal inleder uppdragsanalys",
+          "category": "Analys och marknad",
+          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
+          "source": "Dokumenterad milstolpe",
+          "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/",
+          "verified": true,
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "BioVal™ analysis: SynAct's RA project valued at SEK 2.7B",
+          "category": "Analys och marknad",
+          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
+          "source": "Biostock",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HMjdoM1llcFVFcm1LRDA3NXBLRjAwSEkyXzgtZzlUQWJ2M0JJZTJtSWRvY2VGXzNXYjcwLXpIem1XQ09rN3FhaldoWmExQVhpcW9pa2FnRGZzUFJKTW5qblgxZ055dTgtNU02QlJ6ck9WNUFN?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        },
+        {
+          "date": "2026-11-03",
+          "title": "SynAct Pharma meddelar att BioVal BioStock Analytics inleder analysbevakning av bolaget",
+          "category": "Analys och marknad",
+          "summary": "Analys och marknadsreaktioner skiljs från bolagets egna verifierade besked.",
+          "source": "SynAct Pharma",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2k2aVdpSHJUTHAtMlExc1dfaHR6b19yOFlVZUpUbDhTNUQ2S1lqYnBIbTNfMUNtb0ZYY084YzJhQUpuMUM2czB2SS16emRqb0IxZVZ2aEFxZGd5eGFJbFVuTzhKVEFwWkhUSWxySWl1dlhzWTBVcktnc3ZTUU5SckVGWkRQVmpjOW5xVFA5RlBQYUZWOFczYlVSWDJQQ2NxNDB0UVFmM3pVa2Z2UEN3X2RGdHYxa2Noem5ITg?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+        }
+      ],
+      "updates": [],
+      "omitted_events": 0,
+      "finance_snapshot": {
+        "risk_3": 12.2,
+        "risk_6": 27.9,
+        "risk_12": 60.4,
+        "risk_as_of": "2026-11-15",
+        "emission_status": "",
+        "explanation": "Lägesbild vid sammanställningen, inte ett påstående om att siffrorna offentliggjordes denna vecka."
+      },
+      "snapshot": {
+        "risk_3": 12.2,
+        "risk_6": 27.9,
+        "risk_12": 60.4,
+        "risk_as_of": "2026-11-15",
+        "model_version": "1.1.0-fenja",
+        "model_fingerprint": "4faa50e88bbcb67e",
+        "emission_status": "",
+        "alerts": {
+          "base:quarterly_burn": {
+            "title": "Kassan jämfört med senaste kvartalets förbrukning",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "base:runway": {
+            "title": "Finansieringshorisonten närmar sig",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "base:fenja_capacity": {
+            "title": "Fenja: begränsat extra låneutrymme",
+            "level": "förhöjd",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          },
+          "base:fenja_maturity": {
+            "title": "Fenja: förfall 31 december 2027",
+            "level": "förhöjd",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          },
+          "base:fenja_cost": {
+            "title": "Fenja: minst 10 % årlig ränta",
+            "level": "bevakning",
+            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          }
+        },
+        "milestones": {
+          "Första amerikanska substanspatenten": {
+            "date": "2011",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "SynAct Pharma ApS grundas": {
+            "date": "2012",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Preklinisk säkerhetsgrund": {
+            "date": "2015",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Europeiskt substanspatent": {
+            "date": "2015",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "SynAct Pharma AB bildas": {
+            "date": "April 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Kapitalanskaffning inför notering": {
+            "date": "Maj–juni 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/en/synact-pharma-year-end-report-2016/"
+          },
+          "AktieTorget-debut": {
+            "date": "11 juli 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/market-announcement-174-16-synact-pharma-ab-listed-on-aktietorget-11-july-2016-corrected-version/"
+          },
+          "Första fas I-ansökan": {
+            "date": "December 2016",
+            "status": "done",
+            "period": "0",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Fas I flyttas till Belgien": {
+            "date": "25 april 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-provides-an-update-on-the-clinical-development-plan-for-ap1189/"
+          },
+          "Tillstånd för första fas I": {
+            "date": "10 maj 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-ab-erhaller-godkannande-att-starta-klinisk-fas-i-studie-med-ap1189-en-ny-potentiell-behandling-av-psoriasisartrit/"
+          },
+          "Första människan doseras": {
+            "date": "7 juni 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-the-start-of-clinical-phase-i-study/"
+          },
+          "Fas I singeldos klar": {
+            "date": "3 oktober 2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/en/the-first-part-of-the-clinical-phase-i-study-with-synact-pharmas-drug-candidate-ap1189-successfully-completed/"
+          },
+          "Breddad preklinisk forskning": {
+            "date": "2017",
+            "status": "done",
+            "period": "1",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Företrädesemission": {
+            "date": "28 mars–april 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "Tablettformulering får problem": {
+            "date": "12 juni 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-adapts-the-continued-clinical-development-programme-for-ap1189-based-on-new-results-from-the-phase-i-study/"
+          },
+          "Godkänd återstart av fas I": {
+            "date": "23 juli 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-obtains-regulatory-approval-for-the-implementation-of-the-multiple-dose-part-in-phase-i-study-with-candidate-drug-ap1189/"
+          },
+          "Fas I flerdosdel återupptas": {
+            "date": "13 september 2018",
+            "status": "done",
+            "period": "2",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announced-the-start-of-the-multiple-dose-part-of-the-phase-i-study-with-ap1189/"
+          },
+          "Fas I avslutad": {
+            "date": "11 februari 2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/en/synact-reported-positive-phase-i-results-for-candidate-drug-ap1189-and-prepared-funding-for-broadened-phase-ii-programmes/"
+          },
+          "RA fas IIa inleds": {
+            "date": "2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Ny företrädesemission": {
+            "date": "2019",
+            "status": "done",
+            "period": "3",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Covid-19-spåret växer fram": {
+            "date": "31 mars 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q1-2020-interim-report-in-swedish/"
+          },
+          "Njurstudie startas": {
+            "date": "29 juni 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/synact-pharma-has-initiated-the-phase-ii-clinical-study-with-ap1189-in-nephrotic-syndrome/"
+          },
+          "RESOVIR-samarbete startar": {
+            "date": "28 augusti 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2020"
+          },
+          "Positiv RA-interimsanalys": {
+            "date": "9 november 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/?p=5049"
+          },
+          "TO2 tillför kapital": {
+            "date": "Juli 2020",
+            "status": "done",
+            "period": "4",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2020"
+          },
+          "Riktad kapitalanskaffning": {
+            "date": "2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "RESOVIR-1-data vid covid-19": {
+            "date": "30 juni 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-announces-positive-data-from-a-phase-2a-trial-of-ap1189-in-covid-19-infected-patients/"
+          },
+          "Utökade coviddata": {
+            "date": "7 juli 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-ab-announces-additional-data-from-the-phase-2a-trial-of-ap1189-in-covid-19-infected-patients-and-reminds-of-management-call-to-discuss-results/"
+          },
+          "Njursjukdomsstudien görs om": {
+            "date": "2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "BEGIN färdigrekryterad": {
+            "date": "24 september 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2021"
+          },
+          "Ny tablett testas kliniskt": {
+            "date": "15 oktober 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "Sista BEGIN-dosen": {
+            "date": "22 oktober 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-completes-dosing-in-the-begin-study/"
+          },
+          "Toxikologi för längre dosering": {
+            "date": "5 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "Positiva tablettdata": {
+            "date": "23 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/annual-results-2021/"
+          },
+          "BEGIN når primärt effektmått": {
+            "date": "30 november 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/?p=25088"
+          },
+          "Fördjupade BEGIN-data": {
+            "date": "2 december 2021",
+            "status": "done",
+            "period": "5",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-additional-data-from-the-begin-study/"
+          },
+          "FDA ger pre-IND-återkoppling": {
+            "date": "29 juni 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "Listbyte till Nasdaq Stockholm": {
+            "date": "12 juli 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/trading-in-synact-pharmas-shares-on-nasdaq-stockholm-commences-today/"
+          },
+          "Utvecklad tablett för fas IIb": {
+            "date": "2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+          },
+          "Resomelagon föreslås som INN": {
+            "date": "16 augusti 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "EXPAND startar rekrytering": {
+            "date": "27 september 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/?p=25633"
+          },
+          "FDA godkänner IND för RESOLVE": {
+            "date": "1 november 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/synact-pharma-receives-ind-clearance-from-the-fda-for-phase-2a-b-trial-of-ap1189-in-ra/"
+          },
+          "TXP-förvärv aviseras": {
+            "date": "12 december 2022",
+            "status": "done",
+            "period": "6",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2022"
+          },
+          "TXP Pharma förvärvas": {
+            "date": "16 januari 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/?p=25748"
+          },
+          "Resomelagon blir rekommenderat INN": {
+            "date": "30 mars 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-introduces-resomelagon-as-generic-name-for-ap1189/"
+          },
+          "Nytt vd-skifte": {
+            "date": "3 april 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "EXPAND färdigrekryterad": {
+            "date": "24 april 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "EXPAND missar primärt mål": {
+            "date": "4 september 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-top-line-data-from-the-12-week-expand-p2b-clinical-trial-in-severely-active-newly-diagnosed-rheumatoid-arthritis-patients/"
+          },
+          "EXPAND visar undergruppssignal": {
+            "date": "12 september 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-additional-data-from-the-expand-p2b-clinical-trial-and-identifies-population-with-responsiveness-to-resomelagon/"
+          },
+          "Riktad emission och teckningsoptioner": {
+            "date": "11 oktober 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2023"
+          },
+          "RESOLVE-data ifrågasätts": {
+            "date": "1 november 2023",
+            "status": "done",
+            "period": "7",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-evaluation-of-the-4-week-resolve-p2a-clinical-trial-in-moderate-to-severely-active-rheumatoid-arthritis-patients-with-an-incomplete-response-to-methotrexate/"
+          },
+          "EXPAND analyseras vidare": {
+            "date": "22 februari 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "RESOLVE-granskning klar": {
+            "date": "10 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-outcomes-of-the-independent-audit-of-the-4-week-resolve-p2a-clinical-trial-in-rheumatoid-arthritis/"
+          },
+          "Styrelsen byts – Jeppe återkommer": {
+            "date": "20 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-pharma-appoints-jeppe-ovlesen-ceo/"
+          },
+          "Kapital till omstarten": {
+            "date": "27 mars 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "ADVANCE ansöksprocess inleds": {
+            "date": "1 juli 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/synact-initiates-filing-process-for-phase-2b-advance-study-with-resomelagon/"
+          },
+          "Vetenskaplig viruspublikation": {
+            "date": "30 augusti 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/sv/nyheter-media/nyheter-och-pressmeddelanden/?y=2024"
+          },
+          "ADVANCE startar i USA": {
+            "date": "23 september 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/?p=26708"
+          },
+          "Uppdaterad iMN-studie godkänns": {
+            "date": "27–28 oktober 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://euclinicaltrials.eu/ctis-public/view/2024-518384-36-00?lang=en"
+          },
+          "Data presenteras vid ACR": {
+            "date": "14 november 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "EU ger ADVANCE-tillstånd": {
+            "date": "27 november 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "Ytterligare emissioner": {
+            "date": "November–december 2024",
+            "status": "done",
+            "period": "8",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2024"
+          },
+          "Företrädesemissionens utfall": {
+            "date": "9 januari 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "Amerikanskt kristallpatent": {
+            "date": "4 mars 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/pivotal-us-patent-protecting-resomelagon-ap1189-granted-to-synact-pharma/"
+          },
+          "Europeiskt patentbesked": {
+            "date": "17 mars 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "RESOVIR-2 initieras i Brasilien": {
+            "date": "11 april 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-start-av-fas-ii-studie-med-resomelagon-ap1189-for-behandling-av-patienter-med-denguefeber/"
+          },
+          "Ny finansiering till 2026": {
+            "date": "3–4 juni 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "Teckningsoptioner ger ny likvid": {
+            "date": "Juli–augusti 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2025"
+          },
+          "ADVANCE når 190 patienter": {
+            "date": "3 november 2025",
+            "status": "done",
+            "period": "9",
+            "url": "https://www.synactpharma.com/en/resomelagon-phase-2b-advance-study-update-190-patients-randomized-tracking-for-year-end-recruitment-completion/"
+          },
+          "RESPIRE fas II initieras": {
+            "date": "30 januari 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-initiates-phase-2-study-in-respiratory-insufficiency/"
+          },
+          "ADVANCE når rekryteringsmålet": {
+            "date": "6 februari 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-year-end-report-2025/"
+          },
+          "Riktad emission": {
+            "date": "2 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/news-media/news-and-press-releases/?r=true&y=2026"
+          },
+          "PMR-studie godkänns i Danmark": {
+            "date": "19 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://euclinicaltrials.eu/ctis-public/view/2026-525343-33-00?lang=en"
+          },
+          "Första RESOVIR-2-patienterna doseras": {
+            "date": "26 mars 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-pharma-doses-first-patients-in-the-phase-2-resovir-2-study-with-resomelagon/"
+          },
+          "Sista ADVANCE-dosen": {
+            "date": "6 maj 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/?p=27460"
+          },
+          "Amerikanskt patent till 2044": {
+            "date": "12–23 juni 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/synact-obtains-key-us-patent-for-resomelagon-securing-exclusivity-until-2044/"
+          },
+          "ADVANCE toppresultat": {
+            "date": "15 juni 2026",
+            "status": "done",
+            "period": "10",
+            "url": "https://www.synactpharma.com/en/phase-2b-advance-study-demonstrates-positive-effects-of-resomelagon-in-rheumatoid-arthritis-supports-phase-3-design-regulatory-interactions-and-partnering/"
+          },
+          "Artrosdata i djurmodell": {
+            "date": "9 juli 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/resomelagon-shows-reduced-inflammation-and-joint-damage-in-osteoarthritis-model/"
+          },
+          "Fenja-finansiering säkras": {
+            "date": "20 juli 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Positivt patentbeslut i USA": {
+            "date": "5 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Term sheet med Hipolabor": {
+            "date": "19 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-progresses-first-commercial-agreement-on-resomelagon-for-treatment-of-dengue-in-brazil-term-sheet-signed/"
+          },
+          "Nya data vid inflammationskongress": {
+            "date": "28 augusti 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "ADVANCE efterhandsanalys": {
+            "date": "7 september 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "WHO uppmärksammar resomelagon": {
+            "date": "16 september 2026",
+            "status": "done",
+            "period": "11",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Hipolabor-avtalet undertecknas": {
+            "date": "27 oktober 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-ingar-det-forsta-kommersiella-partnerskapsavtalet-for-resomelagon-med-ledande-brasilianskt-lakemedelsbolag/"
+          },
+          "RESOVIR-2 del 1 fullrekryterad": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "Q3-rapport och finansieringsläge": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-publicerar-delarsrapport-for-tredje-kvartalet-2026/"
+          },
+          "BioVal inleder uppdragsanalys": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/"
+          },
+          "FDA Type C-dialog förbereds": {
+            "date": "3 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "Notice of Allowance i USA": {
+            "date": "13 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/"
+          },
+          "RESOVIR-2 del 1: analys": {
+            "date": "Q4 2026 · bolagets mål",
+            "status": "future",
+            "period": "12",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "FDA:s Type C-återkoppling": {
+            "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "RESPIRE: rekryteringsfönster": {
+            "date": "Q1 2027 · möjligt; bolagets tidsfönster är Q4 2026–Q1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+          },
+          "RESOVIR-2 del 2 rekryterar": {
+            "date": "Q1 2027 · uppskattning inom bolagets H1 2027",
+            "status": "future",
+            "period": "13",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "RESOVIR-2 fullständiga toppdata": {
+            "date": "Q2 2027 · bolagets prognos",
+            "status": "future",
+            "period": "14",
+            "url": "https://www.synactpharma.com/sv/investerare/ord-fran-var-vd/"
+          },
+          "Eventuell RA fas III-start": {
+            "date": "Q4 2027 · analytisk uppskattning, inget bolagslöfte",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/en/further-analysis-of-the-phase-2b-advance-study-reinforces-phase-2b-expand-results-and-supports-phase-3-development-fda-discussions-on-trial-design-planned-for-q4-2026/"
+          },
+          "RESPIRE: kliniska resultat": {
+            "date": "Q3 2027 · analytisk uppskattning, inget bolagslöfte",
+            "status": "future",
+            "period": "15",
+            "url": "https://www.synactpharma.com/en/investors/message-from-the-ceo/"
+          },
+          "Bedömd finansieringshorisont": {
+            "date": "Q4 2027 · bolagets finansieringsprognos",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
+          },
+          "TXP-11 möjlig fas I-förberedelse": {
+            "date": "Q4 2027 · illustrativ placering, datum saknas",
+            "status": "future",
+            "period": "16",
+            "url": "https://www.synactpharma.com/sv/utvecklingsprogram/"
+          }
+        }
+      },
+      "sources_checked": [
+        "lokal bevakningsfil",
+        "nyhetssökningar via Google News RSS",
+        "daterade milstolpar",
+        "finansierings- och riskdata"
+      ],
+      "source_errors": [],
+      "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade."
+    }
+  ]
+}
