@@ -107,3 +107,11 @@ Avsnittet **Veckans nyheter** ligger direkt efter **Aktien** och hämtar `data/w
 - **Tester:** `python -m unittest discover -s tests -p 'test_weekly_news.py'` kontrollerar ISO-veckor, veckogränser, proveniens, daterade milstolpar och att äldre veckor inte får senare emissionsvärden.
 
 **Begränsning:** GitHub Actions är en schemalagd best-effort-körning och RSS-sökning är inte heltäckande. Ett automatiskt skript kan inte i sig analysera hela innehållet i alla artiklar. Avsnittet ger källanknutna, korta händelseöversikter, inte garanterat varje relevant uppgift eller en självständig faktagranskad fulltextsanalys. Vid otillgängliga RSS-källor används även de redan sparade lokala källorna.
+
+### Klickbara fördjupningar till Veckans nyheter – november 2026
+
+- Varje händelse i **Händelser under veckan** är nu en **helklickbar, tangentbordsstyrd knapp**, som öppnar en informationsruta med rubrik, en konkret sammanfattning, viktiga siffror, bakgrund, ekonomisk/klinisk betydelse och länk till den granskade originalkällan. Stäng med **Escape**, stängknappen eller klick på bakgrunden; fokus återgår till händelsen.
+- De korta händelsekorten visar också fakta och siffror **utan att man behöver klicka**. Exempelvis får analytikeruppdateringar tydliga tidigare och nya värden (ABG 1,80 → 2,10 kr), studier får antal patienter och finansieringsbesked får villkor och belopp.
+- Generiska innehållstexter som `Rapporterad kassa och historiskt kassaflöde är inte en dagsaktuell finansieringsprognos` har tagits bort från händelsekorten. Om en obekräftad RSS-rubrik saknar tillräcklig information används **inte** en påhittad förklaring; källan kan öppnas från informationsrutan.
+- `data/weekly_event_details.json` innehåller **källgranskade** fördjupningar för viktiga händelser. Söndagsjobbet använder dessa plus `body`/`meaning` från redan dokumenterade milstolpar när det skapar `data/weekly_news.json`, så att tidigare manuellt förtydligade nyheter inte skrivs över med generiskt standardinnehåll.
+- Källgranskade uppgifter hålls åtskilda från automatiskt inlästa rubriker. Källgranskade analysscenarier är fortfarande inte traditionella garanterade kursmål.
