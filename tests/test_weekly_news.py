@@ -65,6 +65,41 @@ class WeeklyDigestTests(unittest.TestCase):
         self.assertFalse(retro)
         self.assertEqual(current_week["risk_6"], 27.9)
 
+    def test_curated_event_facts_survive_regeneration(self):
+        curated = w.read_json(w.DATA / "weekly_event_details.json", {}).get("by_title", {})
+        self.assertTrue(curated)
+        title = sorted(curated)[0]
+        info = curated[title]
+        original = w.event(title, "2026-11-13", info["source_url"], "Bolagskälla")
+        updated = w.enrich_events([original])
+        self.assertEqual(len(updated), 1)
+        self.assertEqual(updated[0]["summary"], info["summary"])
+        self.assertTrue(updated[0]["details"])
+        self.assertTrue(updated[0]["key_facts"])
+        self.assertTrue(updated[0]["editorial_verified"])
+        self.assertNotIn("Rapporterad kassa och historiskt kassaflöde är inte", updated[0]["summary"])
+
+    def test_abg_value_change_is_specific(self):
+        if w.ISSUER != "isofol":
+            return
+        e = w.event("ABG höjer efter Q3", "2026-11-15",
+                    "https://cr.abgsc.com/foretag/isofol-medical/example", "ABG", True)
+        data = w.enrich_events([e])[0]
+        self.assertIn("1,80", data["summary"])
+        self.assertIn("2,10", data["summary"])
+        self.assertIn("10,50", data["summary"])
+        self.assertIn("11,00", data["summary"])
+
+    def test_issuer_archive_has_no_generic_event_descriptions(self):
+        archive = w.read_json(w.OUTPUT, {})
+        self.assertTrue(archive.get("weeks"))
+        generic = ("Rapporterad kassa och historiskt kassaflöde är inte",
+                   "Finansieringsvillkor och möjlig utspädning behöver",
+                   "Nyhetsrubriken återges med källa")
+        for week in archive["weeks"]:
+            for event in week.get("events", []):
+                self.assertFalse(any(x in event.get("summary", "") for x in generic))
+
     def test_preserves_source_confidence(self):
         e = w.event("Cereno aviserar emission", "2026-11-12",
                     "https://mfn.se/a/cereno-scientific/sample", "Cereno", True)
