@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Söndag kväll 19:30 UTC (20:30 vintertid / 21:30 sommartid), med måndagskontroll",
-  "updated_at": "2026-11-16T11:19:46+01:00",
+  "updated_at": "2026-11-16T11:28:51+01:00",
   "latest_week": "2026-W46",
   "weeks": [
     {
@@ -12,30 +12,28 @@
       "year": 2026,
       "start": "2026-11-09",
       "end": "2026-11-15",
-      "generated_at": "2026-11-16T11:19:46+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: Notice of Allowance i USA.",
+      "generated_at": "2026-11-16T11:28:51+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: SynAct: amerikanskt patentbesked för resomelagon-tablett.",
       "events": [
         {
           "date": "2026-11-13",
-          "title": "Notice of Allowance i USA",
+          "title": "SynAct: amerikanskt patentbesked för resomelagon-tablett",
           "category": "Regulatoriskt och patent",
-          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
+          "summary": "USPTO har godkänt patentansökan 18/065,702 för resomelagons snabbfrisättande tablettformulering inför utfärdande. Formellt patent väntas efter avgift.",
           "source": "Dokumenterad milstolpe",
-          "url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/",
+          "url": "https://www.synactpharma.com/sv/synact-pharma-meddelar-notice-of-allowance-for-ett-amerikanskt-patent-som-omfattar-resomelagon-tabletten/",
           "verified": true,
           "origin": "milstolpe",
-          "source_note": "Manuellt källgranskad post"
-        },
-        {
-          "date": "2026-11-13",
-          "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten",
-          "category": "Regulatoriskt och patent",
-          "summary": "Beslut, ansökningar och planerade myndighetssteg har olika betydelse; se originalkällan.",
-          "source": "SynAct Pharma",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPV2ZTYUROVHBidk0tRkQyclJjbUtKZjM2VUcxT3dhTVIxZmViZnhySm9wWTdxNExWRjJpWHF0Z1pVZUF0MEp0dWxxcTNWeEhaQkNUcktjVjREd041czJIaElla0RDYmlyMnlHc0FyejBNOHdYNGI2YTN1S0xKUkl0bFBxRUNVUVNlSnA3RFpsZTVxcmVVcGFmdXZ2YnItcENwTmpzVmpNRF9MZG5sWnJUVEhvSlhJTVY1amR4RFV5MXppaHg0N2J0UlR6aS14MkF5NC1z?oc=5",
-          "verified": false,
-          "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats"
+          "source_note": "Manuellt källgranskad post",
+          "details": "Den 13 november meddelade SynAct att den amerikanska patentmyndigheten utfärdat Notice of Allowance för den orala tablettformulering av resomelagon (AP1189-acetat) som används i kliniska studier. Patentet väntas utfärdas inom några veckor efter betalning av avgiften. Det ger ett ytterligare patentskydd kring den kliniska produkten, utöver bolagets kristallpatent.",
+          "importance": "Notice of Allowance betyder att ansökan godkänts för utfärdande, men det formella patentet var ännu inte utfärdat vid beskedet.",
+          "key_facts": [
+            "Patentansökan: US 18/065,702",
+            "Avser: snabbfrisättande oral resomelagon-tablett",
+            "Status: Notice of Allowance, 13 november 2026"
+          ],
+          "additional_source_url": "https://www.synactpharma.com/en/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet/",
+          "editorial_verified": true
         }
       ],
       "updates": [],
