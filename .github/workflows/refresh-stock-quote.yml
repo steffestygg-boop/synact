@@ -1,0 +1,40 @@
+name: Uppdatera SynAct-aktiekurs och Fenja-utrymme
+on:
+  schedule:
+    # Intradag var 20:e minut måndag–fredag; körningen kan fördröjas av GitHub.
+    - cron: '*/20 7-17 * * 1-5'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_stock_quote.py'
+      - '.github/workflows/refresh-stock-quote.yml'
+permissions:
+  contents: write
+concurrency:
+  group: synact-quote-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Kontrollera syntax och quote-validering
+        run: |
+          python -m py_compile scripts/update_stock_quote.py
+          python scripts/update_stock_quote.py --check-only
+      - name: Hämta senaste tidsstämplade börskurs
+        run: python scripts/update_stock_quote.py
+      - name: Publicera kursuppdateringen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stock_quote.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Sync SynAct stock quote for Fenja calculator"
+            git pull --rebase
+            git push
+          fi
