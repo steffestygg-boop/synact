@@ -388,15 +388,35 @@ def intro_text(items, updates):
         summary += " Dessutom finns " + str(len(updates)) + " noterade förändringar i sidans finansieringsanalys eller milstolpar."
     return summary
 
+def visible_finance_snapshot(current, sunday):
+    """Do not project a new risk model backward into an older archived week."""
+    dated = iso_date(current.get("risk_as_of"))
+    too_new = bool(dated and dated > sunday + dt.timedelta(days=2))
+    return {
+        "risk_3": None if too_new else current.get("risk_3"),
+        "risk_6": None if too_new else current.get("risk_6"),
+        "risk_12": None if too_new else current.get("risk_12"),
+        "risk_as_of": None if too_new else current.get("risk_as_of"),
+        "emission_status": "" if too_new else current.get("emission_status"),
+        "explanation": (
+            "Ingen verifierad historisk riskmodell finns för denna efterhandsrekonstruerade vecka. "
+            "Senare modellvärden eller emissionsbesked visas inte bakåt i tiden."
+            if too_new else
+            "Lägesbild vid sammanställningen, inte ett påstående om att "
+            "siffrorna offentliggjordes denna vecka."
+        ),
+    }, too_new
+
+
 def create_edition(sunday, current, existing, headlines, errors, omitted):
     start, end, week_id, week_num = bounds(sunday)
     older_id = (start - dt.timedelta(days=1)).isocalendar()
     previous_key = f"{older_id.year}-W{older_id.week:02d}"
     prev = next((x for x in existing if x.get("id") == previous_key), None)
     prior_snapshot = prev.get("snapshot") if prev else None
-    updates = snapshot_changes(current, prior_snapshot)
-    # Latest model values are an as-of-edition snapshot, NOT necessarily news
-    # announced during the completed calendar week.
+    visible, reconstructed = visible_finance_snapshot(current, sunday)
+    updates = [] if reconstructed else snapshot_changes(current, prior_snapshot)
+    # Do not use future model values to retroactively describe earlier weeks.
     return {
         "id": week_id, "week": week_num, "year": end.isocalendar().year,
         "start": start.isoformat(), "end": end.isoformat(),
@@ -404,14 +424,8 @@ def create_edition(sunday, current, existing, headlines, errors, omitted):
         "intro": intro_text(headlines, updates),
         "events": headlines, "updates": updates,
         "omitted_events": omitted,
-        "finance_snapshot": {
-            "risk_3": current.get("risk_3"), "risk_6": current.get("risk_6"),
-            "risk_12": current.get("risk_12"),
-            "risk_as_of": current.get("risk_as_of"),
-            "emission_status": current.get("emission_status"),
-            "explanation": "Lägesbild vid sammanställningen, inte ett påstående om att siffrorna offentliggjordes denna vecka."
-        },
-        "snapshot": current,
+        "finance_snapshot": visible,
+        "snapshot": {} if reconstructed else current,
         "sources_checked": ["lokal bevakningsfil", "nyhetssökningar via Google News RSS",
                             "daterade milstolpar", "finansierings- och riskdata"],
         "source_errors": errors,
@@ -443,7 +457,7 @@ def main():
         begin, end, week_id, week_num = bounds(sunday)
         headlines, omitted, errors = collect_local(begin, end, CONFIG[ISSUER], finance) if args.offline else collect_events(begin, end, CONFIG[ISSUER], finance)
         known[week_id] = create_edition(sunday, current, list(known.values()), headlines, errors, omitted)
-    weeks = sorted(known.values(), key=lambda e: e["id"], reverse=True)[:104]
+    weeks = sorted(known.values(), key=lambda e: e["id"], reverse=True)
     payload = {
         "version": 1, "company": CONFIG[ISSUER]["name"],
         "timezone": "Europe/Stockholm",
