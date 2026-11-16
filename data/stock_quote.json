@@ -1,11 +1,11 @@
 {
   "symbol": "SYNACT.ST",
   "currency": "SEK",
-  "price": 13.22,
-  "quote_time": "2026-11-13T17:29:42+01:00",
-  "fetched_at": null,
+  "price": 14.4,
+  "quote_time": "2026-11-16T13:24:30+01:00",
+  "fetched_at": "2026-11-16T13:37:02+01:00",
   "source": "Yahoo Finance chart / Nasdaq Stockholm",
   "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/",
   "delayed": true,
-  "source_note": "Startvärde: verifierad stängningskurs fredag 13 november 2026. Automatisk uppdatering får ersätta detta först när en ny kurs med tidstämpel hämtats."
+  "source_note": "Extern, potentiellt fördröjd marknadskurs. Tidpunkten är kursens källtidsstämpel; kontrollera alltid tidsstämpeln."
 }
