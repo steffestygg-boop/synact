@@ -762,6 +762,16 @@ footer{
 .fin-fenja-model-note a{display:inline-block;margin-left:5px}
 @media(max-width:860px){.fin-fenja-stats{grid-template-columns:1fr}.fin-fenja-stats>div{padding:11px}}
 
+
+/* Manual Fenja scenario can be reset on demand to the latest shared stock quote. */
+.fin-fenja-sync-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 13px;margin:1px 0 12px}
+.fin-fenja-resync{border:1px solid #d9b47d;border-radius:9px;padding:9px 13px;background:#4c3a24;color:#ffe4b7;font-size:12px;font-weight:750;cursor:pointer;transition:background .15s,border-color .15s}
+.fin-fenja-resync span{font-size:17px;margin-right:4px;vertical-align:-1px}
+.fin-fenja-resync:hover:not(:disabled){background:#755632;border-color:#ffdc9b;color:#fff}
+.fin-fenja-resync:focus-visible{outline:2px solid #f5d29c;outline-offset:3px}
+.fin-fenja-resync:disabled{background:#27343c;border-color:#526571;color:#9eb2bd;cursor:default}
+.fin-fenja-resync-hint{font-size:11px;color:#b9cbd2;line-height:1.5}
+
 /* Clickable and fully explained financial calculations */
 .fin-calc-hint{font-size:11px;line-height:1.65;color:#c4cfd4;margin:8px 0 14px}.fin-calc-hint span{color:#f5d397;font-weight:800}
 .fin-calc-trigger{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-left:7px;padding:0;width:24px;height:24px;border-radius:7px;border:1px solid #a98551;background:#372e24;color:#ffe0a4;font-size:14px;line-height:1;cursor:pointer;flex-shrink:0;transition:background .16s,border-color .16s}
@@ -989,6 +999,7 @@ body.weekly-dialog-open{overflow:hidden}
    <div class="fin-fenja-simulator">
      <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Aktiekurs vid eventuellt nytt uttag <small>– synkad med Aktien</small></label><strong id="fenja-scenario-output">13,22 kr</strong></div>
      <input type="range" id="fenja-scenario-price" min="5" max="35" value="13.22" step="0.01" aria-label="Antagen aktiekurs i kronor vid nytt Fenja-uttag">
+     <div class="fin-fenja-sync-actions"><button id="fenja-resync-quote" type="button" class="fin-fenja-resync" disabled title="Återställ reglaget till den senast hämtade börskursen"><span aria-hidden="true">↻</span> Synka med kursen igen</button><span id="fenja-resync-hint" class="fin-fenja-resync-hint">Reglaget följer senast hämtade kurs.</span></div>
      <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-scenario" title="Visa beräkningen för aktiekursen som valts med reglaget" aria-label="Visa beräkningen för aktiekursen som valts med reglaget" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
      <p class="fin-fenja-disclaimer"><b id="fenja-quote-sync-status">Kursuppdatering sker automatiskt under börsdagar. Senaste verifierade referenskurs visas tills en ny publiceras.</b> Dra själv i reglaget för att testa andra aktiekurser; när en ny börskurs publiceras ställs reglaget om till den. Detta ändrar inte den separata, veckovis uppdaterade emissionsrisken som använder referenskursen <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
    </div>
@@ -1501,6 +1512,8 @@ document.addEventListener('keydown',event=>{
      const stockPrice=el('synact-shared-price');
      const stockStatus=el('synact-quote-status');
      const slider=el('fenja-scenario-price');
+     const resyncButton=el('fenja-resync-quote');
+     const resyncHint=el('fenja-resync-hint');
      const latestStatus=el('fenja-quote-sync-status');
      const percentNode=el('fenja-available-percent');
      const progress=el('fenja-capacity-track');
@@ -1546,6 +1559,8 @@ document.addEventListener('keydown',event=>{
        slider.max=String(Math.max(35,Math.ceil(p+1)));
        slider.value=String(p);
        manualScenario=false;
+       resyncButton.disabled=true;
+       resyncHint.textContent='Reglaget följer senast hämtade kurs ('+fmt(p,2)+' kr).';
        calculateSelected();
      }
      function updateStockQuote(price,quoteTime,source){
@@ -1561,7 +1576,13 @@ document.addEventListener('keydown',event=>{
        synactQuoteState.source=source;
      }
      slider.addEventListener('input',()=>{
-       manualScenario=true;calculateSelected();
+       manualScenario=true;
+       resyncButton.disabled=false;
+       resyncHint.textContent='Eget kursscenario. Klicka på Synka med kursen igen för att återgå till '+fmt(quotePrice,2)+' kr.';
+       calculateSelected();
+     });
+     resyncButton.addEventListener('click',()=>{
+       setSliderPrice(quotePrice);
      });
      // Explicit dated fallback until the stock quote feed is available.
      setSliderPrice(referPrice);
