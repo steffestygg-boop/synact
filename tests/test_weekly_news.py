@@ -51,6 +51,20 @@ class WeeklyDigestTests(unittest.TestCase):
                             for x in found))
         self.assertFalse(any("rapporterat" in x["title"] for x in found))
 
+    def test_no_future_finance_projections_in_older_week_archive(self):
+        current = {
+            "risk_3": 12.2, "risk_6": 27.9, "risk_12": 60.4,
+            "risk_as_of": "2026-11-16T08:30:00+01:00",
+            "emission_status": "aviserad_2026-11-12",
+        }
+        old, retro = w.visible_finance_snapshot(current, dt.date(2026, 11, 8))
+        self.assertTrue(retro)
+        self.assertIsNone(old["risk_6"])
+        self.assertFalse(old["emission_status"])
+        current_week, retro = w.visible_finance_snapshot(current, dt.date(2026, 11, 15))
+        self.assertFalse(retro)
+        self.assertEqual(current_week["risk_6"], 27.9)
+
     def test_preserves_source_confidence(self):
         e = w.event("Cereno aviserar emission", "2026-11-12",
                     "https://mfn.se/a/cereno-scientific/sample", "Cereno", True)
