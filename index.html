@@ -958,7 +958,7 @@ body.weekly-dialog-open{overflow:hidden}
     <div class="fin-facts">
       <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
       <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="cash-burn" title="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-label="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div>
-      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-capacity" title="Visa beräkningen av återstående möjliga Fenja-uttag" aria-label="Visa beräkningen av återstående möjliga Fenja-uttag" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
+      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-reference" title="Visa beräkningen av återstående möjliga Fenja-uttag vid senaste hämtade kurs" aria-label="Visa beräkningen av återstående möjliga Fenja-uttag" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
       <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="runway" title="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-label="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">ⓘ</button></div>
     </div>
   </div>
@@ -1240,6 +1240,7 @@ document.getElementById('sales').addEventListener('input',updateCalc);document.g
 
 /* Reproducible, source-linked calculation explanations shared by SynAct and Isofol.
    No guessed current share prices or invented clinical financing dates. */
+const synactQuoteState={price:null,quoteTime:null,source:null};
 const finCalcState={finance:null,model:null};
 function finCalcProof(key){
  const d=finCalcState.finance,m=finCalcState.model;
@@ -1321,8 +1322,9 @@ function finCalcProof(key){
  }
  if(c.fenja&&key.startsWith('fenja-')){
    const f=c.fenja, snap=f.market_snapshot;
-   const marketPrice=key==='fenja-scenario'?
-    Number(document.getElementById('fenja-scenario-price')?.value||snap.price_sek):Number(snap.price_sek);
+   const marketPrice=(key==='fenja-scenario'||key==='fenja-capacity')?
+    Number(document.getElementById('fenja-scenario-price')?.value||synactQuoteState.price||snap.price_sek):
+    (key==='fenja-reference'?Number(synactQuoteState.price||snap.price_sek):Number(snap.price_sek));
    const shares=Number(snap.shares_outstanding), drawn=Number(f.already_drawn_gross_msek),
     remaining=Number(f.remaining_nominal_msek),maxFacility=Number(f.total_msek),capRate=Number(f.market_cap_limit_fraction);
    const cap=marketPrice*shares/1e6;
@@ -1334,7 +1336,7 @@ function finCalcProof(key){
     'Redan draget '+num(drawn,1)+' Mkr; återstående nominellt utrymme '+num(remaining,1)+' Mkr.',
     'Möjligt extra = max(0; min('+num(remaining,1)+'; '+num(maxFacility-drawn,1)+'; '+num(limit,2)+' − '+num(drawn,1)+')) = '+num(available,2)+' Mkr.'
    ];
-   const sources=[source(f.url,'Fenja-avtalet'),source(snap.price_source,'Källan till daterad börskurs'),source(snap.share_count_source,'Källa till antal aktier'),baseSources[1]];
+   const sources=[source(f.url,'Fenja-avtalet'),source(synactQuoteState.price?'https://finance.yahoo.com/quote/SYNACT.ST/':snap.price_source,'Kursreferens för beräkningen'),source(snap.share_count_source,'Källa till antal aktier'),baseSources[1]];
    if(key==='fenja-interest'){
      const rate=Number(f.min_drawn_interest_percent_per_year)/100;
      const undrawn=Number(f.min_undrawn_fee_percent_per_year_through_2026)/100;
@@ -1363,7 +1365,7 @@ function finCalcProof(key){
       sources};
    }
    return {title:key==='fenja-scenario'?'Fenjas kreditutrymme vid vald aktiekurs':'Fenjas maximala extra kreditutrymme',
-    lead:key==='fenja-scenario'?'Reglaget är ett scenario. Det påverkar inte sparade procentsatser i emissionsbarometern.':'Beräknas med 10 %-taket från avtalet och en kursbild daterad '+snap.as_of_date+'. Utgör inte en garanti för nytt uttag.',
+    lead:key==='fenja-scenario'?'Reglaget visar aktuell synkad kurs eller ett eget scenario. Det påverkar inte sparade procentsatser i emissionsbarometern.':key==='fenja-reference'?'Beräknas från den senast publicerade kursen som visas under Aktien, med marknadskursens egen tidsstämpel.':'Beräknas vid aktiekursen som är inställd på reglaget, med samma avtalsbegränsning om 10 % av börsvärdet.',
     formula:'Möjligt extra = max(0; min(nominellt kvar; maximalt totalbelopp − redan draget; 10 % × aktiekurs × aktier / 1 000 000 − redan draget))',
     steps:common,result:'Högst '+num(available,1)+' Mkr extra',
     caveat:'Detta är en aritmetisk övre gräns enligt det offentliggjorda taket. Ett nytt uttag kan dessutom förutsätta andra avtalsvillkor och måste ske inom avtalets tidsfönster. Referenskursen är inte en livekurs.',
@@ -1476,7 +1478,8 @@ document.addEventListener('keydown',event=>{
    finCalcState.finance=d;finCalcState.model=model;
    if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
 
-   /* Dated source-based Fenja capacity, separate from the price-scenario slider. */
+   /* Share-price tile and Fenja calculator use exactly the same sourced quote.
+      The weekly emission probability still relies on its separate reviewed snapshot. */
    if(model.company&&model.company.fenja&&model.company.fenja.market_snapshot){
      const loan=model.company.fenja;
      const snapshot=loan.market_snapshot;
@@ -1488,32 +1491,111 @@ document.addEventListener('keydown',event=>{
      const fmt=(x,d=1)=>Number(x).toLocaleString('sv-SE',{minimumFractionDigits:d,maximumFractionDigits:d});
      const extraAt=price=>Math.max(0,Math.min(remaining,maximum-drawn,shares*price/1e6*pct-drawn));
      const referPrice=Number(snapshot.price_sek);
-     const available=extraAt(referPrice);
+     const formatQuoteDate=t=>new Date(t).toLocaleString('sv-SE',{
+       timeZone:'Europe/Stockholm',day:'numeric',month:'short',
+       hour:'2-digit',minute:'2-digit'});
+     const modelDate=new Date(snapshot.as_of_date+'T12:00:00Z').toLocaleDateString('sv-SE',{
+       day:'numeric',month:'short',year:'numeric'});
      const amount=el('fenja-additional');
-     amount.replaceChildren(document.createTextNode(fmt(available)+' '));
-     const unit=document.createElement('small');unit.textContent='Mkr';amount.append(unit);
-     const fact=el('fenja-fact-extra');fact.replaceChildren(document.createTextNode('≈'+fmt(available)+' '));
-     const munit=document.createElement('em');munit.textContent='miljoner kr';fact.append(munit);
-     const annual=Number(loan.min_drawn_interest_percent_per_year)*drawn/100;
-     const interest=el('fenja-interest');interest.replaceChildren(document.createTextNode(fmt(annual)+' '));
-     const intUnit=document.createElement('small');intUnit.textContent='Mkr/år';interest.append(intUnit);
-     const dateString=new Date(snapshot.as_of_date+'T12:00:00Z').toLocaleDateString('sv-SE',{day:'numeric',month:'short',year:'numeric'});
-     el('fenja-snapshot-date').textContent=dateString;
-     el('fenja-cap-context').textContent='Av nominellt '+fmt(remaining,0)+' Mkr · kurs '+fmt(referPrice,2)+' kr ('+dateString+')';
-     const factor=Number(d.fenja_assessment?.fenja_cap_factor||
-       (1+Number(model.calculation.fenja_capacity_penalty_weight)*(1-available/remaining)));
-     el('fenja-factor-display').textContent='×'+fmt(factor,3);
+     const fact=el('fenja-fact-extra');
+     const stockPrice=el('synact-shared-price');
+     const stockStatus=el('synact-quote-status');
      const slider=el('fenja-scenario-price');
-     slider.value=String(referPrice);
-     const update=()=>{
-       const p=Number(slider.value);
-       el('fenja-scenario-output').textContent=fmt(p,2)+' kr';
-       const e=extraAt(p);
-       const totalMarketCap=shares*p/1e6;
-       el('fenja-scenario-summary').textContent='Vid '+fmt(p,2)+' kr blir illustrativt börsvärde '+fmt(totalMarketCap)+' Mkr, varav 10 % är '+fmt(totalMarketCap*pct)+' Mkr. Efter redan dragna '+fmt(drawn,0)+' Mkr återstår då högst '+fmt(e)+' Mkr av de nominella '+fmt(remaining,0)+' Mkr.';
+     const latestStatus=el('fenja-quote-sync-status');
+     const percentNode=el('fenja-available-percent');
+     const progress=el('fenja-capacity-track');
+     const progressFill=el('fenja-capacity-fill');
+     const badge=el('fenja-scenario-badge');
+     let quotePrice=referPrice;
+     let quoteStamp=snapshot.as_of_date+'T12:00:00Z';
+     let lastQuoteKey='';
+     let manualScenario=false;
+     const updateTextValue=(node,value,unit,tag)=>{
+       node.replaceChildren(document.createTextNode(value+' '));
+       const u=document.createElement(tag);u.textContent=unit;node.append(u);
      };
-     slider.addEventListener('input',update);update();
+     const annual=Number(loan.min_drawn_interest_percent_per_year)*drawn/100;
+     updateTextValue(el('fenja-interest'),fmt(annual),'Mkr/år','small');
+     el('fenja-snapshot-date').textContent=modelDate;
+     const riskFactor=Number(d.fenja_assessment?.fenja_cap_factor||
+       (1+Number(model.calculation.fenja_capacity_penalty_weight)*(1-extraAt(referPrice)/remaining)));
+     el('fenja-factor-display').textContent='×'+fmt(riskFactor,3);
      el('fenja-original-source').href=loan.url;
+
+     function calculateSelected(){
+       const price=Number(slider.value);
+       const money=extraAt(price);
+       const share=remaining>0?Math.max(0,Math.min(100,100*money/remaining)):100;
+       updateTextValue(amount,fmt(money),'miljoner kr','small');
+       percentNode.textContent=fmt(share)+' %';
+       progressFill.style.width=share+'%';
+       progress.setAttribute('aria-valuenow',String(Math.round(share*10)/10));
+       el('fenja-scenario-output').textContent=fmt(price,2)+' kr';
+       badge.textContent=manualScenario?'Eget kursscenario':'Senast hämtad kurs';
+       const totalMarketCap=shares*price/1e6;
+       el('fenja-scenario-summary').textContent=
+         'Vid '+fmt(price,2)+' kr blir börsvärdet '+fmt(totalMarketCap)+' Mkr och 10 %-taket '+fmt(totalMarketCap*pct)+' Mkr. '+
+         'Efter redan dragna '+fmt(drawn,0)+' Mkr återstår högst '+fmt(money)+' Mkr av de nominella '+fmt(remaining,0)+' Mkr.';
+       el('fenja-cap-context').textContent=
+         (manualScenario?'Eget scenario · ':'Synkad kurs · ')+fmt(price,2)+' kr · '+fmt(shares,0)+' aktier · '+fmt(money)+' Mkr möjligt extra.';
+     }
+     function setSliderPrice(price){
+       // Keep the control useful even if the market price moves outside default 5–35 kr.
+       const p=Number(price);
+       slider.min=String(Math.min(5,Math.floor(p-1)));
+       slider.max=String(Math.max(35,Math.ceil(p+1)));
+       slider.value=String(p);
+       manualScenario=false;
+       calculateSelected();
+     }
+     function updateStockQuote(price,quoteTime,source){
+       const textDate=formatQuoteDate(quoteTime);
+       const daysOld=(Date.now()-new Date(quoteTime).getTime())/86400000;
+       const freshness=daysOld>1.25?'Äldre senast tillgänglig kurs':'Senast tillgänglig kurs';
+       updateTextValue(stockPrice,fmt(price,2),'kr','small');
+       stockStatus.textContent=freshness+': '+textDate+' · '+source+' · kan vara fördröjd';
+       latestStatus.textContent='Reglaget synkas med kursen under Aktien ('+fmt(price,2)+' kr, '+textDate+').';
+       updateTextValue(fact,'≈'+fmt(extraAt(price)),'miljoner kr','em');
+       synactQuoteState.price=price;
+       synactQuoteState.quoteTime=quoteTime;
+       synactQuoteState.source=source;
+     }
+     slider.addEventListener('input',()=>{
+       manualScenario=true;calculateSelected();
+     });
+     // Explicit dated fallback until the stock quote feed is available.
+     setSliderPrice(referPrice);
+     updateStockQuote(referPrice,quoteStamp,'historisk referenskurs');
+     async function fetchSynactQuote(){
+       try{
+         const res=await fetch('./data/stock_quote.json?no_cache='+Date.now(),{cache:'no-store'});
+         if(!res.ok)throw new Error('HTTP '+res.status);
+         const quote=await res.json();
+         if(quote.symbol!=='SYNACT.ST'||quote.currency!=='SEK'||
+            !Number.isFinite(Number(quote.price))||Number(quote.price)<=0||
+            !quote.quote_time||Number.isNaN(Date.parse(quote.quote_time))){
+           throw new Error('Felaktigt kursformat');
+         }
+         const stamp=Date.parse(quote.quote_time);
+         if(stamp>Date.now()+10*60*1000)throw new Error('Kursen har felaktig framtida tidsstämpel');
+         if(stamp<Date.parse(snapshot.as_of_date+'T00:00:00Z'))throw new Error('Äldre än referenskursen');
+         const price=Number(quote.price);
+         const key=stamp+'|'+price;
+         if(key!==lastQuoteKey){
+           lastQuoteKey=key;
+           quotePrice=price;quoteStamp=quote.quote_time;
+           updateStockQuote(price,quote.quote_time,quote.source||'Yahoo Finance');
+           // A new verified quote recenters the slider, including after user scenarios.
+           setSliderPrice(price);
+         }
+       }catch(error){
+         latestStatus.textContent='Senaste publicerade kurs används. Automatisk kurshämtning kunde inte bekräftas ('+error.message+').';
+       }
+     }
+     fetchSynactQuote();
+     // GitHub Actions updates the JSON approximately every 20 minutes during weekdays.
+     // Polling the site only reads that shared file and never guesses an intra-day quote.
+     setInterval(fetchSynactQuote,120000);
    }
 
 
