@@ -19,6 +19,7 @@ import re
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from html.parser import HTMLParser
 from zoneinfo import ZoneInfo
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -164,6 +165,82 @@ def event(title, date, url, source, verified=False, origin="rubrik"):
                        "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
     }
 
+
+class MFNListingParser(HTMLParser):
+    """Extract dated issuer press links from MFN's public company archive."""
+    def __init__(self, slug):
+        super().__init__(convert_charrefs=True)
+        self.slug = slug
+        self.text_before = ""
+        self.anchor = None
+        self.entries = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "a" or self.anchor is not None:
+            return
+        href = dict(attrs).get("href", "")
+        full = urllib.parse.urljoin("https://mfn.se", href)
+        path = urllib.parse.urlsplit(full).path
+        if re.search(r"/a/" + re.escape(self.slug) + r"/[^/]+", path):
+            self.anchor = (full, self.text_before[-250:], [])
+
+    def handle_data(self, value):
+        if self.anchor is not None:
+            self.anchor[2].append(value)
+        else:
+            self.text_before = (self.text_before + " " + value)[-3000:]
+
+    def handle_endtag(self, tag):
+        if tag != "a" or self.anchor is None:
+            return
+        url, context, fragments = self.anchor
+        title = re.sub(r"\s+", " ", " ".join(fragments)).strip()
+        matches = re.findall(r"20\d{2}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}", context)
+        if title and matches:
+            self.entries.append((matches[-1], title, url))
+        self.text_before = (self.text_before + " " + title)[-3000:]
+        self.anchor = None
+
+
+def issuer_press_events(start, end, slug):
+    """Direct publisher archive, independent of Google News indexing."""
+    url = "https://mfn.se/all/a/" + slug + ".iframe"
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT,
+                                                   "Accept": "text/html"})
+    try:
+        with urllib.request.urlopen(request, timeout=22) as res:
+            html_page = res.read(1_800_000).decode("utf-8", errors="replace")
+        parsed = MFNListingParser(slug)
+        parsed.feed(html_page)
+        selected = {}
+        for timestamp, title, original in parsed.entries:
+            date = iso_date(timestamp)
+            if not date or not start <= date <= end:
+                continue
+            # Bilingual company releases occur twice with the exact same
+            # publication timestamp. Prefer the Swedish publisher heading.
+            lower = " " + title.casefold() + " "
+            is_swedish = any(word in lower for word in (
+                " meddelar ", " avgår ", " förvärvat ", " kallar ",
+                " lämnar ", " styrelse", " publicerar ", " tecknings",
+                " har ", " från ", " villkor ", " till ", " fas ",
+                " bolaget ", " fortsatt ", " på "))
+            if timestamp not in selected or is_swedish > selected[timestamp][0]:
+                selected[timestamp] = (is_swedish, title, original)
+        results = []
+        for timestamp, (_, title, original) in selected.items():
+            item = event(title, timestamp[:10], original, "MFN · bolagets pressmeddelande",
+                         verified=False, origin="bolagsflöde")
+            if item:
+                item["published_at"] = timestamp
+                item["source_note"] = "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet."
+                results.append(item)
+        return results, []
+    except (OSError, ValueError, UnicodeError) as exc:
+        return [], ["MFN-bolagsflödet kunde inte läsas: " + str(exc)[:120]]
+
+
+
 def rss_events(queries, first, last):
     found, errors = [], []
     for query in queries:
@@ -192,7 +269,7 @@ def rss_events(queries, first, last):
     return found, errors
 
 def issuer_matches(item, conf):
-    if item.get("verified") or item.get("origin") == "milstolpe":
+    if item.get("verified") or item.get("origin") in ("milstolpe", "bolagsflöde"):
         return True
     full = (str(item.get("title", "")) + " " + str(item.get("source", ""))).lower()
     return any(alias in full for alias in conf["aliases"])
@@ -225,6 +302,9 @@ def milestones_snapshot():
 
 def collect_events(start, end, config, finance):
     events, errors = rss_events(config["queries"], start, end)
+    issuer_events, issuer_errors = issuer_press_events(start, end, ISSUER.replace("isofol", "isofol-medical").replace("synact", "synact-pharma").replace("cereno", "cereno-scientific"))
+    events.extend(issuer_events)
+    errors.extend(issuer_errors)
     local_news = read_json(DATA / "news.json", {})
     candidates = list(local_news.get("items", []))
     for item in finance.get("latest_items", []):
@@ -469,7 +549,7 @@ def create_edition(sunday, current, existing, headlines, errors, omitted):
         "omitted_events": omitted,
         "finance_snapshot": visible,
         "snapshot": {} if reconstructed else current,
-        "sources_checked": ["lokal bevakningsfil", "nyhetssökningar via Google News RSS",
+        "sources_checked": ["lokal bevakningsfil", "direkta bolagsmeddelanden på MFN", "nyhetssökningar via Google News RSS",
                             "daterade milstolpar", "finansierings- och riskdata"],
         "source_errors": errors,
         "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
