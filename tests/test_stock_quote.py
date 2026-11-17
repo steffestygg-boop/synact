@@ -60,7 +60,18 @@ class SynActQuoteTests(unittest.TestCase):
         self.assertIn("setSliderPrice(quotePrice);", html)
         self.assertIn("resyncButton.disabled=false;", html)
         self.assertIn("resyncButton.disabled=true;", html)
-        self.assertIn("resyncHint.textContent='Reglaget följer senast hämtade kurs", html)
+        self.assertIn("resyncHint.textContent=(hasVerifiedQuote?", html)
+
+    def test_quote_loading_never_flashes_undated_fallback_or_goes_backwards(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        for marker in (
+            'id="synact-shared-price">—',
+            "if(stamp<lastQuoteTimestamp)return;",
+            "localStorage.setItem(cacheKey,JSON.stringify(quote))",
+            "Historisk referenskurs",
+        ):
+            self.assertIn(marker, html)
+        self.assertNotIn("updateStockQuote(referPrice,quoteStamp,'historisk referenskurs');", html)
 
     def test_latest_quote_and_loan_math(self):
         quote = json.loads((ROOT / "data" / "stock_quote.json").read_text(encoding="utf-8"))
