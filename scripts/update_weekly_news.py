@@ -588,20 +588,29 @@ def weekly_stock_change(start, today, previous=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--scheduled", action="store_true", help="Run only at 09:00 Europe/Stockholm")
+    ap.add_argument("--scheduled", action="store_true", help="Run from a scheduled or manual GitHub workflow")
+    ap.add_argument("--scheduled-cron", default="", help="Actual cron expression that fired")
     ap.add_argument("--offline", action="store_true", help="Generate from existing data without RSS")
     ap.add_argument("--backfill", type=int, default=0, help="Number of previous Sundays, including latest")
     ap.add_argument("--date", help="Local date YYYY-MM-DD (for reproducible tests)")
     args = ap.parse_args()
     if ISSUER not in CONFIG:
         raise RuntimeError("Unknown repository slug " + ISSUER)
-    if args.scheduled and dt.datetime.now(LOCAL_TZ).hour != 9:
-        print("Outside Stockholm 09:00, skipping duplicate UTC schedule")
-        return
+    # Match the intended cron trigger rather than the *execution* hour.
+    # GitHub Actions jobs may start late; never discard a valid 09:00 run.
+    local_today = dt.datetime.now(LOCAL_TZ).date()
+    if args.scheduled and args.scheduled_cron in ("0 7 * * *", "0 8 * * *"):
+        nine_local = dt.datetime.combine(local_today, dt.time(9, 0), tzinfo=LOCAL_TZ)
+        correct_utc_hour = nine_local.astimezone(dt.timezone.utc).hour
+        trigger_utc_hour = int(args.scheduled_cron.split()[1])
+        if correct_utc_hour != trigger_utc_hour:
+            print("Skipping wrong DST trigger; today's 09:00 Stockholm UTC hour:", correct_utc_hour)
+            return
     local_now = iso_date(args.date) if args.date else dt.datetime.now(LOCAL_TZ).date()
     if not local_now:
         raise ValueError("Invalid --date")
-    target = local_now
+    # ISO week starts Monday. Archives always represent Monday–Sunday.
+    target = local_now + dt.timedelta(days=6-local_now.weekday())
     old_data = read_json(OUTPUT, {"weeks": []})
     editions = [e for e in old_data.get("weeks", []) if isinstance(e, dict) and e.get("id")]
     known = {e["id"]: e for e in editions}
@@ -614,7 +623,7 @@ def main():
         sunday = target - dt.timedelta(days=7*offset)
         begin, end, week_id, week_num = bounds(sunday)
         if offset == 0:
-            begin = local_now - dt.timedelta(days=6)
+            begin = local_now - dt.timedelta(days=local_now.weekday())
             end = local_now
         headlines, omitted, errors = collect_local(begin, end, CONFIG[ISSUER], finance) if args.offline else collect_events(begin, end, CONFIG[ISSUER], finance)
         edition = create_edition(sunday, current, list(known.values()), headlines, errors, omitted)
@@ -635,7 +644,7 @@ def main():
     payload = {
         "version": 1, "company": CONFIG[ISSUER]["name"],
         "timezone": "Europe/Stockholm",
-        "schedule": "Varje dag kl. 09:00 Europe/Stockholm; ny ISO-vecka från måndag",
+        "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
         "updated_at": dt.datetime.now(LOCAL_TZ).isoformat(timespec="seconds"),
         "latest_week": weeks[0]["id"] if weeks else None, "weeks": weeks
     }
