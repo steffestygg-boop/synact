@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:20:29+01:00",
+  "updated_at": "2026-11-17T09:20:54+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:20:29+01:00",
+      "generated_at": "2026-11-17T09:20:53+01:00",
       "intro": "En framträdande nyhetsrubrik: Cereno-vd:n avgår som ledamot i Synact Pharma. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
@@ -753,9 +753,9 @@
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-17",
-        "latest": 13.78,
-        "change_sek": 0.56,
-        "change_percent": 4.24,
+        "latest": 13.76,
+        "change_sek": 0.54,
+        "change_percent": 4.08,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
