@@ -910,6 +910,18 @@ body.weekly-dialog-open{overflow:hidden}
 .dd-risk-module .dd-caveat{font-size:11px;color:#9eaebd;line-height:1.55;margin:12px 0 0}
 .dd-risk-module a{color:#9ed5ff}
 
+
+/* Schedule changes use the same orange disclosure design as Cereno.
+   Do not show an amount unless both quarters have supporting sources. */
+.timeline .milestone.has-delay{outline:2px solid #e6a65f;outline-offset:-2px}
+.timeline .milestone .delay-caption{display:block;color:#915321;font-weight:750;border-top:1px solid #c4a587;padding-top:5px;line-height:1.4}
+.timeline .milestone.future .delay-caption{color:#ffc48e;border-color:#74533d}
+.toolbar button.delay-toggle{background:#6d411e;color:#fcd2a4;border:1px solid #c98b51;font-weight:700}
+.toolbar button.delay-toggle.active{background:#c88643;color:#21160d;border-color:#eeb277}
+.toolbar button.delay-toggle:hover{filter:brightness(1.1)}
+.milestone-key .delay-key i{display:inline-block;width:28px;height:0;border:0;border-top:2px dashed #dfac68;border-radius:0;background:transparent}
+.delay-key[hidden]{display:none!important}
+#modal-links a+a{margin-left:12px}
 </style></head>
 <body><div class="wrap">
 <header class="hero"><div class="hero-content">
@@ -1099,6 +1111,7 @@ body.weekly-dialog-open{overflow:hidden}
     <button type="button" class="track active" data-track="pipeline">TXP / övrigt</button>
     <button type="button" class="track active" data-track="ip">Patent</button>
     <button type="button" class="track active" data-track="company">Bolaget</button>
+    <button type="button" class="delay-toggle active" id="show-delays" aria-pressed="true">Förseningar: på</button>
   </div>
 </div>
 <div class="timeline-overview"><span id="milestone-count">Laddar händelser …</span><span>Sidled för fler år <span aria-hidden="true">↔</span></span></div>
@@ -1106,7 +1119,8 @@ body.weekly-dialog-open{overflow:hidden}
 <div class="milestone-key" aria-label="Milstolpsstatus">
 <span><i aria-hidden="true"></i>Genomförd / rapporterad</span>
 <span><i class="upcoming" aria-hidden="true"></i>Planerad / prognos</span>
-<span class="milestone-disclaimer">Alla framtida händelser ligger i kvartal. Markeringen ≈ betyder vår kvartalsuppskattning, inte bolagets löfte. Klicka för skäl och osäkerhet.</span>
+<span class="delay-key"><i aria-hidden="true"></i>Orange = dokumenterad ändring av tidplan</span>
+<span class="milestone-disclaimer">Alla framtida händelser ligger i kvartal. ≈ betyder vår uppskattning, inte bolagets löfte. Förseningar visas endast när bolagets tidigare och senare tidsuppgifter ger stöd. +0 kvartal visas aldrig som försening. Klicka på orange markerade händelser för båda källorna.</span>
 </div>
 </section>
 <section class="valuation" aria-labelledby="valuation-heading"><p class="section-kicker"><span class="section-number">07</span> Analys &amp; värdering</p>
@@ -1138,7 +1152,7 @@ let eras=[];
 const valuations=[{"who":"Redeye","date":"2025-06-27","value":25,"type":"Base Case · uppdragsanalys","body":"Redeye höjde sitt basscenario till 25 kr per aktie från 21 kr i juni 2025. Historiskt estimat; inte en aktuell rekommendation.","url":"https://res.cloudinary.com/redeye/image/upload/v1751001480/article-pdfs/note/synact-pharma-new-indication-provides-diversification_rvek6a.pdf"},{"who":"Edison","date":"2025-10-28","value":36.9,"type":"Motiverat värde · uppdragsanalys","body":"Edison inledde bevakning med ett riskjusterat motiverat värde på 36,90 kr per aktie (sammanlagt cirka 1,97 miljarder kr).","url":"https://www.placera.se/telegram/synact-pharma-edison-inleder-bevakning-av-synact-pharma-ser-varde-om-36-9-kronor-per-aktie-20251028"},{"who":"Redeye","date":"2025-11-03","value":26,"type":"Base Case · uppdragsanalys","body":"Redeye redovisade ett historiskt basscenario på 26 kr per aktie, upp från 25 kr. Senare analyser kan ha ändrat värdet.","url":"https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf"},{"who":"Edison","date":"2026-03-04","value":39.3,"type":"Motiverat värde · uppdragsanalys","body":"Edison höjde sitt motiverade värde från 36,90 till 39,30 kr per aktie (värdering cirka 2,21 miljarder kr) efter rapport och emission.","url":"https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304"},{"who":"BioVal","date":"2026-11-03","value":51.58860160876741,"type":"Omräknat modellvärde per aktie · inte riktkurs","body":"BioVal värderade tre tillgångar till sammanlagt cirka 2,90 miljarder kr i sin betalda rNPV-analys. Grafvärdet är 2 900 000 000 / 56 213 968 ≈ 51,59 kr per befintlig aktie. Detta är en matematisk omräkning, inte en uttalad riktkurs; utfallet är känsligt för antaganden, kostnader och framtida utspädning.","url":"https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/"}];
 const tracks=[["ra","Reumatoid artrit"],["dengue","Dengue"],["rvi","Virusinfektioner"],["renal","Njursjukdom"],["pipeline","TXP / övriga program"],["ip","Patent / formulering"],["company","Bolaget / finansiering"]];
 const periodButtons=document.querySelectorAll('[data-period]');
-const selected=new Set(tracks.map(x=>x[0]));let period="relevant";let currentAnchor=null;
+const selected=new Set(tracks.map(x=>x[0]));let period="relevant";let currentAnchor=null;let showDelays=true;
 function openInfo(m, anchor){
  const modal=document.getElementById('modal');
  if(modal.classList.contains('open') && currentAnchor===anchor){closeInfo();return;}
@@ -1147,7 +1161,7 @@ function openInfo(m, anchor){
  document.getElementById('modal-date').textContent=(m.date||'')+status;
  document.getElementById('modal-title').textContent=m.title||'Information';
  const body=document.getElementById('modal-body');body.replaceChildren();
- for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Tidsbedömning',m.time_rationale],['Att tänka på',m.caveat]]){
+ for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Tidsbedömning',m.time_rationale],['Att tänka på',m.caveat],['Försening / tidigare tidsplan',m.delayed?m.delayText:null]]){
   if(!value)continue;
   const item=document.createElement('div');item.className='modal-explain';
   const heading=document.createElement('h3');heading.textContent=label;
@@ -1156,6 +1170,7 @@ function openInfo(m, anchor){
  }
  const links=document.getElementById('modal-links');links.replaceChildren();
  if(m.url){const a=document.createElement('a');a.href=m.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Öppna originalkälla ↗';links.append(a);}
+ if(m.delayed&&m.earlierUrl&&m.earlierUrl!==m.url){const a=document.createElement('a');a.href=m.earlierUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Tidigare tidsuppgift ↗';links.append(a);}
  modal.classList.add('open');positionInfo();
 }
 function closeInfo(){document.getElementById('modal').classList.remove('open');currentAnchor=null}
@@ -1196,11 +1211,19 @@ function renderTimeline(){
   for(const era of periodEras){
    const cell=document.createElement('div');cell.className='cell';
    for(const m of trackMilestones.filter(m=>m.era===era)){
-    const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'')+(m.time_basis==='estimated'?' estimated-time':'');
+    const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'')+(m.time_basis==='estimated'?' estimated-time':'')+(showDelays&&m.delayed?' has-delay':'');
     const s=document.createElement('strong');s.textContent=m.title;
     const small=document.createElement('small');small.textContent=m.subtitle||'';
     b.append(s);
     if(small.textContent.trim())b.append(small);
+    if(showDelays&&m.delayed){
+      const tag=document.createElement('small');tag.className='delay-caption';
+      const quarters=Number(m.delayQuarters)||0;
+      tag.textContent=quarters>0&&m.originalQuarter&&m.currentQuarter?
+        '⏱ '+m.originalQuarter+' → '+m.currentQuarter+' (+'+quarters+' kv.)':
+        '⏱ '+(m.delayLabel||'Tidplan ändrad');
+      b.append(tag);
+    }
     b.title=m.date+' · '+m.title;
     b.addEventListener('click',()=>openInfo(m,b));cell.append(b);shown++;
    }
@@ -1212,10 +1235,13 @@ function renderTimeline(){
  document.getElementById('milestone-total').textContent=milestones.length?'· '+milestones.length+' händelser':'';
  document.querySelectorAll('.track').forEach(b=>b.classList.toggle('active',selected.has(b.dataset.track)));
  document.querySelector('[data-track="all"]').classList.toggle('active',selected.size===tracks.length);
+ document.getElementById('show-delays').classList.toggle('active',showDelays);
+ document.querySelector('.delay-key').hidden=!showDelays;
 }
 periodButtons.forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;periodButtons.forEach(x=>x.classList.toggle('active',b===x));renderTimeline()}));
 document.querySelectorAll('.track').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.track;if(selected.has(t)){if(selected.size>1)selected.delete(t)}else selected.add(t);renderTimeline()}));
 document.querySelector('[data-track="all"]').addEventListener('click',()=>{selected.clear();tracks.forEach(x=>selected.add(x[0]));renderTimeline()});
+document.getElementById('show-delays').addEventListener('click',function(){showDelays=!showDelays;this.setAttribute('aria-pressed',String(showDelays));this.textContent='Förseningar: '+(showDelays?'på':'av');renderTimeline()});
 renderTimeline();
 (async function loadResearch(){
  const status=document.getElementById('research-status');
