@@ -1,9 +1,12 @@
 name: Sammanfatta veckans nyheter
 on:
   schedule:
-    # 09:00 Stockholm: 08 UTC vintertid, 07 UTC sommartid.
-    # Kör båda UTC-tiderna och låt skriptet avstå utanför 09 svensk tid.
-    - cron: '0 7,8 * * *'
+    # Separata UTC-triggers; Python väljer korrekt 09:00 svensk tid vid sommar-/vintertid.
+    # Titta på schemalagd tid, inte faktisk jobbstarter – GitHub kan bli försenat.
+    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
+    # Extra kontroll på vardagseftermiddagar för pressmeddelanden efter kl. 09.
+    - cron: '0 14 * * 1-5'
   workflow_dispatch:
   push:
     branches: [main]
@@ -31,7 +34,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_weekly_news.py'
       - name: Uppdatera innevarande vecka dagligen och behåll arkivet
         run: |
-          python scripts/update_weekly_news.py --scheduled
+          python scripts/update_weekly_news.py --scheduled --scheduled-cron "${{ github.event.schedule }}"
       - name: Publicera alla veckoutgåvor
         run: |
           git config user.name "github-actions[bot]"
