@@ -1,10 +1,9 @@
 name: Sammanfatta veckans nyheter
 on:
   schedule:
-    # Stockholm: söndag 20:30 vintertid / 21:30 sommartid
-    - cron: '30 19 * * 0'
-    # Kontrollera sena söndagsnyheter och måndagens finansieringsuppdatering
-    - cron: '30 9 * * 1'
+    # 09:00 Stockholm: 08 UTC vintertid, 07 UTC sommartid.
+    # Kör båda UTC-tiderna och låt skriptet avstå utanför 09 svensk tid.
+    - cron: '0 7,8 * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -30,8 +29,9 @@ jobs:
         run: |
           python -m py_compile scripts/update_weekly_news.py
           python -m unittest discover -s tests -p 'test_weekly_news.py'
-      - name: Generera söndagens sammanfattning och behåll arkivet
-        run: python scripts/update_weekly_news.py
+      - name: Uppdatera innevarande vecka dagligen och behåll arkivet
+        run: |
+          python scripts/update_weekly_news.py --scheduled
       - name: Publicera alla veckoutgåvor
         run: |
           git config user.name "github-actions[bot]"
