@@ -31,8 +31,10 @@ LOCAL_TZ = ZoneInfo("Europe/Stockholm")
 CONFIG = {
     "synact": {
         "name": "SynAct Pharma",
-        "queries": ['"SynAct Pharma" OR resomelagon when:21d',
-                    '"SynAct Pharma" (patent OR studie OR emission OR avtal OR finansiering) when:21d'],
+"queries": ['"SynAct" when:14d',
+                    '"SynAct Pharma" OR resomelagon when:14d',
+                    'site:mfn.se/a/synact-pharma/ when:14d',
+                    '"SynAct" (styrelse OR vd OR insiderhandel OR aktieköp OR förvärvat OR avtal OR studie OR FDA) when:14d'],
         "aliases": ("synact", "resomelagon", "ap1189"),
     },
     "isofol": {
@@ -49,6 +51,7 @@ CONFIG = {
     },
 }
 CATEGORIES = [
+    ("Bolagsledning och styrelse", r"styrelse|avgår|förvärvat aktier|köper aktier|insiderköp|insiderhandel|board of directors|resigns|ceo.*shares"),
     ("Handelsstopp", r"handelsstopp|handeln återuppt|trading halt|trading susp"),
     ("Emission och finansiering", r"emission|units?|teckningsoption|to2\b|to1\b|finansier|kredit|låne|loan|fenja|likviditet|capital raise|rights issue"),
     ("Studie och resultat", r"fas [123ivb]+|phase [123ivb]+|studie|clinical|trial|patient|rekryter|doser|top.?line|resov|respi|effekt|endpoint"),
@@ -122,6 +125,7 @@ def category(title):
 def event_priority(event):
     score = {
         "Handelsstopp": 115, "Emission och finansiering": 106,
+        "Bolagsledning och styrelse": 108,
         "Studie och resultat": 92, "Regulatoriskt och patent": 84,
         "Partner och avtal": 81, "Rapport och ekonomi": 73,
         "Analys och marknad": 45, "Övrigt": 40,
@@ -445,7 +449,7 @@ def snapshot_changes(now, prev):
 def intro_text(items, updates):
     if not items and not updates:
         return "Inga daterade nya händelser hittades i de källflöden som kunde läsas. Det betyder inte att ingenting har hänt."
-    highlights = [item for item in items if item.get("verified")]
+    highlights = [item for item in items if item.get("verified") or item.get("editorial_verified")]
     ranked = highlights if highlights else items
     lead = max(ranked, key=event_priority) if ranked else None
     if lead:
@@ -632,12 +636,19 @@ def main():
             edition["end"] = end.isoformat()
         previous = known.get(week_id, {})
         # Preserve previously discovered items when refreshing the current week.
-        old_events = previous.get("events", []) if isinstance(previous, dict) else []
+        old_events = [e for e in previous.get("events", [])
+                      if iso_date(e.get("date")) and begin <= iso_date(e.get("date")) <= end] if isinstance(previous, dict) else []
         by_key = {(e.get("date"), e.get("url") or e.get("title")): e for e in old_events}
         for e in edition["events"]:
             key = (e.get("date"), e.get("url") or e.get("title"))
             by_key[key] = e
-        edition["events"] = sorted(by_key.values(), key=lambda e: e.get("date", ""), reverse=True)
+        # Re-enrich historical entries after curation updates, and dedupe stories
+        # with the same primary source across independent news feeds.
+        final_events = enrich_events(list(by_key.values()))
+        edition["events"] = sorted(
+            [e for e in final_events if iso_date(e.get("date")) and
+             begin <= iso_date(e.get("date")) <= end],
+            key=lambda e: (e.get("date", ""), event_priority(e)), reverse=True)
         edition["stock_change"] = weekly_stock_change(begin, local_now, previous.get("stock_change") if isinstance(previous, dict) else None)
         known[week_id] = edition
     weeks = sorted(known.values(), key=lambda e: e["id"], reverse=True)
