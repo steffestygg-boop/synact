@@ -521,7 +521,7 @@ def main():
     local_now = iso_date(args.date) if args.date else dt.datetime.now(LOCAL_TZ).date()
     if not local_now:
         raise ValueError("Invalid --date")
-    target = week_ending(local_now)
+    target = local_now
     old_data = read_json(OUTPUT, {"weeks": []})
     editions = [e for e in old_data.get("weeks", []) if isinstance(e, dict) and e.get("id")]
     known = {e["id"]: e for e in editions}
@@ -533,8 +533,14 @@ def main():
     for offset in range(count-1, -1, -1):
         sunday = target - dt.timedelta(days=7*offset)
         begin, end, week_id, week_num = bounds(sunday)
+        if offset == 0:
+            begin = local_now - dt.timedelta(days=6)
+            end = local_now
         headlines, omitted, errors = collect_local(begin, end, CONFIG[ISSUER], finance) if args.offline else collect_events(begin, end, CONFIG[ISSUER], finance)
         edition = create_edition(sunday, current, list(known.values()), headlines, errors, omitted)
+        if offset == 0:
+            edition["start"] = begin.isoformat()
+            edition["end"] = end.isoformat()
         previous = known.get(week_id, {})
         # Preserve previously discovered items when refreshing the current week.
         old_events = previous.get("events", []) if isinstance(previous, dict) else []
