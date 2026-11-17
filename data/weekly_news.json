@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:25:58+01:00",
+  "updated_at": "2026-11-17T09:26:27+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,26 +12,26 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:25:58+01:00",
+      "generated_at": "2026-11-17T09:26:27+01:00",
       "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
           "date": "2026-11-16",
           "title": "Sten Sörensen lämnar SynActs styrelse",
           "category": "Bolagsledning och styrelse",
-          "summary": "Sten Sörensen har valt att lämna SynActs styrelse för att koncentrera sig på sina operativa ansvarsområden. Beskedet offentliggjordes den 16 november.",
+          "summary": "Sten Sörensen avgår som styrelseledamot för att fokusera på sina operativa åtaganden. Bolaget meddelade beslutet den 16 november kl. 07.00.",
           "source": "MFN · bolagets pressmeddelande",
           "url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse",
           "verified": false,
           "origin": "bolagsflöde",
           "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
           "published_at": "2026-11-16 \n         07:00:00",
-          "details": "SynAct meddelar att Sörensens övriga professionella åtaganden har blivit mer tidskrävande. Styrelseordföranden tackar för hans engagemang. Det handlar om avgång från styrelsen, inte om ändrade studieresultat.",
-          "importance": "En förändring i bolagsstyrningen, inte ett rapporterat kliniskt eller finansiellt utfall.",
+          "details": "SynAct uppger att Sten Sörensens professionella åtaganden har ökat och att han därför inte längre anser sig kunna avsätta den tid som styrelseuppdraget kräver. Styrelseordförande Anders Kronborg tackar för hans arbete. Beskedet gäller styrelseplatsen i SynAct.",
+          "importance": "En styrelseförändring påverkar bolagsstyrningen men är inte i sig ett besked om någon ny finansiering eller ändrad klinisk studieplan.",
           "key_facts": [
-            "Sten Sörensen avgår ur styrelsen",
-            "Offentliggjort 16 november kl. 07.00",
-            "Bolagets angivna orsak: andra operativa åtaganden"
+            "Styrelseledamot: Sten Sörensen",
+            "Besked: 16 november 2026 kl. 07.00",
+            "Angiven anledning: ökat fokus på operativa ansvarsområden"
           ],
           "additional_source_url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse.iframe",
           "editorial_verified": true
@@ -56,21 +56,6 @@
           ],
           "additional_source_url": "https://mfn.se/a/synact-pharma/synact-pharmas-vd-har-forvarvat-aktier-i-bolaget.iframe",
           "editorial_verified": true
-        },
-        {
-          "date": "2026-11-16",
-          "title": "Sten Sörensen lämnar Synacts styrelse",
-          "category": "Bolagsledning och styrelse",
-          "summary": "",
-          "source": "Börsvärlden",
-          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBqYnFxZ1pINUZsNlRmYkI0dVZJVmNVTFF0ZVFaRXB3aDd0WFJVNnRPR0tYRzdiN1hJeWJ6UHlaTGZfTGZLcENMOUxONXhOUWg2bmMzVw?oc=5",
-          "verified": false,
-          "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
         }
       ],
       "updates": [],
