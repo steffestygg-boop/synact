@@ -916,14 +916,14 @@ body.weekly-dialog-open{overflow:hidden}
 <section class="weekly-overview" aria-labelledby="weekly-heading">
  <div class="weekly-head">
   <div><p class="section-kicker"><span class="section-number">02</span> Veckosammanfattning</p>
-  <h2 id="weekly-heading">Veckans nyheter</h2>
-  <p class="weekly-intro">Veckans viktigaste händelser, finansieringsläget och förändringar i analyser och milstolpar. Källor och datum visas för varje händelse.</p></div>
+  <h2 id="weekly-heading">Senaste veckan</h2>
+  <p class="weekly-intro">De senaste sju dagarnas viktigaste händelser, finansieringsläget och förändringar i analyser och milstolpar. Källor och datum visas för varje händelse.</p></div>
   <span class="weekly-tag">Dagligen kl. 09 · ny vecka måndag</span>
  </div>
  <p class="weekly-status" id="weekly-status" role="status" aria-live="polite">Läser in veckans sammanställning …</p>
  <div id="weekly-current"><p class="weekly-small">Veckans nyheter hämtas från veckoregistret.</p></div>
  <details class="weekly-history" id="weekly-history" hidden>
-  <summary>Visa tidigare veckor <span id="weekly-history-count"></span></summary>
+  <summary>Tidigare nyheter per månad <span id="weekly-history-count"></span></summary>
   <div id="weekly-history-inside"></div>
  </details>
  <p class="weekly-foot">Automatisk bevakning kan missa händelser. Källgranskade uppgifter skiljs från rubriker som inte har fulltextgranskats. Riskbedömningen är modellens lägesbild vid sammanställningen – inte ett faktabesked från bolaget.</p>
@@ -1872,19 +1872,39 @@ document.addEventListener('keydown',event=>{
  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
  .then(d=>{
   const weeks=(Array.isArray(d.weeks)?d.weeks:[]).slice().sort((a,b)=>String(b.id).localeCompare(String(a.id)));
-  if(!weeks.length)throw new Error('Ingen veckoarkivfil finns ännu');
-  current.replaceChildren(edition(weeks[0]));
-  status.textContent='Senaste uppdatering '+stamp(d.updated_at)+' · '+weeks.length+' veckor i arkivet.';
-  if(weeks.length>1){
-   archive.hidden=false;
-   document.getElementById('weekly-history-count').textContent='('+String(weeks.length-1)+')';
-   history.replaceChildren();
-   for(const w of weeks.slice(1)){
-    const group=make('details','weekly-past');
-    group.append(make('summary','','Vecka '+w.week+' · '+w.year+' · '+dateString(w.start)+'–'+dateString(w.end)+' · '+(w.events||[]).length+' händelser'));
-    group.append(edition(w));history.append(group);
-   }
-  }else archive.hidden=true;
+  if(!weeks.length)throw new Error('Ingen nyhetshistorik finns ännu');
+  const stockholmDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const cutoff=new Date(stockholmDay+'T12:00:00Z');cutoff.setUTCDate(cutoff.getUTCDate()-6);
+  const startDay=cutoff.toISOString().slice(0,10);
+  const all=new Map();
+  for(const w of weeks)for(const e of (w.events||[])){
+   if(!e.date)continue;
+   const key=e.date+'|'+(e.url||e.title);
+   if(!all.has(key))all.set(key,e);
+  }
+  const sorted=[...all.values()].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  const recent=sorted.filter(e=>e.date>=startDay&&e.date<=stockholmDay);
+  const older=sorted.filter(e=>e.date<startDay);
+  const latest=weeks[0];
+  const rolling={...latest,week:null,start:startDay,end:stockholmDay,events:recent,intro:'Nyheter publicerade under de senaste sju kalenderdagarna.'};
+  current.replaceChildren(edition(rolling));
+  const currentHeading=current.querySelector('.weekly-week');
+  if(currentHeading)currentHeading.textContent='Senaste sju dagarna';
+  status.textContent='Senaste kontroll '+stamp(d.updated_at)+' · '+recent.length+' nyheter senaste veckan.';
+  const months=new Map();
+  for(const e of older){const key=e.date.slice(0,7);if(!months.has(key))months.set(key,[]);months.get(key).push(e)}
+  history.replaceChildren();
+  const monthNames=['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+  for(const [key,events] of [...months].sort((a,b)=>b[0].localeCompare(a[0]))){
+   const group=make('details','weekly-past');
+   const [year,month]=key.split('-').map(Number);
+   group.append(make('summary','',monthNames[month-1]+' '+year+' · '+events.length+' händelser'));
+   const content=make('div','weekly-main');
+   items(content,events);
+   group.append(content);history.append(group);
+  }
+  archive.hidden=months.size===0;
+  document.getElementById('weekly-history-count').textContent='('+months.size+' månader)';
  })
  .catch(e=>{
   status.textContent='Kunde inte läsa Veckans nyheter: '+e.message;
