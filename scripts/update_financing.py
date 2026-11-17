@@ -58,6 +58,7 @@ def pct_probability(months: int, months_left: float, inputs: dict, scale: float 
     monthly = (inputs["baseline_monthly_hazard"]
                * inputs["clinical_phase3_multiplier"]
                * inputs["credit_dependency_multiplier"]
+               * inputs.get("partner_dd_multiplier", 1.0)
                * inputs.get("fenja_cap_factor", 1.0)
                * proximity * scale)
     return round(100.0 * (1.0 - math.exp(-months * monthly)), 1)
@@ -286,6 +287,13 @@ def main() -> None:
        "months_to_company_runway_proxy": round(months_left, 1),
        "methodology_version": model["version"],
        "risk": risks,
+       "partner_dd_assessment": {
+           "review_date": model["partner_due_diligence"]["review_date"],
+           "source": model["partner_due_diligence"]["framework_url"],
+           "multiplier": calc.get("partner_dd_multiplier", 1.0),
+           "status": model["partner_due_diligence"]["uncertainty"],
+           "next_decision_gate": model["partner_due_diligence"]["next_decision_gate"],
+       },
        "fenja_assessment": fenja,
        "latest_information": latest_info,
        "latest_items": unique[:14],
