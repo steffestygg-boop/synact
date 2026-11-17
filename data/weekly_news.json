@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:27:02+01:00",
+  "updated_at": "2026-11-17T15:51:15+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,8 +12,8 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:27:02+01:00",
-      "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
+      "generated_at": "2026-11-17T15:51:15+01:00",
+      "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan. Dessutom finns 2 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
           "date": "2026-11-16",
@@ -58,23 +58,34 @@
           "editorial_verified": true
         }
       ],
-      "updates": [],
+      "updates": [
+        {
+          "title": "Emissionsbarometern uppdaterad",
+          "detail": "Jämfört med förra veckoutgåvan: 3 mån 13,1 % (+0,9 procentenheter); 6 mån 29,9 % (+2,0 procentenheter); 12 mån 63,3 % (+2,9 procentenheter).",
+          "kind": "finansiering"
+        },
+        {
+          "title": "Emissionsbarometerns grundantaganden reviderade",
+          "detail": "Källdata eller modellantaganden har ändrats sedan förra veckoutgåvan. Läs modellens metodavsnitt för vad uppdateringen innebär; ändringen ska inte automatiskt tolkas som ett nytt bolagsbesked.",
+          "kind": "modell"
+        }
+      ],
       "omitted_events": 0,
       "finance_snapshot": {
-        "risk_3": 12.2,
-        "risk_6": 27.9,
-        "risk_12": 60.4,
-        "risk_as_of": "2026-11-15",
+        "risk_3": 13.1,
+        "risk_6": 29.9,
+        "risk_12": 63.3,
+        "risk_as_of": "2026-11-17T11:19:40+01:00",
         "emission_status": "",
         "explanation": "Lägesbild vid sammanställningen, inte ett påstående om att siffrorna offentliggjordes denna vecka."
       },
       "snapshot": {
-        "risk_3": 12.2,
-        "risk_6": 27.9,
-        "risk_12": 60.4,
-        "risk_as_of": "2026-11-15",
-        "model_version": "1.1.0-fenja",
-        "model_fingerprint": "4faa50e88bbcb67e",
+        "risk_3": 13.1,
+        "risk_6": 29.9,
+        "risk_12": 63.3,
+        "risk_as_of": "2026-11-17T11:19:40+01:00",
+        "model_version": "1.3.0-partner-dd-process",
+        "model_fingerprint": "55ea479cca4cf8f1",
         "emission_status": "",
         "alerts": {
           "base:quarterly_burn": {
@@ -88,7 +99,7 @@
             "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
           },
           "base:fenja_capacity": {
-            "title": "Fenja: begränsat extra låneutrymme",
+            "title": "Fenja: låneutrymmet begränsas av börsvärdet",
             "level": "förhöjd",
             "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
           },
@@ -98,7 +109,7 @@
             "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
           },
           "base:fenja_cost": {
-            "title": "Fenja: minst 10 % årlig ränta",
+            "title": "Fenja: minst 10 % årlig låneränta",
             "level": "bevakning",
             "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
           }
@@ -714,9 +725,9 @@
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-17",
-        "latest": 13.8,
-        "change_sek": 0.58,
-        "change_percent": 4.39,
+        "latest": 12.8,
+        "change_sek": -0.42,
+        "change_percent": -3.18,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
