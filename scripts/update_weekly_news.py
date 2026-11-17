@@ -9,6 +9,7 @@ No third-party Python packages or API credentials are required.
 from __future__ import annotations
 
 import argparse
+import os
 import datetime as dt
 import email.utils
 import hashlib
@@ -474,14 +475,49 @@ def create_edition(sunday, current, existing, headlines, errors, omitted):
         "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
     }
 
+def weekly_stock_change(start, today, previous=None):
+    """Last Friday close -> latest available close, using Yahoo daily chart.
+    Missing or stale quotes are never represented as fresh changes.
+    """
+    symbols = {"isofol": "ISOFOL.ST", "synact": "SYNACT.ST", "cereno": "CRNO-B.ST"}
+    symbol = symbols[ISSUER]
+    url = "https://query1.finance.yahoo.com/v8/finance/chart/" + symbol + "?range=1mo&interval=1d"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=12) as response:
+            data = json.load(response)["chart"]["result"][0]
+        times = data["timestamp"]
+        closes = data["indicators"]["quote"][0]["close"]
+        observations = [(dt.datetime.fromtimestamp(t, LOCAL_TZ).date(), float(c)) for t,c in zip(times, closes) if c is not None]
+        observations.sort()
+        baseline = next(((d,p) for d,p in reversed(observations) if d < start), None)
+        latest = next(((d,p) for d,p in reversed(observations) if start <= d <= today), None)
+        if not baseline or not latest:
+            raise ValueError("No comparable daily closes for this week")
+        d0,p0 = baseline
+        d1,p1 = latest
+        return {"symbol": symbol, "baseline_date": d0.isoformat(), "baseline": round(p0,4),
+                "latest_date": d1.isoformat(), "latest": round(p1,4),
+                "change_sek": round(p1-p0,4), "change_percent": round((p1/p0-1)*100,2),
+                "source_url": "https://finance.yahoo.com/quote/"+symbol+"/history/",
+                "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."}
+    except Exception as exc:
+        print("Stock quote unavailable:", exc)
+        return previous if previous else {"unavailable": True, "note": "Kursförändring saknas: jämförbara verifierbara dagsstängningar kunde inte hämtas."}
+
+
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--scheduled", action="store_true", help="Run only at 09:00 Europe/Stockholm")
     ap.add_argument("--offline", action="store_true", help="Generate from existing data without RSS")
     ap.add_argument("--backfill", type=int, default=0, help="Number of previous Sundays, including latest")
     ap.add_argument("--date", help="Local date YYYY-MM-DD (for reproducible tests)")
     args = ap.parse_args()
     if ISSUER not in CONFIG:
         raise RuntimeError("Unknown repository slug " + ISSUER)
+    if args.scheduled and dt.datetime.now(LOCAL_TZ).hour != 9:
+        print("Outside Stockholm 09:00, skipping duplicate UTC schedule")
+        return
     local_now = iso_date(args.date) if args.date else dt.datetime.now(LOCAL_TZ).date()
     if not local_now:
         raise ValueError("Invalid --date")
@@ -498,12 +534,22 @@ def main():
         sunday = target - dt.timedelta(days=7*offset)
         begin, end, week_id, week_num = bounds(sunday)
         headlines, omitted, errors = collect_local(begin, end, CONFIG[ISSUER], finance) if args.offline else collect_events(begin, end, CONFIG[ISSUER], finance)
-        known[week_id] = create_edition(sunday, current, list(known.values()), headlines, errors, omitted)
+        edition = create_edition(sunday, current, list(known.values()), headlines, errors, omitted)
+        previous = known.get(week_id, {})
+        # Preserve previously discovered items when refreshing the current week.
+        old_events = previous.get("events", []) if isinstance(previous, dict) else []
+        by_key = {(e.get("date"), e.get("url") or e.get("title")): e for e in old_events}
+        for e in edition["events"]:
+            key = (e.get("date"), e.get("url") or e.get("title"))
+            by_key[key] = e
+        edition["events"] = sorted(by_key.values(), key=lambda e: e.get("date", ""), reverse=True)
+        edition["stock_change"] = weekly_stock_change(begin, local_now, previous.get("stock_change") if isinstance(previous, dict) else None)
+        known[week_id] = edition
     weeks = sorted(known.values(), key=lambda e: e["id"], reverse=True)
     payload = {
         "version": 1, "company": CONFIG[ISSUER]["name"],
         "timezone": "Europe/Stockholm",
-        "schedule": "Söndag kväll 19:30 UTC (20:30 vintertid / 21:30 sommartid), med måndagskontroll",
+        "schedule": "Varje dag kl. 09:00 Europe/Stockholm; ny ISO-vecka från måndag",
         "updated_at": dt.datetime.now(LOCAL_TZ).isoformat(timespec="seconds"),
         "latest_week": weeks[0]["id"] if weeks else None, "weeks": weeks
     }
