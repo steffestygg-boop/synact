@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:26:27+01:00",
+  "updated_at": "2026-11-17T09:27:02+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:26:27+01:00",
+      "generated_at": "2026-11-17T09:27:02+01:00",
       "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
