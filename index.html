@@ -918,7 +918,7 @@ body.weekly-dialog-open{overflow:hidden}
   <div><p class="section-kicker"><span class="section-number">02</span> Veckosammanfattning</p>
   <h2 id="weekly-heading">Veckans nyheter</h2>
   <p class="weekly-intro">Veckans viktigaste händelser, finansieringsläget och förändringar i analyser och milstolpar. Källor och datum visas för varje händelse.</p></div>
-  <span class="weekly-tag">Söndagskväll · veckovis</span>
+  <span class="weekly-tag">Dagligen kl. 09 · ny vecka måndag</span>
  </div>
  <p class="weekly-status" id="weekly-status" role="status" aria-live="polite">Läser in veckans sammanställning …</p>
  <div id="weekly-current"><p class="weekly-small">Veckans nyheter hämtas från veckoregistret.</p></div>
@@ -1815,6 +1815,17 @@ document.addEventListener('keydown',event=>{
   head.append(make('strong','weekly-week','Vecka '+w.week+' · '+w.year),
    make('span','weekly-date',dateString(w.start)+' – '+dateString(w.end)));
   shell.append(head,make('p','weekly-summary',w.intro||'Veckans sammanfattning'));
+  const quote=w.stock_change;
+  if(quote){
+   const price=make('div','weekly-counts');
+   if(!quote.unavailable&&typeof quote.change_percent==='number'){
+    const fmt=v=>Number(v).toLocaleString('sv-SE',{maximumFractionDigits:2});
+    const direction=quote.change_percent>0?'+':'';
+    price.append(make('strong','','Veckans kursförändring: '+direction+fmt(quote.change_percent)+' % ('+(quote.change_sek>0?'+':'')+fmt(quote.change_sek)+' kr)'),make('span','','Från '+fmt(quote.baseline)+' kr ('+quote.baseline_date+') till '+fmt(quote.latest)+' kr ('+quote.latest_date+')'));
+    addLink(price,quote.source_url,'Kurshistorik');
+   }else price.append(make('span','','Veckans kursförändring: uppgift saknas'));
+   shell.append(price);
+  }
   const events=Array.isArray(w.events)?w.events:[];
   const updates=Array.isArray(w.updates)?w.updates:[];
   const counts=make('div','weekly-counts');
