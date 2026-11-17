@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:20:54+01:00",
+  "updated_at": "2026-11-17T09:22:20+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,8 +12,8 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:20:53+01:00",
-      "intro": "En framträdande nyhetsrubrik: Cereno-vd:n avgår som ledamot i Synact Pharma. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
+      "generated_at": "2026-11-17T09:22:20+01:00",
+      "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
           "date": "2026-11-16",
@@ -75,6 +75,48 @@
           "importance": "",
           "key_facts": [],
           "editorial_verified": false
+        },
+        {
+          "date": "2026-11-16",
+          "title": "Sten Sörensen lämnar SynActs styrelse",
+          "category": "Övrigt",
+          "summary": "Sten Sörensen lämnar styrelsen i SynAct för att fokusera på sina operativa åtaganden. Beskedet offentliggjordes den 16 november.",
+          "source": "DI",
+          "url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
+          "details": "Styrelseuppdraget avslutas efter att Sten Sörensen uppgett att hans andra professionella åtaganden kräver mer tid. Det finns inget angivet samband med finansieringsbehov eller kliniska studier.",
+          "importance": "Separera personförändringen från eventuella spekulationer kring SynActs finansiering.",
+          "key_facts": [
+            "Sten Sörensen avgår ur SynActs styrelse",
+            "Skäl: ökat tidsbehov i övriga operativa uppdrag",
+            "Publicerat 16 november 07.00"
+          ],
+          "additional_source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1pbW50M29qMkpsRC1sSTk0Vm5vREdRbkVxcjBJekU0TjNob092em9zTWlkZ1htc3lfakdrTVQ0RkFzc1NBSDlwYU5LN1IyMlVMYm84cFFac2JDWi1PUU5POVEyZ2FVQk12MXV2cFBLaXNtU3BNVVVwbw?oc=5",
+          "editorial_verified": true
+        },
+        {
+          "date": "2026-11-16",
+          "title": "SynActs VD köper 20 313 aktier",
+          "category": "Övrigt",
+          "summary": "VD Jeppe Øvlesen köpte 20 313 SynAct-aktier på Nasdaq Stockholm. Förvärvet offentliggjordes den 16 november kl. 16.25.",
+          "source": "MFN · bolagets pressmeddelande",
+          "url": "https://mfn.se/a/synact-pharma/synact-pharmas-vd-har-forvarvat-aktier-i-bolaget",
+          "verified": false,
+          "origin": "bolagsflöde",
+          "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
+          "published_at": "2026-11-16 \n         16:25:00",
+          "details": "SynAct meddelar att Jeppe Øvlesen har ökat sitt innehav med 20 313 aktier. VD uppger att köpet speglar hans tilltro till bolagets möjligheter och långsiktiga engagemang. Pressmeddelandet anger inte någon köpeskilling.",
+          "importance": "Ett dokumenterat insiderköp kan ses som en förtroendesignal, men säger inget säkert om framtida aktiekurs eller studieresultat.",
+          "key_facts": [
+            "Person: Jeppe Øvlesen, VD",
+            "Köp: 20 313 aktier",
+            "Handelsplats: Nasdaq Stockholm",
+            "Tidpunkt för besked: 16 november 2026 kl. 16.25"
+          ],
+          "additional_source_url": "https://mfn.se/a/synact-pharma/synact-pharmas-vd-har-forvarvat-aktier-i-bolaget.iframe",
+          "editorial_verified": true
         },
         {
           "date": "2026-11-13",
@@ -753,9 +795,9 @@
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-17",
-        "latest": 13.76,
-        "change_sek": 0.54,
-        "change_percent": 4.08,
+        "latest": 13.8,
+        "change_sek": 0.58,
+        "change_percent": 4.39,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
