@@ -351,7 +351,11 @@ def collect_events(start, end, config, finance):
                 e["summary"] = str(a.get("detail", ""))[:330] or e["summary"]
                 events.append(e)
     events = [e for e in events if issuer_matches(e, config)]
-    events.sort(key=lambda e: (int(e.get("verified", False)), event_priority(e), e["date"]), reverse=True)
+    # Prefer original publisher announcements over Google News mirrors on the
+    # same day, even when the publisher feed has no fulltext summary.
+    events.sort(key=lambda e: (int(e.get("verified", False)),
+                               int(e.get("origin") == "bolagsflöde"),
+                               event_priority(e), e["date"]), reverse=True)
     deduped = []
     seen_url = set()
     for e in events:
