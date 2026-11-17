@@ -1818,7 +1818,7 @@ document.addEventListener('keydown',event=>{
   const quote=w.stock_change;
   {
    const price=make('div','weekly-counts');
-   if(!quote.unavailable&&typeof quote.change_percent==='number'){
+   if(quote&&!quote.unavailable&&typeof quote.change_percent==='number'){
     const fmt=v=>Number(v).toLocaleString('sv-SE',{maximumFractionDigits:2});
     const direction=quote.change_percent>0?'+':'';
     price.append(make('strong','','Veckans kursförändring: '+direction+fmt(quote.change_percent)+' % ('+(quote.change_sek>0?'+':'')+fmt(quote.change_sek)+' kr)'),make('span','','Från '+fmt(quote.baseline)+' kr ('+quote.baseline_date+') till '+fmt(quote.latest)+' kr ('+quote.latest_date+')'));
