@@ -128,3 +128,18 @@ Avsnittet **Veckans nyheter** ligger direkt efter **Aktien** och hämtar `data/w
 - Kursrutan visar **källtidsstämpel**, källa och att uppgifterna kan vara **fördröjda**. Siffran är inte en garanterad aktuell realtidskurs eller ett bekräftat lån. Det senast verifierade antalet aktier kommer från SynActs källa och måste justeras vid eventuell konvertering/nyemission.
 - **Viktigt:** Intradagspriset uppdaterar den visuella Fenja-kalkylatorn, men **ändrar inte automatiskt emissionsriskens 3/6/12-månadersprocenter**. De bygger på separat, källgranskad finansieringsmodell och daterad prisreferens i `data/financing_model.json`. En ändring av riskmodellen ska alltid gå att spåra.
 - `tests/test_stock_quote.py` skyddar mot felaktiga kurser/tidsstämplar och kontrollerar att kursfilen används av båda UI-komponenterna. `python scripts/update_stock_quote.py --check-only` fungerar utan nätverk.
+
+
+### Kontrollerad daglig nyhetsbevakning – november 2026
+
+**09.00 svensk tid varje dag:** `.github/workflows/weekly-news.yml` startar två alternativa UTC-tidpunkter (07 eller 08 UTC). Skriptet väljer rätt starttid efter sommar-/vintertid med hjälp av **vilket cron-uttryck som utlöste körningen**, inte vilken minut GitHub Actions råkar starta jobbet. En giltig körning får därför inte falla bort om GitHub blir försenat. Manuell omkörning fungerar oavsett klockslag.
+
+**Eftermiddagskontroll på vardagar:** ytterligare körning kl. 14.00 UTC (15.00 på vintern / 16.00 på sommaren) fångar nyheter som publiceras senare än morgonsökningen.
+
+**Flera oberoende nyhetskällor:** systemet söker direkt i respektive bolags MFN-lista över originalpressmeddelanden, kompletterat med breda Google News-frågor och mer riktade sökningar mot bl.a. BioStock, Börsvärlden samt analysfirmornas publiceringsplattformar. Såväl kliniska nyheter som finansiering, VD-förändringar, styrelsebeslut, aktieköp och analytikeruppdateringar bevakas.
+
+**Veckogränser och dubbletter:** innehållet för innevarande vecka avser måndag till dagens datum. Händelser som hör till en tidigare ISO-vecka flyttas inte av misstag till en ny vecka. Ursprungliga bolagsmeddelanden prioriteras framför sekundära rubriksammanfattningar och dubbla MFN-återgivningar filtreras. Tidigare veckors arkiv förblir läsbart.
+
+**Källkvalitet:** automatiskt insamlade rubriker märks som sådana och får inte påhittade sammanfattningar. Källgranskade fördjupningar med verifierade nyckeltal i `data/weekly_event_details.json` visas som klickbara informationsrutor. GitHub Actions och Google News ger ingen absolut garanti för start exakt 09.00 eller att samtliga nyheter indexeras omedelbart.
+
+**Separata analyser:** kursrutan kan uppdateras ungefär var 20:e minut på handelsdagar. Emissions-/finansieringsrisken samt kliniska milstolpar har andra egna datakällor och uppdateringsrutiner; den dagliga nyhetssökningen innebär inte att varje risk- eller milstolpsantagande automatiskt skrivs om utan underlag.
