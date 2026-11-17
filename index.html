@@ -1816,7 +1816,7 @@ document.addEventListener('keydown',event=>{
    make('span','weekly-date',dateString(w.start)+' – '+dateString(w.end)));
   shell.append(head,make('p','weekly-summary',w.intro||'Veckans sammanfattning'));
   const quote=w.stock_change;
-  if(quote){
+  {
    const price=make('div','weekly-counts');
    if(!quote.unavailable&&typeof quote.change_percent==='number'){
     const fmt=v=>Number(v).toLocaleString('sv-SE',{maximumFractionDigits:2});
