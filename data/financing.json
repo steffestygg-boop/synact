@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17",
+  "updated_at": "2026-11-17T10:42:39+01:00",
   "based_on_report": "2026-09-30",
   "automated_checked": true,
   "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
@@ -32,15 +32,53 @@
       "high": 78.9
     }
   },
+  "partner_dd_assessment": {
+    "review_date": "2026-11-17",
+    "source": "https://visionlifesciences.com/insights/pharma-due-diligence-checklist",
+    "multiplier": 1.08,
+    "status": "Vad en möjlig global partner kräver är inte offentligt; intäkter från nya affärer får inte räknas som tillgänglig kassa.",
+    "next_decision_gate": "Nästa verifierbara effekt- och säkerhetsdata i RA samt regulatoriskt förankrad fas III-plan; separat granskning av dengueekonomi och Hipolabors begränsade territorium."
+  },
+  "fenja_assessment": {
+    "price_sek": 13.22,
+    "price_as_of": "2026-11-13",
+    "shares_outstanding": 56213968,
+    "price_source": "https://stockanalysis.com/quote/sto/SYNACT/history/",
+    "share_count_source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
+    "market_cap_msek": 743.15,
+    "limit_percent_of_market_cap": 10.0,
+    "max_total_draw_msek": 74.31,
+    "previously_drawn_msek": 50.0,
+    "remaining_nominal_msek": 50.0,
+    "additional_draw_msek": 24.31,
+    "additional_access_ratio": 0.4863,
+    "price_for_full_draw_sek": 17.79,
+    "fenja_cap_factor": 1.102741,
+    "existing_credit_factor": 1.05,
+    "effective_credit_factor": 1.157878,
+    "annual_minimum_drawn_interest_msek": 5.0,
+    "annual_minimum_undrawn_fee_msek": 2.0,
+    "maturity_date": "2027-12-31",
+    "second_draw_deadline": "2026-12-31",
+    "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
+    "note": "Beräknat från börskursen som gällde vid snapshot-datum. Låneförfall, ränta och Q3-kassa får ingen extra multiplikator utöver tidsfaktorn och redan inlagd kreditrisk."
+  },
   "latest_information": [
-    "Q3 2026: 42,4 Mkr i kassa 30 september och −18,7 Mkr i operativt kassaflöde under Q3; bolagets finansieringsprognos in i Q4 2027.",
-    "Fenja 20 juli 2026: konvertibelt lån upp till 100 Mkr, varav 50 Mkr dragna. Ett extra uttag under Q4 2026 är begränsat till totalt 10 % av börsvärdet.",
-    "Vid stängningskurs 13,22 kr den 13 november och 56 213 968 aktier: högst cirka 24,3 Mkr extra, inte 50 Mkr. Den daterade referenskursen behöver uppdateras vid nya marknads- eller bolagsuppgifter.",
-    "Fenjas lägsta årsränta är 10 % på draget belopp, cirka 5 Mkr/år på 50 Mkr; lånet förfaller 31 december 2027. Ränta och förfall ger separata bevakningspunkter men INTE separata riskmultiplikatorer.",
-    "En separat Fenja-kapacitetsfaktor på ×1,103 tillkommer nu utöver den gamla kreditfaktorn ×1,05. Den vanliga tidsfaktorn och fas III-faktorn kvarstår.",
-    "Partner-DD: subjektivt scenariopåslag ×1,08 för risken att partner inväntar ytterligare data. Varken ett uteblivet avtal eller framtida upfront har bekräftats."
+    "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
+    "Fenja: upp till 100 miljoner kr, 50 miljoner kr initialt dragna. Eventuellt nytt uttag under Q4 2026 är villkorat av bland annat börsvärde.",
+    "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka.",
+    "Fenjas extra kreditutrymme kan vara lägre än 50 Mkr på grund av bolagets 10 %-tak. Beräknad tillgänglighet vid daterad stängningskurs 2026-11-13: 24.3 Mkr. Räntekostnad och förfall redovisas men dubbelräknas inte i sannolikhetsmodellen."
   ],
   "latest_items": [
+    {
+      "title": "Cereno Scientific: More runway, more opportunity - Edison - Börsvärlden",
+      "date": "2026-11-16",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObGpPR3E3TmYtbzZReFh2c1Q3WUgyaXJlakF0cTJKa0h6bTNBcm1KaDB2WlpBTTlySUxLWmtST003bEZwVmMyUE9CcmdBUVdreUl1WmxLUFVrZHdCU1hlWFVGWlpkUEpQQm8tSGc5cnJ4Y1VtLUdyaEJncmZ3UE5xU21DNFNGaWZ0dGZnek5aaktqY2lt?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "övrigt"
+    },
     {
       "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten - SynAct Pharma",
       "date": "2026-11-13",
@@ -69,13 +107,13 @@
       "signal": "emission"
     },
     {
-      "title": "Bioinvents nyemission: Tre flaggor efter kursslakten - Affärsvärlden",
-      "date": "2026-11-11",
-      "source": "Affärsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSzAyeVp0eDRDWW1Pa3c1ZzNHOEdBUl9Ram5tdklqY3NndndlV0JRS0VKNWpwVlY4R3FnRW9TOWdlUXh1dEpudW5iLWowSncyeXVJMm5kVGFKTGY1Q0N0TFJZbEl0TmFrMktEdHhndGllLWNHNVJtRWRYRHoxWlRiMlRWSlNiR1lFYXI3ZjJuVUswQQ?oc=5",
+      "title": "Lannebo Hälsa och Ny Teknik ökade 7,2 procent i oktober - Bonesupport och Cellavision bland vinnarna - Börsvärlden",
+      "date": "2026-11-12",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPM2t5VTFURUUweEtuNjhvSU44ZFp5emRlTVhVRnFLNkpmeDk2b3BBMG9pYlJzcElSNWE4b3hOb0pXaXo4a1EyYjVGMWwtWkhDWkpaQnEwT05vdGtzejVPcXdhNWdVcldJbndwa0NjRDhpVl9RSVp3M0pfbDEyeFJZV1NlV0tOMEQyQWEybk45VTJ1dGthZjFmY051ZndPN3BEN1dNblhSc3l3TWlsLW9VeWtRcm9yajBROVBaQmE0NmRtX01kRk85QWRR?oc=5",
       "category": "jämförelsebolag",
       "official": false,
-      "signal": "emission"
+      "signal": "övrigt"
     },
     {
       "title": "Bioinvent rasar vidare – teckningskurs 1 krona - Affärsvärlden",
@@ -157,20 +195,11 @@
       "category": "jämförelsebolag",
       "official": false,
       "signal": "övrigt"
-    },
-    {
-      "title": "Bioinvent gör emission på 430 Mkr - DI",
-      "date": "2026-10-28",
-      "source": "DI",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1IcENJREpRdjA1ZGFZemp2dEoxaG1HR0FjTkk3NERkX3ZzaUVnaG44N180X2ZOMmZhTk00ZV9GUDRCNGhBRGRBSHptcHY1bEJrbnNPSk9ZTDVXM2RUY2NqWFZ0SloxSm41?oc=5",
-      "category": "jämförelsebolag",
-      "official": false,
-      "signal": "övrigt"
     }
   ],
   "review_needed": [],
   "emission_detected": [],
-  "review_warning": "Risktalen uppdaterades den 15 november med källkontrollerade Fenja-villkor och daterad aktiekurs den 13 november. Endast ett nytt påslag för inskränkt kreditutrymme har lagts till; låneförfall, ränta och bolagets finansieringsprognos dubbelräknas inte. Veckokörningar behöver uppdatera kursreferensen först när den har verifierats, och RSS-bevakning kan missa nyheter. Den 17 november har en subjektiv DD-faktor lagts till; inga nya konfidentiella partneruppgifter har verifierats.",
+  "review_warning": "Detta är en regelstyrd bedömningsmodell, inte ett objektivt förutsagt utfall. Tidsfaktorn uppdateras automatiskt. RSS och officiell presslista bevakas men rubriker kan varken ersätta rapportläsning eller garantera att alla nyheter hittas. Nya villkor, kassavärden och eventuella emissioner måste verifieras mot fullständiga originalbesked innan prognosen omkalibreras.",
   "sources": {
     "company_report": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
     "facility": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
@@ -192,9 +221,9 @@
       "id": "base:runway",
       "level": "bevakning",
       "title": "Finansieringshorisonten närmar sig",
-      "detail": "Omkring 10.5 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
+      "detail": "Omkring 10.4 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
-      "date": "2026-11-15",
+      "date": "2026-11-17",
       "status": "Beräknad från verifierad bolagsprognos",
       "next_step": "Kontrollera ny likviditetsprognos i kommande kvartalsrapport.",
       "category": "runway"
@@ -202,69 +231,37 @@
     {
       "id": "base:fenja_capacity",
       "level": "förhöjd",
-      "title": "Fenja: begränsat extra låneutrymme",
-      "detail": "Vid kursen 13,22 kr den 13 november och 56 213 968 aktier kan 10 %-taket begränsa det möjliga extra uttaget till cirka 24,3 Mkr av nominellt 50 Mkr. Daterad beräkning, inte livekurs eller bekräftad dragning. Denna begränsning ingår nu i riskprocenten.",
+      "title": "Fenja: låneutrymmet begränsas av börsvärdet",
+      "detail": "Den offentliga faciliteten är 100 Mkr varav 50 Mkr redan dragits. 10 procent av börsvärdet (74.3 Mkr enligt kurs 13.22 kr den 2026-11-13) begränsar den återstående möjliga dragningen till cirka 24.3 Mkr av nominellt 50 Mkr. Kursen och aktieantalet är en daterad referensbild, INTE aktuell livekurs eller bekräftat lån. En särskild kapacitetsfaktor ingår redan i emissionsrisken.",
       "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
       "date": "2026-11-13",
-      "status": "Källkontrollerat avtalsvillkor + daterad börskurs",
-      "next_step": "Bevaka aktiekurs, antal aktier och eventuellt nytt uttag före 31 december 2026.",
+      "status": "Avtalsvillkor verifierade; räkneexempel med daterad börskurs",
+      "next_step": "Kontrollera aktuell aktiekurs och aktieantal, beslut om nytt uttag och om bolaget meddelat ändrade villkor före Q4 2026:s slut.",
       "category": "credit_capacity"
     },
     {
       "id": "base:fenja_maturity",
       "level": "förhöjd",
       "title": "Fenja: förfall 31 december 2027",
-      "detail": "Den initiala konvertibla skulden på nominellt 50 Mkr förfaller 31 december 2027 om den inte konverteras, löses eller omförhandlas. Detta sammanfaller med den rapporterade finansieringshorisonten in i Q4 2027. Förfallet är redan en del av tidsrisken och får inte ytterligare separat multiplikator.",
+      "detail": "Konvertibelt lån om nominellt 50 Mkr förfaller 31 december 2027, om det inte dessförinnan konverterats, återbetalats eller omförhandlats. Detta ligger nära bolagets finansieringsprognos in i Q4 2027. Vid låg aktiekurs relativt konverteringskursen 24,60 kr kan kontant återbetalning eller refinansiering bli relevant. Förfallsrisken är redan representerad genom tidsnärheten i modellen och höjer inte procentsatsen igen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
       "date": "2026-07-20",
-      "status": "Verifierat avtalsvillkor, framtida refinansieringsrisk",
-      "next_step": "Följ konverteringar, partnerskap, förfall och refinansiering.",
+      "status": "Bekräftat låneförfall – framtida betalningsbehov osäkert",
+      "next_step": "Bevaka partneravtal, refinansiering, konverteringar och eventuella förtida återbetalningsvillkor.",
       "category": "debt_maturity"
     },
     {
       "id": "base:fenja_cost",
       "level": "bevakning",
-      "title": "Fenja: minst 10 % årlig ränta",
-      "detail": "Minsta räntan är STIBOR 3M med golv 2 % plus 8 procentenheter. På 50 Mkr motsvarar det cirka 5 Mkr per år i årstakt. Minst 4 % tas dessutom på outnyttjad kredit till 31 december 2026. Kostnaden höjer inte emissionsprocenten en andra gång.",
+      "title": "Fenja: minst 10 % årlig låneränta",
+      "detail": "Minimiräntan är 10 procent per år (STIBOR 3M, lägst 2 procent + 8 procentenheter). På 50 Mkr motsvarar det minst 5.0 Mkr per år i årstakt. Outnyttjad facilitet har dessutom minst 4 procent årlig avgift/ränta till 31 december 2026. Detta är ett räkneexempel, inte en verifierad framtida betalning och ger ingen andra riskmultiplikator.",
       "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
       "date": "2026-07-20",
-      "status": "Verifierade avtalsvillkor, beräknad årstakt",
-      "next_step": "Följ nästa rapport, eventuell ny dragning och faktiskt betald ränta.",
+      "status": "Verifierade minimivillkor – uppskattad årstakt",
+      "next_step": "Följ faktisk ränta, kassaflöde och eventuella nya krediter i kommande finansrapporter.",
       "category": "debt_cost"
     }
   ],
-  "alerts_checked_at": "2026-11-15T16:19:25+01:00",
-  "alerts_source_status": "Nya Fenja-avtalsrisker källkontrollerade 15 nov; senaste RSS-kontroll enligt tidigare tidsstämpel",
-  "fenja_assessment": {
-    "price_sek": 13.22,
-    "price_as_of": "2026-11-13",
-    "shares_outstanding": 56213968,
-    "price_source": "https://stockanalysis.com/quote/sto/SYNACT/history/",
-    "share_count_source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
-    "market_cap_msek": 743.15,
-    "limit_percent_of_market_cap": 10,
-    "max_total_draw_msek": 74.31,
-    "previously_drawn_msek": 50,
-    "remaining_nominal_msek": 50,
-    "additional_draw_msek": 24.31,
-    "additional_access_ratio": 0.4863,
-    "price_for_full_draw_sek": 17.79,
-    "fenja_cap_factor": 1.102741,
-    "existing_credit_factor": 1.05,
-    "effective_credit_factor": 1.157878,
-    "annual_minimum_drawn_interest_msek": 5,
-    "annual_minimum_undrawn_fee_msek": 2,
-    "maturity_date": "2027-12-31",
-    "second_draw_deadline": "2026-12-31",
-    "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
-    "note": "Referenskurs 13 november 2026, inte livekurs. Ränta och låneförfall ingår som varningssignaler och får ingen ytterligare multiplikator utöver befintlig kredit- och tidsfaktor."
-  },
-  "partner_dd_assessment": {
-    "review_date": "2026-11-17",
-    "source": "https://visionlifesciences.com/insights/pharma-due-diligence-checklist",
-    "multiplier": 1.08,
-    "status": "Vad en möjlig global partner kräver är inte offentligt; intäkter från nya affärer får inte räknas som tillgänglig kassa.",
-    "next_decision_gate": "Nästa verifierbara effekt- och säkerhetsdata i RA samt regulatoriskt förankrad fas III-plan; separat granskning av dengueekonomi och Hipolabors begränsade territorium."
-  },
-  "risk_revision_type": "Manuell metoduuppdatering: partner-DD-timingfaktor, utan ny kassauppgift eller uppdaterad RSS-bevakning."
+  "alerts_checked_at": "2026-11-17T10:42:39+01:00",
+  "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
