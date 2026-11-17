@@ -923,8 +923,8 @@ body.weekly-dialog-open{overflow:hidden}
 <div class="market-board">
 <div class="market-quote"><div class="market-quote-heading"><span>Kurs · SynAct Pharma · potentiellt fördröjd</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener noreferrer">Jämför på TradingView ↗</a></div>
 <div class="synact-quote-tile" aria-label="Samma tidsstämplade börskurs som används av Fenja-kalkylatorn">
- <strong id="synact-shared-price">13,22 <small>kr</small></strong>
- <div id="synact-quote-status" class="synact-quote-status">Referenskurs 13 november 2026. Läser in senaste tillgängliga kurs …</div>
+ <strong id="synact-shared-price">— <small>kr</small></strong>
+ <div id="synact-quote-status" class="synact-quote-status">Hämtar senast publicerade börskurs …</div>
  <div class="synact-quote-shared">Samma kurs används automatiskt som startvärde i Fenja-reglaget.</div>
 </div></div>
 <div class="market-metric"><span class="metric-label">Antal aktier</span><strong>56 213 968</strong><a href="https://www.synactpharma.com/sv/investerare/aktiekapital/" target="_blank" rel="noopener">Bolagets aktiekapital ↗</a></div>
@@ -1550,6 +1550,10 @@ document.addEventListener('keydown',event=>{
      let quotePrice=referPrice;
      let quoteStamp=snapshot.as_of_date+'T12:00:00Z';
      let lastQuoteKey='';
+     let lastQuoteTimestamp=0;
+     let showingSavedQuote=false;
+     let hasVerifiedQuote=false;
+     const cacheKey='mina-aktier-SYNACT.ST-last-verified-quote';
      let manualScenario=false;
      const updateTextValue=(node,value,unit,tag)=>{
        node.replaceChildren(document.createTextNode(value+' '));
@@ -1572,7 +1576,7 @@ document.addEventListener('keydown',event=>{
        progressFill.style.width=share+'%';
        progress.setAttribute('aria-valuenow',String(Math.round(share*10)/10));
        el('fenja-scenario-output').textContent=fmt(price,2)+' kr';
-       badge.textContent=manualScenario?'Eget kursscenario':'Senast hämtad kurs';
+       badge.textContent=manualScenario?'Eget kursscenario':(hasVerifiedQuote?'Senast hämtad kurs':'Historisk referenskurs');
        const totalMarketCap=shares*price/1e6;
        el('fenja-scenario-summary').textContent=
          'Vid '+fmt(price,2)+' kr blir börsvärdet '+fmt(totalMarketCap)+' Mkr och 10 %-taket '+fmt(totalMarketCap*pct)+' Mkr. '+
@@ -1588,7 +1592,7 @@ document.addEventListener('keydown',event=>{
        slider.value=String(p);
        manualScenario=false;
        resyncButton.disabled=true;
-       resyncHint.textContent='Reglaget följer senast hämtade kurs ('+fmt(p,2)+' kr).';
+       resyncHint.textContent=(hasVerifiedQuote?'Reglaget följer senast hämtade kurs (':'Reglaget visar historisk referenskurs (')+fmt(p,2)+' kr).';
        calculateSelected();
      }
      function updateStockQuote(price,quoteTime,source){
@@ -1612,9 +1616,26 @@ document.addEventListener('keydown',event=>{
      resyncButton.addEventListener('click',()=>{
        setSliderPrice(quotePrice);
      });
-     // Explicit dated fallback until the stock quote feed is available.
+     // Financing may use an explicitly dated reference price, but the stock tile must
+     // never present that reference as a newly loaded market quote.
      setSliderPrice(referPrice);
-     updateStockQuote(referPrice,quoteStamp,'historisk referenskurs');
+     latestStatus.textContent='Historisk referenskurs används i Fenja-kalkylatorn tills börskurs har verifierats.';
+     try{
+       const saved=JSON.parse(localStorage.getItem(cacheKey)||'null');
+       const savedTime=Date.parse(saved?.quote_time||'');
+       const savedPrice=Number(saved?.price);
+       if(saved?.symbol==='SYNACT.ST'&&saved.currency==='SEK'&&
+          Number.isFinite(savedPrice)&&savedPrice>0&&Number.isFinite(savedTime)&&
+          savedTime<=Date.now()+600000&&savedTime>Date.now()-10*86400000){
+         lastQuoteTimestamp=savedTime;
+         lastQuoteKey=saved.quote_time+'|'+savedPrice;
+         showingSavedQuote=true;
+         hasVerifiedQuote=true;
+         quotePrice=savedPrice;quoteStamp=saved.quote_time;
+         updateStockQuote(savedPrice,saved.quote_time,(saved.source||'Yahoo Finance')+' (sparad)');
+         setSliderPrice(savedPrice);
+       }
+     }catch(_){ /* A blocked localStorage must not block quote updates. */ }
      async function fetchSynactQuote(){
        try{
          const res=await fetch('./data/stock_quote.json?no_cache='+Date.now(),{cache:'no-store'});
@@ -1628,17 +1649,24 @@ document.addEventListener('keydown',event=>{
          const stamp=Date.parse(quote.quote_time);
          if(stamp>Date.now()+10*60*1000)throw new Error('Kursen har felaktig framtida tidsstämpel');
          if(stamp<Date.parse(snapshot.as_of_date+'T00:00:00Z'))throw new Error('Äldre än referenskursen');
+         // Stale deployments and out-of-order fetches must not reverse the price.
+         if(stamp<lastQuoteTimestamp)return;
          const price=Number(quote.price);
          const key=stamp+'|'+price;
-         if(key!==lastQuoteKey){
+         if(key!==lastQuoteKey||showingSavedQuote){
+           lastQuoteTimestamp=stamp;
            lastQuoteKey=key;
+           showingSavedQuote=false;
+           hasVerifiedQuote=true;
            quotePrice=price;quoteStamp=quote.quote_time;
            updateStockQuote(price,quote.quote_time,quote.source||'Yahoo Finance');
            // A new verified quote recenters the slider, including after user scenarios.
            setSliderPrice(price);
+           try{localStorage.setItem(cacheKey,JSON.stringify(quote));}catch(_){ }
          }
        }catch(error){
-         latestStatus.textContent='Senaste publicerade kurs används. Automatisk kurshämtning kunde inte bekräftas ('+error.message+').';
+         if(!lastQuoteTimestamp)stockStatus.textContent='Kurs kan inte visas – hämtningen misslyckades ('+error.message+').';
+         latestStatus.textContent=(lastQuoteTimestamp?'Senast verifierad kurs används.':'Historisk referenskurs används som scenario.')+' Automatisk kurshämtning kunde inte bekräftas ('+error.message+').';
        }
      }
      fetchSynactQuote();
