@@ -98,15 +98,6 @@
       "signal": "emission"
     },
     {
-      "title": "Lannebo Hälsa och Ny Teknik ökade 7,2 procent i oktober - Bonesupport och Cellavision bland vinnarna - Börsvärlden",
-      "date": "2026-11-12",
-      "source": "Börsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPM2t5VTFURUUweEtuNjhvSU44ZFp5emRlTVhVRnFLNkpmeDk2b3BBMG9pYlJzcElSNWE4b3hOb0pXaXo4a1EyYjVGMWwtWkhDWkpaQnEwT05vdGtzejVPcXdhNWdVcldJbndwa0NjRDhpVl9RSVp3M0pfbDEyeFJZV1NlV0tOMEQyQWEybk45VTJ1dGthZjFmY051ZndPN3BEN1dNblhSc3l3TWlsLW9VeWtRcm9yajBROVBaQmE0NmRtX01kRk85QWRR?oc=5",
-      "category": "jämförelsebolag",
-      "official": false,
-      "signal": "övrigt"
-    },
-    {
       "title": "Bioinvent rasar vidare – teckningskurs 1 krona - Affärsvärlden",
       "date": "2026-11-06",
       "source": "Affärsvärlden",
@@ -195,6 +186,15 @@
       "category": "jämförelsebolag",
       "official": false,
       "signal": "övrigt"
+    },
+    {
+      "title": "SynAct Pharma ingår det första kommersiella partnerskapsavtalet för resomelagon med ledande brasilianskt läkemedelsbolag - SynAct Pharma",
+      "date": "2026-10-27",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQVlZCMlpBSWVqMnQ5cjlPOTNVZ2F2cGVlWEVGWGtXYkp1TVhVejF2RUZmbVd6aFhScVdSVjF4OEZlaWY2RVJBS0JZUDZXdldhekt1dUZ1bFBGdVFUb0t3dDFHTGdobi1ZbjRyTTdhSkk1VVlOUWxqM0NaWmFkRHRPaU9UVmIzcVJRQ1VWb29WNGZZLWJXclpvaDB2ZHhqTGFYbGl5cnFNOXFDVlpPSUZWYXY0OU9mNl9MTWpwZ2lxbnprdWthR1U2WVFRVnh4RUNtampGcHJXZmpNRTFaeVNoNlBQa2ZfZXNW?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "övrigt"
     }
   ],
   "review_needed": [],
@@ -262,6 +262,6 @@
       "category": "debt_cost"
     }
   ],
-  "alerts_checked_at": "2026-11-17T11:19:40+01:00",
+  "alerts_checked_at": "2026-11-17T12:25:27+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
