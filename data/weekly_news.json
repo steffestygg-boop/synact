@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:25:07+01:00",
+  "updated_at": "2026-11-17T09:25:24+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,26 +12,26 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:25:07+01:00",
+      "generated_at": "2026-11-17T09:25:24+01:00",
       "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
           "date": "2026-11-16",
           "title": "Sten Sörensen lämnar SynActs styrelse",
           "category": "Bolagsledning och styrelse",
-          "summary": "Sten Sörensen lämnar styrelsen i SynAct för att fokusera på sina operativa åtaganden. Beskedet offentliggjordes den 16 november.",
+          "summary": "Sten Sörensen har valt att lämna SynActs styrelse för att koncentrera sig på sina operativa ansvarsområden. Beskedet offentliggjordes den 16 november.",
           "source": "MFN · bolagets pressmeddelande",
           "url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse",
           "verified": false,
           "origin": "bolagsflöde",
           "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
           "published_at": "2026-11-16 \n         07:00:00",
-          "details": "Styrelseuppdraget avslutas efter att Sten Sörensen uppgett att hans andra professionella åtaganden kräver mer tid. Det finns inget angivet samband med finansieringsbehov eller kliniska studier.",
-          "importance": "Separera personförändringen från eventuella spekulationer kring SynActs finansiering.",
+          "details": "SynAct meddelar att Sörensens övriga professionella åtaganden har blivit mer tidskrävande. Styrelseordföranden tackar för hans engagemang. Det handlar om avgång från styrelsen, inte om ändrade studieresultat.",
+          "importance": "En förändring i bolagsstyrningen, inte ett rapporterat kliniskt eller finansiellt utfall.",
           "key_facts": [
-            "Sten Sörensen avgår ur SynActs styrelse",
-            "Skäl: ökat tidsbehov i övriga operativa uppdrag",
-            "Publicerat 16 november 07.00"
+            "Sten Sörensen avgår ur styrelsen",
+            "Offentliggjort 16 november kl. 07.00",
+            "Bolagets angivna orsak: andra operativa åtaganden"
           ],
           "additional_source_url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse.iframe",
           "editorial_verified": true
@@ -56,21 +56,6 @@
           ],
           "additional_source_url": "https://mfn.se/a/synact-pharma/synact-pharmas-vd-har-forvarvat-aktier-i-bolaget.iframe",
           "editorial_verified": true
-        },
-        {
-          "date": "2026-11-16",
-          "title": "Sten Sörensen lämnar SynAct Pharmas styrelse",
-          "category": "Bolagsledning och styrelse",
-          "summary": "",
-          "source": "Biostock",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1lRkM1WEdYZFRuRmpyT3g0a1lQZkw4QUJ3R3JpZkpUYVZSODV3enBjWUhYZzR6UFRxNXY0cnBGYUxFTjl3NlpGSGduQnREaDR3eVc0a3VQWkk2aU9jWk14a3RCMzhSVzNwYUx1RUdRazhRaHI3S3ZNeTNHSVlYdw?oc=5",
-          "verified": false,
-          "origin": "rubrik",
-          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
         },
         {
           "date": "2026-11-16",
@@ -737,7 +722,9 @@
         "daterade milstolpar",
         "finansierings- och riskdata"
       ],
-      "source_errors": [],
+      "source_errors": [
+        "RSS-sökning kunde inte läsas: HTTP Error 429: Too Many Requests"
+      ],
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",
