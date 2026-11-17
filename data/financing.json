@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15",
+  "updated_at": "2026-11-17",
   "based_on_report": "2026-09-30",
   "automated_checked": true,
   "coverage_status": "källor_kontrollerade_inga_nya_finansfakta",
@@ -12,24 +12,24 @@
     "officiell presslista"
   ],
   "failed_sources": [],
-  "days_since_report": 46,
-  "months_to_company_runway_proxy": 10.5,
-  "methodology_version": "1.1.0-fenja",
+  "days_since_report": 48,
+  "months_to_company_runway_proxy": 10.4,
+  "methodology_version": "1.2.0-partner-dd",
   "risk": {
     "months_3": {
-      "percent": 12.2,
-      "low": 7.7,
-      "high": 18.2
+      "percent": 13.1,
+      "low": 8.4,
+      "high": 19.6
     },
     "months_6": {
-      "percent": 27.9,
-      "low": 18.4,
-      "high": 39.8
+      "percent": 29.9,
+      "low": 19.7,
+      "high": 42.3
     },
     "months_12": {
-      "percent": 60.4,
-      "low": 43.6,
-      "high": 76.2
+      "percent": 63.3,
+      "low": 46.3,
+      "high": 78.9
     }
   },
   "latest_information": [
@@ -37,7 +37,8 @@
     "Fenja 20 juli 2026: konvertibelt lån upp till 100 Mkr, varav 50 Mkr dragna. Ett extra uttag under Q4 2026 är begränsat till totalt 10 % av börsvärdet.",
     "Vid stängningskurs 13,22 kr den 13 november och 56 213 968 aktier: högst cirka 24,3 Mkr extra, inte 50 Mkr. Den daterade referenskursen behöver uppdateras vid nya marknads- eller bolagsuppgifter.",
     "Fenjas lägsta årsränta är 10 % på draget belopp, cirka 5 Mkr/år på 50 Mkr; lånet förfaller 31 december 2027. Ränta och förfall ger separata bevakningspunkter men INTE separata riskmultiplikatorer.",
-    "En separat Fenja-kapacitetsfaktor på ×1,103 tillkommer nu utöver den gamla kreditfaktorn ×1,05. Den vanliga tidsfaktorn och fas III-faktorn kvarstår."
+    "En separat Fenja-kapacitetsfaktor på ×1,103 tillkommer nu utöver den gamla kreditfaktorn ×1,05. Den vanliga tidsfaktorn och fas III-faktorn kvarstår.",
+    "Partner-DD: subjektivt scenariopåslag ×1,08 för risken att partner inväntar ytterligare data. Varken ett uteblivet avtal eller framtida upfront har bekräftats."
   ],
   "latest_items": [
     {
@@ -169,7 +170,7 @@
   ],
   "review_needed": [],
   "emission_detected": [],
-  "review_warning": "Risktalen uppdaterades den 15 november med källkontrollerade Fenja-villkor och daterad aktiekurs den 13 november. Endast ett nytt påslag för inskränkt kreditutrymme har lagts till; låneförfall, ränta och bolagets finansieringsprognos dubbelräknas inte. Veckokörningar behöver uppdatera kursreferensen först när den har verifierats, och RSS-bevakning kan missa nyheter.",
+  "review_warning": "Risktalen uppdaterades den 15 november med källkontrollerade Fenja-villkor och daterad aktiekurs den 13 november. Endast ett nytt påslag för inskränkt kreditutrymme har lagts till; låneförfall, ränta och bolagets finansieringsprognos dubbelräknas inte. Veckokörningar behöver uppdatera kursreferensen först när den har verifierats, och RSS-bevakning kan missa nyheter. Den 17 november har en subjektiv DD-faktor lagts till; inga nya konfidentiella partneruppgifter har verifierats.",
   "sources": {
     "company_report": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
     "facility": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
@@ -257,5 +258,13 @@
     "second_draw_deadline": "2026-12-31",
     "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
     "note": "Referenskurs 13 november 2026, inte livekurs. Ränta och låneförfall ingår som varningssignaler och får ingen ytterligare multiplikator utöver befintlig kredit- och tidsfaktor."
-  }
+  },
+  "partner_dd_assessment": {
+    "review_date": "2026-11-17",
+    "source": "https://visionlifesciences.com/insights/pharma-due-diligence-checklist",
+    "multiplier": 1.08,
+    "status": "Vad en möjlig global partner kräver är inte offentligt; intäkter från nya affärer får inte räknas som tillgänglig kassa.",
+    "next_decision_gate": "Nästa verifierbara effekt- och säkerhetsdata i RA samt regulatoriskt förankrad fas III-plan; separat granskning av dengueekonomi och Hipolabors begränsade territorium."
+  },
+  "risk_revision_type": "Manuell metoduuppdatering: partner-DD-timingfaktor, utan ny kassauppgift eller uppdaterad RSS-bevakning."
 }
