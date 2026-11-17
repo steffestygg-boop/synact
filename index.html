@@ -1956,6 +1956,15 @@ document.addEventListener('keydown',event=>{
   const block=(title,body)=>{const b=add("div","dd-block","");add("strong","",title,b);add("p","",body,b)};
   block("Vad behöver en möjlig köpare härnäst?",dd.next_decision_gate);
   block("Koppling till kassalivslängd och emission",dd.time_to_cash_assessment);
+  const sell=dd.sell_side_process;
+  if(sell&&Array.isArray(sell.items)&&sell.items.length===5){
+    block("Affärsprocess och förhandlingsstyrka",sell.summary);
+    const process=add("div","dd-block","");add("strong","","Fem M&A-/licensprocessfrågor",process);
+    const processList=add("ul","dd-scenarios","",process);
+    sell.items.forEach(p=>add("li","",p.title+": "+p.principle+" | "+p.company_assessment,processList));
+    block("Påverkan på emissions- och konkursrisk",sell.risk_model_application);
+    add("p","dd-caveat",sell.numeric_adjustment_policy+" "+sell.uncertainty_note);
+  }
   const factor=model.calculation&&Number(model.calculation.partner_dd_multiplier);
   if(Number.isFinite(factor)&&factor>0)block("Påverkan på emissionsbarometern","Riskfaktor ×"+factor.toLocaleString("sv-SE",{minimumFractionDigits:2,maximumFractionDigits:2})+" ingår i det publicerade scenariotalet. Detta är en subjektiv försiktighetsfaktor för möjlig affärsfördröjning, inte verifierad partnerstatistik.");
   if(typeof PARTNER_DD_STRESS_POINTS!=="undefined" && Number.isFinite(Number(dd.post_financing_stress_points))){
