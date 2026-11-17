@@ -22,6 +22,17 @@ class TestPartnerDueDiligence(unittest.TestCase):
         self.assertTrue(dd["next_decision_gate"])
         self.assertTrue(dd["time_to_cash_assessment"])
 
+    def test_sell_side_process_covers_five_principles_without_double_counting(self):
+        sell = MODEL["partner_due_diligence"]["sell_side_process"]
+        self.assertEqual(len(sell["items"]), 5)
+        self.assertEqual({p["key"] for p in sell["items"]}, {
+            "buyer_competition", "milestone_timing", "certainty_vs_economics",
+            "buyer_oriented_cim", "process_confidentiality"})
+        self.assertTrue(all(p["principle"] and p["company_assessment"] for p in sell["items"]))
+        self.assertIn("dubbelräknas inte", sell["numeric_adjustment_policy"])
+        self.assertIn("sell_side_process", HTML)
+        self.assertIn("Fem M&A-/licensprocessfrågor", HTML)
+
     def test_dd_panel_is_visible_and_fetched_from_curated_model(self):
         self.assertIn('id="dd-risk-module"', HTML)
         self.assertIn('id="dd-risk-detail"', HTML)
