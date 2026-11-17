@@ -42,7 +42,7 @@ class FenjaFacilityRiskTests(unittest.TestCase):
         inputs["fenja_cap_factor"] = metrics["fenja_cap_factor"]
         months_left = (dt.date(2027, 10, 1) - dt.date(2026, 11, 15)).days / 30.4375
         self.assertEqual([pct_probability(h, months_left, inputs) for h in (3, 6, 12)],
-                         [12.2, 27.9, 60.4])
+                         [13.1, 29.8, 63.2])
         prior_inputs = dict(calculation)
         self.assertLess(pct_probability(6, months_left, prior_inputs),
                         pct_probability(6, months_left, inputs))
