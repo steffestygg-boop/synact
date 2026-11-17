@@ -2,18 +2,18 @@
   "version": 1,
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
-  "schedule": "Varje dag kl. 09:00 Europe/Stockholm; ny ISO-vecka från måndag",
-  "updated_at": "2026-11-17T09:20:10+01:00",
+  "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
+  "updated_at": "2026-11-17T09:20:29+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
       "id": "2026-W47",
       "week": 47,
       "year": 2026,
-      "start": "2026-11-11",
+      "start": "2026-11-16",
       "end": "2026-11-17",
-      "generated_at": "2026-11-17T09:20:10+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: SynAct: amerikanskt patentbesked för resomelagon-tablett.",
+      "generated_at": "2026-11-17T09:20:29+01:00",
+      "intro": "En framträdande nyhetsrubrik: Cereno-vd:n avgår som ledamot i Synact Pharma. Innehållet i artikeln behöver kontrolleras mot originalkällan.",
       "events": [
         {
           "date": "2026-11-16",
@@ -56,6 +56,21 @@
           "origin": "bolagsflöde",
           "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
           "published_at": "2026-11-16 \n         07:00:00",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
+        },
+        {
+          "date": "2026-11-16",
+          "title": "Synact Pharmas vd köper drygt 20 000 aktier",
+          "category": "Övrigt",
+          "summary": "",
+          "source": "Börsvärlden",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9nZ19tSl9abWpvLW1lTDRac3dxMXpEUXJoMldsRUVLMGcyLXhaVi1WQVZxZTBjc3JMamlxTnNDRVNEamFleFNXU3NXRGNOSjkyVlQ2Wg?oc=5",
+          "verified": false,
+          "origin": "rubrik",
+          "source_note": "Automatiskt insamlad rubrik – originalartikeln har inte fullständigt faktagranskats",
           "details": "",
           "importance": "",
           "key_facts": [],
@@ -735,12 +750,12 @@
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",
-        "baseline_date": "2026-11-10",
-        "baseline": 15.26,
+        "baseline_date": "2026-11-13",
+        "baseline": 13.22,
         "latest_date": "2026-11-17",
         "latest": 13.78,
-        "change_sek": -1.48,
-        "change_percent": -9.7,
+        "change_sek": 0.56,
+        "change_percent": 4.24,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
