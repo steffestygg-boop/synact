@@ -1,5 +1,10 @@
 name: Publicera SynAct-sidan
 on:
+  # Token-authored quote commits do not trigger push workflows.
+  # workflow_run publishes the newest data/stock_quote.json after each successful quote refresh.
+  workflow_run:
+    workflows: ["Uppdatera SynAct-aktiekurs och Fenja-utrymme"]
+    types: [completed]
   push:
     branches: [main]
     paths:
@@ -16,6 +21,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
