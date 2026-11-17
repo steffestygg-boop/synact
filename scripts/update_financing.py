@@ -258,7 +258,7 @@ def main() -> None:
       "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
       "Fenja: upp till 100 miljoner kr, 50 miljoner kr initialt dragna. Eventuellt nytt uttag under Q4 2026 är villkorat av bland annat börsvärde.",
       "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka.",
-      "Fenjas extra kreditutrymme kan vara lägre än 50 Mkr på grund av bolagets 10 %-tak. Beräknad tillgänglighet vid daterad stängningskurs %s: %.1f Mkr. Räntekostnad och förfall redovisas men dubbelräknas inte i sannolikhetsmodellen." % (fenja["price_as_of"], fenja["additional_draw_msek"]),
+      "Fenjas extra kreditutrymme kan vara lägre än 50 Mkr på grund av bolagets 10 %%-tak. Beräknad tillgänglighet vid daterad stängningskurs %s: %.1f Mkr. Räntekostnad och förfall redovisas men dubbelräknas inte i sannolikhetsmodellen." % (fenja["price_as_of"], fenja["additional_draw_msek"]),
     ]
     if issues:
         latest_info.insert(0, "OBS: Officiell rubrik om ny aktieemission upptäckt; se källan och kontrollera villkoren.")
