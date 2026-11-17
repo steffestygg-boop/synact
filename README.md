@@ -2,6 +2,16 @@
 
 En fristående, inofficiell investeraröversikt på svenska. Byggd med samma layout och arbetsflöde som projektet **Isofol**.
 
+
+## Big Pharma-due diligence och riskbarometrar (17 november 2026)
+
+Ramverk: [Vision Lifesciences – Pharma Due Diligence Checklist](https://visionlifesciences.com/insights/pharma-due-diligence-checklist). `data/financing_model.json → partner_due_diligence` innehåller den **manuellt granskade** bedömningen för sju områden: klinik, patent/IP, regulatoriskt, kommersiellt, finansiellt, tillverkning/CMC och juridik/avtal. Den visar också nästa tänkbara beslutströskel hos en köpare, kapitaltiming, tre finansieringsscenarier och okända faktorer. Sidan läser detta underlag direkt från JSON.
+
+**Princip:** Klinisk/långsiktig potential, sannolikhet och **timing** för ett Big Pharma-avtal samt bolagets finansieringsbehov är olika frågor. Ett uteblivet avtal är inte bevis på en avvisad tillgång. Antag inga garanterade framtida upfrontbetalningar eller optionslikvider som kassa. Skilj verifierade rapportuppgifter från subjektiva DD-bedömningar och undvik att dubbelräkna risk.
+
+Emissionsbarometerns publicerade 3/6/12-månadersscenarier inkluderar `calculation.partner_dd_multiplier` utöver de redan kända kass-, studie- och kreditfaktorerna. Multiplikatorn är en uttryckligt subjektiv antagandefaktor (Isofol ×1,10; SynAct ×1,08), inte statistiskt kalibrerad eller ett besked från en tänkbar partner. Justera endast efter källkontrollerad manuell granskning. Veckoskriptet använder samma faktor och förklaringsdialogen i HTML visar den.
+
+
 ## Webbplats
 - `index.html` – mörkt, responsivt dashboard med aktieöversikt, Hipolabor/kassaläge, rubriker, filtrerbara milstolpar och klickbar värderingsgraf.
 - `data/news.json` – startnyheter och därefter automatiskt RSS-flöde.
