@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13",
+  "updated_at": "17 november 2026",
   "editorial_note": "Historiska händelser källanknutna; framtida milstolpar placerade per kvartal. time_basis 'estimated' är analystolkning, 'company' är angivet kvartal eller officiellt fönster. Tidsfönster och osäkerhet läses i informationsrutan.",
   "source_index": {
     "history": "https://www.synactpharma.com/sv/om-oss/historia/",
@@ -132,7 +132,12 @@
       "body": "Dialogen med den franska läkemedelsmyndigheten hade dragit ut på tiden. SynAct beslutade därför att flytta den första prövningen till Belgien och justerade tidsplanen.",
       "meaning": "Det är ett tidigt exempel på hur regulatoriska processer kan ändra tidsplanen även när bolagets vetenskapliga plan är oförändrad.",
       "caveat": "",
-      "url": "https://www.synactpharma.com/en/synact-pharma-ab-provides-an-update-on-the-clinical-development-plan-for-ap1189/"
+      "url": "https://www.synactpharma.com/en/synact-pharma-ab-provides-an-update-on-the-clinical-development-plan-for-ap1189/",
+      "delayed": true,
+      "delayLabel": "Regulatorisk försening",
+      "delayText": "SynAct uppgav att den franska myndighetsprocessen hade dragit ut på tiden och flyttade därför fas I-studien till Belgien. Ingen tillförlitlig ursprunglig och ny kvartalsprognos är dokumenterad här, så någon siffra i kvartal anges inte.",
+      "earlierUrl": "https://www.synactpharma.com/en/about/history/",
+      "delayBasis": "Bekräftad förändring, men ej kvartalsbestämd"
     },
     {
       "era": 1,
@@ -204,7 +209,12 @@
       "body": "I den tidiga studien med upprepad dosering visade experimentella AP1189-tabletter alltför stor variation i plasmakoncentrationen. Bolaget pausade den tablettvägen och återgick till en tidigare använd oral suspension.",
       "meaning": "Detta var en tydlig utvecklingsmotgång som påverkade den planerade fas II-starten. Händelsen förklarar varför en ny tablettformulering senare blev ett viktigt projekt.",
       "caveat": "Bolaget bedömde då att studiestarten inom artrit kunde försenas ungefär tolv månader.",
-      "url": "https://www.synactpharma.com/en/synact-pharma-adapts-the-continued-clinical-development-programme-for-ap1189-based-on-new-results-from-the-phase-i-study/"
+      "url": "https://www.synactpharma.com/en/synact-pharma-adapts-the-continued-clinical-development-programme-for-ap1189-based-on-new-results-from-the-phase-i-study/",
+      "delayed": true,
+      "delayLabel": "≈12 mån · dåvarande bedömning",
+      "delayText": "Den 12 juni 2018 meddelade SynAct att tablettformuleringens alltför varierande blodnivåer kunde skjuta upp planerad fas II-start ungefär tolv månader. Det var bolagets dåvarande prognos, inte ett i efterhand uppmätt exakt utfall. Då ursprungliga och nya kvartal inte båda är verifierade visas ingen kvartalsförflyttning.",
+      "delayBasis": "Prognosticerad försening vid pressmeddelandet",
+      "earlierUrl": "https://www.synactpharma.com/en/synact-pharma-adapts-the-continued-clinical-development-programme-for-ap1189-based-on-new-results-from-the-phase-i-study/"
     },
     {
       "era": 2,
@@ -372,7 +382,12 @@
       "body": "SynAct meddelade att den planerade kliniska studien vid nefrotiskt syndrom försenats, bland annat på grund av pandemin, och att studiedesignen skulle ändras.",
       "meaning": "Omställningen belyser att njurprogrammet ännu inte hade levererat ett entydigt kliniskt effektbesked.",
       "caveat": "",
-      "url": "https://www.synactpharma.com/sv/om-oss/historia/"
+      "url": "https://www.synactpharma.com/sv/om-oss/historia/",
+      "delayed": true,
+      "delayLabel": "Försenad · kvartal okänt",
+      "delayText": "SynAct beskriver att den planerade studien inom nefrotiskt syndrom försenades under pandemin och att studiedesignen ändrades. Underlaget här saknar en jämförbar ursprunglig och senare kvartalsangivelse. Därför anges ingen gissad försening i antal kvartal.",
+      "delayBasis": "Bolagets historik; ospecificerad tidsförskjutning",
+      "earlierUrl": "https://www.synactpharma.com/en/about/history/"
     },
     {
       "era": 5,
@@ -888,7 +903,15 @@
       "body": "SynAct meddelade att rekryteringsmålet i ADVANCE hade uppnåtts.",
       "meaning": "Därmed återstod behandling, uppföljning och datalåsning inför den viktiga avläsningen.",
       "caveat": "",
-      "url": "https://www.synactpharma.com/en/synact-pharma-year-end-report-2025/"
+      "url": "https://www.synactpharma.com/en/?p=27390",
+      "delayed": true,
+      "originalQuarter": "Q4 2025",
+      "currentQuarter": "Q1 2026",
+      "delayQuarters": 1,
+      "delayLabel": "+1 kvartal",
+      "delayText": "Den 27 november 2024 uppgav SynAct att samtliga 240 patienter skulle vara inkluderade under Q4 2025. Rekryteringsmålet uppnåddes den 6 februari 2026, alltså i Q1 2026. Förskjutningen mellan kvartalen är +1 kvartal. Det betyder inte att hela utvecklingsprogrammet försenats exakt tre månader.",
+      "delayBasis": "Ursprunglig rekryteringsprognos jämförd med rapporterat uppnått mål",
+      "earlierUrl": "https://www.synactpharma.com/en/synact-pharma-receives-eu-trial-approval-for-the-phase-2b-advance-study-with-resomelagon-ap1189/"
     },
     {
       "era": 10,
