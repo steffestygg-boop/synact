@@ -1161,7 +1161,7 @@ function openInfo(m, anchor){
  document.getElementById('modal-date').textContent=(m.date||'')+status;
  document.getElementById('modal-title').textContent=m.title||'Information';
  const body=document.getElementById('modal-body');body.replaceChildren();
- for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Tidsbedömning',m.time_rationale],['Att tänka på',m.caveat],['Försening / tidigare tidsplan',m.delayed?m.delayText:null]]){
+ for(const [label,value] of [['Vad hände?',m.body],['Varför är det viktigt?',m.meaning],['Tidsbedömning',m.time_rationale],['Att tänka på',m.caveat],['Försening / tidigare tidsplan',showDelays&&m.delayed?m.delayText:null]]){
   if(!value)continue;
   const item=document.createElement('div');item.className='modal-explain';
   const heading=document.createElement('h3');heading.textContent=label;
@@ -1170,7 +1170,7 @@ function openInfo(m, anchor){
  }
  const links=document.getElementById('modal-links');links.replaceChildren();
  if(m.url){const a=document.createElement('a');a.href=m.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Öppna originalkälla ↗';links.append(a);}
- if(m.delayed&&m.earlierUrl&&m.earlierUrl!==m.url){const a=document.createElement('a');a.href=m.earlierUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Tidigare tidsuppgift ↗';links.append(a);}
+ if(showDelays&&m.delayed&&m.earlierUrl&&m.earlierUrl!==m.url){const a=document.createElement('a');a.href=m.earlierUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Tidigare tidsuppgift ↗';links.append(a);}
  modal.classList.add('open');positionInfo();
 }
 function closeInfo(){document.getElementById('modal').classList.remove('open');currentAnchor=null}
