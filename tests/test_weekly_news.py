@@ -100,6 +100,62 @@ class WeeklyDigestTests(unittest.TestCase):
         self.assertIn("10,50", data["summary"])
         self.assertIn("11,00", data["summary"])
 
+    def test_mfn_publisher_listing_parser(self):
+        slug = {"isofol": "isofol-medical",
+                "synact": "synact-pharma",
+                "cereno": "cereno-scientific"}[w.ISSUER]
+        sample = (
+            '<div>2026-11-16 07:00:00 '
+            '<a href="/a/' + slug + '/test-svensk">'
+            + w.CONFIG[w.ISSUER]["name"] + ' meddelar styrelseförändring</a>'
+            ' 2026-11-16 07:00:00 '
+            '<a href="/a/' + slug + '/test-english">'
+            + w.CONFIG[w.ISSUER]["name"] + ' announces board update</a></div>'
+        )
+        parser = w.MFNListingParser(slug)
+        parser.feed(sample)
+        self.assertEqual(len(parser.entries), 2)
+        self.assertTrue(all(url.startswith("https://mfn.se/a/"+slug+"/")
+                            for _, _, url in parser.entries))
+        self.assertTrue(all(date.startswith("2026-11-16") for date, _, _ in parser.entries))
+
+    def test_original_mfn_event_wins_over_syndicated_mirror(self):
+        slug = {"isofol": "isofol-medical",
+                "synact": "synact-pharma",
+                "cereno": "cereno-scientific"}[w.ISSUER]
+        publisher = w.event("Bolaget meddelar ny styrelse", "2026-11-16",
+                            "https://mfn.se/a/"+slug+"/styrelse",
+                            "MFN · bolagets pressmeddelande",
+                            False, "bolagsflöde")
+        mirror = w.event("Bolaget meddelar ny styrelse - MFN", "2026-11-16",
+                         "https://news.google.com/rss/articles/example",
+                         "MFN", False, "rubrik")
+        enriched = w.enrich_events([publisher, mirror])
+        self.assertEqual(len(enriched), 1)
+        self.assertEqual(enriched[0]["origin"], "bolagsflöde")
+
+    def test_iso_week_boundary_monday_to_sunday(self):
+        monday = dt.date(2026, 11, 16)
+        sunday = monday + dt.timedelta(days=6-monday.weekday())
+        begin, end, week, week_no = w.bounds(sunday)
+        self.assertEqual(begin, dt.date(2026,11,16))
+        self.assertEqual(end, dt.date(2026,11,22))
+        self.assertEqual(week, "2026-W47")
+
+    def test_schedule_handles_daylight_saving_independent_of_start_delay(self):
+        from zoneinfo import ZoneInfo
+        zone = ZoneInfo("Europe/Stockholm")
+        for day, expected_utc_hour in ((dt.date(2026,11,17),8),
+                                       (dt.date(2026,7,15),7)):
+            nine_local = dt.datetime.combine(day,dt.time(9,0),tzinfo=zone)
+            self.assertEqual(nine_local.astimezone(dt.timezone.utc).hour,
+                             expected_utc_hour)
+        workflow = (ROOT / ".github" / "workflows" / "weekly-news.yml").read_text(encoding="utf-8")
+        self.assertIn("cron: '0 7 * * *'",workflow)
+        self.assertIn("cron: '0 8 * * *'",workflow)
+        self.assertIn("cron: '0 14 * * 1-5'",workflow)
+        self.assertIn("--scheduled-cron",workflow)
+
     def test_issuer_archive_has_no_generic_event_descriptions(self):
         archive = w.read_json(w.OUTPUT, {})
         self.assertTrue(archive.get("weeks"))
