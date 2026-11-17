@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0-partner-dd",
+  "version": "1.3.0-partner-dd-process",
   "curated_at": "2026-11-17",
   "scope": "Sannolikhet för att SynAct annonserar en ny kontant nyemission av aktier eller units inom en rullande tidsperiod. Exklusive redan beslutade teckningsoptioner, enbart konvertering av befintliga Fenja-lån och rena licensavtal.",
   "company": {
@@ -64,7 +64,7 @@
     "fenja_capacity_formula": "Marknadsvärde = noterad referenskurs × senaste verifierade antal aktier. Möjligt extra uttag = max(0; min(50; 10 % av marknadsvärdet − 50 redan dragna)), i miljoner kr. Tillgänglighetsfaktor = 1 + 0,20 × (1 − möjligt extra uttag / 50).",
     "fenja_factor_policy": "Tidigare kreditberoendefaktor 1,05 behålls. Endast DEN DEL AV det maximala extra låneutrymmet som saknas vid verifierad börskurs ger ett ytterligare transparent påslag. Räntekostnaden, förfallodatum och finansieringshorisonten visas separat som kvalitativa varningssignaler; de multipliceras INTE på nytt och faktorerna från kassan/riskhorisonten dubbelräknas inte. Referenskursen är en daterad ögonblicksbild och uppdateras inte automatiskt från en otillförlitlig aktiekursfeed.",
     "partner_dd_multiplier": 1.08,
-    "partner_dd_methodology": "Subjektivt försiktighetspåslag för risken att en global partner avvaktar mer klinisk/regulatorisk/kommersiell DD innan avtal. Inte en statistisk sannolikhet för misslyckad affär eller en verifierad köparbedömning. Förändra bara efter manuell källgranskning och undvik dubbelräkning av kostnads- och tidsfaktorer.",
+    "partner_dd_methodology": "Subjektivt försiktighetspåslag för risken att en global partner avvaktar mer klinisk/regulatorisk/kommersiell DD innan avtal. Inte en statistisk sannolikhet för misslyckad affär eller en verifierad köparbedömning. Förändra bara efter manuell källgranskning och undvik dubbelräkning av kostnads- och tidsfaktorer. De fem sell-side M&A-processfrågorna är kvalitativa kontrollpunkter; ingen extra numerisk faktor utan verifierad bolagsinformation.",
     "partner_dd_review_date": "2026-11-17"
   },
   "peer_cases": [
@@ -199,7 +199,7 @@
         "assessment": "Hipolabors 50/50-vinstdelning, territorier, kostnadsdelning, optioner och Fenjavillkor kan påverka affärsvillkor."
       }
     ],
-    "assumptions_policy": "En DD-risk är en möjlig fördröjning av partnerfinansiering, inte ett bevis för att en affär avvisats. Alla sju områden, strategisk köparpassform och nästa värdehöjande data ska granskas vid omprövning; osäkrade upfronts förs inte som kassa.",
+    "assumptions_policy": "En DD-risk är en möjlig fördröjning av partnerfinansiering, inte ett bevis för att en affär avvisats. Alla sju områden, strategisk köparpassform och nästa värdehöjande data ska granskas vid omprövning; osäkrade upfronts förs inte som kassa. Även säljprocessens konkurrens, tajming, budekonomi, CIM-kvalitet och sekretess beaktas kvalitativt, men okända interna förhållanden utlöser aldrig ett extra automatiskt riskpåslag.",
     "scenarios": [
       {
         "name": "Avtal före avgörande data",
@@ -213,6 +213,47 @@
         "name": "Inget avtal / svag finansiering",
         "effect": "Beakta ytterligare kapitalbehov, sämre emissionsvillkor eller utvecklingsstopp, utan att likställa finansieringsstress med juridisk konkurs."
       }
-    ]
+    ],
+    "sell_side_process": {
+      "title": "Affärsprocess, förhandlingsstyrka och Big Pharma",
+      "source_note": "Fem användartillförda sell-side M&A-principer, tillämpade med försiktighet även på licens-/partneravtal. Separat från köparens sju due diligence-områden.",
+      "review_date": "2026-11-17",
+      "summary": "SynActs handlingsutrymme påverkas av hur nästa kliniska RA-milstolpe förhåller sig till den villkorade Fenja-finansieringen och bolagets uppgivna kassalivslängd. Hipolabor är inte en finansierad global RA-deal.",
+      "items": [
+        {
+          "key": "buyer_competition",
+          "title": "1. Konkurrens mellan köpare",
+          "principle": "Ett spontant bud bör, där det är genomförbart, jämföras med alternativa köpare och en strukturerad process. Ett enda intressebevis garanterar inte högsta möjliga pris.",
+          "company_assessment": "Hipolabors avtal för dengue i Brasilien bekräftar regionalt motpartsintresse men är inte bevis för en konkurrensutsatt global RA-licensprocess. Flera köpares intresse är inte offentligt styrkt."
+        },
+        {
+          "key": "milestone_timing",
+          "title": "2. Tajming mot kliniska milstolpar och kassa",
+          "principle": "Bedöm om bolaget kan förbereda och driva en process före nästa värdehöjande datapunkt och utan press från kort kassalivslängd. 12–18 månader är en föreslagen planeringshorisont, inte ett bevisat universellt optimum.",
+          "company_assessment": "Följ om nästa RA-data och beslut om fas III ligger före den angivna finansieringshorisonten in i Q4 2027 och före Fenjas förfall/villkor; tidig processförberedelse kan ge bättre förhandlingsläge."
+        },
+        {
+          "key": "certainty_vs_economics",
+          "title": "3. Affärsekonomi kontra genomförandesäkerhet",
+          "principle": "Jämför riskjusterat totalvärde, upfront, milstolpar, royalties, regulatoriska villkor och sannolikheten att affären fullföljs. Ett säkert men lågt bud kan innebära värdeförlust.",
+          "company_assessment": "Värdera ett RA- eller annat strategiskt avtal utifrån verklig upfront och riskjusterade milstolpar/royalties, inte enbart rubrikvärde eller löfte om säkerhet. Hipolabors 50/50-vinstdelning är en annan affärstyp."
+        },
+        {
+          "key": "buyer_oriented_cim",
+          "title": "4. Köparorienterat investeringsunderlag (CIM)",
+          "principle": "Ett Confidential Information Memorandum bör tydliggöra köparens strategiska och kommersiella nytta, marknad, konkurrens och ekonomi — inte bara verkningsmekanism och kliniska data.",
+          "company_assessment": "Ett kommersiellt CIM skulle behöva visa resomelagons differentiering i RA, marknadsandel, prissättning och köparens strategiska passform. Vi har inte tillgång till konfidentiellt material."
+        },
+        {
+          "key": "process_confidentiality",
+          "title": "5. Sekretess och läckagerisk",
+          "principle": "Rykten eller offentliggjorda strategiska överväganden kan påverka köparnas beteende och prissättning. Ingen offentlig nyhet är däremot inte bevis för att dialoger saknas.",
+          "company_assessment": "Inget verifierat stöd finns för att en global budprocess läckt eller att köpare ändrat bud efter rykten. Tystnad ska inte tolkas som uteblivna samtal."
+        }
+      ],
+      "risk_model_application": "Befintlig subjektiv partner-DD-faktor i emissionsbarometern täcker osäkerheten att en större partner avvaktar kliniska data. M&A-processens förhandlingsstyrka granskas separat, utan automatisk dubbelräkning i procentsatsen. Nytt verifierat kapitalbehov eller faktisk avtalstiming kan motivera en framtida omprövning.",
+      "numeric_adjustment_policy": "Ingen separat procentsats eller stresspoäng sätts utifrån antagna budgivare, CIM-kvalitet, läckor eller en schablon om 12–18 månader. Redan modellerad partner-DD och kassapress dubbelräknas inte; endast granskade bolagsspecifika fakta får ändra talen.",
+      "uncertainty_note": "Det går inte att se konfidentiella bud, processen, CIM eller data room. Påståendet om 50–100 % skillnad i affärsvärde är inte verifierat som generell effekt och används inte som värderingsmultiplikator. Utfallet för licensaffärer kan skilja sig från rena förvärv."
+    }
   }
 }
