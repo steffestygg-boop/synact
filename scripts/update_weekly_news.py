@@ -34,7 +34,10 @@ CONFIG = {
         "queries": ['"SynAct" when:14d',
                     '"SynAct Pharma" OR resomelagon when:14d',
                     'site:mfn.se/a/synact-pharma/ when:14d',
-                    '"SynAct" (styrelse OR vd OR insiderhandel OR aktieköp OR förvärvat OR avtal OR studie OR FDA) when:14d'],
+                    '"SynAct" (styrelse OR vd OR insiderhandel OR aktieköp OR förvärvat OR avtal OR studie OR FDA) when:14d',
+                    'site:biostock.se "SynAct" when:14d',
+                    'site:borsvarlden.com "SynAct" when:14d',
+                    'site:inderes.se "SynAct" when:14d'],
         "aliases": ("synact", "resomelagon", "ap1189"),
     },
     "isofol": {
