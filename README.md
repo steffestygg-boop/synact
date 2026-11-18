@@ -1,5 +1,7 @@
 # SynAct Pharma – investeraröversikt
 
+Arbetsregler för alla uppdateringar: läs [AGENTS.md](AGENTS.md), följ varje följdändring tills inget återstår och kontrollera därefter de andra aktiesidorna.
+
 En fristående, inofficiell investeraröversikt på svenska. Byggd med samma layout och arbetsflöde som projektet **Isofol**.
 
 
