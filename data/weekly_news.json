@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-18T10:04:46+01:00",
+  "updated_at": "2026-11-18T10:08:22+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,32 +12,23 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-18",
-      "generated_at": "2026-11-18T10:04:41+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr. Dessutom finns 2 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
+      "generated_at": "2026-11-18T10:08:22+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 3 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
           "date": "2026-11-18",
-          "title": "SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr",
+          "title": "Hela Fenja-ramen utnyttjad",
           "category": "Emission och finansiering",
-          "summary": "Andra tranchen på 50 Mkr påkallad. Totalt 100 Mkr utnyttjat, 0 Mkr kvar. Konverteringskurs 24,60 kr och minst 10 % årlig ränta.",
-          "source": "SynAct Pharma · pressmeddelande 18 november 2026",
+          "summary": "SynAct påkallar den andra tranchen och beslutar om konvertibler för nominellt 50 Mkr. Hela ramen på 100 Mkr är därmed utnyttjad enligt bolaget. Konverteringskurs 24,60 kr; förfall 31 december 2027.",
+          "source": "Dokumenterad milstolpe",
           "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja",
           "verified": true,
-          "origin": "bolagsflöde",
-          "source_note": "Hela pressmeddelandet granskat; tioprocentsvillkorets tillämpning är inte förklarad.",
-          "published_at": "2026-11-18 \n         09:45:00",
-          "details": "Styrelsen har beslutat om konvertibler på nominellt 50 Mkr. Hela faciliteten är därmed utnyttjad enligt bolaget. Båda lånen förfaller 31 december 2027. Vid full konvertering kan totalt 4 065 040 nya aktier tillkomma, motsvarande 6,74 % utspädning exklusive tidigare utgivna teckningsoptioner. Lock-up räknas från 20 juli 2026 och löper i sex månader, med begränsade konverteringsvolymer därefter till 31 mars 2027.",
-          "importance": "Stärker likviditeten men ökar skuld och ränta. Minst 10 Mkr/år i ränta vid nominellt 100 Mkr. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.",
-          "key_facts": [
-            "Nytt uttag: 50 Mkr; totalt: 100 Mkr",
-            "Återstående ram: 0 Mkr",
-            "Konverteringskurs: 24,60 kr",
-            "Utspädning: nya tranchen 3,49 %, båda lånen 6,74 %",
-            "Förfall: 31 december 2027",
-            "Dagsaktuell kassa och ny finansieringshorisont anges inte"
-          ],
-          "editorial_verified": true,
-          "source_url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
+          "origin": "milstolpe",
+          "source_note": "Manuellt källgranskad post",
+          "details": "Stärker likviditeten och ökar nominell skuld. Minst 10 Mkr/år i ränta vid totalt 100 Mkr; inget extra utrymme kvar. Båda konvertiblerna kan ge 6,74 % utspädning exklusive tidigare teckningsoptioner.",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": true
         },
         {
           "date": "2026-11-16",
@@ -92,6 +83,12 @@
           "title": "Emissionsbarometerns grundantaganden reviderade",
           "detail": "Källdata eller modellantaganden har ändrats sedan förra veckoutgåvan. Läs modellens metodavsnitt för vad uppdateringen innebär; ändringen ska inte automatiskt tolkas som ett nytt bolagsbesked.",
           "kind": "modell"
+        },
+        {
+          "title": "Milstolpe tillagd: Hela Fenja-ramen utnyttjad",
+          "detail": "Placerad: 18 november 2026 (genomförd).",
+          "kind": "milstolpe",
+          "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
         }
       ],
       "omitted_events": 0,
@@ -732,6 +729,12 @@
             "status": "future",
             "period": "16",
             "url": "https://www.synactpharma.com/sv/utvecklingsprogram/"
+          },
+          "Hela Fenja-ramen utnyttjad": {
+            "date": "18 november 2026",
+            "status": "done",
+            "period": "12",
+            "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
           }
         }
       },
@@ -742,18 +745,16 @@
         "daterade milstolpar",
         "finansierings- och riskdata"
       ],
-      "source_errors": [
-        "Nätkontroll avstängd"
-      ],
+      "source_errors": [],
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-18",
-        "latest": 12.68,
-        "change_sek": -0.54,
-        "change_percent": -4.08,
+        "latest": 12.54,
+        "change_sek": -0.68,
+        "change_percent": -5.14,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
