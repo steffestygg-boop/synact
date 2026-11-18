@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-18T11:20:46+01:00",
+  "updated_at": "2026-11-18T15:49:02+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-18",
-      "generated_at": "2026-11-18T11:20:46+01:00",
+      "generated_at": "2026-11-18T15:49:02+01:00",
       "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 3 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
@@ -29,6 +29,22 @@
           "importance": "",
           "key_facts": [],
           "editorial_verified": true
+        },
+        {
+          "date": "2026-11-18",
+          "title": "Nomination Committee appointed ahead of SynAct Pharma AB AGM 2027",
+          "category": "Övrigt",
+          "summary": "",
+          "source": "MFN · bolagets pressmeddelande",
+          "url": "https://mfn.se/a/synact-pharma/nomination-committee-appointed-ahead-of-synact-pharma-ab-agm-2027.iframe",
+          "verified": false,
+          "origin": "bolagsflöde",
+          "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
+          "published_at": "2026-11-18 \n         11:50:00",
+          "details": "",
+          "importance": "",
+          "key_facts": [],
+          "editorial_verified": false
         },
         {
           "date": "2026-11-16",
@@ -752,9 +768,9 @@
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-18",
-        "latest": 12.5,
-        "change_sek": -0.72,
-        "change_percent": -5.45,
+        "latest": 12.9,
+        "change_sek": -0.32,
+        "change_percent": -2.42,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
