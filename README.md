@@ -4,7 +4,7 @@ Arbetsregler för alla uppdateringar: läs [AGENTS.md](AGENTS.md), följ varje f
 
 Sidhuvud, avsnittsmeny och veckovy använder samma mallar och kod i alla tre projekten. Den gemensamma förlagan finns i [SynAct-projektet](https://github.com/steffestygg-boop/synact). Vid publicering hämtar Isofol och Cereno mallarna, de gemensamma resurserna och renderingsskriptet från den förlagan. Varje publicerad sida serverar sina egna filer. Uppdatera även de incheckade kopiorna av `layout/`, `assets/overview.css`, `assets/navigation.js`, `assets/week.js` och `scripts/render_layout.py` när grunden ändras så att lokal förhandsvisning motsvarar den publicerade sidan. Bolagets namn och länkar finns i `data/site_profile.json`. Avsnitt hämtas i sidordning från HTML. Märk delavsnitt med `id` och `data-nav-child`. Kör `python3 scripts/render_layout.py` efter en ändring i mallen eller sidans disposition. Publiceringen gör samma rendering.
 
-En fristående, inofficiell investeraröversikt på svenska. Byggd med samma layout och arbetsflöde som projektet **Isofol**.
+En fristående, inofficiell investeraröversikt på svenska. Den ingår i Mina Aktier tillsammans med Isofol och Cereno.
 
 
 ## Big Pharma-due diligence och riskbarometrar (17 november 2026)
@@ -17,7 +17,7 @@ Emissionsbarometerns publicerade 3/6/12-månadersscenarier inkluderar `calculati
 
 
 ## Webbplats
-- `index.html` – mörkt, responsivt dashboard med aktieöversikt, Hipolabor/kassaläge, rubriker, filtrerbara milstolpar och klickbar värderingsgraf.
+- `index.html` – responsiv bolagssida med aktieöversikt, Hipolabor/kassaläge, rubriker, filtrerbara milstolpar och klickbar värderingsgraf.
 - `data/news.json` – startnyheter och därefter automatiskt RSS-flöde.
 - `data/milestones.json` – **100 historiska och planerade, källänkade händelser 2011–2027**. Varje post har datum, spår, status, beskrivning, betydelse, eventuell tolkningsreservation och originalkälla.
 - `scripts/update_news.py` – hämtar publika nyhetsrubriker om SynAct/resomelagon.
@@ -101,12 +101,11 @@ Kapacitetsfaktorn är neutral (1,0); det tidigare kursbaserade riskpåslaget har
 Begränsning: det är en beskrivning av modellens beräkningsgång och antaganden, **inte** en statistiskt kalibrerad riskprognos eller investeringsrekommendation.
 
 
-## Veckans nyheter – söndagsarkiv
+## Senaste veckan och månadsarkivet
 
-Avsnittet **Veckans nyheter** ligger direkt efter **Aktien** och hämtar `data/weekly_news.json`. Den senaste sammanställda ISO-veckan visas direkt; äldre veckor ligger hopfällda i ett arkiv med **år, veckonummer och datumintervall**.
+Efter **Aktien** visas nyheter från dagens datum i Stockholm och de sex föregående kalenderdagarna. Äldre händelser går att öppna per månad i nyhetsarkivet. Veckans kursutveckling visar jämförelsedatumen och räknas från föregående handelsveckas sista stängning. `assets/week.js` läser underlaget från `data/weekly_news.json`.
 
-- **Söndag kl. 19:30 UTC:** `.github/workflows/weekly-news.yml` kör `scripts/update_weekly_news.py`. Det motsvarar **20:30 svensk vintertid eller 21:30 svensk sommartid**.
-- **Måndag kl. 09:30 UTC:** En kompletterande körning fångar sena söndagsnyheter och den ordinarie finansiella veckouppdateringen. Även manuella körningar kan startas i GitHub Actions.
+- `.github/workflows/weekly-news.yml` kör `scripts/update_weekly_news.py` enligt den dagliga nyhetsbevakningen nedan.
 - **Nyhetsunderlag:** publicerade, daterade nyhetsrubriker via Google News RSS; `data/news.json`; redan dokumenterade milstolpar; tillgängliga risk-/emissionsdata i `data/financing.json` och `data/financing_model.json`.
 - **Analysförändringar:** veckans sparade modellvärden, nya finansieringsvarningar, emissionsstatus och ändrade milstolpar jämförs mot föregående veckoutgåvas ögonblicksbild. För Isofol och SynAct visas förändringen i emissionsbarometerns risk för 3, 6 och 12 månader när en jämförbar historisk veckoutgåva finns.
 - **Källskillnad:** händelser från tidigare källgranskade dataposter märks som sådana. RSS-rubriker märks tydligt som **inte fulltextgranskade**; systemet drar inte egna slutsatser om klinisk effekt eller kassaförändringar utifrån rubriktext.
@@ -115,12 +114,12 @@ Avsnittet **Veckans nyheter** ligger direkt efter **Aktien** och hämtar `data/w
 
 **Begränsning:** GitHub Actions är en schemalagd best-effort-körning och RSS-sökning är inte heltäckande. Ett automatiskt skript kan inte i sig analysera hela innehållet i alla artiklar. Avsnittet ger källanknutna, korta händelseöversikter, inte garanterat varje relevant uppgift eller en självständig faktagranskad fulltextsanalys. Vid otillgängliga RSS-källor används även de redan sparade lokala källorna.
 
-### Klickbara fördjupningar till Veckans nyheter – november 2026
+### Nyhetsfördjupningar
 
-- Varje händelse i **Händelser under veckan** är nu en **helklickbar, tangentbordsstyrd knapp**, som öppnar en informationsruta med rubrik, en konkret sammanfattning, viktiga siffror, bakgrund, ekonomisk/klinisk betydelse och länk till den granskade originalkällan. Stäng med **Escape**, stängknappen eller klick på bakgrunden; fokus återgår till händelsen.
+- Varje händelse i **Senaste veckan** och månadsarkivet är en **helklickbar, tangentbordsstyrd knapp**, som öppnar en informationsruta med rubrik, en konkret sammanfattning, viktiga siffror, bakgrund, ekonomisk/klinisk betydelse och länk till den granskade originalkällan. Stäng med **Escape**, stängknappen eller klick på bakgrunden; fokus återgår till händelsen.
 - De korta händelsekorten visar också fakta och siffror **utan att man behöver klicka**. Exempelvis får analytikeruppdateringar tydliga tidigare och nya värden (ABG 1,80 → 2,10 kr), studier får antal patienter och finansieringsbesked får villkor och belopp.
 - Generiska innehållstexter som `Rapporterad kassa och historiskt kassaflöde är inte en dagsaktuell finansieringsprognos` har tagits bort från händelsekorten. Om en obekräftad RSS-rubrik saknar tillräcklig information används **inte** en påhittad förklaring; källan kan öppnas från informationsrutan.
-- `data/weekly_event_details.json` innehåller **källgranskade** fördjupningar för viktiga händelser. Söndagsjobbet använder dessa plus `body`/`meaning` från redan dokumenterade milstolpar när det skapar `data/weekly_news.json`, så att tidigare manuellt förtydligade nyheter inte skrivs över med generiskt standardinnehåll.
+- `data/weekly_event_details.json` innehåller **källgranskade** fördjupningar för viktiga händelser. Nyhetsjobbet använder dem tillsammans med `body`/`meaning` från redan dokumenterade milstolpar när det skapar `data/weekly_news.json`, så att tidigare manuellt förtydligade nyheter inte skrivs över med generiskt standardinnehåll.
 - Källgranskade uppgifter hålls åtskilda från automatiskt inlästa rubriker. Källgranskade analysscenarier är fortfarande inte traditionella garanterade kursmål.
 
 
@@ -136,7 +135,7 @@ Kursrutan läser `data/stock_quote.json` vid öppning och ungefär varannan minu
 
 **Flera oberoende nyhetskällor:** systemet söker direkt i respektive bolags MFN-lista över originalpressmeddelanden, kompletterat med breda Google News-frågor och mer riktade sökningar mot bl.a. BioStock, Börsvärlden samt analysfirmornas publiceringsplattformar. Såväl kliniska nyheter som finansiering, VD-förändringar, styrelsebeslut, aktieköp och analytikeruppdateringar bevakas.
 
-**Veckogränser och dubbletter:** innehållet för innevarande vecka avser måndag till dagens datum. Händelser som hör till en tidigare ISO-vecka flyttas inte av misstag till en ny vecka. Ursprungliga bolagsmeddelanden prioriteras framför sekundära rubriksammanfattningar och dubbla MFN-återgivningar filtreras. Tidigare veckors arkiv förblir läsbart.
+Visningen använder händelsens publiceringsdatum. Nyheter från samma datum, med samma källadress eller samma rubrik när adress saknas, visas en gång. Nyhetsjobbet sparar sina underlag per ISO-vecka för att bevara historik och tidigare bedömningar.
 
 **Källkvalitet:** automatiskt insamlade rubriker märks som sådana och får inte påhittade sammanfattningar. Källgranskade fördjupningar med verifierade nyckeltal i `data/weekly_event_details.json` visas som klickbara informationsrutor. GitHub Actions och Google News ger ingen absolut garanti för start exakt 09.00 eller att samtliga nyheter indexeras omedelbart.
 
