@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-18T09:52:27+01:00",
+  "updated_at": "2026-11-18T10:04:46+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,24 +12,32 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-18",
-      "generated_at": "2026-11-18T09:52:26+01:00",
-      "intro": "En framträdande nyhetsrubrik: Sten Sörensen lämnar SynActs styrelse. Innehållet i artikeln behöver kontrolleras mot originalkällan. Dessutom finns 2 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
+      "generated_at": "2026-11-18T10:04:41+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr. Dessutom finns 2 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
           "date": "2026-11-18",
-          "title": "SynAct Pharma påkallar andra tranchen av Fenja Capital II A/S finansieringsfacilitet samt beslutar om en riktad emission av konvertibler till Fenja",
+          "title": "SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr",
           "category": "Emission och finansiering",
-          "summary": "",
-          "source": "MFN · bolagets pressmeddelande",
-          "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja.iframe",
-          "verified": false,
+          "summary": "Andra tranchen på 50 Mkr påkallad. Totalt 100 Mkr utnyttjat, 0 Mkr kvar. Konverteringskurs 24,60 kr och minst 10 % årlig ränta.",
+          "source": "SynAct Pharma · pressmeddelande 18 november 2026",
+          "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja",
+          "verified": true,
           "origin": "bolagsflöde",
-          "source_note": "Direkt hämtad publicerad bolagsrubrik; eventuella detaljer kräver granskning av pressmeddelandet.",
+          "source_note": "Hela pressmeddelandet granskat; tioprocentsvillkorets tillämpning är inte förklarad.",
           "published_at": "2026-11-18 \n         09:45:00",
-          "details": "",
-          "importance": "",
-          "key_facts": [],
-          "editorial_verified": false
+          "details": "Styrelsen har beslutat om konvertibler på nominellt 50 Mkr. Hela faciliteten är därmed utnyttjad enligt bolaget. Båda lånen förfaller 31 december 2027. Vid full konvertering kan totalt 4 065 040 nya aktier tillkomma, motsvarande 6,74 % utspädning exklusive tidigare utgivna teckningsoptioner. Lock-up räknas från 20 juli 2026 och löper i sex månader, med begränsade konverteringsvolymer därefter till 31 mars 2027.",
+          "importance": "Stärker likviditeten men ökar skuld och ränta. Minst 10 Mkr/år i ränta vid nominellt 100 Mkr. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.",
+          "key_facts": [
+            "Nytt uttag: 50 Mkr; totalt: 100 Mkr",
+            "Återstående ram: 0 Mkr",
+            "Konverteringskurs: 24,60 kr",
+            "Utspädning: nya tranchen 3,49 %, båda lånen 6,74 %",
+            "Förfall: 31 december 2027",
+            "Dagsaktuell kassa och ny finansieringshorisont anges inte"
+          ],
+          "editorial_verified": true,
+          "source_url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
         },
         {
           "date": "2026-11-16",
@@ -77,7 +85,7 @@
       "updates": [
         {
           "title": "Emissionsbarometern uppdaterad",
-          "detail": "Jämfört med förra veckoutgåvan: 3 mån 13,1 % (+0,9 procentenheter); 6 mån 29,9 % (+2,0 procentenheter); 12 mån 63,3 % (+2,9 procentenheter).",
+          "detail": "Jämfört med förra veckoutgåvan: 3 mån 12,0 % (-0,2 procentenheter); 6 mån 27,6 % (-0,3 procentenheter); 12 mån 59,8 % (-0,6 procentenheter).",
           "kind": "finansiering"
         },
         {
@@ -88,20 +96,20 @@
       ],
       "omitted_events": 0,
       "finance_snapshot": {
-        "risk_3": 13.1,
-        "risk_6": 29.9,
-        "risk_12": 63.3,
-        "risk_as_of": "2026-11-17T11:19:40+01:00",
+        "risk_3": 12.0,
+        "risk_6": 27.6,
+        "risk_12": 59.8,
+        "risk_as_of": "2026-11-18T10:04:41+01:00",
         "emission_status": "",
         "explanation": "Lägesbild vid sammanställningen, inte ett påstående om att siffrorna offentliggjordes denna vecka."
       },
       "snapshot": {
-        "risk_3": 13.1,
-        "risk_6": 29.9,
-        "risk_12": 63.3,
-        "risk_as_of": "2026-11-17T11:19:40+01:00",
-        "model_version": "1.3.0-partner-dd-process",
-        "model_fingerprint": "55ea479cca4cf8f1",
+        "risk_3": 12.0,
+        "risk_6": 27.6,
+        "risk_12": 59.8,
+        "risk_as_of": "2026-11-18T10:04:41+01:00",
+        "model_version": "1.4.0-fenja-full-draw",
+        "model_fingerprint": "9da3b29682b6157a",
         "emission_status": "",
         "alerts": {
           "base:quarterly_burn": {
@@ -115,9 +123,9 @@
             "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/"
           },
           "base:fenja_capacity": {
-            "title": "Fenja: låneutrymmet begränsas av börsvärdet",
-            "level": "förhöjd",
-            "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+            "title": "Fenja: hela ramen utnyttjad – 0 Mkr kvar",
+            "level": "bevakning",
+            "source": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
           },
           "base:fenja_maturity": {
             "title": "Fenja: förfall 31 december 2027",
@@ -734,7 +742,9 @@
         "daterade milstolpar",
         "finansierings- och riskdata"
       ],
-      "source_errors": [],
+      "source_errors": [
+        "Nätkontroll avstängd"
+      ],
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",

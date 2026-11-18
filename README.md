@@ -37,7 +37,7 @@ Sidan innehåller ett separat avsnitt **Emissionsbarometern**, med en rullande, 
 
 **Viktigt om tillförlitlighet:** Den automatiska delen kan inte garantera att all information fångas och kan inte tolka juridiska och finansiella avtal lika säkert som en manuell genomgång. Därför ändrar den **inte** verifierad kassa, lånevillkor eller bolagets finansieringsprognos från enbart rubriker. Den markerar istället nya bolagsrapporter och finansieringsbesked för källgranskning. Eventuella tydliga emissionsrubriker markeras som en möjlig inträffad händelse, utan att presenterar osäkra belopp som bekräftade.
 
-Riktmärket **1 oktober 2027** är en konservativ tidsproxy för bolagets prognos om finansiering in i Q4 2027, inte en förutsägelse om faktisk likviditetsbrist. Fenja-facilitetens ytterligare uttag om upp till 50 miljoner kr är villkorat och räknas inte som kassa. Modellen bygger på dokumenterade emissioner i bl.a. BioInvent, Cereno, Alligator, Immunovia, Isofol och Active Biotech men referensfallen är ett selekterat urval och kan **inte** omvandlas till en giltig empirisk emissionsfrekvens.
+Riktmärket **1 oktober 2027** är en konservativ tidsproxy för bolagets prognos om finansiering in i Q4 2027, inte en förutsägelse om faktisk likviditetsbrist. Fenja-ramen är fullt utnyttjad enligt beskedet 18 november. Det nominella lånet på 100 Mkr är inte dagsaktuell kassa. Modellen bygger på dokumenterade emissioner i bl.a. BioInvent, Cereno, Alligator, Immunovia, Isofol och Active Biotech men referensfallen är ett selekterat urval och kan **inte** omvandlas till en giltig empirisk emissionsfrekvens.
 
 **Verifiering:** Kontrollera att veckoflödet körs under [Actions](https://github.com/steffestygg-boop/synact/actions/workflows/update-financing.yml). När en ny kvartalsrapport publicerats måste `financing_model.json` källkontrolleras och uppdateras manuellt för att inkludera de nya siffrorna. Den publicerade sidan ska då ange senaste granskningsdatum.
 
@@ -75,22 +75,13 @@ Båda investerarsidorna har nu ett särskilt avsnitt **Varningssignaler** direkt
 - Historiska händelser får fortsätta grupperas per år eller längre perioder.
 
 
-## Fenja-risk i emissionsbarometern – modellrevidering 15 november 2026
+## Fenja – fullt uttag och modellrättelse 18 november 2026
 
-SynActs kreditram från Fenja (avtal 20 juli 2026) är **högst 100 miljoner kr, varav 50 miljoner redan dragits**. Ett ytterligare uttag får ske under Q4 2026, men **det totala uttaget begränsas till 10 % av börsvärdet vid dragning**. Ett outnyttjat nominellt utrymme på 50 miljoner kr är alltså inte detsamma som tillgänglig finansiering.
+[SynActs besked](https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja): andra tranchen 50 Mkr påkallad, hela ramen 100 Mkr utnyttjad och 0 Mkr kvar. Minst 10 Mkr/år i ränta, förfall 31 december 2027. Konverteringskurs 24,60 kr; båda konvertiblerna ger högst 4 065 040 nya aktier / 6,74 % utspädning, exklusive de tidigare teckningsoptionerna.
 
-**Daterad kurssituation (13 november 2026):** aktiekurs 13,22 kr och 56 213 968 aktier ger ca 743,1 miljoner kr i börsvärde. 10 % är ca 74,3 miljoner kr; minus 50 miljoner redan dragna lämnar **ca 24,3 miljoner kr** som matematiskt möjligt andra uttag, jämfört med nominella 50 miljoner kr. För fullständig kreditutnyttjande på 100 miljoner kr behövs omkring 1 miljard kr i börsvärde (ca 17,79 kr/aktie med oförändrat antal aktier). Detta är **inte** en livekurs eller en garanti att ett andra uttag kan ske.
+Den tidigare kalkylen från 15 november har ersatts. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.
 
-**Modellens antagande:**
-- 2,6 % subjektiv basrisk per månad × 1,25 för fas III × **1,05 redan existerande kreditberoende** × **ny Fenja-tillgänglighetsfaktor** × redan existerande tidsnärhet till Q4 2027.
-- Fenja-tillgänglighetsfaktorn är `1 + 0,20 × (1 − maximalt möjligt extra uttag / nominellt återstående 50 Mkr)`, vilket med 13 november-kursen blir **1,102741**. Valet av 0,20 som vikt är en transparent analytisk bedömning, inte en skattning ur en statistiskt representativ jämförelsepopulation.
-- Den begränsade kapaciteten lyfter emissionssannolikheten för sex månader från ca 25,7 % till **27,9 % per den 15 november**. Alla tal är subjektiva modellutfall, inte empiriskt verifierade procentsatser.
-- **Ingen dubbelräkning:** Fenjas förfall **31 december 2027** och räntan **minst 10 % årligen på nominellt dragen skuld** (ca 5 Mkr/år på 50 Mkr) visas som separata bevakningssignaler, men ger inte ytterligare oberoende riskpåslag. Närheten till finansieringshorisonten finns redan i tidsfaktorn. Minst 4 % på outnyttjat belopp gäller endast till **31 december 2026**.
-- Den sista verifierade kursbilden är en **manuell ögonblicksbild**, som behöver uppdateras i `data/financing_model.json` när ny kurs och nytt antal aktier källgranskats. Det dagliga jobbet upptäcker möjliga nyheter, men ersätter inte kursbilden med automatiskt gissade uppgifter.
-- De kontrollerade siffrorna och beräknad kapacitet finns i `data/financing.json` under `fenja_assessment`. Risken omräknas varje vecka via `scripts/update_financing.py`. Regressionstester för kapacitetsformeln och frånvaro av dubbelräkning finns i `tests/test_fenja_financing.py`.
-
-**Originalkällor:** [Fenja-villkoren 20 juli 2026](https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/), [SynActs Q3-rapport 3 november 2026](https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/), [historisk börskurs för 13 november](https://stockanalysis.com/quote/sto/SYNACT/history/).
-
+Kapacitetsfaktorn är neutral (1,0); det tidigare kursbaserade riskpåslaget har tagits bort. Kreditberoende, fas III-behov, partner-DD och tidsfaktor finns kvar. Kassa 42,364 Mkr gäller 30 september och finansieringsprognosen in i Q4 2027 är från 3 november; inget av dessa värden förlängs eller summeras till dagsaktuell kassa utifrån det nya beskedet.
 
 ## Klickbara finansiella beräkningar
 
@@ -98,7 +89,7 @@ SynActs kreditram från Fenja (avtal 20 juli 2026) är **högst 100 miljoner kr,
 
 - På båda sidorna: emissionsrisk 3/6/12 månader och känslighetsintervall, Q3:s genomsnittliga månatliga operativa kassaflöde och antalet månader fram till finansieringsmodellens riktmärke.
 - **Finansieringshorisont:** Bolagets uttalande är en *guidning från originalrapporten*, inte en matematisk slutsats härledd ur historiskt kassaflöde. Dialogen skiljer uttryckligen bolagets guidning från veckomodellens datumräkning och en separat, förenklad Q3-baserad kassakvot.
-- SynAct: Fenja-facilitetens maximala ytterligare uttag vid 10 %-taket, minst årlig ränta, tillgänglighetsfaktor samt beräkningen för den aktiekurs användaren valt i simuleringen. Reglaget ändrar inte de publicerade riskprocentsatserna.
+- SynAct: minsta årliga ränta på nominellt 100 Mkr. Kursreglaget och beräknat extra uttag har tagits bort efter fullt utnyttjande.
 - Underlaget läses från `data/financing.json` och `data/financing_model.json`. Ingen data ersätts med en förmodad aktuell kurs eller likvid när filer inte kan läsas.
 
 Begränsning: det är en beskrivning av modellens beräkningsgång och antaganden, **inte** en statistiskt kalibrerad riskprognos eller investeringsrekommendation.
@@ -127,18 +118,9 @@ Avsnittet **Veckans nyheter** ligger direkt efter **Aktien** och hämtar `data/w
 - Källgranskade uppgifter hålls åtskilda från automatiskt inlästa rubriker. Källgranskade analysscenarier är fortfarande inte traditionella garanterade kursmål.
 
 
-## Synkad aktiekurs och Fenja-kalkylator (16 november 2026)
+## Tidsstämplad aktiekurs
 
-**Aktien** och **Fenja – vad begränsar finansieringen?** använder nu **exakt samma tidsstämplade kurs** från `data/stock_quote.json`. TradingViews separata iframe ersattes med en kursruta som webbplatsen faktiskt kan läsa; en länk till TradingView finns kvar för jämförelse. Det går inte att läsa kursen inuti TradingViews externa iframe direkt på grund av webbläsarens isolering mellan domäner.
-
-- `.github/workflows/refresh-stock-quote.yml` kör omkring var 20:e minut vardagar 07–17 UTC; schemalagda GitHub Actions-körningar kan bli försenade. Den Pythonbaserade hämtaren `scripts/update_stock_quote.py` använder Yahoo Finances offentliga chart-endpoint med ticker **SYNACT.ST**, verifierar **SEK**, ticker, positiv kurs och källtidsstämpel och publicerar filen först när kurs eller tidpunkt faktiskt ändrats. Vid fel lämnas den föregående källmärkta kursen kvar.
-- Webbplatsen läser kursfilen vid sidöppning och ungefär varannan minut. En ny publicerad kurs ställer **Fenja-reglaget på samma pris** och uppdaterar belopp och procentuell andel av nominellt resterande 50 Mkr. Om man drar reglaget ändras beloppet direkt i ett scenario. Vid nästa faktiska kursuppdatering återställs reglaget automatiskt till senast publicerade kurs.
-- **Synka med kursen igen:** direkt under Fenja-reglaget finns en återställningsknapp. Den aktiveras när användaren drar reglaget till en egen kurs. Ett klick sätter reglaget till den senast hämtade börskursen och uppdaterar lånebelopp, procentandel och förklarande text direkt. Knappen blir inaktiv igen när reglaget är synkat.
-- Det **maximala teoretiska extra låneutrymmet** får en stor gul framhävd siffra, en andel i procent samt en progressmätare. Beräkning: `max(0, min(50 Mkr, 100 Mkr − 50 Mkr, 0,10 × (antal aktier × kurs) − 50 Mkr))`. Aktiekursen anges i kr och börsvärde/lånet i Mkr.
-- Kursrutan visar **källtidsstämpel**, källa och att uppgifterna kan vara **fördröjda**. Siffran är inte en garanterad aktuell realtidskurs eller ett bekräftat lån. Det senast verifierade antalet aktier kommer från SynActs källa och måste justeras vid eventuell konvertering/nyemission.
-- **Viktigt:** Intradagspriset uppdaterar den visuella Fenja-kalkylatorn, men **ändrar inte automatiskt emissionsriskens 3/6/12-månadersprocenter**. De bygger på separat, källgranskad finansieringsmodell och daterad prisreferens i `data/financing_model.json`. En ändring av riskmodellen ska alltid gå att spåra.
-- `tests/test_stock_quote.py` skyddar mot felaktiga kurser/tidsstämplar och kontrollerar att kursfilen används av båda UI-komponenterna. `python scripts/update_stock_quote.py --check-only` fungerar utan nätverk.
-
+Kursrutan läser `data/stock_quote.json` vid öppning och ungefär varannan minut. Ticker, SEK, positiv kurs och källtidsstämpel verifieras; cache och ordningskontroll skyddar mot att en äldre kurs ersätter en nyare. Kurskällan kan vara fördröjd. Fenja-kalkylatorn har tagits bort efter fullt utnyttjande den 18 november; kurshämtningen fortsätter oberoende av lånet.
 
 ### Kontrollerad daglig nyhetsbevakning – november 2026
 

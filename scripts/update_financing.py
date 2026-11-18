@@ -66,6 +66,20 @@ def pct_probability(months: int, months_left: float, inputs: dict, scale: float 
 def fenja_capacity_metrics(company: dict, calculation: dict) -> dict:
     """Dated reference snapshot; no live share-price data is assumed."""
     f = company["fenja"]
+    if f.get("status") == "fully_drawn":
+        drawn = float(f["already_drawn_gross_msek"])
+        return {
+            "status": "fully_drawn", "draw_date": f["second_draw_date"],
+            "previously_drawn_msek": drawn, "remaining_nominal_msek": 0.0,
+            "additional_draw_msek": 0.0, "fenja_cap_factor": 1.0,
+            "existing_credit_factor": float(calculation["credit_dependency_multiplier"]),
+            "effective_credit_factor": float(calculation["credit_dependency_multiplier"]),
+            "annual_minimum_drawn_interest_msek": drawn * float(f["min_drawn_interest_percent_per_year"]) / 100,
+            "annual_minimum_undrawn_fee_msek": 0.0,
+            "maturity_date": f["maturity_date"], "source": f["second_draw_url"],
+            "market_cap_limit_application_verified": False,
+            "note": f["market_cap_limit_note"],
+        }
     snap = f["market_snapshot"]
     outstanding = float(snap["shares_outstanding"])
     price = float(snap["price_sek"])
@@ -174,6 +188,8 @@ def load_official_press_links() -> list[dict]:
     return parser.results[:35]
 
 def classification(title: str) -> str:
+    if re.search(r"emission av konvertibler|issue of convertibles", title, re.I):
+        return "finansiering"
     if _ISSUE_RX.search(title) and not _ISSUE_NEGATION.search(title):
         return "emission"
     if _REPORT_RX.search(title):
@@ -256,9 +272,10 @@ def main() -> None:
                  i.get("date", "") > cutoff.isoformat() and i["signal"] == "emission"]
     latest_info = [
       "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
-      "Fenja: upp till 100 miljoner kr, 50 miljoner kr initialt dragna. Eventuellt nytt uttag under Q4 2026 är villkorat av bland annat börsvärde.",
+      "Fenja: andra tranchen på 50 Mkr påkallad 18 november 2026. Totalt 100 Mkr utnyttjat och 0 Mkr kvar; beskedet anger inte dagsaktuell kassa eller en ny finansieringshorisont.",
       "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka.",
-      "Fenjas extra kreditutrymme kan vara lägre än 50 Mkr på grund av bolagets 10 %%-tak. Beräknad tillgänglighet vid daterad stängningskurs %s: %.1f Mkr. Räntekostnad och förfall redovisas men dubbelräknas inte i sannolikhetsmodellen." % (fenja["price_as_of"], fenja["additional_draw_msek"]),
+      "Det tidigare kursbaserade kapacitetspåslaget är borttaget (faktor 1,0). Minsta årsränta på 100 Mkr är 10 Mkr. Förfall 31 december 2027.",
+      company["fenja"]["market_cap_limit_note"],
     ]
     if issues:
         latest_info.insert(0, "OBS: Officiell rubrik om ny aktieemission upptäckt; se källan och kontrollera villkoren.")

@@ -1,5 +1,5 @@
 {
-  "updated_at": "17 november 2026",
+  "updated_at": "18 november 2026",
   "editorial_note": "Historiska händelser källanknutna; framtida milstolpar placerade per kvartal. time_basis 'estimated' är analystolkning, 'company' är angivet kvartal eller officiellt fönster. Tidsfönster och osäkerhet läses i informationsrutan.",
   "source_index": {
     "history": "https://www.synactpharma.com/sv/om-oss/historia/",
@@ -1266,6 +1266,18 @@
       "url": "https://www.synactpharma.com/sv/utvecklingsprogram/",
       "time_basis": "estimated",
       "time_rationale": "Det finns inget verifierat bolagsdatum för fas I-start. Q4 2027 är endast en platsmarkör på en kvartalsuppdelad tidslinje, inte en klinisk tidsprognos. Ny finansiering och regulatoriska beslut kan påverka när eller om det sker."
+    },
+    {
+      "era": 12,
+      "track": "company",
+      "status": "done",
+      "date": "18 november 2026",
+      "title": "Hela Fenja-ramen utnyttjad",
+      "subtitle": "Andra tranchen 50 Mkr · totalt 100 Mkr",
+      "body": "SynAct påkallar den andra tranchen och beslutar om konvertibler för nominellt 50 Mkr. Hela ramen på 100 Mkr är därmed utnyttjad enligt bolaget. Konverteringskurs 24,60 kr; förfall 31 december 2027.",
+      "meaning": "Stärker likviditeten och ökar nominell skuld. Minst 10 Mkr/år i ränta vid totalt 100 Mkr; inget extra utrymme kvar. Båda konvertiblerna kan ge 6,74 % utspädning exklusive tidigare teckningsoptioner.",
+      "caveat": "Dagens besked förklarar inte hur julibeskedets tioprocentsgräns har tillämpats. Tidigare kursbaserad kalkyl används inte som verifierad lånebegränsning. Dagsaktuell kassa och ny finansieringshorisont anges inte.",
+      "url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
     }
   ]
 }

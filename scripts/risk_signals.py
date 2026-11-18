@@ -24,7 +24,7 @@ RULES = [
      r"f[oö]retr[aä]desemission|nyemission|riktad emission|riktad nyemission|rights? issue|directed share issue|share issuance|private placement|new share issue|equity offering",
      "Kontrollera om emissionen verkligen är beslutad, endast planerad eller redan genomförd; en emissionsrubrik är inte en framtida prognossignal."),
     ("new_debt", "förhöjd", "Nytt lån / konvertibel finansiering",
-     r"konvertibel|convertible financing|convertible loan|finansieringsfacilitet|credit facility|l[aå]nefinansiering|loan facility|new loan|bryggl[aå]n|bridge financing",
+     r"konvertib(?:el|ler)|convertible financing|convertible loan|finansieringsfacilitet|credit facility|l[aå]nefinansiering|loan facility|new loan|bryggl[aå]n|bridge financing",
      "Läs villkoren: lån kan både förbättra likviditeten och föra med sig ränta, förfall och eventuell utspädning."),
     ("market_stress", "bevakning", "Kraftig kursrörelse / ovanlig handel",
      r"kursras|aktien rasar|kraftigt kursfall|stort kursfall|ovanligt h[oö]g oms[aä]ttning|unusually high (?:trading )?volume|shares plunge|share price plunges",
@@ -89,7 +89,17 @@ def baseline_signals(model: dict[str, Any], today: dt.date) -> list[dict[str, st
     if "fenja" in c:
         loan = c["fenja"]
         snap = loan.get("market_snapshot", {})
-        if snap:
+        if loan.get("status") == "fully_drawn":
+            alerts.append(_alert(
+                "base:fenja_capacity", "bevakning",
+                "Fenja: hela ramen utnyttjad – 0 Mkr kvar",
+                "Andra tranchen på 50 Mkr är påkallad; totalt nominellt lån 100 Mkr. " + loan["market_cap_limit_note"],
+                loan["second_draw_url"], loan["second_draw_date"],
+                "Fullt uttag bekräftat; tioprocentsvillkorets tillämpning oklar",
+                "Bevaka bolagets förtydligande av villkoret och framtida kapitalbehov.",
+                "credit_capacity"
+            ))
+        elif snap:
             shares = int(snap["shares_outstanding"])
             price = float(snap["price_sek"])
             market_cap_msek = shares * price / 1_000_000
@@ -119,7 +129,7 @@ def baseline_signals(model: dict[str, Any], today: dt.date) -> list[dict[str, st
             alerts.append(_alert(
                 "base:fenja_maturity", "förhöjd" if months_to_maturity < 18 else "bevakning",
                 "Fenja: förfall 31 december 2027",
-                "Konvertibelt lån om nominellt 50 Mkr förfaller 31 december 2027, "
+                f"Konvertibelt lån om nominellt {loan['already_drawn_gross_msek']:g} Mkr förfaller 31 december 2027, "
                 "om det inte dessförinnan konverterats, återbetalats eller "
                 "omförhandlats. Detta ligger nära bolagets finansieringsprognos "
                 "in i Q4 2027. Vid låg aktiekurs relativt konverteringskursen "
@@ -138,11 +148,10 @@ def baseline_signals(model: dict[str, Any], today: dt.date) -> list[dict[str, st
                 "base:fenja_cost", "bevakning",
                 "Fenja: minst 10 % årlig låneränta",
                 "Minimiräntan är 10 procent per år (STIBOR 3M, lägst 2 procent "
-                "+ 8 procentenheter). På 50 Mkr motsvarar det minst %.1f "
-                "Mkr per år i årstakt. Outnyttjad facilitet har dessutom "
-                "minst 4 procent årlig avgift/ränta till 31 december 2026. "
-                "Detta är ett räkneexempel, inte en verifierad framtida "
-                "betalning och ger ingen andra riskmultiplikator." % minimum_interest_msek,
+                f"+ 8 procentenheter). På {drawn:g} Mkr motsvarar det minst {minimum_interest_msek:.1f} "
+                "Mkr per år i årstakt. Ingen outnyttjad ram återstår efter fullt uttag. "
+                "Faktiska kostnader beror på STIBOR, tid och konvertering. "
+                "Ingen extra riskmultiplikator tas ut för räntan.",
                 loan["url"], loan["agreement_date"],
                 "Verifierade minimivillkor – uppskattad årstakt",
                 "Följ faktisk ränta, kassaflöde och eventuella nya krediter "
@@ -215,6 +224,8 @@ def headline_signals(items: list[dict[str, Any]], issuer: str,
                 slug, level, label, action = (
                     "trading_resumed", "bevakning", "Handeln rapporteras återupptagen",
                     "Kontrollera Nasdaq och läs orsaken till det tidigare handelsstoppet.")
+            if slug == "new_equity" and re.search(r"emission av konvertibler|issue of convertibles", title, re.I):
+                continue
             if slug == "new_equity" and issuer == "isofol" and OPTION_NOTICE.search(title):
                 # TO2 exercise was agreed years before the current monitoring window.
                 continue

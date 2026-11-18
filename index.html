@@ -934,10 +934,10 @@ body.weekly-dialog-open{overflow:hidden}
 <div class="market-heading"><div><p class="section-kicker"><span class="section-number">01</span> Aktieöversikt</p><h2 id="stock-heading">Aktien · SYNACT</h2></div><span class="market-exchange">Nasdaq Stockholm · SYNACT</span></div>
 <div class="market-board">
 <div class="market-quote"><div class="market-quote-heading"><span>Kurs · SynAct Pharma · potentiellt fördröjd</span><a href="https://www.tradingview.com/symbols/OMXSTO-SYNACT/" target="_blank" rel="noopener noreferrer">Jämför på TradingView ↗</a></div>
-<div class="synact-quote-tile" aria-label="Samma tidsstämplade börskurs som används av Fenja-kalkylatorn">
+<div class="synact-quote-tile" aria-label="Senast tillgängliga tidsstämplade börskurs">
  <strong id="synact-shared-price">— <small>kr</small></strong>
  <div id="synact-quote-status" class="synact-quote-status">Hämtar senast publicerade börskurs …</div>
- <div class="synact-quote-shared">Samma kurs används automatiskt som startvärde i Fenja-reglaget.</div>
+ <div class="synact-quote-shared">Börskursen visar marknadens egen tidsstämpel och kan vara fördröjd.</div>
 </div></div>
 <div class="market-metric"><span class="metric-label">Antal aktier</span><strong>56 213 968</strong><a href="https://www.synactpharma.com/sv/investerare/aktiekapital/" target="_blank" rel="noopener">Bolagets aktiekapital ↗</a></div>
 <div class="market-metric market-owners"><span class="metric-label">Aktieägare på plattformarna</span><div class="owner-pair">
@@ -978,7 +978,7 @@ body.weekly-dialog-open{overflow:hidden}
 <h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
 <div class="partner-intro">
 <div class="partner-card"><span class="micro">Hipolabor · dengue · Brasilien</span><strong>50 / 50 <small style="font-size:13px;color:#b3c8d8">vinstdelning</small></strong><p>Även kostnader för utveckling mot regulatoriskt godkännande delas 50/50. Extra försäljningsmilstolpar är kopplade till <b>200 miljoner USD i kumulativ nettoförsäljning</b> – betalningsbeloppet är inte offentliggjort.</p><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Avtalets fullständiga villkor ↗</a></div>
-<div class="partner-card"><span class="micro">Kassa &amp; Fenja · Q3 2026</span><strong>42,4 <small style="font-size:13px;color:#b3c8d8">miljoner kr i kassa</small></strong><p>Finansieringsfacilitet <b>upp till 100 miljoner kr</b>, varav initialt 50 miljoner kr har dragits. Bolaget bedömer att den tillgängliga finansieringen räcker in i Q4 2027. Konverteringskurs: 24,60 kr; teckningsoptioners lösenpris: 27,55 kr.</p><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Q3-rapport &amp; finansiering ↗</a></div>
+<div class="partner-card"><span class="micro">Kassa &amp; Fenja · Q3 2026</span><strong>42,4 <small style="font-size:13px;color:#b3c8d8">miljoner kr i kassa</small></strong><p>Fenja-ramen på <b>100 miljoner kr är fullt utnyttjad</b> efter andra uttaget på 50 Mkr den 18 november. Kassan avser 30 september och är inte dagsaktuell. Bolagets prognos från 3 november är finansiering in i Q4 2027; ingen ny horisont anges i uttagsbeskedet. Konverteringskurs: 24,60 kr; teckningsoptioners lösenpris: 27,55 kr.</p><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Q3-rapport &amp; finansiering ↗</a></div>
 </div>
 <p class="micro">Scenariokalkyl · hypotetisk årsförsäljning i Brasilien (inte bolagsprognos)</p>
 <div class="partner-calc"><label>Årlig nettoförsäljning (miljoner USD)<input id="sales" type="number" value="100" min="0" max="100000" step="10"></label><label>Antagen vinstmarginal (%)<input id="margin" type="number" value="20" min="0" max="100" step="1"></label><div class="calc-result"><span class="micro">SynActs andel av årsresultat</span><strong id="profit-result">10,0 MUSD</strong><span class="tiny-note">50 % × försäljning × marginal</span></div></div>
@@ -992,51 +992,38 @@ body.weekly-dialog-open{overflow:hidden}
   <div class="fin-grid">
     <div class="fin-risk">
       <div class="fin-caption">Modellrisk · närmaste 6 månader</div>
-      <div class="fin-main"><strong id="fin-risk-6">29,9 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-6" title="Visa beräkningen av emissionsrisk inom 6 månader" aria-label="Visa beräkningen av emissionsrisk inom 6 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span id="fin-risk-level">Förhöjd men osäker</span></div>
+      <div class="fin-main"><strong id="fin-risk-6">27,6 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-6" title="Visa beräkningen av emissionsrisk inom 6 månader" aria-label="Visa beräkningen av emissionsrisk inom 6 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span id="fin-risk-level">Förhöjd men osäker</span></div>
       <div class="fin-meter"><div id="fin-risk-bar" style="width:26%"></div></div>
-      <p class="fin-small">Känslighetsintervall <b id="fin-range">19,7–42,3 %</b><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="sensitivity" title="Visa beräkningen av känslighetsintervallet" aria-label="Visa beräkningen av känslighetsintervallet" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button> · inte statistiskt konfidensintervall</p>
-      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">13,1 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-3" title="Visa beräkningen av emissionsrisk inom 3 månader" aria-label="Visa beräkningen av emissionsrisk inom 3 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div><div><small>12 månader</small><strong id="fin-risk-12">63,3 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-12" title="Visa beräkningen av emissionsrisk inom 12 månader" aria-label="Visa beräkningen av emissionsrisk inom 12 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div></div>
+      <p class="fin-small">Känslighetsintervall <b id="fin-range">18,1–39,3 %</b><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="sensitivity" title="Visa beräkningen av känslighetsintervallet" aria-label="Visa beräkningen av känslighetsintervallet" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button> · inte statistiskt konfidensintervall</p>
+      <div class="fin-horizons"><div><small>3 månader</small><strong id="fin-risk-3">12,0 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-3" title="Visa beräkningen av emissionsrisk inom 3 månader" aria-label="Visa beräkningen av emissionsrisk inom 3 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div><div><small>12 månader</small><strong id="fin-risk-12">59,8 %</strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="risk-12" title="Visa beräkningen av emissionsrisk inom 12 månader" aria-label="Visa beräkningen av emissionsrisk inom 12 månader" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div></div>
       <p class="fin-small">Procentsatserna är uttryckligen <b>subjektiva scenarioantaganden</b> – inte en historiskt uppmätt emissionsfrekvens.</p>
     </div>
     <div class="fin-facts">
       <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
       <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="cash-burn" title="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-label="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div>
-      <div><small>Fenja · beräknat möjligt extra uttag</small><strong id="fenja-fact-extra">≈24,3 <em>miljoner kr</em></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-reference" title="Visa beräkningen av återstående möjliga Fenja-uttag vid senaste hämtade kurs" aria-label="Visa beräkningen av återstående möjliga Fenja-uttag" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><span>Av nominellt 50 Mkr · enligt kurs 13 nov och 10 %-taket · ej beviljat uttag</span></div>
+      <div><small>Fenja · utnyttjad låneram</small><strong>100 <em>miljoner kr</em></strong><span>Andra tranchen 50 Mkr påkallad 18 nov · 0 Mkr kvar</span><a href="https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja" target="_blank" rel="noopener">Källa: nytt finansieringsbesked ↗</a></div>
       <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="runway" title="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-label="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">ⓘ</button></div>
     </div>
   </div>
   <div class="fin-fenja-panel" aria-labelledby="fin-fenja-heading">
    <div class="fin-fenja-head"><div>
-     <h3 id="fin-fenja-heading">Fenja – vad begränsar finansieringen?</h3>
-     <p>Av kreditramen på 100 Mkr är 50 Mkr redan utnyttjade. Resterande belopp begränsas av <b>10 % av börsvärdet</b>. Vi använder en och samma tidsstämplade börskurs under Aktien och här i kalkylatorn.</p>
-   </div><span class="fin-fenja-pill">Villkorad kredit · bevakas</span></div>
-   <div class="fin-fenja-highlight" aria-live="polite" aria-atomic="true">
-     <div class="fin-fenja-highlight-top">
-       <span class="fin-fenja-highlight-label">HÖGST MÖJLIGA YTTERLIGARE LÅNEUTRYMME</span>
-       <span id="fenja-scenario-badge" class="fin-fenja-mode">Senast hämtad kurs</span>
-     </div>
-     <div class="fin-fenja-highlight-number">
-       <strong id="fenja-additional">24,3 <small>miljoner kr</small></strong>
-       <button type="button" class="fin-calc-trigger" data-fin-calc="fenja-capacity" title="Visa hur det möjliga låneutrymmet har beräknats" aria-label="Visa beräkningen av Fenjas låneutrymme" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
-     </div>
-     <div class="fin-fenja-highlight-share"><strong id="fenja-available-percent">48,6 %</strong> av de nominellt återstående <strong>50 miljoner kronorna</strong></div>
-     <div class="fin-fenja-capacity-track" id="fenja-capacity-track" role="progressbar" aria-label="Andel av Fenjas återstående nominella kredit som ryms inom börsvärdestaket" aria-valuemin="0" aria-valuemax="100" aria-valuenow="49">
-       <div id="fenja-capacity-fill" class="fin-fenja-capacity-fill" style="width:48.6%"></div>
-     </div>
-     <div id="fenja-cap-context" class="fin-fenja-highlight-caption">Av nominellt 50 Mkr · kurs 13,22 kr den 13 nov 2026</div>
+    <h3 id="fin-fenja-heading">Fenja – hela låneramen utnyttjad</h3>
+    <p>Den 18 november 2026 påkallade SynAct den andra tranchen på <b>50 miljoner kronor</b> och beslutade om nya konvertibler. Enligt bolaget är nu hela ramen på 100 Mkr utnyttjad.</p>
+   </div><span class="fin-fenja-pill">Källgranskat · 18 nov 2026</span></div>
+   <div class="fin-fenja-highlight">
+    <span class="fin-fenja-highlight-label">ÅTERSTÅENDE LÅNEUTRYMME</span>
+    <div class="fin-fenja-highlight-number"><strong>0 <small>miljoner kr</small></strong></div>
+    <div class="fin-fenja-highlight-caption">100 Mkr av 100 Mkr utnyttjat. Ingen kursbaserad lånekalkyl används längre.</div>
    </div>
    <div class="fin-fenja-stats">
-     <div><span>Minsta årsränta på befintliga 50 Mkr</span><strong id="fenja-interest">5,0 <small>Mkr/år</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-interest" title="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-label="Visa hur Fenjas lägsta årliga räntekostnad räknas fram" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small>Minst 10 % årligen, exklusive eventuell outnyttjad-kreditkostnad</small></div>
-     <div><span>Konvertibellånets förfall</span><strong>31 dec 2027</strong><small>Strax efter finansieringshorisonten in i Q4 2027; omförhandling/konvertering kan ändra utfallet</small></div>
+    <div><span>Nominellt lån efter andra uttaget</span><strong>100 <small>Mkr</small></strong><small>50 Mkr i juli + 50 Mkr i november. Inte samma sak som dagsaktuell kassa.</small></div>
+    <div><span>Minsta årliga ränta på 100 Mkr</span><strong>10 <small>Mkr/år</small></strong><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-interest" aria-label="Visa ränteberäkning" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><small>STIBOR 3M, lägst 2 %, + 8 procentenheter. Årstakt före konvertering eller återbetalning.</small></div>
+    <div><span>Konvertering och möjlig utspädning</span><strong>24,60 <small>kr/aktie</small></strong><small>2 032 520 nya aktier / 3,49 % från andra tranchen. Båda lånen: 4 065 040 aktier / 6,74 %. Tidigare teckningsoptioner tillkommer separat. Kursen kan omräknas enligt villkoren.</small></div>
+    <div><span>Förfall och lock-up</span><strong>31 dec 2027</strong><small>Lock-up sex månader från 20 juli 2026, till omkring 20 januari 2027. Begränsade konverteringsvolymer därefter till 31 mars 2027.</small></div>
    </div>
-   <div class="fin-fenja-simulator">
-     <div class="fin-fenja-simhead"><label for="fenja-scenario-price">Aktiekurs vid eventuellt nytt uttag <small>– synkad med Aktien</small></label><strong id="fenja-scenario-output">13,22 kr</strong></div>
-     <input type="range" id="fenja-scenario-price" min="5" max="35" value="13.22" step="0.01" aria-label="Antagen aktiekurs i kronor vid nytt Fenja-uttag">
-     <div class="fin-fenja-sync-actions"><button id="fenja-resync-quote" type="button" class="fin-fenja-resync" disabled title="Återställ reglaget till den senast hämtade börskursen"><span aria-hidden="true">↻</span> Synka med kursen igen</button><span id="fenja-resync-hint" class="fin-fenja-resync-hint">Reglaget följer senast hämtade kurs.</span></div>
-     <p id="fenja-scenario-summary">Om kursen vore 13,22 kr med oförändrat antal aktier skulle högst cirka 24,3 Mkr kunna återstå enligt börsvärdestaket.</p><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-scenario" title="Visa beräkningen för aktiekursen som valts med reglaget" aria-label="Visa beräkningen för aktiekursen som valts med reglaget" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button>
-     <p class="fin-fenja-disclaimer"><b id="fenja-quote-sync-status">Kursuppdatering sker automatiskt under börsdagar. Senaste verifierade referenskurs visas tills en ny publiceras.</b> Dra själv i reglaget för att testa andra aktiekurser; när en ny börskurs publiceras ställs reglaget om till den. Detta ändrar inte den separata, veckovis uppdaterade emissionsrisken som använder referenskursen <span id="fenja-snapshot-date">13 nov 2026</span>.</p>
-   </div>
-   <div class="fin-fenja-model-note"><b>Ingen dubbelräkning:</b> Kreditberoendet ingick redan i barometern (×1,05). Nu tillkommer bara en separat kapacitetsfaktor för kreditdelen som 10 %-taket hindrar oss från att räkna som tillgänglig. <b>Ränta, förfall och bolagets finansieringshorisont visas som risksignaler, men ger inga extra fristående multiplikatorer.</b> <a id="fenja-original-source" href="https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/" target="_blank" rel="noopener noreferrer">Läs lånevillkoren hos SynAct ↗</a></div>
+   <p class="fin-warning"><b>Rättelse av vår tidigare kalkyl:</b> Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.</p>
+   <p class="fin-fenja-model-note"><b>Emissionsbarometern:</b> Det tidigare kursbaserade kapacitetspåslaget är borttaget (faktor ×1,0). Kreditberoende, fas III-behov och partner-timing finns kvar i den subjektiva modellen. Ränta och förfall redovisas separat. Bolagets tidigare prognos om finansiering in i Q4 2027 förlängs inte automatiskt av detta besked.</p>
+   <p class="fin-fenja-model-note"><a href="https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja" target="_blank" rel="noopener">Dagens finansieringsbesked ↗</a> <a href="https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/" target="_blank" rel="noopener">Ursprungligt besked 20 juli ↗</a></p>
  </div>
   <div class="fin-signals" id="fin-signals" aria-labelledby="fin-signals-heading">
   <div class="fin-signals-heading">
@@ -1049,11 +1036,11 @@ body.weekly-dialog-open{overflow:hidden}
   <p class="fin-signal-foot"><b>Viktigt:</b> Bekräftade rapportförhållanden ingår redan i den ordinarie bedömningen. Nya rubrikträffar är <em>obekräftade</em> tills originalkällan granskats, och höjer därför inte automatiskt riskprocenten.</p>
 </div>
 <div class="fin-two">
-    <div class="fin-box"><h3>Vad höjer emissionsrisken?</h3><p>En eventuell fas III-studie inom RA kan kräva mycket mer kapital. Fenjas extra lånemöjlighet är villkorad, bland annat av börsvärdet, och lånet förfaller den 31 december 2027. Historiska fall visar att bioteknikbolag ofta emitterar <b>innan</b> kassan tagit slut.</p></div>
+    <div class="fin-box"><h3>Vad höjer emissionsrisken?</h3><p>En eventuell fas III-studie inom RA kan kräva mycket mer kapital. Fenja-ramen är fullt utnyttjad: 100 Mkr i nominellt lån, minst 10 Mkr/år i ränta och förfall den 31 december 2027. Historiska fall visar att bioteknikbolag ofta emitterar <b>innan</b> kassan tagit slut.</p></div>
     <div class="fin-box"><h3>Vad talar emot en snar emission?</h3><p>SynAct bedömer att finansieringen räcker in i Q4 2027 och planerar flera värdeskapande kliniska besked före dess. Partnerskap kan ge alternativa finansieringsvägar. Hipolabor-avtalet har däremot ingen offentlig garanterad kontant upfront-betalning som modellen kan räkna in.</p></div>
   </div>
   <div class="fin-two">
-    <div class="fin-box"><h3>Senaste riskuppdatering</h3><p id="fin-updated">Grundbedömning 13 november 2026. Automatisk veckobevakning är schemalagd på måndagar.</p><p id="fin-coverage">Nya kassasiffror och finansieringsvillkor kräver källkontroll innan de ändrar modellen.</p></div>
+    <div class="fin-box"><h3>Senaste riskuppdatering</h3><p id="fin-updated">Källgranskad modellrättelse 18 november 2026. Automatisk veckobevakning är schemalagd på måndagar.</p><p id="fin-coverage">Nya kassasiffror och finansieringsvillkor kräver källkontroll innan de ändrar modellen.</p></div>
     <div class="fin-box"><h3>Upptäckta nyheter att kontrollera</h3><div id="fin-news"><p>Automatiken bevakar pressmeddelanden, finansiella rapporter, licensaffärer och nya emissioner hos referensbolagen.</p></div></div>
   </div>
   <div class="dd-risk-module" id="dd-risk-module">
@@ -1074,16 +1061,18 @@ body.weekly-dialog-open{overflow:hidden}
   <details class="fin-method">
     <summary>Visa modellen, antagandena och hur veckouppdateringen fungerar</summary><p><b>Partner-DD:</b> En separat subjektiv faktor ×1,08 för en global köpares möjliga väntan på ytterligare klinisk eller regulatorisk evidens ingår i procentsatserna. Hipolabor-avtalets framtida vinstdelning är inte en garanterad upfront.</p>
     <p><b>Vad räknas?</b> Nya kontanta emissioner av aktier eller units. Utövande av redan utgivna optioner och enbart konvertering av Fenja-lånet räknas inte som en nyemission, men utspädningsrisken finns ändå.</p>
-    <p><b>Beräkning:</b> En subjektivt vald grundrisk på 2,6 % per månad multipliceras med 1,25 för fas III-kapitalbehov, <b>1,05 för redan känd kreditberoenderisk</b>, samt ×1,08 för möjlig Big Pharma-DD-fördröjning och en <b>separat tillgänglighetsfaktor</b> som bara beaktar hur stor del av Fenjas extra 50 Mkr som begränsas av avtalsvillkoret om 10 % av börsvärdet. Denna faktor är <b id="fenja-factor-display">×1,103</b><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="fenja-factor" title="Visa beräkningen av Fenja-tillgänglighetsfaktorn" aria-label="Visa beräkningen av Fenja-tillgänglighetsfaktorn" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button> vid referenskursen 13,22 kr. Den tidigare närhetsfaktorn till oktober 2027 finns kvar. Sannolikheten över h månader är <code>1 − exp(−h × månatlig riskintensitet)</code>. Antagandet om hur mycket en begränsad kredit ska höja risken är subjektivt och inte kalibrerat mot representativ historisk statistik.</p><p><b>Avgränsning:</b> Ränta och lånets förfall 31 december 2027 får egna tydliga varningar men höjer inte procenttalen en andra gång. Bolagets finansieringshorisont och tidigare kreditberoende finns redan i risken. Referenskursen uppdateras först efter källkontroll; veckojobbet uppdaterar däremot tidsfaktorn.</p>
+    <p><b>Beräkning:</b> Grundrisk 2,6 % per månad × 1,25 för fas III-behov × 1,05 för kreditberoende × 1,08 för osäker partner-timing × tidsfaktor till oktober 2027. Sannolikhet över h månader: <code>1 − exp(−h × månatlig riskintensitet)</code>. Det tidigare kursbaserade Fenja-påslaget är borttaget efter verifierat fullt uttag 18 november (kapacitetsfaktor ×1,0). Förändringen är en modellrättelse, inte en statistiskt uppmätt riskminskning.</p>
+    <p><b>Avgränsning:</b> Ränta och förfall visas som separata risksignaler utan ytterligare numeriska multiplikatorer. Ingen ny kassasiffra eller längre finansieringshorisont har antagits.</p>
     <p><b>Varje vecka:</b> Ett GitHub Actions-jobb räknar om antal dagar kvar till finansieringsriktmärket och uppdaterar 3-, 6- och 12-månadersutfall. Det söker också i bolagets pressmeddelanden och breda RSS-flöden. Nya finansiella besked flaggas för granskning; modellen hittar inte garanterat alla nyheter och uppdaterar inte påhittade kassasiffror utifrån rubriker.</p>
-    <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Fenja-avtalet är på upp till 100 miljoner kr totalt, varav 50 miljoner kr var dragna i juli. Mer kredit är villkorad och förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
+    <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Hela Fenja-ramen på 100 miljoner kr är utnyttjad enligt beskedet 18 november. Ingen ytterligare kredit återstår inom ramen. Lånen förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
     <p><b>Modellrisk:</b> Känslighetsintervallet varierar den valda riskintensiteten med ×0,62 till ×1,55, och är inte ett konfidensintervall. <a href="https://github.com/steffestygg-boop/synact/blob/main/data/financing_model.json" target="_blank" rel="noopener">Visa alla referensfall och antaganden på GitHub ↗</a></p>
   </details>
   <p class="fin-small">Schemalagd veckokontroll varje måndag kl. 07:15 UTC via GitHub Actions (normalt 08:15 svensk vintertid). Om en körning misslyckas eller en källa inte går att läsa ska det synas i statusen. Informationen är ingen investeringsrekommendation.</p>
 </section>
 <section aria-labelledby="news-heading"><p class="section-kicker"><span class="section-number">05</span> Omvärld &amp; händelser</p><h2 class="section" id="news-heading">Senaste nyheterna</h2>
-<p class="intro">Tre källkontrollerade nyheter från bolaget, kompletterade med automatiskt insamlade rubriker när flödet finns tillgängligt.</p><p class="status" id="news-status">Visar verifierade pressmeddelanden · nyhetsflödet läses in när tillgängligt.</p>
+<p class="intro">Fyra källkontrollerade nyheter från bolaget, kompletterade med automatiskt insamlade rubriker när flödet finns tillgängligt.</p><p class="status" id="news-status">Visar verifierade pressmeddelanden · nyhetsflödet läses in när tillgängligt.</p>
 <div class="news" id="news">
+<article class="news-card"><small>18 nov 2026 · SynAct / MFN</small><h3>Hela Fenja-ramen utnyttjad: ytterligare 50 miljoner kronor</h3><p>Totalt 100 Mkr utnyttjat, 0 Mkr kvar. Minst 10 % årlig ränta; konverteringskurs 24,60 kr.</p><a href="https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja" target="_blank" rel="noopener">Läs originalbeskedet ↗</a></article>
 <article class="news-card"><small>13 nov 2026 · SynAct / MFN</small><h3>USA: patentansökan för resomelagons tablettformulering har godkänts för utfärdande</h3><a href="https://www.mfn.se/a/synact-pharma/synact-pharma-announces-notice-of-allowance-of-a-us-patent-covering-the-resomelagon-tablet" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 <article class="news-card"><small>3 nov 2026 · SynAct</small><h3>BioVal värderar tre resomelagontillgångar till sammanlagt 2,9 miljarder kronor</h3><a href="https://www.synactpharma.com/sv/synact-pharma-meddelar-att-bioval-biostock-analytics-inleder-analysbevakning-av-bolaget/" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
 <article class="news-card"><small>27 okt 2026 · SynAct</small><h3>Första kommersiella partneravtalet med Hipolabor för dengue i Brasilien</h3><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Läs originalartikeln ↗</a></article>
@@ -1129,7 +1118,7 @@ body.weekly-dialog-open{overflow:hidden}
 <div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar av Redeye, Edison och BioVal i kr per aktie"></svg></div>
 <div class="chart-table" id="valuation-highlights"></div>
 <p class="note"><b>*Viktigt:</b> BioVals 2,90 miljarder kr är en samlad riskjusterad modellvärdering, inte en publicerad riktkurs per aktie. Punktvärdet (~51,59 kr) är vår omräkning med 56 213 968 utestående aktier. Analysföretagen använder olika antaganden; historiska riktkurser är inte uppdaterade i realtid. Dessa är uppdragsanalyser (betalda av bolaget) och värderingarna utgör inte löften om kursutvecklingen. <a href="https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/" target="_blank" rel="noopener">BioVal 3 november ↗</a> · <a href="https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304" target="_blank" rel="noopener">Edison 4 mars ↗</a> · <a href="https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf" target="_blank" rel="noopener">Redeye 2025 ↗</a>.</p></section>
-<footer>Privat, oberoende investeraröversikt · Datakontroll 13 november 2026 · Ej investeringsrådgivning. Kursdata kan vara fördröjda. Tidslinje och analysvärderingar uppdateras redaktionellt, medan nyhetsflödet kan uppdateras automatiskt. Planerade händelser är inte bekräftade utfall.</footer>
+<footer>Privat, oberoende investeraröversikt · Finansieringskontroll 18 november 2026 · Ej investeringsrådgivning. Kursdata kan vara fördröjda. Tidslinje och analysvärderingar uppdateras redaktionellt, medan nyhetsflödet kan uppdateras automatiskt. Planerade händelser är inte bekräftade utfall.</footer>
 </div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog"><button id="close" aria-label="Stäng">×</button><div class="date" id="modal-date"></div><h2 id="modal-title"></h2><div id="modal-body" class="modal-body"></div><div id="modal-links"></div></div></div>
 
@@ -1356,14 +1345,7 @@ function finCalcProof(key){
    const clip=(x,low,high)=>Math.max(low,Math.min(high,x));
    const proximity=clip(1+.1*(horizon+9-monthsLeft),.85,2.6);
    const hasFenja=!!c.fenja;
-   const fenjaFac=hasFenja?Number(d.fenja_assessment?.fenja_cap_factor||
-    (calc.fenja_capacity_penalty_weight?(
-      1+Number(calc.fenja_capacity_penalty_weight)*(1-
-        Math.max(0,Math.min(
-          Number(c.fenja.remaining_nominal_msek),
-          Number(c.fenja.market_snapshot.shares_outstanding)*Number(c.fenja.market_snapshot.price_sek)/1e6*Number(c.fenja.market_cap_limit_fraction)-Number(c.fenja.already_drawn_gross_msek)
-        ))/Number(c.fenja.remaining_nominal_msek))
-    ):1)):1;
+   const fenjaFac=hasFenja?Number(d.fenja_assessment?.fenja_cap_factor||1):1;
    const monthly=Number(calc.baseline_monthly_hazard)*
     Number(calc.clinical_phase3_multiplier)*Number(calc.credit_dependency_multiplier)*Number(calc.partner_dd_multiplier||1)*fenjaFac*proximity;
    const p=100*(1-Math.exp(-horizon*monthly));
@@ -1373,7 +1355,7 @@ function finCalcProof(key){
     'Horisont h = '+horizon+' månader; daterat riktmärke: '+c.cash_runway_proxy+'; månader kvar enligt kalendern: '+num(monthsLeft,2)+'.',
     'Basrisk '+num(calc.baseline_monthly_hazard*100,2)+' %/månad × klinisk faktor '+num(calc.clinical_phase3_multiplier,2)+' × kredit-/finansieringsfaktor '+num(calc.credit_dependency_multiplier,2)+'.',
     'Separat partner-DD-faktor '+num(calc.partner_dd_multiplier||1,2)+' för risken att en möjlig licenspartner avvaktar mer underlag. Subjektivt och manuellt granskat; inga garanterade upfronts räknas in.',
-    hasFenja?'Fenja-kapacitetsfaktor '+num(fenjaFac,6)+' baserad på verifierad kursbild '+c.fenja.market_snapshot.as_of_date+' (inte livekurs).':'Inget redan erhållet TO2-kapital räknas in; utfallet är ännu obekräftat.',
+    hasFenja?'Fenja-kapacitetsfaktor 1,0 efter fullt uttag; tidigare kursbaserat påslag borttaget.':'Inget redan erhållet TO2-kapital räknas in; utfallet är ännu obekräftat.',
     'Tidsfaktor = max(0,85; min(2,60; 1 + 0,10 × ('+horizon+' + 9 − '+num(monthsLeft,2)+'))) = '+num(proximity,3)+'.',
     'Månatlig riskintensitet = '+num(monthly*100,3)+' %. P = 100 × (1 − e^(−'+horizon+' × '+num(monthly,6)+')) ≈ '+num(p,1)+' %.',
     'Känslighetsgränser: riskintensiteten × '+num(band[0],2)+' respektive × '+num(band[1],2)+' = '+num(r.low,1)+'–'+num(r.high,1)+' %.'
@@ -1385,56 +1367,15 @@ function finCalcProof(key){
     caveat:'Riskfaktorerna är analytiska antaganden och riskintervallet ett känslighetsband – inte ett konfidensintervall. Om kontrollräkningen skiljer någon tiondel från den publicerade siffran beror det på avrundning av kvarvarande månader eller modellversion. En ny uppgift i pressen ändrar inte automatiskt modellparametrarna.',
     sources:baseSources};
  }
- if(c.fenja&&key.startsWith('fenja-')){
-   const f=c.fenja, snap=f.market_snapshot;
-   const marketPrice=(key==='fenja-scenario'||key==='fenja-capacity')?
-    Number(document.getElementById('fenja-scenario-price')?.value||synactQuoteState.price||snap.price_sek):
-    (key==='fenja-reference'?Number(synactQuoteState.price||snap.price_sek):Number(snap.price_sek));
-   const shares=Number(snap.shares_outstanding), drawn=Number(f.already_drawn_gross_msek),
-    remaining=Number(f.remaining_nominal_msek),maxFacility=Number(f.total_msek),capRate=Number(f.market_cap_limit_fraction);
-   const cap=marketPrice*shares/1e6;
-   const limit=cap*capRate;
-   const available=Math.max(0,Math.min(remaining,maxFacility-drawn,limit-drawn));
-   const common=[
-    'Aktiekurs '+num(marketPrice,2)+' kr × '+num(shares,0)+' aktier ÷ 1 000 000 = '+num(cap,2)+' Mkr i illustrativt börsvärde.',
-    num(cap,2)+' Mkr × '+num(capRate*100,0)+' % = '+num(limit,2)+' Mkr högsta totala dragning.',
-    'Redan draget '+num(drawn,1)+' Mkr; återstående nominellt utrymme '+num(remaining,1)+' Mkr.',
-    'Möjligt extra = max(0; min('+num(remaining,1)+'; '+num(maxFacility-drawn,1)+'; '+num(limit,2)+' − '+num(drawn,1)+')) = '+num(available,2)+' Mkr.'
-   ];
-   const sources=[source(f.url,'Fenja-avtalet'),source(synactQuoteState.price?'https://finance.yahoo.com/quote/SYNACT.ST/':snap.price_source,'Kursreferens för beräkningen'),source(snap.share_count_source,'Källa till antal aktier'),baseSources[1]];
-   if(key==='fenja-interest'){
-     const rate=Number(f.min_drawn_interest_percent_per_year)/100;
-     const undrawn=Number(f.min_undrawn_fee_percent_per_year_through_2026)/100;
-     return {title:'Fenjas minsta årliga finansieringskostnad',
-      lead:'Årstakt vid rapporterat redan utnyttjat belopp; inte en prognos över kontantutgifter för en hel tolvmånadersperiod.',
-      formula:'Årlig ränta = draget nominellt lån × max(STIBOR 3M, 2 %) + 8 procentenheter',
-      steps:['Lägsta räntesats på draget belopp: 2 % + 8 % = '+num(rate*100,1)+' % per år.',
-       num(drawn,1)+' Mkr × '+num(rate*100,1)+' % = '+num(drawn*rate,2)+' Mkr per år i lägsta årstakt.',
-       num(remaining,1)+' Mkr ej draget × '+num(undrawn*100,1)+' % = '+num(remaining*undrawn,2)+' Mkr/år som årstakt, men avgiften på outnyttjad kredit gäller bara till 31 december 2026.'],
-      result:'Minst '+num(drawn*rate,1)+' Mkr/år på 50 Mkr draget',
-      caveat:'STIBOR kan höja räntan. Faktiska kostnader beror på tid, utnyttjande, avtalsändringar och konverteringar. Uppläggningsavgift är separat. Ingen extra emissionsriskfaktor tas ut för räntan.',
-      sources:[source(f.url,'Fenja-avtalet')]};
-   }
-   if(key==='fenja-factor'){
-     const weight=Number(calc.fenja_capacity_penalty_weight);
-     const factor=1+weight*(1-available/remaining);
-     return {title:'Fenjas tillgänglighetsfaktor i emissionsbarometern',
-      lead:'Den gamla kreditberoendefaktorn finns kvar. Den nya faktorn höjer bara riskscenariot för den del av det nominella låneutrymmet som 10 %-begränsningen gör otillgänglig.',
-      formula:'Kapacitetsfaktor = 1 + vikt × (1 − beräknat tillgängligt extra uttag / nominellt återstående 50 Mkr)',
-      steps:[...common,
-       'Ofinansierbar andel = 1 − '+num(available,2)+' / '+num(remaining,1)+' = '+num(1-available/remaining,4)+'.',
-       'Viktning = 1 + '+num(weight,2)+' × '+num(1-available/remaining,4)+' = '+num(factor,6)+'.',
-       'Total kreditfaktor = gammal faktor '+num(calc.credit_dependency_multiplier,2)+' × ny faktor '+num(factor,6)+' = '+num(Number(calc.credit_dependency_multiplier)*factor,6)+'.'],
-      result:'×'+num(d.fenja_assessment?.fenja_cap_factor||factor,3)+' i den publicerade modellen',
-      caveat:'Vikten är ett uttryckligt, subjektivt antagande; inte empiriskt kalibrerad. Ränta, låneförfall och tidsnärhet multipliceras inte på nytt. Här används daterad kurs och oförändrat antal aktier.',
-      sources};
-   }
-   return {title:key==='fenja-scenario'?'Fenjas kreditutrymme vid vald aktiekurs':'Fenjas maximala extra kreditutrymme',
-    lead:key==='fenja-scenario'?'Reglaget visar aktuell synkad kurs eller ett eget scenario. Det påverkar inte sparade procentsatser i emissionsbarometern.':key==='fenja-reference'?'Beräknas från den senast publicerade kursen som visas under Aktien, med marknadskursens egen tidsstämpel.':'Beräknas vid aktiekursen som är inställd på reglaget, med samma avtalsbegränsning om 10 % av börsvärdet.',
-    formula:'Möjligt extra = max(0; min(nominellt kvar; maximalt totalbelopp − redan draget; 10 % × aktiekurs × aktier / 1 000 000 − redan draget))',
-    steps:common,result:'Högst '+num(available,1)+' Mkr extra',
-    caveat:'Detta är en aritmetisk övre gräns enligt det offentliggjorda taket. Ett nytt uttag kan dessutom förutsätta andra avtalsvillkor och måste ske inom avtalets tidsfönster. Referenskursen är inte en livekurs.',
-    sources};
+ if(c.fenja&&key==='fenja-interest'){
+   const f=c.fenja,drawn=Number(f.already_drawn_gross_msek),rate=Number(f.min_drawn_interest_percent_per_year)/100;
+   return {title:'Fenjas minsta årliga låneränta',
+    lead:'Årstakt på nominellt lån enligt det källgranskade finansieringsbeskedet. Inte en prognos över en hel tolvmånadersperiod.',
+    formula:'Årsränta = nominellt lån × (max(STIBOR 3M, 2 %) + 8 procentenheter)',
+    steps:['Minsta räntesats: 2 % + 8 % = 10 % per år.',num(drawn,0)+' Mkr × 10 % = '+num(drawn*rate,1)+' Mkr per år.','Hela ramen är utnyttjad; 0 Mkr återstår.'],
+    result:'Minst '+num(drawn*rate,1)+' Mkr/år på '+num(drawn,0)+' Mkr',
+    caveat:'STIBOR, tid, återbetalning och konvertering påverkar den faktiska kostnaden. Uppläggningsavgift redovisas separat. Ingen extra riskmultiplikator tas ut för räntan.',
+    sources:[source(f.second_draw_url,'Andra uttaget 18 november'),source(f.url,'Ursprungligt finansieringsbesked')]};
  }
  if(c.warrants&&key.startsWith('to2-')){
    const w=c.warrants;
@@ -1543,125 +1484,27 @@ document.addEventListener('keydown',event=>{
    finCalcState.finance=d;finCalcState.model=model;
    if(!d.risk||!Array.isArray(model.peer_cases))throw Error('Datafilerna är ofullständiga');
 
-   /* Share-price tile and Fenja calculator use exactly the same sourced quote.
-      The weekly emission probability still relies on its separate reviewed snapshot. */
-   if(model.company&&model.company.fenja&&model.company.fenja.market_snapshot){
-     const loan=model.company.fenja;
-     const snapshot=loan.market_snapshot;
-     const pct=Number(loan.market_cap_limit_fraction);
-     const shares=Number(snapshot.shares_outstanding);
-     const drawn=Number(loan.already_drawn_gross_msek);
-     const remaining=Number(loan.remaining_nominal_msek);
-     const maximum=Number(loan.total_msek);
-     const fmt=(x,d=1)=>Number(x).toLocaleString('sv-SE',{minimumFractionDigits:d,maximumFractionDigits:d});
-     const extraAt=price=>Math.max(0,Math.min(remaining,maximum-drawn,shares*price/1e6*pct-drawn));
-     const referPrice=Number(snapshot.price_sek);
-     const formatQuoteDate=t=>new Date(t).toLocaleString('sv-SE',{
-       timeZone:'Europe/Stockholm',day:'numeric',month:'short',
-       hour:'2-digit',minute:'2-digit'});
-     const modelDate=new Date(snapshot.as_of_date+'T12:00:00Z').toLocaleDateString('sv-SE',{
-       day:'numeric',month:'short',year:'numeric'});
-     const amount=el('fenja-additional');
-     const fact=el('fenja-fact-extra');
-     const stockPrice=el('synact-shared-price');
-     const stockStatus=el('synact-quote-status');
-     const slider=el('fenja-scenario-price');
-     const resyncButton=el('fenja-resync-quote');
-     const resyncHint=el('fenja-resync-hint');
-     const latestStatus=el('fenja-quote-sync-status');
-     const percentNode=el('fenja-available-percent');
-     const progress=el('fenja-capacity-track');
-     const progressFill=el('fenja-capacity-fill');
-     const badge=el('fenja-scenario-badge');
-     let quotePrice=referPrice;
-     let quoteStamp=snapshot.as_of_date+'T12:00:00Z';
-     let lastQuoteKey='';
-     let lastQuoteTimestamp=0;
-     let showingSavedQuote=false;
-     let hasVerifiedQuote=false;
+   /* Stock quote remains independent of the fully utilized Fenja facility. */
+   if(model.company?.fenja?.market_snapshot){
+     const snapshot=model.company.fenja.market_snapshot;
+     const stockPrice=el('synact-shared-price'),stockStatus=el('synact-quote-status');
+     let lastQuoteKey='',lastQuoteTimestamp=0,showingSavedQuote=false;
      const cacheKey='mina-aktier-SYNACT.ST-last-verified-quote';
-     let manualScenario=false;
-     const updateTextValue=(node,value,unit,tag)=>{
-       node.replaceChildren(document.createTextNode(value+' '));
-       const u=document.createElement(tag);u.textContent=unit;node.append(u);
-     };
-     const annual=Number(loan.min_drawn_interest_percent_per_year)*drawn/100;
-     updateTextValue(el('fenja-interest'),fmt(annual),'Mkr/år','small');
-     el('fenja-snapshot-date').textContent=modelDate;
-     const riskFactor=Number(d.fenja_assessment?.fenja_cap_factor||
-       (1+Number(model.calculation.fenja_capacity_penalty_weight)*(1-extraAt(referPrice)/remaining)));
-     el('fenja-factor-display').textContent='×'+fmt(riskFactor,3);
-     el('fenja-original-source').href=loan.url;
-
-     function calculateSelected(){
-       const price=Number(slider.value);
-       const money=extraAt(price);
-       const share=remaining>0?Math.max(0,Math.min(100,100*money/remaining)):100;
-       updateTextValue(amount,fmt(money),'miljoner kr','small');
-       percentNode.textContent=fmt(share)+' %';
-       progressFill.style.width=share+'%';
-       progress.setAttribute('aria-valuenow',String(Math.round(share*10)/10));
-       el('fenja-scenario-output').textContent=fmt(price,2)+' kr';
-       badge.textContent=manualScenario?'Eget kursscenario':(hasVerifiedQuote?'Senast hämtad kurs':'Historisk referenskurs');
-       const totalMarketCap=shares*price/1e6;
-       el('fenja-scenario-summary').textContent=
-         'Vid '+fmt(price,2)+' kr blir börsvärdet '+fmt(totalMarketCap)+' Mkr och 10 %-taket '+fmt(totalMarketCap*pct)+' Mkr. '+
-         'Efter redan dragna '+fmt(drawn,0)+' Mkr återstår högst '+fmt(money)+' Mkr av de nominella '+fmt(remaining,0)+' Mkr.';
-       el('fenja-cap-context').textContent=
-         (manualScenario?'Eget scenario · ':'Synkad kurs · ')+fmt(price,2)+' kr · '+fmt(shares,0)+' aktier · '+fmt(money)+' Mkr möjligt extra.';
-     }
-     function setSliderPrice(price){
-       // Keep the control useful even if the market price moves outside default 5–35 kr.
-       const p=Number(price);
-       slider.min=String(Math.min(5,Math.floor(p-1)));
-       slider.max=String(Math.max(35,Math.ceil(p+1)));
-       slider.value=String(p);
-       manualScenario=false;
-       resyncButton.disabled=true;
-       resyncHint.textContent=(hasVerifiedQuote?'Reglaget följer senast hämtade kurs (':'Reglaget visar historisk referenskurs (')+fmt(p,2)+' kr).';
-       calculateSelected();
-     }
      function updateStockQuote(price,quoteTime,source){
-       const textDate=formatQuoteDate(quoteTime);
-       const daysOld=(Date.now()-new Date(quoteTime).getTime())/86400000;
-       const freshness=daysOld>1.25?'Äldre senast tillgänglig kurs':'Senast tillgänglig kurs';
-       updateTextValue(stockPrice,fmt(price,2),'kr','small');
-       stockStatus.textContent=freshness+': '+textDate+' · '+source+' · kan vara fördröjd';
-       latestStatus.textContent='Reglaget synkas med kursen under Aktien ('+fmt(price,2)+' kr, '+textDate+').';
-       updateTextValue(fact,'≈'+fmt(extraAt(price)),'miljoner kr','em');
-       synactQuoteState.price=price;
-       synactQuoteState.quoteTime=quoteTime;
-       synactQuoteState.source=source;
+       const date=new Date(quoteTime).toLocaleString('sv-SE',{timeZone:'Europe/Stockholm',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+       stockPrice.replaceChildren(document.createTextNode(price.toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})+' '));
+       const unit=document.createElement('small');unit.textContent='kr';stockPrice.append(unit);
+       stockStatus.textContent='Senast tillgänglig kurs: '+date+' · '+source+' · kan vara fördröjd';
+       synactQuoteState.price=price;synactQuoteState.quoteTime=quoteTime;synactQuoteState.source=source;
      }
-     slider.addEventListener('input',()=>{
-       manualScenario=true;
-       resyncButton.disabled=false;
-       resyncHint.textContent='Eget kursscenario. Klicka på Synka med kursen igen för att återgå till '+fmt(quotePrice,2)+' kr.';
-       calculateSelected();
-     });
-     resyncButton.addEventListener('click',()=>{
-       setSliderPrice(quotePrice);
-     });
-     // Financing may use an explicitly dated reference price, but the stock tile must
-     // never present that reference as a newly loaded market quote.
-     setSliderPrice(referPrice);
-     latestStatus.textContent='Historisk referenskurs används i Fenja-kalkylatorn tills börskurs har verifierats.';
      try{
        const saved=JSON.parse(localStorage.getItem(cacheKey)||'null');
-       const savedTime=Date.parse(saved?.quote_time||'');
-       const savedPrice=Number(saved?.price);
-       if(saved?.symbol==='SYNACT.ST'&&saved.currency==='SEK'&&
-          Number.isFinite(savedPrice)&&savedPrice>0&&Number.isFinite(savedTime)&&
-          savedTime<=Date.now()+600000&&savedTime>Date.now()-10*86400000){
-         lastQuoteTimestamp=savedTime;
-         lastQuoteKey=saved.quote_time+'|'+savedPrice;
-         showingSavedQuote=true;
-         hasVerifiedQuote=true;
-         quotePrice=savedPrice;quoteStamp=saved.quote_time;
-         updateStockQuote(savedPrice,saved.quote_time,(saved.source||'Yahoo Finance')+' (sparad)');
-         setSliderPrice(savedPrice);
+       const stamp=Date.parse(saved?.quote_time||''),price=Number(saved?.price);
+       if(saved?.symbol==='SYNACT.ST'&&saved.currency==='SEK'&&Number.isFinite(price)&&price>0&&Number.isFinite(stamp)&&stamp<=Date.now()+600000&&stamp>Date.now()-10*86400000){
+         lastQuoteTimestamp=stamp;lastQuoteKey=stamp+'|'+price;showingSavedQuote=true;
+         updateStockQuote(price,saved.quote_time,(saved.source||'Yahoo Finance')+' (sparad)');
        }
-     }catch(_){ /* A blocked localStorage must not block quote updates. */ }
+     }catch(_){ }
      async function fetchSynactQuote(){
        try{
          const res=await fetch('./data/stock_quote.json?no_cache='+Date.now(),{cache:'no-store'});
@@ -1683,16 +1526,11 @@ document.addEventListener('keydown',event=>{
            lastQuoteTimestamp=stamp;
            lastQuoteKey=key;
            showingSavedQuote=false;
-           hasVerifiedQuote=true;
-           quotePrice=price;quoteStamp=quote.quote_time;
            updateStockQuote(price,quote.quote_time,quote.source||'Yahoo Finance');
-           // A new verified quote recenters the slider, including after user scenarios.
-           setSliderPrice(price);
            try{localStorage.setItem(cacheKey,JSON.stringify(quote));}catch(_){ }
          }
        }catch(error){
          if(!lastQuoteTimestamp)stockStatus.textContent='Kurs kan inte visas – hämtningen misslyckades ('+error.message+').';
-         latestStatus.textContent=(lastQuoteTimestamp?'Senast verifierad kurs används.':'Historisk referenskurs används som scenario.')+' Automatisk kurshämtning kunde inte bekräftas ('+error.message+').';
        }
      }
      fetchSynactQuote();
@@ -1760,6 +1598,7 @@ document.addEventListener('keydown',event=>{
    const date=new Date(d.updated_at);
    el('fin-updated').textContent='Senaste beräkning '+(Number.isFinite(date.getTime())?date.toLocaleDateString('sv-SE'):'okänt datum')+' · '+d.days_since_report+' dagar sedan Q3-balansdagen.';
    const statuses={
+     manuellt_källgranskad:'Finansieringsbeskedet 18 november och ursprungsvillkoren har fulltextgranskats. Tioprocentsvillkorets tillämpning är fortsatt oklar.',
      initial_bedömning:'Grundbedömning; den automatiska veckokontrollen har ännu inte körts.',
      källor_kontrollerade_inga_nya_finansfakta:'Källor har kontrollerats. Inga nya finansrubriker identifierades automatiskt.',
      nytt_besked_kräver_granskning:'Nytt bolagsbesked upptäckt. Tidseffekten är uppdaterad men de nya villkoren kräver genomgång.',
@@ -1790,7 +1629,7 @@ document.addEventListener('keydown',event=>{
      box.append(heading,event,why);link(box,'Läs källa ↗',x.source);comps.append(box);
    }
  }catch(err){
-   el('fin-coverage').textContent='Kunde inte hämta veckodata: '+err.message+'. Visar grundbedömningen från 13 november 2026.';
+   el('fin-coverage').textContent='Kunde inte hämta veckodata: '+err.message+'. Visar grundbedömningen från 18 november 2026.';
  }
 })();
 

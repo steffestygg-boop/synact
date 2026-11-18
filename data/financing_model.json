@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0-partner-dd-process",
-  "curated_at": "2026-11-17",
+  "version": "1.4.0-fenja-full-draw",
+  "curated_at": "2026-11-18",
   "scope": "Sannolikhet för att SynAct annonserar en ny kontant nyemission av aktier eller units inom en rullande tidsperiod. Exklusive redan beslutade teckningsoptioner, enbart konvertering av befintliga Fenja-lån och rena licensavtal.",
   "company": {
     "report_date": "2026-09-30",
@@ -15,11 +15,11 @@
     "fenja": {
       "agreement_date": "2026-07-20",
       "total_msek": 100,
-      "already_drawn_gross_msek": 50,
+      "already_drawn_gross_msek": 100,
       "initial_draw_net_msek": 46.5,
-      "possible_remaining_gross_msek": 50,
+      "possible_remaining_gross_msek": 0,
       "second_draw_available_until": "2026-12-31",
-      "second_draw_condition": "En ytterligare dragning kan ske i Q4 2026, men total dragning begränsas till 10 % av börsvärdet vid dragning. Återstående belopp är inte likvida medel och kan inte räknas som garanterat tillgängligt.",
+      "second_draw_condition": "Andra tranchen påkallad och konvertibler beslutade den 18 november 2026. Hela ramen om 100 Mkr är utnyttjad enligt bolaget; inget ytterligare låneutrymme återstår.",
       "maturity_date": "2027-12-31",
       "variable_interest": "STIBOR 3M, lägst 2,0 %, plus 8 procentenheter",
       "convertible_price_sek": 24.6,
@@ -27,7 +27,7 @@
       "warrant_price_sek": 27.55,
       "url": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/",
       "market_cap_limit_fraction": 0.1,
-      "remaining_nominal_msek": 50,
+      "remaining_nominal_msek": 0,
       "min_drawn_interest_percent_per_year": 10,
       "min_undrawn_fee_percent_per_year_through_2026": 4,
       "arrangement_fee_percent": 3.5,
@@ -40,7 +40,19 @@
         "note": "Senaste verifierade börskursen vid modelländringen, inte en automatisk livekurs. Antalet aktier 56 213 968 kommer från SynActs pressmeddelande 20 juli. Kräver ny verifiering efter emission, konvertering eller väsentlig kursförändring."
       },
       "refinancing_risk_note": "Förfaller 31 december 2027. Vid låga kurser relativt konverteringskursen 24,60 kr kan kontant återbetalning eller refinansiering bli relevant. Detta sammanfaller med bolagets prognos om finansiering in i Q4 2027. Förfall och finansieringshorisont visas som bevakningssignal, inte separat automatisk riskmultiplikator eftersom tidsnärheten redan finns i modellen.",
-      "loan_interest_note": "Minst 10 procent per år på nominellt draget belopp, cirka 5 miljoner kronor per år på 50 miljoner kronor, samt minst 4 procent per år på outnyttjad del fram till 31 december 2026. Den framtida faktiska utgiften beror på STIBOR, eventuella ytterligare uttag och konvertering."
+      "loan_interest_note": "Minst 10 % årlig ränta på nominellt 100 Mkr: minst 10 Mkr/år i årstakt före konvertering eller återbetalning. Ingen outnyttjad ram återstår. Faktisk kostnad beror på STIBOR och tid.",
+      "status": "fully_drawn",
+      "second_draw_date": "2026-11-18",
+      "second_draw_gross_msek": 50,
+      "second_draw_url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja",
+      "market_cap_limit_application_verified": false,
+      "market_cap_limit_note": "Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.",
+      "lockup_until": "2027-01-20",
+      "conversion_volume_restrictions_until": "2027-03-31",
+      "new_tranche_max_shares": 2032520,
+      "total_convertibles_max_shares": 4065040,
+      "new_tranche_dilution_percent": 3.49,
+      "total_convertibles_dilution_percent": 6.74
     },
     "other_context": [
       "Förberedelser inför fas III kan kräva mer kapital än den utvecklingsplan som dagens finansieringshorisont bygger på.",
@@ -53,16 +65,16 @@
     "clinical_phase3_multiplier": 1.25,
     "credit_dependency_multiplier": 1.05,
     "proximity_formula": "max(0,85; min(2,60; 1 + 0,10 × (prognosmånader + 9 − månader kvar till riktmärket 1 okt 2027)))",
-    "probability_formula": "P(h) = 1 − exp(−h × 0,026 × 1,25 × 1,05 × Fenja-tillgänglighetsfaktor × partner-DD-faktor × närhetsfaktor), med kapacitetsfaktor från daterad kurs 13 november. Samtliga multiplikatorer är subjektiva analytiska antaganden, inte empiriskt kalibrerad statistik.",
-    "evidence_note": "Värdet 2,6 % per månad och multiplikatorerna är öppna analytiska antaganden, utformade med stöd av faktiska emissioner nedan. Referensfallen är inte ett slumpmässigt urval och kan INTE ge en statistiskt kalibrerad emissionssannolikhet. Modellens intervall är känslighetsband, inte konfidensintervall. Från 15 november 2026 beaktas även andelen av Fenjas extra kredit som 10%-taket tillåter vid senast kontrollerad börskurs. Endast den NYA tillgänglighetsbegränsningen tillkommer; löptid, ränta och Q3-kassaflöde redovisas separat som kvalitativa riskfaktorer. Från 17 november ingår en separat, subjektiv faktor 1,08 för osäker partner-timing, utan att osäkra upfronts räknas som kassa.",
+    "probability_formula": "P(h) = 1 − exp(−h × 0,026 × 1,25 × 1,05 × partner-DD-faktor × närhetsfaktor). Fenja-kapacitetsfaktorn är neutral (1,0) efter fullt uttag 18 november. Faktorerna är subjektiva antaganden.",
+    "evidence_note": "Värdet 2,6 % per månad och multiplikatorerna är öppna analytiska antaganden, utformade med stöd av faktiska emissioner nedan. Referensfallen är inte ett slumpmässigt urval och kan INTE ge en statistiskt kalibrerad emissionssannolikhet. Modellens intervall är känslighetsband, inte konfidensintervall. Från 15 november 2026 beaktas även andelen av Fenjas extra kredit som 10%-taket tillåter vid senast kontrollerad börskurs. Endast den NYA tillgänglighetsbegränsningen tillkommer; löptid, ränta och Q3-kassaflöde redovisas separat som kvalitativa riskfaktorer. Från 17 november ingår en separat, subjektiv faktor 1,08 för osäker partner-timing, utan att osäkra upfronts räknas som kassa. Rättelse 18 november 2026: det tidigare kursbaserade Fenja-påslaget har tagits bort eftersom hela ramen har utnyttjats och takets tillämpning inte är klarlagd. Detta är en modellrättelse, inte en statistiskt uppmätt riskförändring.",
     "uncertainty_band_monthly_hazard_multiplier": [
       0.62,
       1.55
     ],
     "anchor_reference_cases": "Sju utvalda verkliga emissioner visar varför kapital kan sökas långt innan kassans slut, men de är inte ett representativt frekvensurval.",
-    "fenja_capacity_penalty_weight": 0.2,
-    "fenja_capacity_formula": "Marknadsvärde = noterad referenskurs × senaste verifierade antal aktier. Möjligt extra uttag = max(0; min(50; 10 % av marknadsvärdet − 50 redan dragna)), i miljoner kr. Tillgänglighetsfaktor = 1 + 0,20 × (1 − möjligt extra uttag / 50).",
-    "fenja_factor_policy": "Tidigare kreditberoendefaktor 1,05 behålls. Endast DEN DEL AV det maximala extra låneutrymmet som saknas vid verifierad börskurs ger ett ytterligare transparent påslag. Räntekostnaden, förfallodatum och finansieringshorisonten visas separat som kvalitativa varningssignaler; de multipliceras INTE på nytt och faktorerna från kassan/riskhorisonten dubbelräknas inte. Referenskursen är en daterad ögonblicksbild och uppdateras inte automatiskt från en otillförlitlig aktiekursfeed.",
+    "fenja_capacity_penalty_weight": 0,
+    "fenja_capacity_formula": "Fullt utnyttjad ram: 100 − 100 = 0 Mkr kvar. Ingen kursbaserad kapacitetsberäkning eller kapacitetsbestraffning används.",
+    "fenja_factor_policy": "Tidigare kursbaserat tillgänglighetspåslag borttaget efter verifierat fullt uttag 18 november 2026. Kapacitetsfaktor 1,0. Kreditberoendefaktor 1,05 behålls; ränta, förfall och konvertering visas separat utan nya multiplikatorer. Ingen ny finansieringshorisont har antagits.",
     "partner_dd_multiplier": 1.08,
     "partner_dd_methodology": "Subjektivt försiktighetspåslag för risken att en global partner avvaktar mer klinisk/regulatorisk/kommersiell DD innan avtal. Inte en statistisk sannolikhet för misslyckad affär eller en verifierad köparbedömning. Förändra bara efter manuell källgranskning och undvik dubbelräkning av kostnads- och tidsfaktorer. De fem sell-side M&A-processfrågorna är kvalitativa kontrollpunkter; ingen extra numerisk faktor utan verifierad bolagsinformation.",
     "partner_dd_review_date": "2026-11-17"
@@ -137,7 +149,7 @@
     "verified_baseline_rules": {
       "cash_burn": "Om rapporterad kassa motsvarar högst nio månader av senaste kvartalets operativa förbrukning visas bevakning; under sex månader höjs varningsprioriteten. Lån och framtida utgifter ingår inte i denna enkla kvot.",
       "runway": "Om konservativ proxy för bolagets finansieringshorisont ligger inom tolv månader visas bevakning, inom sex månader ökad prioritet.",
-      "conditional_financing": "Fenjas återstående kredit begränsas av 10 % av börsvärdet, minus 50 Mkr redan dragna. Visa beräknat faktiskt maximalt extra uttag med daterad aktiekurs, minsta årliga räntekostnad och återbetalningsdatum. Skilj en strukturell avtalsrisk från en nyhet eller akut likviditetskris.",
+      "conditional_financing": "Fenjas ram är fullt utnyttjad den 18 november: 100 Mkr nominellt, 0 Mkr kvar. Visa ränta, förfall, utspädning och oklar tillämpning av det tidigare publicerade tioprocentsvillkoret. Skilj en strukturell avtalsrisk från en nyhet eller akut likviditetskris.",
       "stale_financials": "Om kassa och prognos fortfarande bygger på en balansdag minst 115 dagar tillbaka markeras att en ny rapport behövs."
     },
     "headline_flags": [
@@ -150,7 +162,7 @@
       "Oväntade studiekostnadsökningar eller förlorade licens-/partneravtal"
     ],
     "verification": "Direkt beräknade rapportkvoter och kända kredit-/TO2-villkor märks som dokumenterad siffergrund. Automatisk analys av rubriker är alltid bara en signal för manuell kontroll mot börs eller bolagets fullständiga originalbesked.",
-    "probability_policy": "Den redan inkluderade kreditberoendefaktorn 1,05 behålls. En separat Fenja-tillgänglighetsfaktor ökar risken i proportion till ett påvisat bortfall av återstående kreditutrymme enligt 10%-taket. Förfall, ränta och finansieringshorisont visas som varningar men skapar INTE extra sannolikhetspåslag eftersom det skulle dubbelräkna tids- och krediteffekterna. Ny aktiekurs och ny kapitalstruktur måste verifieras innan snapshot ändras; obekräftade rubriker justerar aldrig risken.",
+    "probability_policy": "Den redan inkluderade kreditberoendefaktorn 1,05 behålls. Fenja-tillgänglighetsfaktorn är neutral efter fullt uttag; det tidigare kursbaserade påslaget har tagits bort. Förfall, ränta och finansieringshorisont visas som varningar men skapar INTE extra sannolikhetspåslag eftersom det skulle dubbelräkna tids- och krediteffekterna. Ny aktiekurs och ny kapitalstruktur måste verifieras innan snapshot ändras; obekräftade rubriker justerar aldrig risken.",
     "sources": "Se varje varningsruta för originalkälla och data/financing_model.json för rapport- och avtalsreferenser."
   },
   "partner_due_diligence": {
@@ -160,7 +172,7 @@
     "evidence_type": "Offentliga uppgifter + subjektiv analystolkning; inte tillgång till konfidentiellt data room",
     "summary": "Resomelagon har pågående klinisk utveckling och ett regionalt dengueavtal, men ett större globalt licensavtal är inte säkrat av den affären. En köpare kan invänta robustare effektdata, fas III-design, patentklarhet och kommersiell jämförelse.",
     "next_decision_gate": "Nästa verifierbara effekt- och säkerhetsdata i RA samt regulatoriskt förankrad fas III-plan; separat granskning av dengueekonomi och Hipolabors begränsade territorium.",
-    "time_to_cash_assessment": "Hipolabor-avtalet ska inte likställas med upfront-kapital som finansierar global RA. Särskilt Fenjas villkorade kredit och Q4 2027-riktmärket gör avtalstiming viktig.",
+    "time_to_cash_assessment": "Hipolabor-avtalet ska inte likställas med upfront-kapital som finansierar global RA. Särskilt Fenjas fullt utnyttjade lån och Q4 2027-riktmärket gör avtalstiming viktig.",
     "uncertainty": "Vad en möjlig global partner kräver är inte offentligt; intäkter från nya affärer får inte räknas som tillgänglig kassa.",
     "pillars": [
       {
@@ -186,7 +198,7 @@
       {
         "area": "Finansiellt",
         "status": "Finansieringsgap möjligt",
-        "assessment": "Fas III-kostnad, 10 %-taket på Fenjas extra kredit, låneränta och förfall mot tid till nästa förhandlingssteg."
+        "assessment": "Fas III-kostnad, fullt utnyttjad Fenja-ram på 100 Mkr, låneränta och förfall mot tid till nästa förhandlingssteg."
       },
       {
         "area": "Tillverkning/CMC",
@@ -218,7 +230,7 @@
       "title": "Affärsprocess, förhandlingsstyrka och Big Pharma",
       "source_note": "Fem användartillförda sell-side M&A-principer, tillämpade med försiktighet även på licens-/partneravtal. Separat från köparens sju due diligence-områden.",
       "review_date": "2026-11-17",
-      "summary": "SynActs handlingsutrymme påverkas av hur nästa kliniska RA-milstolpe förhåller sig till den villkorade Fenja-finansieringen och bolagets uppgivna kassalivslängd. Hipolabor är inte en finansierad global RA-deal.",
+      "summary": "SynActs handlingsutrymme påverkas av hur nästa kliniska RA-milstolpe förhåller sig till Fenja-lånets ränta och förfall och bolagets uppgivna kassalivslängd. Hipolabor är inte en finansierad global RA-deal.",
       "items": [
         {
           "key": "buyer_competition",

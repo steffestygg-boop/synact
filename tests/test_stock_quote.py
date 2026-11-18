@@ -41,26 +41,13 @@ class SynActQuoteTests(unittest.TestCase):
                     "symbol": SYMBOL, "currency":"SEK", "regularMarketPrice":14.40,
                     "regularMarketTime":seconds}}]}})
 
-    def test_shared_price_used_by_stock_tile_and_slider(self):
+    def test_stock_quote_remains_independent_of_removed_credit_slider(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
-        for item in ("id=\"synact-shared-price\"",
-                     "id=\"fenja-scenario-price\"",
-                     "id=\"fenja-additional\"",
-                     "id=\"fenja-available-percent\"",
-                     "id=\"fenja-capacity-fill\"",
-                     "fetch('./data/stock_quote.json",
-                     "setSliderPrice(price)",
-                     "updateStockQuote(price,quote.quote_time"):
-            self.assertIn(item, html)
-
-    def test_resync_restores_latest_shared_quote_after_manual_adjustment(self):
-        html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn('id="fenja-resync-quote"', html)
-        self.assertIn("resyncButton.addEventListener('click',()=>{", html)
-        self.assertIn("setSliderPrice(quotePrice);", html)
-        self.assertIn("resyncButton.disabled=false;", html)
-        self.assertIn("resyncButton.disabled=true;", html)
-        self.assertIn("resyncHint.textContent=(hasVerifiedQuote?", html)
+        self.assertIn('id="synact-shared-price"', html)
+        self.assertIn("fetch('./data/stock_quote.json", html)
+        self.assertIn("updateStockQuote(price,quote.quote_time", html)
+        self.assertNotIn('id="fenja-scenario-price"', html)
+        self.assertNotIn('id="fenja-resync-quote"', html)
 
     def test_quote_loading_never_flashes_undated_fallback_or_goes_backwards(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -68,7 +55,6 @@ class SynActQuoteTests(unittest.TestCase):
             'id="synact-shared-price">—',
             "if(stamp<lastQuoteTimestamp)return;",
             "localStorage.setItem(cacheKey,JSON.stringify(quote))",
-            "Historisk referenskurs",
         ):
             self.assertIn(marker, html)
         self.assertNotIn("updateStockQuote(referPrice,quoteStamp,'historisk referenskurs');", html)

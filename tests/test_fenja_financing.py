@@ -19,36 +19,40 @@ class FenjaFacilityRiskTests(unittest.TestCase):
             (ROOT / "data" / "financing_model.json").read_text(encoding="utf-8")
         )
 
-    def test_cap_based_on_dated_share_price(self):
+    def test_fully_drawn_facility_has_no_remaining_capacity(self):
         c = self.model["company"]
         metrics = fenja_capacity_metrics(c, self.model["calculation"])
-        self.assertAlmostEqual(metrics["additional_draw_msek"], 24.31, places=2)
-        self.assertAlmostEqual(metrics["max_total_draw_msek"], 74.31, places=2)
-        self.assertEqual(metrics["price_as_of"], "2026-11-13")
-        self.assertGreater(metrics["fenja_cap_factor"], 1)
-        self.assertLess(metrics["fenja_cap_factor"], 1.21)
+        self.assertEqual(metrics["previously_drawn_msek"], 100)
+        self.assertEqual(metrics["additional_draw_msek"], 0)
+        self.assertEqual(metrics["fenja_cap_factor"], 1)
+        self.assertEqual(metrics["annual_minimum_drawn_interest_msek"], 10)
+        self.assertEqual(metrics["annual_minimum_undrawn_fee_msek"], 0)
+        self.assertFalse(metrics["market_cap_limit_application_verified"])
 
-    def test_full_draw_requires_approximately_a_billion_market_cap(self):
-        clone = copy.deepcopy(self.model)
-        clone["company"]["fenja"]["market_snapshot"]["price_sek"] = 20
-        self.assertEqual(fenja_capacity_metrics(clone["company"], clone["calculation"])["additional_draw_msek"], 50)
-        clone["company"]["fenja"]["market_snapshot"]["price_sek"] = 5
-        self.assertEqual(fenja_capacity_metrics(clone["company"], clone["calculation"])["additional_draw_msek"], 0)
+    def test_price_changes_cannot_reopen_exhausted_facility(self):
+        for price in (1, 5, 20, 100):
+            clone = copy.deepcopy(self.model)
+            clone["company"]["fenja"]["market_snapshot"]["price_sek"] = price
+            metrics = fenja_capacity_metrics(clone["company"], clone["calculation"])
+            self.assertEqual(metrics["additional_draw_msek"], 0)
+            self.assertEqual(metrics["fenja_cap_factor"], 1)
 
-    def test_risk_weights_capacity_only_once(self):
-        c, calculation = self.model["company"], self.model["calculation"]
-        metrics = fenja_capacity_metrics(c, calculation)
-        inputs = dict(calculation)
-        inputs["fenja_cap_factor"] = metrics["fenja_cap_factor"]
-        months_left = (dt.date(2027, 10, 1) - dt.date(2026, 11, 15)).days / 30.4375
-        self.assertEqual([pct_probability(h, months_left, inputs) for h in (3, 6, 12)],
-                         [13.1, 29.8, 63.2])
-        prior_inputs = dict(calculation)
-        self.assertLess(pct_probability(6, months_left, prior_inputs),
-                        pct_probability(6, months_left, inputs))
-        # No extra interest/maturity fields enter pct_probability.
-        for key in ("annual_minimum_drawn_interest_msek", "maturity_date"):
-            self.assertNotIn(key, inputs)
+    def test_convertible_notice_does_not_signal_new_cash_share_issue(self):
+        from update_financing import classification
+        from risk_signals import headline_signals
+        title = "SynAct påkallar andra tranchen samt beslutar om en riktad emission av konvertibler till Fenja"
+        self.assertEqual(classification(title), "finansiering")
+        alerts = headline_signals([{"title": title, "date": "2026-11-18", "url": "https://mfn.se/", "category": "bolaget"}], "synact", dt.date(2026, 11, 18))
+        self.assertNotIn("new_equity", {a["category"] for a in alerts})
+        self.assertIn("new_debt", {a["category"] for a in alerts})
+
+    def test_neutral_capacity_factor_does_not_add_a_risk_penalty(self):
+        calc = dict(self.model["calculation"])
+        metrics = fenja_capacity_metrics(self.model["company"], calc)
+        neutral = dict(calc, fenja_cap_factor=metrics["fenja_cap_factor"])
+        for horizon in (3, 6, 12):
+            self.assertEqual(pct_probability(horizon, 10.5, calc),
+                             pct_probability(horizon, 10.5, neutral))
 
     def test_separate_fenja_warning_categories(self):
         alerts = baseline_signals(self.model, dt.date(2026, 11, 15))

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-18",
   "editorial_policy": "Kort med konkreta tal direkt. Fördjupning i klickbar dialog. Redaktionella uppgifter källgranskade mot varje primärkälla. Framtida RSS-rubriker får inte automatiskt felaktiga fakta.",
   "by_title": {
     "Notice of Allowance i USA": {
@@ -206,6 +206,36 @@
         "Angiven anledning: ökat fokus på operativa ansvarsområden"
       ],
       "source_url": "https://mfn.se/a/synact-pharma/sten-sorensen-avgar-fran-synact-pharmas-styrelse"
+    },
+    "SynAct Pharma påkallar andra tranchen av Fenja Capital II A/S finansieringsfacilitet samt beslutar om en riktad emission av konvertibler till Fenja": {
+      "title": "SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr",
+      "summary": "Andra tranchen på 50 Mkr påkallad. Totalt 100 Mkr utnyttjat, 0 Mkr kvar. Konverteringskurs 24,60 kr och minst 10 % årlig ränta.",
+      "details": "Styrelsen har beslutat om konvertibler på nominellt 50 Mkr. Hela faciliteten är därmed utnyttjad enligt bolaget. Båda lånen förfaller 31 december 2027. Vid full konvertering kan totalt 4 065 040 nya aktier tillkomma, motsvarande 6,74 % utspädning exklusive tidigare utgivna teckningsoptioner. Lock-up räknas från 20 juli 2026 och löper i sex månader, med begränsade konverteringsvolymer därefter till 31 mars 2027.",
+      "importance": "Stärker likviditeten men ökar skuld och ränta. Minst 10 Mkr/år i ränta vid nominellt 100 Mkr. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.",
+      "key_facts": [
+        "Nytt uttag: 50 Mkr; totalt: 100 Mkr",
+        "Återstående ram: 0 Mkr",
+        "Konverteringskurs: 24,60 kr",
+        "Utspädning: nya tranchen 3,49 %, båda lånen 6,74 %",
+        "Förfall: 31 december 2027",
+        "Dagsaktuell kassa och ny finansieringshorisont anges inte"
+      ],
+      "source_url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
+    },
+    "SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr": {
+      "title": "SynAct utnyttjar hela Fenja-ramen: ytterligare 50 Mkr",
+      "summary": "Andra tranchen på 50 Mkr påkallad. Totalt 100 Mkr utnyttjat, 0 Mkr kvar. Konverteringskurs 24,60 kr och minst 10 % årlig ränta.",
+      "details": "Styrelsen har beslutat om konvertibler på nominellt 50 Mkr. Hela faciliteten är därmed utnyttjad enligt bolaget. Båda lånen förfaller 31 december 2027. Vid full konvertering kan totalt 4 065 040 nya aktier tillkomma, motsvarande 6,74 % utspädning exklusive tidigare utgivna teckningsoptioner. Lock-up räknas från 20 juli 2026 och löper i sex månader, med begränsade konverteringsvolymer därefter till 31 mars 2027.",
+      "importance": "Stärker likviditeten men ökar skuld och ränta. Minst 10 Mkr/år i ränta vid nominellt 100 Mkr. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.",
+      "key_facts": [
+        "Nytt uttag: 50 Mkr; totalt: 100 Mkr",
+        "Återstående ram: 0 Mkr",
+        "Konverteringskurs: 24,60 kr",
+        "Utspädning: nya tranchen 3,49 %, båda lånen 6,74 %",
+        "Förfall: 31 december 2027",
+        "Dagsaktuell kassa och ny finansieringshorisont anges inte"
+      ],
+      "source_url": "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
     }
   }
 }
