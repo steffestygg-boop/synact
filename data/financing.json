@@ -57,8 +57,9 @@
   },
   "latest_information": [
     "18 november: andra tranchen på 50 Mkr påkallad. Totalt 100 Mkr utnyttjat och 0 Mkr kvar.",
+    "Kassabrygga: 42,364 + 50 = 92,364 Mkr pro forma före förbrukning sedan 30 september och eventuella kostnader. Första Fenja-uttaget ingår redan i Q3-kassan; nettolikvid och betalningsdag för andra uttaget är inte verifierade.",
     "Minst 10 Mkr/år i ränta på nominellt 100 Mkr. Förfall 31 december 2027.",
-    "Tidigare kursbaserat kapacitetspåslag borttaget (×1,0). Ingen ny kassa eller finansieringshorisont antas.",
+    "Tidigare kursbaserat kapacitetspåslag borttaget (×1,0). Kassabryggan inkluderar andra tranchens 50 Mkr brutto; ingen längre finansieringshorisont antas.",
     "Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning."
   ],
   "latest_items": [
@@ -256,5 +257,21 @@
     }
   ],
   "alerts_checked_at": "2026-11-18T10:08:20+01:00",
-  "alerts_source_status": "flöden kontrollerade, inte heltäckande"
+  "alerts_source_status": "flöden kontrollerade, inte heltäckande",
+  "cash_bridge": {
+    "as_of_date": "2026-11-18",
+    "report_date": "2026-09-30",
+    "reported_cash_msek": 42.364,
+    "additional_fenja_gross_msek": 50.0,
+    "pro_forma_cash_msek": 92.364,
+    "is_reported_cash": false,
+    "post_report_cash_flow_msek": null,
+    "second_draw_net_msek": null,
+    "payment_received_verified": false,
+    "note": "Rapporterad kassa plus andra tranchens bruttobelopp. Före förbrukning sedan balansdagen och eventuella kostnader; inte rapporterad dagskassa. Första uttaget ingår redan i Q3-kassan. Nettolikvid och betalningsdag är inte verifierade. Bolagets finansieringshorisont förlängs inte automatiskt.",
+    "sources": [
+      "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
+      "https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja"
+    ]
+  }
 }

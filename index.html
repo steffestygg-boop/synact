@@ -690,6 +690,7 @@ footer{
 .fin-facts small{font-size:11px;color:#b1c5cf;line-height:1.4}.fin-facts strong{font-size:clamp(19px,1.8vw,27px);line-height:1.2}
 .fin-facts strong em{font-size:12px;font-style:normal;color:#b7c9d5}
 .fin-facts span,.fin-facts a{font-size:11px;color:#bbd0d8;line-height:1.5}
+.fin-facts strong>span{font:inherit;color:inherit;line-height:inherit}
 .fin-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
 .fin-box{padding:17px 19px}.fin-box h3,.fin-comps h3{margin:0 0 9px;font-size:14px}
 .fin-box p{color:#c1d1d9;line-height:1.7;font-size:12px;margin:6px 0}
@@ -978,7 +979,7 @@ body.weekly-dialog-open{overflow:hidden}
 <h2 id="partner-heading">Hipolabor &amp; kassaläge</h2><p class="intro">Två centrala pusselbitar: den första kommersiella denguepartnern och bolagets finansiering inför nästa kliniska steg.</p>
 <div class="partner-intro">
 <div class="partner-card"><span class="micro">Hipolabor · dengue · Brasilien</span><strong>50 / 50 <small style="font-size:13px;color:#b3c8d8">vinstdelning</small></strong><p>Även kostnader för utveckling mot regulatoriskt godkännande delas 50/50. Extra försäljningsmilstolpar är kopplade till <b>200 miljoner USD i kumulativ nettoförsäljning</b> – betalningsbeloppet är inte offentliggjort.</p><a href="https://www.synactpharma.com/en/?p=27624" target="_blank" rel="noopener">Avtalets fullständiga villkor ↗</a></div>
-<div class="partner-card"><span class="micro">Kassa &amp; Fenja · Q3 2026</span><strong>42,4 <small style="font-size:13px;color:#b3c8d8">miljoner kr i kassa</small></strong><p>Fenja-ramen på <b>100 miljoner kr är fullt utnyttjad</b> efter andra uttaget på 50 Mkr den 18 november. Kassan avser 30 september och är inte dagsaktuell. Bolagets prognos från 3 november är finansiering in i Q4 2027; ingen ny horisont anges i uttagsbeskedet. Konverteringskurs: 24,60 kr; teckningsoptioners lösenpris: 27,55 kr.</p><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Q3-rapport &amp; finansiering ↗</a></div>
+<div class="partner-card"><span class="micro">Kassa inklusive nya Fenja-uttaget · pro forma</span><strong><span id="partner-cash-proforma">92,4</span> <small style="font-size:13px;color:#b3c8d8">miljoner kr före förbrukning</small></strong><p><b>42,4 Mkr rapporterad kassa den 30 september + 50 Mkr påkallat den 18 november.</b> Summan är före förbrukning sedan balansdagen och eventuella kostnader, inte rapporterad dagskassa. Första Fenja-uttaget ingår redan i Q3-kassan och räknas inte en gång till. Hela låneramen på 100 Mkr är nu utnyttjad. Bolagets prognos från 3 november är finansiering in i Q4 2027; ingen ny horisont anges i uttagsbeskedet.</p><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a><a href="https://mfn.se/all/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja" target="_blank" rel="noopener">Källa: nya uttaget ↗</a></div>
 </div>
 <p class="micro">Scenariokalkyl · hypotetisk årsförsäljning i Brasilien (inte bolagsprognos)</p>
 <div class="partner-calc"><label>Årlig nettoförsäljning (miljoner USD)<input id="sales" type="number" value="100" min="0" max="100000" step="10"></label><label>Antagen vinstmarginal (%)<input id="margin" type="number" value="20" min="0" max="100" step="1"></label><div class="calc-result"><span class="micro">SynActs andel av årsresultat</span><strong id="profit-result">10,0 MUSD</strong><span class="tiny-note">50 % × försäljning × marginal</span></div></div>
@@ -999,7 +1000,7 @@ body.weekly-dialog-open{overflow:hidden}
       <p class="fin-small">Procentsatserna är uttryckligen <b>subjektiva scenarioantaganden</b> – inte en historiskt uppmätt emissionsfrekvens.</p>
     </div>
     <div class="fin-facts">
-      <div><small>Rapporterad kassa · 30 sep 2026</small><strong>42,4 <em>miljoner kr</em></strong><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: Q3-rapport ↗</a></div>
+      <div><small>Kassa + nya uttaget · pro forma</small><strong><span id="fin-cash-proforma">92,4</span> <em>miljoner kr</em></strong><span>Rapporterat 30 sep: 42,4 Mkr + nytt uttag: 50 Mkr</span><span>Före förbrukning sedan 30 sep och eventuella kostnader. Inte rapporterad dagskassa.</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="cash-bridge" title="Visa kassabryggan och vilka kassaflöden som inte ingår" aria-label="Visa beräkningen av kassa inklusive andra Fenja-tranchen" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button><a href="https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/" target="_blank" rel="noopener">Källa: rapporterad Q3-kassa ↗</a></div>
       <div><small>Operativt kassaflöde · Q3 2026</small><strong>−18,7 <em>miljoner kr</em></strong><span>−6,2 miljoner kr/mån i kvartalssnitt</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="cash-burn" title="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-label="Visa hur kvartalets genomsnittliga kassaflöde per månad beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">∑</button></div>
       <div><small>Fenja · utnyttjad låneram</small><strong>100 <em>miljoner kr</em></strong><span>Andra tranchen 50 Mkr påkallad 18 nov · 0 Mkr kvar</span><a href="https://mfn.se/a/synact-pharma/synact-pharma-pakallar-andra-tranchen-av-fenja-capital-ii-a-s-finansieringsfacilitet-samt-beslutar-om-en-riktad-emission-av-konvertibler-till-fenja" target="_blank" rel="noopener">Källa: nytt finansieringsbesked ↗</a></div>
       <div><small>Bolagets finansieringshorisont</small><strong>In i Q4 2027</strong><span id="fin-runway">≈ 10,6 månader till modellens riktmärke 1 oktober</span><button type="button" class="fin-calc-trigger fin-calc-inline" data-fin-calc="runway" title="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-label="Visa hur månader kvar till bolagets finansieringsriktmärke beräknas" aria-haspopup="dialog" aria-controls="fin-calculation-modal">ⓘ</button></div>
@@ -1062,9 +1063,9 @@ body.weekly-dialog-open{overflow:hidden}
     <summary>Visa modellen, antagandena och hur veckouppdateringen fungerar</summary><p><b>Partner-DD:</b> En separat subjektiv faktor ×1,08 för en global köpares möjliga väntan på ytterligare klinisk eller regulatorisk evidens ingår i procentsatserna. Hipolabor-avtalets framtida vinstdelning är inte en garanterad upfront.</p>
     <p><b>Vad räknas?</b> Nya kontanta emissioner av aktier eller units. Utövande av redan utgivna optioner och enbart konvertering av Fenja-lånet räknas inte som en nyemission, men utspädningsrisken finns ändå.</p>
     <p><b>Beräkning:</b> Grundrisk 2,6 % per månad × 1,25 för fas III-behov × 1,05 för kreditberoende × 1,08 för osäker partner-timing × tidsfaktor till oktober 2027. Sannolikhet över h månader: <code>1 − exp(−h × månatlig riskintensitet)</code>. Det tidigare kursbaserade Fenja-påslaget är borttaget efter verifierat fullt uttag 18 november (kapacitetsfaktor ×1,0). Förändringen är en modellrättelse, inte en statistiskt uppmätt riskminskning.</p>
-    <p><b>Avgränsning:</b> Ränta och förfall visas som separata risksignaler utan ytterligare numeriska multiplikatorer. Ingen ny kassasiffra eller längre finansieringshorisont har antagits.</p>
+    <p><b>Avgränsning:</b> Ränta och förfall visas som separata risksignaler utan ytterligare numeriska multiplikatorer. Kassabryggan lägger till andra tranchens 50 Mkr brutto till rapporterad Q3-kassa. Den är före senare kassaflöden och ändrar inte bolagets finansieringshorisont automatiskt.</p>
     <p><b>Varje vecka:</b> Ett GitHub Actions-jobb räknar om antal dagar kvar till finansieringsriktmärket och uppdaterar 3-, 6- och 12-månadersutfall. Det söker också i bolagets pressmeddelanden och breda RSS-flöden. Nya finansiella besked flaggas för granskning; modellen hittar inte garanterat alla nyheter och uppdaterar inte påhittade kassasiffror utifrån rubriker.</p>
-    <p><b>Beloppen:</b> 42,4 miljoner kr är kassan vid senaste Q3-balansdag, inte dagsaktuell kassa. Hela Fenja-ramen på 100 miljoner kr är utnyttjad enligt beskedet 18 november. Ingen ytterligare kredit återstår inom ramen. Lånen förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
+    <p><b>Beloppen:</b> 42,364 Mkr rapporterad kassa + 50 Mkr påkallad andra tranch = 92,364 Mkr pro forma. Förbrukning sedan 30 september och eventuella kostnader återstår att dra av. Nettolikvid och betalningsdag är inte verifierade. Första uttaget ingår redan i Q3-kassan. Hela Fenja-ramen på 100 Mkr är utnyttjad och inget ytterligare låneutrymme återstår. Lånen förfaller 31 december 2027. Bolagets uppgift om finansiering in i Q4 2027 är en prognos.</p>
     <p><b>Modellrisk:</b> Känslighetsintervallet varierar den valda riskintensiteten med ×0,62 till ×1,55, och är inte ett konfidensintervall. <a href="https://github.com/steffestygg-boop/synact/blob/main/data/financing_model.json" target="_blank" rel="noopener">Visa alla referensfall och antaganden på GitHub ↗</a></p>
   </details>
   <p class="fin-small">Schemalagd veckokontroll varje måndag kl. 07:15 UTC via GitHub Actions (normalt 08:15 svensk vintertid). Om en körning misslyckas eller en källa inte går att läsa ska det synas i statusen. Informationen är ingen investeringsrekommendation.</p>
@@ -1311,6 +1312,23 @@ function finCalcProof(key){
  const monthsLeft=days/30.4375;
  const monthlyBurn=Math.abs(Number(c.operating_cashflow_q3_msek))/3;
  const simpleRunway=monthlyBurn>0?Number(c.cash_msek)/monthlyBurn:NaN;
+ if(key==='cash-bridge'){
+   const b=d.cash_bridge;
+   if(!b)return empty;
+   return {title:'Kassabrygga – andra Fenja-tranchen tillagd',
+    lead:'Det nya uttaget läggs till Q3-kassan som ett bruttobelopp. Summan visar finansiering före senare kassaflöden, inte en rapporterad dagskassa.',
+    formula:'Pro forma = rapporterad kassa + andra Fenja-tranchens bruttobelopp',
+    steps:[
+      'Rapporterad kassa '+b.report_date+': '+num(b.reported_cash_msek,3)+' Mkr.',
+      'Andra tranchen påkallad '+c.fenja.second_draw_date+': +'+num(b.additional_fenja_gross_msek,3)+' Mkr brutto.',
+      num(b.reported_cash_msek,3)+' + '+num(b.additional_fenja_gross_msek,3)+' = '+num(b.pro_forma_cash_msek,3)+' Mkr pro forma.',
+      'Första uttaget på 50 Mkr gjordes före Q3-balansdagen och ingår redan i den rapporterade kassan. Det läggs inte till igen.',
+      'Kassaförbrukning sedan balansdagen och eventuella kostnader har inte dragits av. Nettolikvid och betalningsdag är inte verifierade.'
+    ],
+    result:num(b.pro_forma_cash_msek,1)+' Mkr före senare kassaflöden',
+    caveat:'Detta är en kassabrygga, inte bolagets rapporterade dagskassa. Finansieringshorisonten in i Q4 2027 förlängs inte automatiskt av beräkningen.',
+    sources:[...baseSources,source(c.fenja.second_draw_url,'Bolagets besked om andra Fenja-tranchen')]};
+ }
  if(key==='runway'){
    return {title:'Finansieringshorisont – bolagsuppgift och beräknad tid',
     lead:'Bolagets finansieringsprognos är en uppgift från Q3-rapporten. Sidan beräknar endast tiden fram till ett försiktigt kalender-riktmärke – inte när kassan tar slut.',
@@ -1593,6 +1611,11 @@ document.addEventListener('keydown',event=>{
      el('fin-range').textContent=Number(p.low).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+'–'+Number(p.high).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
      el('fin-risk-3').textContent=Number(d.risk.months_3.percent).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
      el('fin-risk-12').textContent=Number(d.risk.months_12.percent).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
+   }
+   if(d.cash_bridge&&Number.isFinite(d.cash_bridge.pro_forma_cash_msek)){
+     const cash=Number(d.cash_bridge.pro_forma_cash_msek).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1});
+     el('fin-cash-proforma').textContent=cash;
+     el('partner-cash-proforma').textContent=cash;
    }
    el('fin-runway').textContent='≈ '+Number(d.months_to_company_runway_proxy).toLocaleString('sv-SE',{maximumFractionDigits:1})+' månader till riktmärket 1 okt 2027';
    const date=new Date(d.updated_at);

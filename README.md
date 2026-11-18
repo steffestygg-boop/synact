@@ -81,7 +81,9 @@ Båda investerarsidorna har nu ett särskilt avsnitt **Varningssignaler** direkt
 
 Den tidigare kalkylen från 15 november har ersatts. Julibeskedet anger ett tak på 10 % av börsvärdet för totalt utnyttjande. Dagens besked förklarar inte hur detta tillämpats vid fullt uttag. Undantag, ändrade villkor eller annan beräkningsgrund är inte bekräftade. Den tidigare kursbaserade kalkylen används därför inte som verifierad lånebegränsning.
 
-Kapacitetsfaktorn är neutral (1,0); det tidigare kursbaserade riskpåslaget har tagits bort. Kreditberoende, fas III-behov, partner-DD och tidsfaktor finns kvar. Kassa 42,364 Mkr gäller 30 september och finansieringsprognosen in i Q4 2027 är från 3 november; inget av dessa värden förlängs eller summeras till dagsaktuell kassa utifrån det nya beskedet.
+Kapacitetsfaktorn är neutral (1,0); det tidigare kursbaserade riskpåslaget har tagits bort. Kreditberoende, fas III-behov, partner-DD och tidsfaktor finns kvar. Kassa 42,364 Mkr gäller 30 september och finansieringsprognosen in i Q4 2027 är från 3 november.
+
+**Kassabrygga:** `cash_bridge_metrics` summerar rapporterad Q3-kassa 42,364 Mkr och andra tranchens 50 Mkr brutto till **92,364 Mkr pro forma**. Beloppet är före förbrukning sedan balansdagen och eventuella kostnader; det är inte rapporterad dagskassa. Nettolikvid och betalningsdag är inte verifierade. Första uttaget ingår redan i Q3-kassan och läggs inte till igen. Ett nytt rapportdatum på eller efter andra uttaget gör att det inte heller läggs till igen. Veckoskriptet sparar bryggan i `financing.json`; båda kassavyerna och ∑-förklaringen använder den. Riskprocent och finansieringshorisont förlängs inte automatiskt.
 
 ## Klickbara finansiella beräkningar
 
@@ -135,3 +137,4 @@ Kursrutan läser `data/stock_quote.json` vid öppning och ungefär varannan minu
 **Källkvalitet:** automatiskt insamlade rubriker märks som sådana och får inte påhittade sammanfattningar. Källgranskade fördjupningar med verifierade nyckeltal i `data/weekly_event_details.json` visas som klickbara informationsrutor. GitHub Actions och Google News ger ingen absolut garanti för start exakt 09.00 eller att samtliga nyheter indexeras omedelbart.
 
 **Separata analyser:** kursrutan kan uppdateras ungefär var 20:e minut på handelsdagar. Emissions-/finansieringsrisken samt kliniska milstolpar har andra egna datakällor och uppdateringsrutiner; den dagliga nyhetssökningen innebär inte att varje risk- eller milstolpsantagande automatiskt skrivs om utan underlag.
+

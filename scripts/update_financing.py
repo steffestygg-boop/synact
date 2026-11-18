@@ -52,6 +52,32 @@ def load_json(path: pathlib.Path) -> dict:
         return json.loads(path.read_text(encoding="utf-8"))
     return {}
 
+def cash_bridge_metrics(company: dict, as_of: dt.date) -> dict:
+    """Add only the post-report draw, without inventing a current cash balance."""
+    report_date = dt.date.fromisoformat(company["report_date"])
+    facility = company["fenja"]
+    draw_date = dt.date.fromisoformat(facility["second_draw_date"])
+    additional = (float(facility["second_draw_gross_msek"])
+                  if report_date < draw_date <= as_of else 0.0)
+    reported = float(company["cash_msek"])
+    return {
+        "as_of_date": as_of.isoformat(),
+        "report_date": report_date.isoformat(),
+        "reported_cash_msek": reported,
+        "additional_fenja_gross_msek": additional,
+        "pro_forma_cash_msek": round(reported + additional, 3),
+        "is_reported_cash": False,
+        "post_report_cash_flow_msek": None,
+        "second_draw_net_msek": None,
+        "payment_received_verified": False,
+        "note": ("Rapporterad kassa plus andra tranchens bruttobelopp. "
+                 "Före förbrukning sedan balansdagen och eventuella kostnader; "
+                 "inte rapporterad dagskassa. Första uttaget ingår redan i Q3-kassan. "
+                 "Nettolikvid och betalningsdag är inte verifierade. "
+                 "Bolagets finansieringshorisont förlängs inte automatiskt."),
+        "sources": [company["q3_url"], facility["second_draw_url"]],
+    }
+
 def pct_probability(months: int, months_left: float, inputs: dict, scale: float = 1.0) -> int:
     # The full formula is disclosed next to the graphic on the website.
     proximity = max(.85, min(2.60, 1.0 + 0.10 * (months + 9.0 - months_left)))
@@ -272,6 +298,7 @@ def main() -> None:
                  i.get("date", "") > cutoff.isoformat() and i["signal"] == "emission"]
     latest_info = [
       "Senast verifierad Q3 2026: 42,4 miljoner kr i kassa 30 september, kvartalets operativa kassaflöde −18,7 miljoner kr.",
+      "Kassabrygga: 42,364 + 50 = 92,364 Mkr pro forma före förbrukning sedan 30 september och eventuella kostnader. Första Fenja-uttaget ingår redan i Q3-kassan; nettolikvid och betalningsdag för andra uttaget är inte verifierade.",
       "Fenja: andra tranchen på 50 Mkr påkallad 18 november 2026. Totalt 100 Mkr utnyttjat och 0 Mkr kvar; beskedet anger inte dagsaktuell kassa eller en ny finansieringshorisont.",
       "Bolagets prognos från 3 november 2026 är finansiering in i Q4 2027. Närhet till det riktmärket räknas om varje vecka.",
       "Det tidigare kursbaserade kapacitetspåslaget är borttaget (faktor 1,0). Minsta årsränta på 100 Mkr är 10 Mkr. Förfall 31 december 2027.",
@@ -303,6 +330,7 @@ def main() -> None:
        "days_since_report": (current_date - report_date).days,
        "months_to_company_runway_proxy": round(months_left, 1),
        "methodology_version": model["version"],
+       "cash_bridge": cash_bridge_metrics(company, current_date),
        "risk": risks,
        "partner_dd_assessment": {
            "review_date": model["partner_due_diligence"]["review_date"],
@@ -375,3 +403,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
