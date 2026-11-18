@@ -4,8 +4,12 @@
   "automated_checked": false,
   "coverage_status": "manuellt_källgranskad",
   "checked_sources": [
-    "Manuellt fulltextgranskat: SynActs pressmeddelande 18 november 2026",
-    "Originalbesked 20 juli 2026 granskat mot nytt uttag"
+    "bolaget: Google News RSS",
+    "omvärld: Google News RSS",
+    "jämförelsebolag: Google News RSS",
+    "varningssignaler: Google News RSS",
+    "börsmeddelanden: Google News RSS",
+    "officiell presslista"
   ],
   "failed_sources": [],
   "days_since_report": 49,
@@ -59,13 +63,13 @@
   ],
   "latest_items": [
     {
-      "title": "Cereno Scientific: More runway, more opportunity - Edison - Börsvärlden",
-      "date": "2026-11-16",
-      "source": "Börsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObGpPR3E3TmYtbzZReFh2c1Q3WUgyaXJlakF0cTJKa0h6bTNBcm1KaDB2WlpBTTlySUxLWmtST003bEZwVmMyUE9CcmdBUVdreUl1WmxLUFVrZHdCU1hlWFVGWlpkUEpQQm8tSGc5cnJ4Y1VtLUdyaEJncmZ3UE5xU21DNFNGaWZ0dGZnek5aaktqY2lt?oc=5",
+      "title": "Immunovias nyemission: Ny flagga och två upplysningar - Affärsvärlden",
+      "date": "2026-11-17",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNSWRZNGowLWcyRzU3U2dXaEEwcF9WVkJOQ3dlUnVJeWcxTzhNdUFZenl4M2JMR1U4TWV0dU96RktBOWVCVlkyQ0ZDNGg1eWZwMUd3cjQ3V00yT191U0hzcEdVVDdoWUw0azRoU3gtUlUxa3BfdEptb1EwTnQ3eW5sX3VJNkJWNEtOc0Zfd1RWUlZZQXc?oc=5",
       "category": "jämförelsebolag",
       "official": false,
-      "signal": "övrigt"
+      "signal": "emission"
     },
     {
       "title": "Cereno Scientific rasar efter handelsstopp 13 november 2026 - HurBra.se",
@@ -81,6 +85,24 @@
       "date": "2026-11-12",
       "source": "Biostock",
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQVmRaek9sMVZyc0Y4MC1EakZQWmRvOHQ5MHE1VlZocGpWN1R1MTRkVzRLUEFRaGFHTHdOMEw2UE9BcjBGbkVXWDhnb2h5c3ZCZ09yNWh4d1BpaU9OdG9GbUJQanpVa25zZUI4azEyWTlyUk9TNlNGeURJWDhHa3lpaldtdlZzMEJZVTFqbjV1ek1RZTJVZUV6M2ZyM0xPcThhUThrRDhHTVVXOW1mRDFlc1NVbHRHWWtFeG5Kb0RMUDczRDN1a0tZVQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Cereno Scientific planerar företrädesemission på 400 miljoner kronor – förlänger lån - Börsvärlden",
+      "date": "2026-11-12",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdGZjdVdjVWNHSURna1VrRWtLQ0xPNHRkV2NRamo4QnlhTEJsbUtpVW9meThLOUpna3dTWVUxMXlWYjZHRjNoaXJuc0JCWUUteERRRWlfd1EwSFBsdFFQT1NKVGpaRHdmSWJSeWJGQVRIVkZxXzFrc19xTFFYRUdSN1ctYWNPRkF1Q05YT0VkN1V3YU9aM1RqcXBLMkM1cS04bzU5Y0tUOG1nSHNranFRcFhPVkpuUQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Bioinvents nyemission: Tre flaggor efter kursslakten - Affärsvärlden",
+      "date": "2026-11-11",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSzAyeVp0eDRDWW1Pa3c1ZzNHOEdBUl9Ram5tdklqY3NndndlV0JRS0VKNWpwVlY4R3FnRW9TOWdlUXh1dEpudW5iLWowSncyeXVJMm5kVGFKTGY1Q0N0TFJZbEl0TmFrMktEdHhndGllLWNHNVJtRWRYRHoxWlRiMlRWSlNiR1lFYXI3ZjJuVUswQQ?oc=5",
       "category": "jämförelsebolag",
       "official": false,
       "signal": "emission"
@@ -149,15 +171,6 @@
       "signal": "övrigt"
     },
     {
-      "title": "Immunovia beslutar om villkor i aviserad företrädesemission - Börsvärlden",
-      "date": "2026-10-29",
-      "source": "Börsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUjRENWdwRFJSQllsb2dVWnRtRzM4N1k1OW1nQTJLdng2UUF2Y0ZqWWdOSGxDdEpFM2RNczVoU0xWM3MxWWJiYTREUjFlWldSTkI3eWNiRjlZaXZwUmFya3RjUU9pNVpIWEtBZWhRNG9rUXhtWlA3VFVkLVRoZXM3U0hsY0tUVXU2c0h1NW9iUHdVSUF0Umk1WXVJcnk?oc=5",
-      "category": "jämförelsebolag",
-      "official": false,
-      "signal": "emission"
-    },
-    {
       "title": "Immunovia behöver pengar: Ber om 63 miljoner till 76% utspädning - Affärsvärlden",
       "date": "2026-10-29",
       "source": "Affärsvärlden",
@@ -167,22 +180,13 @@
       "signal": "övrigt"
     },
     {
-      "title": "Bioinvent gör emission på 430 Mkr - DI",
-      "date": "2026-10-28",
-      "source": "DI",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1IcENJREpRdjA1ZGFZemp2dEoxaG1HR0FjTkk3NERkX3ZzaUVnaG44N180X2ZOMmZhTk00ZV9GUDRCNGhBRGRBSHptcHY1bEJrbnNPSk9ZTDVXM2RUY2NqWFZ0SloxSm41?oc=5",
+      "title": "Immunovia beslutar om villkor i aviserad företrädesemission - Börsvärlden",
+      "date": "2026-10-29",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUjRENWdwRFJSQllsb2dVWnRtRzM4N1k1OW1nQTJLdng2UUF2Y0ZqWWdOSGxDdEpFM2RNczVoU0xWM3MxWWJiYTREUjFlWldSTkI3eWNiRjlZaXZwUmFya3RjUU9pNVpIWEtBZWhRNG9rUXhtWlA3VFVkLVRoZXM3U0hsY0tUVXU2c0h1NW9iUHdVSUF0Umk1WXVJcnk?oc=5",
       "category": "jämförelsebolag",
       "official": false,
-      "signal": "övrigt"
-    },
-    {
-      "title": "SynAct Pharma ingår det första kommersiella partnerskapsavtalet för resomelagon med ledande brasilianskt läkemedelsbolag - SynAct Pharma",
-      "date": "2026-10-27",
-      "source": "SynAct Pharma",
-      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQVlZCMlpBSWVqMnQ5cjlPOTNVZ2F2cGVlWEVGWGtXYkp1TVhVejF2RUZmbVd6aFhScVdSVjF4OEZlaWY2RVJBS0JZUDZXdldhekt1dUZ1bFBGdVFUb0t3dDFHTGdobi1ZbjRyTTdhSkk1VVlOUWxqM0NaWmFkRHRPaU9UVmIzcVJRQ1VWb29WNGZZLWJXclpvaDB2ZHhqTGFYbGl5cnFNOXFDVlpPSUZWYXY0OU9mNl9MTWpwZ2lxbnprdWthR1U2WVFRVnh4RUNtampGcHJXZmpNRTFaeVNoNlBQa2ZfZXNW?oc=5",
-      "category": "bolaget",
-      "official": true,
-      "signal": "övrigt"
+      "signal": "emission"
     }
   ],
   "review_needed": [],
@@ -251,6 +255,6 @@
       "category": "debt_cost"
     }
   ],
-  "alerts_checked_at": "2026-11-18T10:04:41+01:00",
-  "alerts_source_status": "Finansieringsbesked manuellt granskat 18 november; ingen ny bred automatisk genomsökning"
+  "alerts_checked_at": "2026-11-18T10:08:20+01:00",
+  "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
