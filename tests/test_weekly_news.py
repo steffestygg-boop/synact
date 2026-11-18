@@ -68,6 +68,7 @@ class WeeklyDigestTests(unittest.TestCase):
 
     def test_clickable_weekly_news_modal_is_present(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
+        html += (ROOT / "assets" / "week.js").read_text(encoding="utf-8")
         for marker in ("id=\"weekly-event-overlay\"", "id=\"weekly-event-title\"",
                        "id=\"weekly-event-facts\"", "id=\"weekly-event-links\"",
                        "button.addEventListener('click',()=>openEvent(it,button))",

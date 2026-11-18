@@ -1,0 +1,11 @@
+{
+  "slug": "synact",
+  "name": "SynAct Pharma",
+  "ticker": "SYNACT",
+  "exchange": "Nasdaq Stockholm",
+  "description": "Resomelagon utvecklas för behandling av inflammatoriska sjukdomar, med program inom reumatoid artrit och virusutlöst inflammation.",
+  "official": "https://www.synactpharma.com/sv/",
+  "quote_url": "https://www.tradingview.com/symbols/OMXSTO-SYNACT/",
+  "price_id": "synact-shared-price",
+  "status_id": "synact-quote-status"
+}

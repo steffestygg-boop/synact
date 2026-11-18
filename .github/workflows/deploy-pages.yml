@@ -9,6 +9,9 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'assets/**'
+      - 'layout/**'
+      - 'scripts/render_layout.py'
       - 'data/**'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
@@ -28,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Render common layout and section links
+        run: python3 scripts/render_layout.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

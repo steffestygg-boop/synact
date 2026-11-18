@@ -2,6 +2,8 @@
 
 Arbetsregler för alla uppdateringar: läs [AGENTS.md](AGENTS.md), följ varje följdändring tills inget återstår och kontrollera därefter de andra aktiesidorna.
 
+Sidhuvud, avsnittsmeny och veckovy använder samma mallar och kod i alla tre projekten. Den gemensamma förlagan finns i [SynAct-projektet](https://github.com/steffestygg-boop/synact). Vid publicering hämtar Isofol och Cereno mallarna, de gemensamma resurserna och renderingsskriptet från den förlagan. Varje publicerad sida serverar sina egna filer. Uppdatera även de incheckade kopiorna av `layout/`, `assets/overview.css`, `assets/navigation.js`, `assets/week.js` och `scripts/render_layout.py` när grunden ändras så att lokal förhandsvisning motsvarar den publicerade sidan. Bolagets namn och länkar finns i `data/site_profile.json`. Avsnitt hämtas i sidordning från HTML. Märk delavsnitt med `id` och `data-nav-child`. Kör `python3 scripts/render_layout.py` efter en ändring i mallen eller sidans disposition. Publiceringen gör samma rendering.
+
 En fristående, inofficiell investeraröversikt på svenska. Byggd med samma layout och arbetsflöde som projektet **Isofol**.
 
 
