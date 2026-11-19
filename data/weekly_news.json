@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-19T09:53:04+01:00",
+  "updated_at": "2026-11-19T15:46:25+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,8 +12,8 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-19",
-      "generated_at": "2026-11-19T09:53:04+01:00",
-      "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 3 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
+      "generated_at": "2026-11-19T15:46:25+01:00",
+      "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 4 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
           "date": "2026-11-18",
@@ -101,6 +101,12 @@
           "kind": "modell"
         },
         {
+          "title": "Ny finansieringsvarning: Nytt lån / konvertibel finansiering",
+          "detail": "Prioritet: förhöjd. Läs varningsrutan och dess källa innan slutsatser dras.",
+          "kind": "varning",
+          "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNSEI2N3pVSS0tX1Fva3l1cmVHTzZuQWs4bEhVUUQyZ053eUZWYk1PTXZRX3gta0ZOZkhzUmk3cXN2UzlkVnB4T1VJQ09wemdOcjdXQlphRUpBU1dER1VVdU1zeENjcjdrNDNJY1F1OHpZRVFiU3Faa01xbTU2YVI3NDNGaGVYdEJmZXZVeTQ0MklVQUJwTjBRUzM1bFFSUEt5N3ZvWHlOZ3d5LTB3RzliTDNnUVRYTmdYd0luMlBEQmxpWVJDWWt3WXVySDVYRGdGZVBaRHhwTnBHaFdyN1NrZzNLOFlpQTEyUkY1RzdiX3dvSTRjcXR5WkhPWG9xNV9YY1RQQzR5T2pIYzl1?oc=5"
+        },
+        {
           "title": "Milstolpe tillagd: Hela Fenja-ramen utnyttjad",
           "detail": "Placerad: 18 november 2026 (genomförd).",
           "kind": "milstolpe",
@@ -149,6 +155,11 @@
             "title": "Fenja: minst 10 % årlig låneränta",
             "level": "bevakning",
             "source": "https://www.synactpharma.com/en/synact-pharma-strengthens-financial-position-and-strategic-flexibility-to-advance-partnering-discussions-and-phase-iii-readiness/"
+          },
+          "new_debt:synactpharmapåkallarandratranchenavfenjacapitaliiasfinansieringsfacilitetsamtbeslutaromenr": {
+            "title": "Nytt lån / konvertibel finansiering",
+            "level": "förhöjd",
+            "source": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNSEI2N3pVSS0tX1Fva3l1cmVHTzZuQWs4bEhVUUQyZ053eUZWYk1PTXZRX3gta0ZOZkhzUmk3cXN2UzlkVnB4T1VJQ09wemdOcjdXQlphRUpBU1dER1VVdU1zeENjcjdrNDNJY1F1OHpZRVFiU3Faa01xbTU2YVI3NDNGaGVYdEJmZXZVeTQ0MklVQUJwTjBRUzM1bFFSUEt5N3ZvWHlOZ3d5LTB3RzliTDNnUVRYTmdYd0luMlBEQmxpWVJDWWt3WXVySDVYRGdGZVBaRHhwTnBHaFdyN1NrZzNLOFlpQTEyUkY1RzdiX3dvSTRjcXR5WkhPWG9xNV9YY1RQQzR5T2pIYzl1?oc=5"
           }
         },
         "milestones": {
@@ -768,9 +779,9 @@
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-19",
-        "latest": 12.84,
-        "change_sek": -0.38,
-        "change_percent": -2.87,
+        "latest": 13.06,
+        "change_sek": -0.16,
+        "change_percent": -1.21,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
