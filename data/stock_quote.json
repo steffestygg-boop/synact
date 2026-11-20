@@ -1,9 +1,9 @@
 {
   "symbol": "SYNACT.ST",
   "currency": "SEK",
-  "price": 13.02,
-  "quote_time": "2026-11-20T10:17:50+01:00",
-  "fetched_at": "2026-11-20T10:17:57+01:00",
+  "price": 12.96,
+  "quote_time": "2026-11-20T11:25:14+01:00",
+  "fetched_at": "2026-11-20T11:25:19+01:00",
   "source": "Yahoo Finance chart / Nasdaq Stockholm",
   "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/",
   "delayed": true,
