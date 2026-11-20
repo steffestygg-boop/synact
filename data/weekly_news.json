@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-20T09:52:57+01:00",
+  "updated_at": "2026-11-20T15:49:38+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-20",
-      "generated_at": "2026-11-20T09:52:57+01:00",
+      "generated_at": "2026-11-20T15:49:38+01:00",
       "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 4 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
@@ -802,24 +802,16 @@
         "daterade milstolpar",
         "finansierings- och riskdata"
       ],
-      "source_errors": [
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable",
-        "RSS-sökning kunde inte läsas: HTTP Error 503: Service Unavailable"
-      ],
+      "source_errors": [],
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",
         "baseline_date": "2026-11-13",
         "baseline": 13.22,
         "latest_date": "2026-11-20",
-        "latest": 12.96,
-        "change_sek": -0.26,
-        "change_percent": -1.97,
+        "latest": 12.82,
+        "change_sek": -0.4,
+        "change_percent": -3.03,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
