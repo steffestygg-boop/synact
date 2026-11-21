@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-21T09:04:17+01:00",
+  "updated_at": "2026-11-21T09:41:04+01:00",
   "latest_week": "2026-W47",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-16",
       "end": "2026-11-21",
-      "generated_at": "2026-11-21T09:04:17+01:00",
+      "generated_at": "2026-11-21T09:41:04+01:00",
       "intro": "Veckans tydligaste källanknutna besked: Hela Fenja-ramen utnyttjad. Dessutom finns 4 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [
         {
@@ -817,7 +817,9 @@
         "daterade milstolpar",
         "finansierings- och riskdata"
       ],
-      "source_errors": [],
+      "source_errors": [
+        "RSS-sökning kunde inte läsas: HTTP Error 429: Too Many Requests"
+      ],
       "note": "Automatiskt sammanställda rubriker och källgranskade dataposter; inte fulltextbevakning av all nyhetsrapportering. Endast uttryckligen källgranskade poster markeras verifierade.",
       "stock_change": {
         "symbol": "SYNACT.ST",
