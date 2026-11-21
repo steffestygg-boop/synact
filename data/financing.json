@@ -103,18 +103,9 @@
       "date": "2026-11-18",
       "source": "Börsvärlden",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYlhfZXNXcFBfUEZ2am03bVNBMlRYd0hGR1IzY2lGX0V0eFVIX29WVkt3Rnk1Q0Z2TmIwd1lTOE5fSzNWMWNCRjV0Y2VoQWt1TDdMaGZkQjNIYUVSRWNCUWRMRzR1cHdCQkM0UjVMTWZORU1yM1oxc3lxMThQRlhlTm0xeEF3NXVNSXZsd2VSWWZMb2Q5SkpSOFFIdzZpbmIyUGRlZ0pJalVFalE?oc=5",
-      "category": "varningssignaler",
+      "category": "omvärld",
       "official": false,
       "signal": "finansiering"
-    },
-    {
-      "title": "Immunovias nyemission: Ny flagga och två upplysningar - Affärsvärlden",
-      "date": "2026-11-17",
-      "source": "Affärsvärlden",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNSWRZNGowLWcyRzU3U2dXaEEwcF9WVkJOQ3dlUnVJeWcxTzhNdUFZenl4M2JMR1U4TWV0dU96RktBOWVCVlkyQ0ZDNGg1eWZwMUd3cjQ3V00yT191U0hzcEdVVDdoWUw0azRoU3gtUlUxa3BfdEptb1EwTnQ3eW5sX3VJNkJWNEtOc0Zfd1RWUlZZQXc?oc=5",
-      "category": "jämförelsebolag",
-      "official": false,
-      "signal": "emission"
     },
     {
       "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten - SynAct Pharma",
@@ -148,6 +139,15 @@
       "date": "2026-11-12",
       "source": "Börsvärlden",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdGZjdVdjVWNHSURna1VrRWtLQ0xPNHRkV2NRamo4QnlhTEJsbUtpVW9meThLOUpna3dTWVUxMXlWYjZHRjNoaXJuc0JCWUUteERRRWlfd1EwSFBsdFFQT1NKVGpaRHdmSWJSeWJGQVRIVkZxXzFrc19xTFFYRUdSN1ctYWNPRkF1Q05YT0VkN1V3YU9aM1RqcXBLMkM1cS04bzU5Y0tUOG1nSHNranFRcFhPVkpuUQ?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
+      "title": "Bioinvents nyemission: Tre flaggor efter kursslakten - Affärsvärlden",
+      "date": "2026-11-11",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSzAyeVp0eDRDWW1Pa3c1ZzNHOEdBUl9Ram5tdklqY3NndndlV0JRS0VKNWpwVlY4R3FnRW9TOWdlUXh1dEpudW5iLWowSncyeXVJMm5kVGFKTGY1Q0N0TFJZbEl0TmFrMktEdHhndGllLWNHNVJtRWRYRHoxWlRiMlRWSlNiR1lFYXI3ZjJuVUswQQ?oc=5",
       "category": "jämförelsebolag",
       "official": false,
       "signal": "emission"
@@ -233,7 +233,7 @@
       "title": "Finansieringshorisonten närmar sig",
       "detail": "Omkring 10.3 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
-      "date": "2026-11-20",
+      "date": "2026-11-21",
       "status": "Beräknad från verifierad bolagsprognos",
       "next_step": "Kontrollera ny likviditetsprognos i kommande kvartalsrapport.",
       "category": "runway"
@@ -283,6 +283,6 @@
       "category": "new_debt"
     }
   ],
-  "alerts_checked_at": "2026-11-20T12:31:39+01:00",
+  "alerts_checked_at": "2026-11-21T12:24:27+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
