@@ -19,8 +19,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "stock_quote.json"
 SYMBOL = "SYNACT.ST"
 URLS = [
-    "https://query1.finance.yahoo.com/v8/finance/chart/SYNACT.ST?range=5d&interval=5m",
-    "https://query2.finance.yahoo.com/v8/finance/chart/SYNACT.ST?range=5d&interval=1d",
+    "https://query1.finance.yahoo.com/v8/finance/chart/SYNACT.ST?range=1mo&interval=1d",
+    "https://query2.finance.yahoo.com/v8/finance/chart/SYNACT.ST?range=1mo&interval=1d",
 ]
 STOCKHOLM = ZoneInfo("Europe/Stockholm")
 
@@ -52,7 +52,16 @@ def validate_chart(payload: dict) -> dict:
         raise ValueError("Source quote time is in the future")
     if quoted < now - dt.timedelta(days=10):
         raise ValueError("Quote too old to publish")
+    closes = {}
+    series = (node.get("indicators", {}).get("quote") or [{}])[0].get("close") or []
+    for timestamp, close in zip(node.get("timestamp") or [], series):
+        day = dt.datetime.fromtimestamp(timestamp, STOCKHOLM).date()
+        if day < quoted.date() and isinstance(close, (float, int)) and math.isfinite(close) and close > 0:
+            closes[day] = close
+    baseline_day = sorted(closes)[-5] if len(closes) >= 5 else None
     return {
+        "baseline_date": baseline_day.isoformat() if baseline_day else None,
+        "baseline": round(closes[baseline_day], 6) if baseline_day else None,
         "symbol": SYMBOL,
         "currency": "SEK",
         "price": round(float(price), 4),
@@ -74,7 +83,10 @@ def download():
             })
             with urllib.request.urlopen(req, timeout=18) as res:
                 obj = json.loads(res.read(600_000))
-            return validate_chart(obj)
+            quote = validate_chart(obj)
+            if not quote["baseline"]:
+                raise ValueError("Missing five prior trading sessions")
+            return quote
         except (OSError, ValueError, KeyError, TypeError) as exc:
             issues.append(str(exc)[:130])
     raise RuntimeError("All market quote endpoints failed: " + "; ".join(issues))
@@ -104,6 +116,8 @@ def main():
     # mark the source quote's own timestamp, not the scheduled job's runtime.
     if (previous.get("price") == quote["price"] and
             previous.get("quote_time") == quote["quote_time"] and
+            previous.get("baseline_date") == quote["baseline_date"] and
+            previous.get("baseline") == quote["baseline"] and
             previous.get("source") == quote["source"]):
         print("No new quote, keeping previously published timestamp")
         return

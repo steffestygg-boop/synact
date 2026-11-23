@@ -635,6 +635,7 @@ document.addEventListener('keydown',event=>{
        const stamp=Date.parse(saved?.quote_time||''),price=Number(saved?.price);
        if(saved?.symbol==='SYNACT.ST'&&saved.currency==='SEK'&&Number.isFinite(price)&&price>0&&Number.isFinite(stamp)&&stamp<=Date.now()+600000&&stamp>Date.now()-10*86400000){
          lastQuoteTimestamp=stamp;lastQuoteKey=stamp+'|'+price;showingSavedQuote=true;
+         window.currentMarketQuote=saved; window.dispatchEvent(new Event('marketquote'));
          updateStockQuote(price,saved.quote_time,(saved.source||'Yahoo Finance')+' (sparad)');
        }
      }catch(_){ }
@@ -654,6 +655,7 @@ document.addEventListener('keydown',event=>{
          // Stale deployments and out-of-order fetches must not reverse the price.
          if(stamp<lastQuoteTimestamp)return;
          const price=Number(quote.price);
+         window.currentMarketQuote=quote; window.dispatchEvent(new Event('marketquote'));
          const key=stamp+'|'+price;
          if(key!==lastQuoteKey||showingSavedQuote){
            lastQuoteTimestamp=stamp;

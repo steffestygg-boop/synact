@@ -99,9 +99,21 @@
  const eventCount = count => countNoun(count, 'händelse', 'händelser');
  const verified = item => Boolean(item.editorial_verified || item.verified);
 
+ function currentChange() {
+   const q = window.currentMarketQuote;
+   if (!q || !(q.baseline > 0) || !q.baseline_date) return null;
+   const difference = q.price - q.baseline;
+   return {baseline: q.baseline, baseline_date: q.baseline_date, latest: q.price,
+     latest_date: q.quote_time.slice(0, 10), change_sek: difference,
+     change_percent: 100 * difference / q.baseline, source_url: q.source_url};
+ }
+ window.addEventListener('marketquote', () => {
+   const panel = current.querySelector('.week-price');
+   if (panel) panel.replaceWith(quotePanel(currentChange()));
+ });
  function quotePanel(quote) {
    const box = make('div', 'week-price');
-   box.append(make('h3', '', 'Veckans kursutveckling'));
+   box.append(make('h3', '', 'Kursutveckling · 5 handelsdagar'));
    if (!quote || quote.unavailable || !Number.isFinite(quote.change_percent)) {
      box.append(make('p', '', 'Jämförelsekurser saknas.'));
      return box;
@@ -170,7 +182,7 @@
    }
    const side = make('aside', 'week-context');
    side.setAttribute('aria-label', 'Handelsveckan och analysen');
-   side.append(quotePanel(week.stock_change), analysisPanel(week));
+   side.append(quotePanel(currentChange()), analysisPanel(week));
    shell.append(feed, side);
    if (week.omitted_events) shell.append(make('p', 'weekly-foot', week.omitted_events + ' rubriker utelämnades i underlaget.'));
    if (week.source_errors?.length) shell.append(make('p', 'weekly-foot', 'Ofullständig källkontroll. ' + week.source_errors.join(' · ')));
