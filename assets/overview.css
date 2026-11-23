@@ -497,3 +497,64 @@ body.desk {
 [data-surface="timeline"] .delay-new { background: var(--delay); color: white; border-color: var(--delay); }
 [data-surface="timeline"] .delay-wire { border-top-color: var(--delay); }
 [data-surface="timeline"] .delay-wire::after { border-left-color: var(--delay); }
+
+/* Appearance switch shares the masthead row with the company links on compact screens. */
+.desk-bar { grid-template-columns: 1fr auto 1fr auto; }
+.desk-theme {
+  justify-self: end; cursor: pointer; font: 650 14px/1.4 var(--reading-font);
+  padding: 7px 12px; border-radius: 6px; color: var(--ink);
+  background: var(--wash); border: 1px solid var(--rule);
+}
+.desk-theme::before { content: "◐"; margin-right: .4em; }
+.desk-theme[aria-pressed="true"] { background: #335447; color: #fff; }
+@media (max-width: 760px) {
+  .desk-bar { grid-template-columns: 1fr auto; }
+  .desk-companies { grid-column: 1; }
+  .desk-theme { grid-column: 2; grid-row: 2; }
+}
+@media (max-width: 420px) {
+  .desk-companies a { padding-inline: 8px; }
+  .desk-theme { padding-inline: 7px; }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark; --paper: #101a17; --panel: #1b2924; --ink: #edf4ee;
+  --muted-ink: #bdcec2; --evergreen: #9dddb9; --link: #9ce1bb;
+  --rule: #50675a; --soft-rule: #384e42; --wash: #26382e;
+}
+[data-theme="dark"] :is(.desk-masthead,.desk-nav,.desk-directory-panel,.desk-skip) { background: var(--panel); color: var(--ink); border-color: var(--rule); }
+[data-theme="dark"] :is(.desk-companies,.desk-company-site) { background: var(--wash); border-color: var(--rule); }
+[data-theme="dark"] :is(.desk-companies a,.desk-company-site,.desk-tabs a,.desk-directory summary,.desk-wordmark) { color: var(--ink); }
+[data-theme="dark"] .desk-companies a[aria-current="page"] { background: #366550; color: white; }
+[data-theme="dark"] :is(.desk-companies a,.desk-company-site):hover { background: #345343; color: white; }
+[data-theme="dark"] .desk-tabs a[aria-current="location"] { border-color: var(--link); }
+[data-theme="dark"] .desk-nav-group a:hover { color: var(--link); }
+/* Existing financial modules retain their own dark palette from the module layer. */
+[data-theme="dark"] [data-surface="paper"] :where(div,article,aside,p,span,strong,b,em,small,h2,h3,h4,summary,details,li,label,input,button,code,a) {
+  color: revert-layer; background-color: revert-layer; border-color: revert-layer;
+}
+[data-theme="dark"] [data-surface="paper"] :is(.intro,.section-intro,.note,.fine,.status,.weekly-status,.metric-label) { color: var(--muted-ink); }
+[data-theme="dark"] [data-surface="paper"] :is(h2,h3,h4) { color: var(--ink); }
+[data-theme="dark"] [data-surface="paper"] a { color: var(--link); }
+[data-theme="dark"] .stock-overview :is(.market-board,.market-metric,.market-footline,.market-footline details[open]) { background: var(--panel); color: var(--ink); }
+[data-theme="dark"] .stock-overview :is(.market-metric strong,.market-metric small,.market-footline p) { color: var(--ink); }
+[data-theme="dark"] .desk :is(.weekly-main,.weekly-events,.weekly-card,.weekly-event-open,.weekly-analysis,.week-price,.week-changes,.weekly-history,.weekly-past,.weekly-more,.weekly-event-dialog,.fin-calculation-dialog,.weekly-past .weekly-main) { background: var(--panel); color: var(--ink); border-color: var(--rule); }
+[data-theme="dark"] .desk :is(.week-feed-heading,.week-price-values,.weekly-event-open p,.weekly-meta,.weekly-origin,.weekly-open-cue,.week-absolute,.week-risk-label,.weekly-small,.weekly-foot,.week-price-values dt,.weekly-event-dialog p,.fin-calculation-dialog p) { color: var(--muted-ink); }
+[data-theme="dark"] .desk :is(.weekly-meta span,.week-feed-heading h3,.week-price h3,.weekly-analysis h3,.week-price-values dd,.week-return,.week-risk,.week-finance-status,.weekly-event-open h4,.weekly-event-dialog h2,.fin-calculation-dialog h2) { color: var(--ink); }
+[data-theme="dark"] .desk .week-return.positive { color: #8de4ad; }
+[data-theme="dark"] .desk .week-return.negative { color: #ffac97; }
+[data-theme="dark"] .desk :is(.weekly-card:hover,.weekly-event-facts,.weekly-event-importance,.fin-calc-formula,.fin-calc-caveat,.weekly-event-close,.fin-calculation-close) { background: var(--wash); color: var(--ink); }
+[data-theme="dark"] .desk-content > section[data-surface="timeline"] { color-scheme: dark; --track: #a2dab9; --delay: #ffc084; }
+[data-theme="dark"] [data-surface="timeline"] :is(.milestone,.toolbar button,.milestone-key i) { background: var(--panel); color: var(--ink); }
+[data-theme="dark"] [data-surface="timeline"] :is(.milestone.future,.milestone-key i.upcoming) { background: #263b30; }
+[data-theme="dark"] [data-surface="timeline"] .track-label { color: var(--ink); }
+[data-theme="dark"] [data-surface="timeline"] .toolbar button.active { color: white; background: #38664f; }
+[data-theme="dark"] [data-surface="timeline"] :is(.delay-lane,.delay-amount,.delay-old,.delay-new,.milestone-shift,.delay-key i,.toolbar .delay-toggle) { background: #403021; color: var(--delay); }
+[data-theme="dark"] [data-surface="timeline"] .toolbar .delay-toggle.active { background: #854317; color: white; }
+
+[data-theme="dark"] .desk [data-surface="paper"] :is(.partner-card,.tile,.statbox,.fin-box,.fin-case,.fin-facts,.fin-signals,.fin-news-item,.fin-alert-card,.dd-risk-module,.dd-pillar,.to2-result,.to2-input,.to2-scenario,.to2-scenario>div,.to2-latest,.fin-fenja-panel,.fin-fenja-stats>div,.bank-level,.bank-case,.kcalc,.calcbox,.chart-info,.notice,.calc-result,.partner-calc,.alert,.fin-method,.research-drawer,.to2-latest-facts span,.chart-tile,.news-card,#news-list>.tile) { background: var(--wash); border-color: var(--rule); color: var(--ink); }
+[data-theme="dark"] .desk [data-surface="paper"] :is(.bank-case.active,.fin-frequency,.to2-status,.fin-signals-frequency,.fin-fenja-pill,.issuebadge) { background: #304d3b; color: #ddf2dd; border-color: #71937e; }
+[data-theme="dark"] .desk [data-surface="paper"] :is(.finance input,.kcalc input,.partner-calc input,.to2-input input,.mathbtn,.fin-calc-trigger,.to2-input-wrap) { background: var(--paper); color: var(--ink); border-color: var(--rule); }
+[data-theme="dark"] .desk [data-surface="paper"] :is(.partner-card,.tile,.fin-box,.fin-facts,.fin-case,.to2-result,.to2-scenario,.to2-latest,.notice,.alert,.fin-fenja-stats,.bank-case,.calcbox) :is(strong,b) { color: var(--ink); }
+[data-theme="dark"] .desk [data-surface="paper"] :is(.partner-card,.tile,.fin-box,.fin-facts,.fin-case,.to2-result,.to2-scenario,.to2-latest,.notice,.alert,.fin-fenja-stats,.bank-case,.calcbox) :is(p,small,em) { color: var(--muted-ink); }
+[data-theme="dark"] .desk .profile-banner :is(h1,.profile-quote-number) { color: #f7fbf4; }
+[data-theme="dark"] .desk .profile-banner :is(.profile-description,.profile-asof,.profile-market,.profile-quote-label,.profile-ticker) { color: #d6ecdb; }

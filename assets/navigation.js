@@ -75,3 +75,30 @@
   window.addEventListener('load', followFragment, {once: true});
   track();
 })();
+
+(() => {
+  const button = document.querySelector('.desk-theme');
+  if (!button) return;
+  const key = 'mina-aktier-theme';
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  let preference;
+  try { preference = localStorage.getItem(key); } catch {}
+  function apply() {
+    const dark = preference === 'dark' || (preference !== 'light' && system.matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    button.setAttribute('aria-pressed', String(dark));
+  }
+  button.addEventListener('click', () => {
+    preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    apply();
+    try { localStorage.setItem(key, preference); } catch {}
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== key && event.key !== null) return;
+    preference = event.newValue;
+    apply();
+  });
+  system.addEventListener('change', apply);
+  apply();
+  button.hidden = false;
+})();
