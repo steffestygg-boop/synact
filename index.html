@@ -5,8 +5,10 @@
 <title>SynAct Pharma · Mina Aktier</title>
 <link rel="stylesheet" href="./assets/modules.css">
 <link rel="stylesheet" href="./assets/overview.css">
+<script src="./assets/valuation.js"></script>
 <script src="./assets/navigation.js" defer></script>
 <script src="./assets/week.js" defer></script>
+<style>.valuation-chart-panel svg{display:block;width:100%;height:auto}.valuation .valuation-chart-panel{background:#121f2b;border-radius:12px;padding:12px}.valuation-header,.valuation-legend{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.valuation-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.chart-table{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}.chart-tile{background:var(--wash);color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:12px;text-align:left;cursor:pointer}.chart-tile small,.chart-tile strong{display:block;color:inherit}.chart-tile strong{font-size:1.4rem}.valuation-point{cursor:pointer}</style>
 </head>
 <body class="desk">
 <!-- portfolio:masthead -->
@@ -207,9 +209,9 @@
 </section>
 
 <section class="valuation" data-surface="paper" data-nav-label="Värdering" aria-labelledby="valuation-heading">
-<div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Källkontrollerade publiceringar · kr per aktie · klicka på punkter för analysförändringen.</p></div>
-<div class="valuation-legend"><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#ffba79"></i>BioVal*</span></div></div>
-<div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar av Redeye, Edison och BioVal i kr per aktie"></svg></div>
+<div class="valuation-header"><div><h2 id="valuation-heading">Riktkurser / motiverade värden</h2><p class="intro">Klicka på en punkt för analys och källa. Linjen fortsätter till dagens datum på senast publicerad nivå.</p></div>
+<div class="valuation-legend"><span><i style="background:#9fe2b0"></i>Redeye</span><span><i style="background:#5cc8fb"></i>Edison</span><span><i style="background:#ffba79"></i>BioVal</span></div></div>
+<div class="valuation-chart-panel"><svg id="valuation-chart" viewBox="0 0 1100 375" role="img" aria-label="Historiska värderingar från Redeye, Edison, BioVal i kronor per aktie"></svg></div>
 <div class="chart-table" id="valuation-highlights"></div>
 <p class="note"><b>*Viktigt:</b> BioVals 2,90 miljarder kr är en samlad riskjusterad modellvärdering, inte en publicerad riktkurs per aktie. Punktvärdet (~51,59 kr) är vår omräkning med 56 213 968 utestående aktier. Analysföretagen använder olika antaganden; historiska riktkurser är inte uppdaterade i realtid. Dessa är uppdragsanalyser (betalda av bolaget) och värderingarna utgör inte löften om kursutvecklingen. <a href="https://biostock.se/en/2026/11/synact-pharma-resomelagon-analysis/" target="_blank" rel="noopener">BioVal 3 november ↗</a> · <a href="https://www.placera.se/telegram/synact-pharma-edison-hojer-varderingen-pa-synact-pharma-uppdragsanalys-20260304" target="_blank" rel="noopener">Edison 4 mars ↗</a> · <a href="https://res.cloudinary.com/redeye/image/upload/v1762175959/article-pdfs/update/synact-q3-update-advance-approaching-full-recruitment_a4jh2n.pdf" target="_blank" rel="noopener">Redeye 2025 ↗</a>.</p></section>
 
@@ -362,34 +364,7 @@ renderTimeline();
   status.textContent='Det gick inte att hämta milstolparna. Uppdatera sidan. ('+e.message+')';
  }
 })();
-function drawValuations(){
- const svg=document.getElementById('valuation-chart');const ns='http://www.w3.org/2000/svg';
- const el=(tag,atts,parent=svg)=>{const node=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(atts))node.setAttribute(k,v);parent.append(node);return node};
- const left=65,right=1047,top=35,bottom=313;
- const from=Date.parse('2025-05-01'),to=Date.parse('2027-01-01'),max=60;
- const x=d=>left+(Date.parse(d)-from)/(to-from)*(right-left);
- const y=v=>bottom-v/max*(bottom-top);
- for(let v=0;v<=60;v+=10){el('line',{x1:left,x2:right,y1:y(v),y2:y(v),stroke:'#334657','stroke-dasharray':'5 8'});const t=el('text',{x:52,y:y(v)+4,fill:'#b1c1d0','font-size':12,'text-anchor':'end'});t.textContent=v;}
- for(const [date,label] of [['2025-06-01','Jun 2025'],['2025-10-01','Okt 2025'],['2026-03-01','Mar 2026'],['2026-07-01','Jul 2026'],['2026-11-01','Nov 2026']]){const t=el('text',{x:x(date),y:344,fill:'#b1c1d0','font-size':12,'text-anchor':'middle'});t.textContent=label;}
- const typecolor={Edison:'#5cc8fb',Redeye:'#9fe2b0',BioVal:'#ffba79'};
- for(const who of ['Redeye','Edison','BioVal']){
-  const points=valuations.filter(v=>v.who===who).sort((a,b)=>a.date.localeCompare(b.date));
-  if(points.length>1)el('path',{d:points.map((p,i)=>(i?'L':'M')+x(p.date).toFixed(2)+' '+y(p.value).toFixed(2)).join(' '),fill:'none',stroke:typecolor[who],'stroke-width':'2.5','stroke-dasharray':'7 5','stroke-linecap':'round'});
-  for(const p of points){
-   const dot=el('circle',{cx:x(p.date),cy:y(p.value),r:7,fill:typecolor[who],class:'valuation-point',tabindex:0,role:'button','aria-label':who+' '+p.value.toFixed(2)+' kronor, '+p.date});
-   const title=el('title',{},dot);title.textContent=who+' · '+p.value.toFixed(2)+' kr · '+p.date;
-   const detail={date:p.date,title:who+' · '+p.value.toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kr/aktie',body:p.type+'. '+p.body,url:p.url};
-   dot.addEventListener('click',()=>openInfo(detail,dot));dot.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInfo(detail,dot)}});
-   const label=el('text',{x:x(p.date)+13,y:y(p.value)-9,fill:typecolor[who],'font-size':13,'font-weight':750});label.textContent=p.value.toLocaleString('sv-SE',{maximumFractionDigits:2})+' kr';
-  }
- }
- const host=document.getElementById('valuation-highlights');for(const p of [valuations[2],valuations[3],valuations[4]]){
-  const b=document.createElement('button');b.type='button';b.className='chart-tile';b.innerHTML='<small></small><strong></strong><small></small>';
-  b.children[0].textContent=p.who+' · '+p.date;b.children[1].textContent=p.value.toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kr';b.children[2].textContent=p.type;
-  b.addEventListener('click',()=>openInfo({date:p.date,title:p.who+' · värderingsuppdatering',body:p.body,url:p.url},b));host.append(b);
- }
-}
-drawValuations();
+drawValuations(valuations,openInfo);
 function updateCalc(){const sales=Number(document.getElementById('sales').value),margin=Number(document.getElementById('margin').value);const output=document.getElementById('profit-result');output.textContent=Number.isFinite(sales)&&sales>=0&&Number.isFinite(margin)&&margin>=0&&margin<=100?(sales*margin/200).toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+' MUSD':'—';}
 document.getElementById('sales').addEventListener('input',updateCalc);document.getElementById('margin').addEventListener('input',updateCalc);updateCalc();
 (async()=>{
