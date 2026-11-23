@@ -342,7 +342,6 @@ function renderTimeline(){
  document.querySelectorAll('.track').forEach(b=>b.classList.toggle('active',selected.has(b.dataset.track)));
  document.querySelector('[data-track="all"]').classList.toggle('active',selected.size===tracks.length);
  document.getElementById('show-delays').classList.toggle('active',showDelays);
- document.querySelector('.delay-key').hidden=!showDelays;
 }
 periodButtons.forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;periodButtons.forEach(x=>x.classList.toggle('active',b===x));renderTimeline()}));
 document.querySelectorAll('.track').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.track;if(selected.has(t)){if(selected.size>1)selected.delete(t)}else selected.add(t);renderTimeline()}));
