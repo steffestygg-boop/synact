@@ -590,3 +590,7 @@ body.desk {
   .timeline .milestone-status { border: 1px solid ButtonText; }
   .timeline .milestone.future .milestone-status { border-style: dashed; }
 }
+
+/* Keep the frozen labels flush with the horizontal scrollport. */
+[data-surface="timeline"] .timeline-scroll { padding-inline: 0; }
+[data-surface="timeline"] .timeline .milestone strong { hyphens: auto; }
