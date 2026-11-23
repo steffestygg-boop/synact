@@ -558,3 +558,29 @@ body.desk {
 [data-theme="dark"] .desk [data-surface="paper"] :is(.partner-card,.tile,.fin-box,.fin-facts,.fin-case,.to2-result,.to2-scenario,.to2-latest,.notice,.alert,.fin-fenja-stats,.bank-case,.calcbox) :is(p,small,em) { color: var(--muted-ink); }
 [data-theme="dark"] .desk .profile-banner :is(h1,.profile-quote-number) { color: #f7fbf4; }
 [data-theme="dark"] .desk .profile-banner :is(.profile-description,.profile-asof,.profile-market,.profile-quote-label,.profile-ticker) { color: #d6ecdb; }
+
+/* Status is readable on each tile, independently of programme and delay colours. */
+[data-surface="timeline"] {
+  --delivered-fill: #e0f1e7; --delivered-line: #528268;
+  --upcoming-fill: #ebf3ff; --upcoming-line: #5078a5;
+  --delivered-badge: #205b40; --upcoming-badge: #244f81;
+}
+:root[data-theme="dark"] [data-surface="timeline"] {
+  --delivered-fill: #213e30; --delivered-line: #75a888;
+  --upcoming-fill: #233951; --upcoming-line: #86aedd;
+  --delivered-badge: #24583c; --upcoming-badge: #284e7b;
+}
+.desk [data-surface="timeline"] .timeline .milestone:not(.future),
+.desk [data-surface="timeline"] .milestone-key span:not(.delay-key) > i:not(.upcoming) {
+  background: var(--delivered-fill); border-block: 1px solid var(--delivered-line);
+}
+.desk [data-surface="timeline"] .timeline .milestone.future,
+.desk [data-surface="timeline"] .milestone-key i.upcoming {
+  background: var(--upcoming-fill); border-block: 2px dashed var(--upcoming-line);
+}
+.desk [data-surface="timeline"] .milestone .milestone-status {
+  display: block; width: fit-content; margin: 0 0 5px; padding: 2px 5px;
+  border-radius: 3px; font: 700 10px/1.25 var(--reading-font); white-space: nowrap;
+  background: var(--delivered-badge); color: white;
+}
+.desk [data-surface="timeline"] .milestone.future .milestone-status { background: var(--upcoming-badge); }
