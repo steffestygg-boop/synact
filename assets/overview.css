@@ -493,6 +493,7 @@ body.desk {
 [data-surface="timeline"] :is(.delay-caption,.milestone-shift,.delay-overview,.delay-lane-name small) { color: var(--delay); }
 [data-surface="timeline"] :is(.delay-lane,.delay-old,.delay-amount,.milestone-key .delay-key i) { background: #fff3df; color: var(--delay); border-color: #bd7b40; }
 [data-surface="timeline"] .delay-lane:is(:hover,:focus-visible) { background: #ffebcd; }
+[data-surface="timeline"] .milestone-shift { background: #fff3df; border-color: #bd7b40; }
 [data-surface="timeline"] .delay-new { background: var(--delay); color: white; border-color: var(--delay); }
 [data-surface="timeline"] .delay-wire { border-top-color: var(--delay); }
 [data-surface="timeline"] .delay-wire::after { border-left-color: var(--delay); }
