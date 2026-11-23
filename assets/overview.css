@@ -584,3 +584,8 @@ body.desk {
   background: var(--delivered-badge); color: white;
 }
 .desk [data-surface="timeline"] .milestone.future .milestone-status { background: var(--upcoming-badge); }
+
+@media (forced-colors: active) {
+  .timeline .milestone-status { border: 1px solid ButtonText; }
+  .timeline .milestone.future .milestone-status { border-style: dashed; }
+}
