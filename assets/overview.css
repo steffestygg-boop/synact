@@ -593,4 +593,4 @@ body.desk {
 
 /* Keep the frozen labels flush with the horizontal scrollport. */
 [data-surface="timeline"] .timeline-scroll { padding-inline: 0; }
-[data-surface="timeline"] .timeline .milestone strong { hyphens: auto; }
+[data-surface="timeline"] .timeline .milestone { hyphens: manual; word-break: normal; overflow-wrap: break-word; }
