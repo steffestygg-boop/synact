@@ -82,7 +82,8 @@
 <section data-surface="timeline" data-nav-label="Milstolpar" aria-labelledby="milestones-heading">
 <p class="section-kicker"><span class="section-number">06</span> Klinisk utveckling &amp; bolaget</p>
 <h2 class="section" id="milestones-heading">Milstolpar <span id="milestone-total" class="milestone-total"></span></h2>
-<p class="intro">SynActs historia från 2011 till 2027: forskning, kliniska resultat, patent, finansiering och kommande triggers. Alla framtida milstolpar visas per kvartal. Placeringar utan officiell kvartalsprognos är uttryckligen uppskattningar. Klicka på en ruta för fördjupning och tidsmotivering.</p>
+<p class="intro">Läs av tidpunkten på tidsaxeln. Öppna en milstolpe för detaljer och källor.</p>
+<div class="milestone-key" aria-label="Teckenförklaring"><span><i aria-hidden="true"></i>Levererad · grön, heldragen</span><span><i class="upcoming" aria-hidden="true"></i>Kommande · blå, streckad</span><span class="delay-key"><i aria-hidden="true"></i>Ändrad tidsplan · orange</span></div>
 <p class="status" id="research-status">Läser in källkontrollerad milstolpshistorik …</p>
 <div class="toolbar">
   <div class="group"><span class="hint">PERIOD</span>
@@ -107,12 +108,7 @@
 </div>
 <div class="timeline-overview"><span id="milestone-count">Laddar händelser …</span><span>Sidled för fler år <span aria-hidden="true">↔</span></span></div>
 <div class="timeline-scroll" id="timeline-scroll"><div class="timeline" id="timeline"><div class="axis-filler"></div><div class="axis" id="timeline-axis"></div></div></div>
-<div class="milestone-key" aria-label="Milstolpsstatus">
-<span><i aria-hidden="true"></i>Levererad</span>
-<span><i class="upcoming" aria-hidden="true"></i>Kommande</span>
-<span class="delay-key"><i aria-hidden="true"></i>Orange = dokumenterad ändring av tidplan</span>
-<span class="milestone-disclaimer">Alla framtida händelser ligger i kvartal. ≈ betyder vår uppskattning, inte bolagets löfte. Förseningar visas endast när bolagets tidigare och senare tidsuppgifter ger stöd. +0 kvartal visas aldrig som försening. Klicka på orange markerade händelser för båda källorna.</span>
-</div>
+
 </section>
 
 <section class="partner-overview" data-surface="paper" data-nav-label="Avtal och kassa" aria-labelledby="partner-heading">
@@ -321,10 +317,7 @@ function renderTimeline(){
    const cell=document.createElement('div');cell.className='cell';
    for(const m of trackMilestones.filter(m=>m.era===era)){
     const b=document.createElement('button');b.type='button';b.className='milestone '+track+(m.status==='future'?' future':'')+(m.time_basis==='estimated'?' estimated-time':'')+(showDelays&&m.delayed?' has-delay':'');
-    const statusLabel = document.createElement('span');
-    statusLabel.className = 'milestone-status';
-    statusLabel.textContent = m.status === 'future' ? 'Kommande' : 'Levererad';
-    b.append(statusLabel);
+    b.setAttribute('aria-label', (m.status === 'future' ? 'Kommande' : 'Levererad') + ': ' + m.title);
     const s=document.createElement('strong');s.textContent=m.title;
     const small=document.createElement('small');small.textContent=m.subtitle||'';
     b.append(s);
