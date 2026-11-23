@@ -456,3 +456,43 @@ body.desk {
 @media(prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Milestones use the common paper palette. Track colours carry through to filters and cards. */
+.desk-content > section[data-surface="timeline"] {
+  color-scheme: light; color: var(--ink); background: var(--panel); border-color: var(--rule);
+  --section-accent: var(--evergreen); --track: var(--evergreen); --delay: #98470b;
+}
+[data-surface="timeline"] :is(h2, .milestone strong, .milestone-timing-info strong) { color: var(--ink); }
+[data-surface="timeline"] :is(.intro, .status, .hint, .milestone-total, .timeline-overview, .milestone-key,
+  .milestone-timing-note, .milestone-timing-info, .milestone small) { color: var(--muted-ink); }
+[data-surface="timeline"] :is(.section-kicker, a) { color: var(--link); }
+[data-surface="timeline"] :is(.arfo, .ra, .cs1, [data-track="arfo"], [data-track="ra"], [data-track="cs1"]) { --track: #17604e; }
+[data-surface="timeline"] :is(.japan, .dengue, .cs014, [data-track="japan"], [data-track="dengue"], [data-track="cs014"]) { --track: #275d82; }
+[data-surface="timeline"] :is(.rvi, .cs585, [data-track="rvi"], [data-track="cs585"]) { --track: #665384; }
+[data-surface="timeline"] :is(.company, [data-track="company"]) { --track: #545e54; }
+[data-surface="timeline"] :is(.renal, [data-track="renal"]) { --track: #335d72; }
+[data-surface="timeline"] :is(.pipeline, [data-track="pipeline"]) { --track: #795342; }
+[data-surface="timeline"] :is(.ip, [data-track="ip"]) { --track: #79536a; }
+[data-surface="timeline"] .toolbar button { color: var(--track); background: white; border-color: var(--rule); }
+[data-surface="timeline"] .toolbar button.track:not(.active) { opacity: 1; filter: none; }
+[data-surface="timeline"] .toolbar button:hover { background: var(--wash); border-color: var(--track); }
+[data-surface="timeline"] .toolbar button.active { background: var(--track); border-color: var(--track); color: white; }
+[data-surface="timeline"] .toolbar .delay-toggle { color: var(--delay); background: #fff6e9; border-color: #c68143; }
+[data-surface="timeline"] .toolbar .delay-toggle.active { color: white; background: var(--delay); border-color: var(--delay); }
+[data-surface="timeline"] .timeline-scroll { background: var(--paper); border-color: var(--rule); scrollbar-color: #8ba397 var(--wash); }
+[data-surface="timeline"] :is(.axis, .axis span, .axis-filler, .track-label) { color: var(--muted-ink); background: var(--wash); border-color: var(--rule); }
+[data-surface="timeline"] .track-label { color: var(--track); box-shadow: 3px 0 6px #24453612; }
+[data-surface="timeline"] .cell { background: transparent; border-color: var(--soft-rule); }
+[data-surface="timeline"] :is(.milestone, .milestone-key i) { color: var(--ink); background: white; border-color: #a9bcb1; }
+[data-surface="timeline"] :is(.milestone.future, .milestone-key i.upcoming) { color: var(--ink); background: #edf4ed; border-color: #789084; }
+[data-surface="timeline"] .milestone { border-left-color: var(--track); box-shadow: 0 1px 3px #24453618; }
+[data-surface="timeline"] .milestone.future { border-left-color: var(--track); }
+[data-surface="timeline"] .milestone:is(:hover,:focus-visible) { box-shadow: 0 3px 10px #24453635; }
+[data-surface="timeline"] .milestone.estimated-time::after { color: var(--evergreen); background: var(--wash); border-color: #93ae9c; }
+[data-surface="timeline"] .milestone.has-delay { border-left-color: var(--delay); }
+[data-surface="timeline"] :is(.delay-caption,.milestone-shift,.delay-overview,.delay-lane-name small) { color: var(--delay); }
+[data-surface="timeline"] :is(.delay-lane,.delay-old,.delay-amount,.milestone-key .delay-key i) { background: #fff3df; color: var(--delay); border-color: #bd7b40; }
+[data-surface="timeline"] .delay-lane:is(:hover,:focus-visible) { background: #ffebcd; }
+[data-surface="timeline"] .delay-new { background: var(--delay); color: white; border-color: var(--delay); }
+[data-surface="timeline"] .delay-wire { border-top-color: var(--delay); }
+[data-surface="timeline"] .delay-wire::after { border-left-color: var(--delay); }
