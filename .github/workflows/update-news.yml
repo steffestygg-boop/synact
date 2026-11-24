@@ -2,6 +2,9 @@ name: Uppdatera SynAct-nyheter
 on:
   schedule:
     - cron: '0 7,8 * * *'
+  push:
+    branches: [main]
+    paths: ['scripts/update_market_data.py']
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,7 +17,7 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$(TZ=Europe/Stockholm date +%H)" = "09" ]; then
+          if [ "$EVENT_NAME" != "schedule" ] || [ "$(TZ=Europe/Stockholm date +%H)" = "09" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
@@ -27,7 +30,9 @@ jobs:
           python-version: '3.12'
       - if: steps.stockholm_time.outputs.run == 'true'
         name: Hämta pressrubriker
-        run: python scripts/update_news.py
+        run: |
+          python scripts/update_market_data.py
+          python scripts/update_news.py
       - if: steps.stockholm_time.outputs.run == 'true'
         name: Uppdatera Senaste veckan och månadshistorik
         run: python scripts/update_weekly_news.py
@@ -36,5 +41,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news.json data/weekly_news.json
-          git diff --cached --quiet || (git commit -m "Update SynAct news" && git push)
+          git add index.html data/news.json data/weekly_news.json
+          git diff --cached --quiet || (git commit -m "Update SynAct news" && git pull --rebase && git push)

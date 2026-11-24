@@ -3,7 +3,7 @@ on:
   # Token-authored quote commits do not trigger push workflows.
   # workflow_run publishes the newest data/stock_quote.json after each successful quote refresh.
   workflow_run:
-    workflows: ["Uppdatera SynAct-aktiekurs och Fenja-utrymme"]
+    workflows: ["Uppdatera SynAct-aktiekurs och Fenja-utrymme", "Uppdatera SynAct-nyheter"]
     types: [completed]
   push:
     branches: [main]
