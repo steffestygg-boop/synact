@@ -135,21 +135,12 @@
       "signal": "övrigt"
     },
     {
-      "title": "Oncopeptides, Novo and Zealand clear the European Commission while Cereno plunges on rights issue – the Nordic Pulse | 2026:46 - Biostock",
+      "title": "Cereno Scientific: More runway, more opportunity - Edison - Börsvärlden",
       "date": "2026-11-16",
-      "source": "Biostock",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMlZGOGQzLWY5Sjl6ZnFOZFFUV3FBVXNaTjVjcnkwSWQ1VnpQd3hKSllnelFPdHhieE96aEJJN2Q5cWI2RXNESXQwOER6YldiV005M3lMSVF2U1FPcnN5Z2lEUUF4SjhGaWZYX0R6bl8tcDRJRGVEYk1MM1MyMk9DSkY3VDRfQ1RjWENSX1ktQnRzbGZybUZUSGgxY1prczZTR2QxZ2tWVGtGcnRMbW1mdTQ1aXBGc192QmVfN3dIZw?oc=5",
+      "source": "Börsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYVZNek81RDhYclNMbkpZZFNYR0dDSjVIX3FJU0hBRnR0MktJZWtDUzgwWUpUeW1SY1NTa2NVVHZySngwUkNENHRzTngxREdiYXNWVGZ4R0NXcGtpRzR4dDRNZE4yQnRkcU9pQ2tTMnplUWZtMEVVSExGWkFoWGQ2czRuM3FJQ0NUM1hLeVUxdw?oc=5",
       "category": "jämförelsebolag",
       "official": false,
-      "signal": "emission"
-    },
-    {
-      "title": "SynAct Pharma meddelar Notice of Allowance för ett amerikanskt patent som omfattar resomelagon-tabletten - SynAct Pharma",
-      "date": "2026-11-13",
-      "source": "SynAct Pharma",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPV2ZTYUROVHBidk0tRkQyclJjbUtKZjM2VUcxT3dhTVIxZmViZnhySm9wWTdxNExWRjJpWHF0Z1pVZUF0MEp0dWxxcTNWeEhaQkNUcktjVjREd041czJIaElla0RDYmlyMnlHc0FyejBNOHdYNGI2YTN1S0xKUkl0bFBxRUNVUVNlSnA3RFpsZTVxcmVVcGFmdXZ2YnItcENwTmpzVmpNRF9MZG5sWnJUVEhvSlhJTVY1amR4RFV5MXppaHg0N2J0UlR6aS14MkF5NC1z?oc=5",
-      "category": "bolaget",
-      "official": true,
       "signal": "övrigt"
     },
     {
@@ -205,6 +196,15 @@
       "category": "bolaget",
       "official": true,
       "signal": "övrigt"
+    },
+    {
+      "title": "SynAct Pharma meddelar att BioVal BioStock Analytics inleder analysbevakning av bolaget - SynAct Pharma",
+      "date": "2026-11-03",
+      "source": "SynAct Pharma",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxON2k2aVdpSHJUTHAtMlExc1dfaHR6b19yOFlVZUpUbDhTNUQ2S1lqYnBIbTNfMUNtb0ZYY084YzJhQUpuMUM2czB2SS16emRqb0IxZVZ2aEFxZGd5eGFJbFVuTzhKVEFwWkhUSWxySWl1dlhzWTBVcktnc3ZTUU5SckVGWkRQVmpjOW5xVFA5RlBQYUZWOFczYlVSWDJQQ2NxNDB0UVFmM3pVa2Z2UEN3X2RGdHYxa2Noem5ITg?oc=5",
+      "category": "bolaget",
+      "official": true,
+      "signal": "övrigt"
     }
   ],
   "review_needed": [],
@@ -233,7 +233,7 @@
       "title": "Finansieringshorisonten närmar sig",
       "detail": "Omkring 10.2 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "status": "Beräknad från verifierad bolagsprognos",
       "next_step": "Kontrollera ny likviditetsprognos i kommande kvartalsrapport.",
       "category": "runway"
@@ -283,6 +283,6 @@
       "category": "new_debt"
     }
   ],
-  "alerts_checked_at": "2026-11-24T12:30:48+01:00",
+  "alerts_checked_at": "2026-11-25T12:34:14+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
