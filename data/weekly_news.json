@@ -3,7 +3,7 @@
   "company": "SynAct Pharma",
   "timezone": "Europe/Stockholm",
   "schedule": "Varje dag kl. 09:00 Europe/Stockholm med extra kontroll på eftermiddagen; ISO-vecka från måndag",
-  "updated_at": "2026-11-27T09:23:33+01:00",
+  "updated_at": "2026-11-27T09:54:26+01:00",
   "latest_week": "2026-W48",
   "weeks": [
     {
@@ -12,7 +12,7 @@
       "year": 2026,
       "start": "2026-11-23",
       "end": "2026-11-27",
-      "generated_at": "2026-11-27T09:23:33+01:00",
+      "generated_at": "2026-11-27T09:54:26+01:00",
       "intro": "Veckans uppdateringar gäller främst analys och bevakade nyckeltal. Dessutom finns 1 noterade förändringar i sidans finansieringsanalys eller milstolpar.",
       "events": [],
       "updates": [
@@ -688,9 +688,9 @@
         "baseline_date": "2026-11-20",
         "baseline": 13.0,
         "latest_date": "2026-11-27",
-        "latest": 13.64,
-        "change_sek": 0.64,
-        "change_percent": 4.92,
+        "latest": 13.96,
+        "change_sek": 0.96,
+        "change_percent": 7.38,
         "source_url": "https://finance.yahoo.com/quote/SYNACT.ST/history/",
         "note": "Jämfört med föregående handelsveckas sista stängningskurs. Fördröjda dagsstängningar, inte realtid."
       }
