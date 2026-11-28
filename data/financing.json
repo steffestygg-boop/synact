@@ -81,6 +81,15 @@
   ],
   "latest_items": [
     {
+      "title": "Åtta flaggor totalt för Immunovias nyemission - Affärsvärlden",
+      "date": "2026-11-26",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTXB3V3VYY3RjNFJHYWhKNVVyWWt3SllPODBuczVPa1hfVFJQWkFXRmExWHpEYjMzMHhVaXRxWjNNZVpGa3ppa3Ria1YwM0JxV2MybEVXaHBvc3JxVjJVeTl3cFNKNE56dlNoc09mZjFnS3M2YWJ6RTF6SkpMTTBkQThVYlF1QU5vLWc?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    },
+    {
       "title": "SynAct Pharma påkallar andra tranchen av Fenja Capital II A/S finansieringsfacilitet samt beslutar om en riktad emission av konvertibler till Fenja - SynAct Pharma",
       "date": "2026-11-18",
       "source": "SynAct Pharma",
@@ -196,18 +205,19 @@
       "category": "bolaget",
       "official": true,
       "signal": "rapport"
-    },
-    {
-      "title": "SynAct skärper sina fas III-planer för resomelagon - Biostock",
-      "date": "2026-11-03",
-      "source": "Biostock",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZFZaSjJzeWJfak1OcU9vQWtFTFNmVXJNMzZCV3FOeHN4anh5UzdMUEx2aVNQYkczNVZwb0ZnWUFYNzctbzlwbDh1X29uYk1SMUdlMEpQbkhhaDZvVkhlQWRhSmdfbnpMbDMwdzJlUmphOVMxcGNMTlRKOFowY3RhdW1qdG5sdw?oc=5",
-      "category": "omvärld",
-      "official": false,
-      "signal": "kliniskt / regulatoriskt"
     }
   ],
-  "review_needed": [],
+  "review_needed": [
+    {
+      "title": "Åtta flaggor totalt för Immunovias nyemission - Affärsvärlden",
+      "date": "2026-11-26",
+      "source": "Affärsvärlden",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTXB3V3VYY3RjNFJHYWhKNVVyWWt3SllPODBuczVPa1hfVFJQWkFXRmExWHpEYjMzMHhVaXRxWjNNZVpGa3ppa3Ria1YwM0JxV2MybEVXaHBvc3JxVjJVeTl3cFNKNE56dlNoc09mZjFnS3M2YWJ6RTF6SkpMTTBkQThVYlF1QU5vLWc?oc=5",
+      "category": "jämförelsebolag",
+      "official": false,
+      "signal": "emission"
+    }
+  ],
   "emission_detected": [],
   "review_warning": "Detta är en regelstyrd bedömningsmodell, inte ett objektivt förutsagt utfall. Tidsfaktorn uppdateras automatiskt. RSS och officiell presslista bevakas men rubriker kan varken ersätta rapportläsning eller garantera att alla nyheter hittas. Nya villkor, kassavärden och eventuella emissioner måste verifieras mot fullständiga originalbesked innan prognosen omkalibreras.",
   "sources": {
@@ -233,7 +243,7 @@
       "title": "Finansieringshorisonten närmar sig",
       "detail": "Omkring 10.1 månader till modellens konservativa riktmärke 2027-10-01. Det är INTE en verifierad dag då kassan tar slut; bolagets egen prognos och tidsfaktorn är redan inräknade i riskmodellen.",
       "source": "https://www.synactpharma.com/en/synact-pharma-publishes-q3-2026-interim-results/",
-      "date": "2026-11-27",
+      "date": "2026-11-28",
       "status": "Beräknad från verifierad bolagsprognos",
       "next_step": "Kontrollera ny likviditetsprognos i kommande kvartalsrapport.",
       "category": "runway"
@@ -283,6 +293,6 @@
       "category": "new_debt"
     }
   ],
-  "alerts_checked_at": "2026-11-27T12:29:08+01:00",
+  "alerts_checked_at": "2026-11-28T12:27:06+01:00",
   "alerts_source_status": "flöden kontrollerade, inte heltäckande"
 }
